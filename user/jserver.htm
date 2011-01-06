@@ -16,7 +16,7 @@
 <a href="../index.htm">Help</a>&nbsp;
 User<hr><!--top jump end-->
 <h1>J Server and Telnet (jserver and jtelnet) classes</h1>
-The jserver class allows you to create and manage a separate J task as a server. jserver.ijs (open 'jserver') defines a jserver class that uses the J Engine Protocol to create and manage a J Engine server. This class works in both Jconsole and Jwd. It starts a new J task, either on the local machine or a remote machine, and controls that task with the J Engine Protocol.You can take advantage of multiple processors on the same host, remote hosts, and build applications where the interactive GUI runs in one JE and the data processing is done in others as appropriate. For example:<br>
+The jserver class allows you to create and manage a separate J task as a server. jserver.ijs (open 'jserver') defines a jserver class that uses the J Engine Protocol to create and manage a J Engine server. It starts a new J task, either on the local machine or a remote machine, and controls that task with the J Engine Protocol.You can take advantage of multiple processors on the same host, remote hosts, and build applications where the interactive GUI runs in one JE and the data processing is done in others as appropriate. For example:<br>
 &nbsp;&nbsp; require'jserver'<br>
 &nbsp;&nbsp; js=: conew'jserver'&nbsp;&nbsp;&nbsp;&nbsp; NB. create new jserver object<br>
 &nbsp;&nbsp; local__js''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NB. create J server task<br>

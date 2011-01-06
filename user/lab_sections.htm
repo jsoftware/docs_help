@@ -54,15 +54,6 @@ Lines in the second part of a Lab Section (the J sentences to be executed) may b
 The <code>SCRIPT</code> and <code>PREPARE</code> keywords are used to delimit text or sentences to be run before the rest of the section, and must occur at the beginning of the section. Any text on the same line as the keyword is ignored. For example, you can use these facilities to define the global <code>SCRIPT</code>, or load required code, and check whether it is OK to continue the lab.
 
 <P>
-A typical use of <code>PREPARE</code> is when your Lab creates Windows forms. To ensure that <code>wd</code> commands are sent to the selected form, start the code with a <code>psel</code> command, for example:
-
-<pre>
-PREPARE
-wd 'psel myform'
-PREPARE
-</pre>
-
-<P>
 To prevent further execution of the section, signal an error. The utility <code>assert_lab_</code> may be used for this purpose; the left argument is the message to display when a 0 occurs in the right argument. 
 
 <P>

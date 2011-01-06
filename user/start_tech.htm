@@ -20,20 +20,17 @@ User<hr><!--top jump end-->
 <h2>profile sequence</h2>
 JFE loads profile which in turn loads several other files to initialize your J session. Foreign 4!:3 returns script names in the order they were loaded. This can be a powerful tool in understanding the initialization process.<br><br>
 
-Start Jconsole with command line parameter arg.ijs and see what scripts are loaded.
+Start Jconsole and see what scripts are loaded.
 <pre>
    >4!:3''
-C:\Users\Eric\j602\bin\profile.ijs
-C:\Users\Eric\j602\system\extras\util\boot.ijs
-C:\Users\Eric\j602\system\main\sysenv.ijs
-C:\Users\Eric\j602\system\main\stdlib.ijs
-C:\Users\Eric\j602\system\main\colib.ijs
-C:\Users\Eric\j602\system\main\break.ijs
-C:\Users\Eric\j602\system\main\conlib.ijs
-C:\Users\Eric\j602\system\extras\util\jadecon.ijs
-C:\Users\Eric\j602\system\extras\config\scripts.ijs
-C:\Users\Eric\j602-user\config\startup_console.ijs
-C:\Users\Eric\j602-user\projects\arg.ijs
+C:\Users\Eric\j701\bin\profile.ijs
+C:\Users\Eric\j701\system\util\boot.ijs
+C:\Users\Eric\j701\system\main\stdlib.ijs
+C:\Users\Eric\j701\system\util\scripts.ijs
+C:\Users\Eric\j701\system\main\regex.ijs
+C:\Users\Eric\j701\system\main\task.ijs
+C:\Users\Eric\j701\system\util\configure.ijs
+C:\Users\Eric\j701\system\main\ctag.ijs
 </pre>
 
 <h2>J Front End initialization sentence</h2>

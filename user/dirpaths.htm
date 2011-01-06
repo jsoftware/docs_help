@@ -37,29 +37,19 @@ The profile defines the following verbs in the <tt>z</tt> locale:
 
 <pre>
 jpath       converts argument to a full path name
-jcwdpath    return current working directory
+jcwdpath    return path in current working directory
 </pre>
 
-These verbs are used to provide the full pathname for files, and to ensure that the path separator is correct for the host operating system. For example:
-<pre>
-   jpath '~system\main\dates.ijs'
-c:\j602\system\main\dates.ijs
-
-   jcwdpath ''
-c:\j602
-
-   jcwdpath 'system\main'
-C:\j602\system\main
-</pre>
+These verbs are used to provide the full pathname for files, and to ensure that the path separator is correct for the host operating system.
 
 <H3>jpath</H3>
 Verb <tt>jpath</tt> references the folder tables. It converts strings with folder names preceded with <tt>~</tt>, for example <tt>~Mywork</tt>. The folder name is read up to the first path separator or the end, for example:
 <PRE>
   jpath '~temp'
-c:\j602-user\temp
+c:\j701-user\temp
 
   jpath '~temp\t2.ijs'
-c:\j602-user\temp\t2.ijs
+c:\j701-user\temp\t2.ijs
 
   jpath '~JPB\classes\board\init.ijs'
 d:\jss\jpb\source\classes\board\init.ijs

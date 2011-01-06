@@ -36,7 +36,7 @@ Some socket verbs take integer constants as arguments and some of these constant
 A socket can be blocking or non-blocking. A verb such as <code>sdrecv</code> will hang on a blocking socket until it can complete. On a non-blocking socket, the <code>sdrecv</code> returns immediately with a result code of <code>EWOULDBLOCK 10035</code>. In Windows the use of non-blocking sockets is recommend.
 
 <P>
-A socket created with <code>sdsocket</code> is a blocking socket. The verb <code>sdioctl</code> can make it non-blocking. In Windows it is recommended to use <code>sdasync</code> to make the socket non-blocking as this also marks the socket so that events are notified to J by running sentence <code>socket_handler''</code>. This is similar to window events and the <code>wdhandler''</code> sentence.
+A socket created with <code>sdsocket</code> is a blocking socket. The verb <code>sdioctl</code> can make it non-blocking.
 
 <P>
 Verb <code>sdselect</code> returns information about the state of a socket and indicates if it has data to read, is ready for writing, or has had an error.
