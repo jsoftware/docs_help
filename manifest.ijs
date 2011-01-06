@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 HELP
 )
 
-VERSION=: '1.0.6'
+VERSION=: '1.0.7'
 
 FILES=: 0 : 0
 box.jpg
