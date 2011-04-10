@@ -1,0 +1,140 @@
+<html>
+<head><link rel=stylesheet href="../jdoc.css" type="text/css">
+<title>Verbs</title>
+
+</head><body><!--top jump start--><a href="debug_commands.htm">&gt;&gt;</a>&nbsp;
+<a href="debug.htm">&lt;&lt;</a>&nbsp;
+<a href="../index/a.htm">Ndx</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../user/win_driver_cmd_ref_overview.htm">wd</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+User<hr><!--top jump end-->
+
+<TR valign="baseline"><TD><H1>Verbs</h1>
+<TR><TD colspan="2">
+
+
+<P>Debug is an addition to the definitions in script system\main\debug.ijs, which can be loaded as follows:</P>
+<PRE>
+	load 'debug'</PRE>
+
+<P>This script is loaded when you press Ctrl-K to run Debug.</P>
+<P>
+The script defines:</P>
+
+
+<table border="1" cellpadding="3">
+<tr><td><P>dbg</td><td><P>turns Debug on (dbg 1) or off (dbg 0)</td></tr>
+<tr><td><P>dblocals</td><td><P>displays local names on the stack</td></tr>
+<tr><td><P>dbstack</td><td><P>displays the stack</td></tr>
+<tr><td><P>dbstop</td><td><P>sets stops on all lines in a list of names</td></tr>
+<tr><td><P>dbstopme</td><td><P>sets stops in current definition</td></tr>
+<tr><td><P>dbstopnext</td><td><P>sets stop on next line of current definition</td></tr>
+</table>
+
+
+<H2>Verb dbg</H2>
+
+<P>To turn Debug on, enter:</P>
+
+<PRE>   dbg 1        NB. same as Ctrl-K</PRE>
+<P>
+To turn Debug off and disable suspension, enter:</P>
+
+<PRE>   dbg 0        NB. same as closing Debug window</PRE>
+
+<H2>Verb dblocals</H2>
+Displays local names on the stack, for example:
+
+<pre>
+   dblocals''
++---+--------+
+|jmp|+--+---+|
+|   ||a |123||
+|   |+--+---+|
+|   ||y.|   ||
+|   |+--+---+|
++---+--------+
+|run|+--+-+  |
+|   ||c |3|  |
+|   |+--+-+  |
+|   ||y.| |  |
+|   |+--+-+  |
++---+--------+
+</pre>
+
+<H2>Verb dbstack</H2>
+Displays the current stack, for example:
+<pre>
+   dbr 1
+   plus=. +
+   plus / 'abc'
+      dbstack''
++----+--+--+--+-----+------+----+
+|name|en|ln|nc|args |locals|susp|
++----+--+--+--+-----+------+----+
+|plus|3 |0 |3 |+-+-+|      |*   |
+|    |  |  |  ||b|c||      |    |
+|    |  |  |  |+-+-+|      |    |
++----+--+--+--+-----+------+----+
+</pre>
+
+<H2>Verb dbstop</H2>
+
+<P>This is a convenient way of setting stops on all lines in a list of names, for example:</P>
+
+<PRE>   dbstop 'accpay intm vrep'</PRE>
+
+<P>is equivalent to:</P>
+<PRE>
+   dbss (dbsq''), ';accpay *:*;intm *:*;vrep *:*'</PRE>
+
+<P>Using dbstop does not change any other stop settings, except that to clear all stops, enter:</P>
+
+<PRE>   dbstop''</PRE>
+
+<H2>Verb dbstopme</H2>
+
+<P>This is a convenient way of setting stops on the current definition. If the argument is non-zero (with same meaning as the if. control word) and suspension is on, then all lines in the current definition are stopped, for example:</P>
+
+<PRE>foo=: 3 : 0
+dbstopme y.>2     NB. stop foo if y.>2
+...
+)</PRE>
+
+<P>Using dbstopme does not change any other stop settings.</P>
+
+<H2>Verb dbstopnext</H2>
+
+<P>This sets a stop on the next line of the current definition. The argument is the same as for dbstopme.</P>
+
+<P>Using dbstopnext does not change any other stop settings.</P>
+
+
+</TD>
+  </tr>
+<TR><TD>
+<!--bottom jump start--><hr><a href="debug_commands.htm">&gt;&gt;</a>&nbsp;
+<a href="debug.htm">&lt;&lt;</a>&nbsp;
+<a href="../index/a.htm">Ndx</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../user/win_driver_cmd_ref_overview.htm">wd</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+User<!--bottom jump end--></td></tr></table></body>
+</html>
