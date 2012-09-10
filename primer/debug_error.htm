@@ -29,8 +29,8 @@ Run the script to make the new definition. Turn off debug suspension and request
 <pre>   dbr 0	NB. disable suspension
    dbss ''
    centigrade 212
-¦domain error
-¦   t2=.t1    *5
+|domain error
+|   t2=.t1    *5
 </pre>
 You are executing with suspension disabled (<font face=courier size=-1>dbr 0</font>) so execution did not suspend in centigrade and you have the normal 3 space indent.<br>
 <br>
@@ -40,9 +40,9 @@ Enable suspension and rerun.<br>
 
 <pre>   dbr 1	NB. enable suspension
    centigrade 212
-¦domain error
-¦   t2=.t1    *5
-¦centigrade[1]
+|domain error
+|   t2=.t1    *5
+|centigrade[1]
 </pre>
 There is a 6 space indent indicating suspension, and because <font face=courier size=-1>centigrade </font>is suspended you can look at the value of t1.<br>
 

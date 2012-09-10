@@ -19,8 +19,8 @@ Primer<hr><!--top jump end-->
 As discussed in the earlier section on ambivalence, all verbs had two definitions, a monad and a dyad. You have defined only a monad for centigrade. What about the dyad?<br>
 
 <pre>   23 centigrade 32
-¦domain error
-¦   23     centigrade 32</pre>
+|domain error
+|   23     centigrade 32</pre>
 Since you didn't provide a dyad definition, it is empty and this is treated as if the dyad had no arguments in its domain, and any arguments you give will cause a domain error.<br>
 <br>
 Let's examine some simple examples of defining dyadic, monadic, and both cases.<br>
@@ -31,8 +31,8 @@ Let's examine some simple examples of defining dyadic, monadic, and both cases.<
    monadminus 5
 _5
    5 monadminus 3
-¦domain error
-¦   5     monadminus 3</pre>
+|domain error
+|   5     monadminus 3</pre>
 The above defines the monad of the verb named monadminus. Applying it monadically works and applying it dyadically fails.<br>
 <br>
 In one-line definitions like this you can take a shortcut and make the definition on a single line and avoid entering the special input mode that needs to be ended with the <font face=courier size=-1>)</font>. The following is an equivalent way of doing the above definition:<br>
@@ -46,8 +46,8 @@ So far you have defined just the monadic case of a verb. You can also define a v
    5 dyadminus 3
 2
    dyadminus 5
-¦domain error
-¦       dyadminus 5</pre>
+|domain error
+|       dyadminus 5</pre>
 In the monad case the <font face=courier size=-1>y</font> name is the right argument and in the dyad case x is the left argument and <font face=courier size=-1>y</font> is the right.<br>
 <br>
 What if you want to define both cases of a verb? <br>

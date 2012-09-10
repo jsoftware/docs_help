@@ -21,7 +21,7 @@ When you close J you lose the definitions of all the names. What you execute in 
 Close J and restart it.<br>
 
 <pre>   centigrade
-¦value error</pre>
+|value error</pre>
 You have a clean slate. The definition of centigrade, and all the other names you defined, in the previous session are lost.<br>
 <br>
 At least the primitives are still there!<br>
@@ -66,8 +66,8 @@ Close the cf.ijs window and erase your centigrade definition. You erase the defi
 <pre>   erase 'centigrade'
 1
    centigrade 212
-¦value error
-¦       centigrade 212</pre>
+|value error
+|       centigrade 212</pre>
 Use <b>File|Open</b> to open the cf.ijs window and use <b>Run|Window</b> to run the script to define centigrade.<br>
 <br>
 
@@ -91,9 +91,9 @@ Use <b>Run|Window</b> to run the sentences in the cf.ijs script. Because these a
 Close J and restart it.<br>
 
 <pre>   centigrade
-¦value error
+|value error
    fahrenheit
-¦value error</pre>
+|value error</pre>
 You can run the sentences in the cf.ijs file without opening the file for editing. Use <b>Run|File</b> and select your cf.ijs file. A line similar to<br>
 
 <pre>   load'c:\j601\user\cf.ijs'</pre>
@@ -115,9 +115,9 @@ Use File|Open to open your cf.ijs file for editing.<br>
 What if there is an error in the script? Let's add an intentional error to the script to see what happens. Add the line <font face=courier size=-1>foo 123</font> at the end of the script and run the script again.<br>
 
 <pre>   load'c:\j601\user\cf.ijs'
-¦value error
-¦       foo 123
-¦[-13]</pre>
+|value error
+|       foo 123
+|[-13]</pre>
 An error is reported and the execution of the sentences in the script stops. The number at the end of the error report is the line number in the script that had the error. <br>
 <br>
 Remove the error from the script and run it again.<br>

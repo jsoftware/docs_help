@@ -40,8 +40,8 @@ Years of research and thought have gone into how J verbs work with lists. For ex
 The Basic style <font face=courier size=-1>adda </font>verb gives an answer, but it is the wrong answer. What happens is that the <font face=courier size=-1>while.</font> uses the count of the left argument (which is 1) to determine how many elements to generate in the result, and so calculates only the first result number.<br>
 
 <pre>   2 3 4 adda 1
-¦index error
-¦   r=.r,(i{x.)+(i    {y.)</pre>
+|index error
+|   r=.r,(i{x.)+(i    {y.)</pre>
  This gives an error because the <font face=courier size=-1>while.</font> uses a count of 3 (the count of numbers in the left argument) but the right argument doesn't have that many so you get an error.<br>
 <br>
 But the J<font face=courier size=-1> +</font> handles both these cases the way you would like, and would expect!<br>

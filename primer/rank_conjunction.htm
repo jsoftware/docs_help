@@ -35,8 +35,8 @@ Since <font face=courier size=-1>plus000 </font>is <font face=courier size=-1>+<
 0 2  4
 6 8 10
    a plus000 1 2 3
-¦length error
-¦   a   plus000 1 2 3</pre>
+|length error
+|   a   plus000 1 2 3</pre>
 The length error occurs because the arguments do not agree as per the previous section. The left frame is <font face=courier size=-1>2 3</font> and the right frame <font face=courier size=-1>3</font>, and <font face=courier size=-1>3</font> is not a prefix of <font face=courier size=-1>2 3</font>; there are extra cells from the left argument without corresponding cells from the right argument.<br>
 <br>
 However, it seems reasonable to want to add the list <font face=courier size=-1>1 2 3</font> to each list in the left argument. You know what you want it to do. Visually:<br>
@@ -68,8 +68,8 @@ In this case, the left frame is empty with a cell shape of <font face=courier si
 There is one thing you have to be aware of.<br>
 
 <pre>   a +"1 1 2 3
-¦length error
-¦   a    +"1 1 2 3</pre>
+|length error
+|   a    +"1 1 2 3</pre>
 The problem is that J doesn't know that you want the first 1 to be the argument to <font face=courier size=-1>"</font> and the second 1 to be part of the constant <font face=courier size=-1>1 2 3</font>. What happens is that the constant <font face=courier size=-1>1 1 2 3</font> is used as the right argument of <font face=courier size=-1>"</font> and since <font face=courier size=-1>"</font> is defined to allow only arguments of 1 2 or 3 numbers, there is a length error. You need to let J know that the 1 belongs to the <font face=courier size=-1>"</font> and that the <font face=courier size=-1>1 2 3</font> is a constant. <br>
 
 <pre>   a (+"1) 1 2 3

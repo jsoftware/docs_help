@@ -49,13 +49,13 @@ Create a noun with the fixed labels.<br>
 <pre>   r =. 'File:' ; 'Lines:' ; 'Chars:'
    r
 +-----+------+------+
-¦File:¦Lines:¦Chars:¦
+|File:|Lines:|Chars:|
 +-----+------+------+</pre>
 The values for those labels are calculated as follows:<br>
 
 <pre>   y ; (+/ LF = d) ; #d
 +-------------+-+-+
-¦user\text.txt¦3¦9¦
+|user\text.txt|3|9|
 +-------------+-+-+</pre>
 The dyad <font face=courier size=-1>,.</font> (stitch) can connect these two lists into a table.<br>
 <br>
@@ -63,11 +63,11 @@ The dyad <font face=courier size=-1>,.</font> (stitch) can connect these two lis
 <pre>   r =. r ,.  y ; (+/ LF = d) ; #d
    r
 +------+-------------+
-¦File: ¦user\text.txt¦
+|File: |user\text.txt|
 +------+-------------+
-¦Lines:¦3            ¦
+|Lines:|3            |
 +------+-------------+
-¦Chars:¦9            ¦
+|Chars:|9            |
 +------+-------------+</pre>
 The next thing is to add the rows with the characters and their frequency counts. The letter is the label and the count is the value, so it just adds more items to <font face=courier size=-1>r</font>. Let's postpone that part of the problem, and work instead on converting the boxed table to the string result required by the spec. Use a comment to mark the bit we are skipping over for now.<br>
 
@@ -77,11 +77,11 @@ The numbers in the second column need to be converted to characters. The easiest
 <pre>   r  =. ":each r
    r
 +------+-------------+
-¦File: ¦user\text.txt¦
+|File: |user\text.txt|
 +------+-------------+
-¦Lines:¦3            ¦
+|Lines:|3            |
 +------+-------------+
-¦Chars:¦9            ¦
+|Chars:|9            |
 +------+-------------+</pre>
 The display of <font face=courier size=-1>r</font> with all characters looks the same, but each box now contains characters.<br>
 <br>
@@ -90,11 +90,11 @@ The next step is interesting and the details are left for you to puzzle out. It 
 <pre>   r =. r ,each"1 1 TAB;LF
    r
 +-------+--------------+
-¦File:  ¦user\text.txt ¦
+|File:  |user\text.txt |
 +-------+--------------+
-¦Lines: ¦3             ¦
+|Lines: |3             |
 +-------+--------------+
-¦Chars: ¦9             ¦
+|Chars: |9             |
 +-------+--------------+</pre>
 The monad <font face=courier size=-1>;</font> (raze) opens all the boxes and assembles a string result.<br>
 
@@ -133,11 +133,11 @@ The utility <font face=courier size=-1>nubcount</font>, defined by script misc.i
    nc =. nubcount d
    nc
 +-+-+
-¦a¦1¦
+|a|1|
 +-+-+
-¦b¦3¦
+|b|3|
 +-+-+
-¦c¦2¦
+|c|2|
 +-+-+</pre>
 To sort the items by the counts you need to get the counts into a list.<br>
 
@@ -147,11 +147,11 @@ The dyad <font face=courier size=-1>\:</font> (sort down) sorts the items of its
 
 <pre>   nc \: &gt; 1 {"1 nc
 +-+-+
-¦b¦3¦
+|b|3|
 +-+-+
-¦c¦2¦
+|c|2|
 +-+-+
-¦a¦1¦
+|a|1|
 +-+-+</pre>
 Put this all together and add the following definition to your script.<br>
 
@@ -164,11 +164,11 @@ Run the script and test <font face=courier size=-1>freq</font>.<br>
 
 <pre>   freq fread fn
 +-+-+
-¦b¦3¦
+|b|3|
 +-+-+
-¦c¦2¦
+|c|2|
 +-+-+
-¦a¦1¦
+|a|1|
 +-+-+</pre>
 You can now use <font face=courier size=-1>freq </font>in your <font face=courier size=-1>report </font>verb. Modify the <font face=courier size=-1>NB.</font> comment line in report to be:<br>
 

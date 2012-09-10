@@ -43,8 +43,8 @@ Let's assume you had a numeric table that you wanted to write out as text file.<
 
 <pre>   numtab =. i. 4 5
    numtab writefile fn
-¦domain error
-¦   numtab     writefile fn</pre>
+|domain error
+|   numtab     writefile fn</pre>
 If you try to write <font face=courier size=-1>numtab </font>out you get a domain error because <font face=courier size=-1>writefile </font>requires a string as its left argument. So, you need to convert the numeric table to a string. The first step is to convert the numeric data to character data. The primitive <font face=courier size=-1>":</font> (format) does this.<br>
 
 <pre>   cdata =. ": numtab
@@ -121,7 +121,7 @@ You can use the cutopen verb to partition the data.<br>
 <pre>   bdata =. cutopen dlf
    bdata
 +---------+---------+--------------+--------------+
-¦0 1 2 3 4¦5 6 7 8 9¦10 11 12 13 14¦15 16 17 18 19¦
+|0 1 2 3 4|5 6 7 8 9|10 11 12 13 14|15 16 17 18 19|
 +---------+---------+--------------+--------------+</pre>
 Each box contains the character data for the corresponding line. You need a primitive that converts strings to numbers. The dyad <font face=courier size=-1>".</font> can be used to convert characters to numbers.<br>
 
@@ -139,7 +139,7 @@ Use the each adverb to convert each of the boxes to numbers.<br>
 <pre>   ndata =. 0 ". each bdata
    ndata
 +---------+---------+--------------+--------------+
-¦0 1 2 3 4¦5 6 7 8 9¦10 11 12 13 14¦15 16 17 18 19¦
+|0 1 2 3 4|5 6 7 8 9|10 11 12 13 14|15 16 17 18 19|
 +---------+---------+--------------+--------------+</pre>
 The display of <font face=courier size=-1>bdata </font>and <font face=courier size=-1>ndata </font>look the same, but the <font face=courier size=-1>bdata </font>boxes contain characters and the <font face=courier size=-1>ndata </font>boxes contain numbers. Open the <font face=courier size=-1>ndata </font>boxes to get the numeric table result.<br>
 

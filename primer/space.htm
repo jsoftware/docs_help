@@ -37,20 +37,20 @@ A space must separate names.<br>
    a plus a
 6
    aplusa
-¦value error</pre>
+|value error</pre>
 The <font face=courier size=-1>.</font> (dot) and <font face=courier size=-1>:</font> (colon), used as inflections, change the word immediately in front of them into a new word. When used as a primitive or as the start of a primitive, they must have a space in front so that they are not treated as an inflection.<br>
 
 <pre>   ;: 'a . b'	NB. 3 words
 +-+-+-+
-¦a¦.¦b¦
+|a|.|b|
 +-+-+-+
    ;: 'a .b'	NB. same 3 words
 +-+-+-+
-¦a¦.¦b¦
+|a|.|b|
 +-+-+-+
    ;: 'a. b'	NB. 2 words
 +--+-+
-¦a.¦b¦
+|a.|b|
 +--+-+</pre>
 A space must separate a <font face=courier size=-1>.</font> or <font face=courier size=-1>:</font> , that is not being used as an inflection, from the previous word.<br>
 <br>
@@ -58,7 +58,7 @@ Numbers, for example 1e7, can contain letters. There are in fact several letters
 
 <pre>   plus =. +
    1plus 3
-¦ill-formed number
+|ill-formed number
    1 plus 3
 4</pre>
 A space must separate a number from a letter that is not a part of the number.<br>

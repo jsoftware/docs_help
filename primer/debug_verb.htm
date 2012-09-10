@@ -35,9 +35,9 @@ The <font face=courier size=-1>dbss </font>(Set Stop) argument requests a stop b
 <font face=courier size=-1>dbr </font>with an argument of 1 requests that the system suspend execution when an error or stop occurs. When a verb is suspended it is halted in mid execution. You can examine definitions, change definitions, and you can resume execution of the suspended verb.<br>
 
 <pre>   centigrade 212
-¦stop
-¦       t1=.y-32
-¦centigrade[0]
+|stop
+|       t1=.y-32
+|centigrade[0]
 </pre>
 The error report (bars at the left margin) indicates execution stopped on line 0 of <font face=courier size=-1>centigrade </font>and shows the sentence from that line.<br>
 <br>
@@ -50,9 +50,9 @@ The stop occurs before the line is executed, so <font face=courier size=-1>t1 </
 Use <font face=courier size=-1>dbrun </font>to continue execution. It will run the current line, and because stops are set on all lines it will then stop on the next line.<br>
 
 <pre>      dbrun ''
-¦stop
-¦       t2=.t1*5
-¦centigrade[1]
+|stop
+|       t2=.t1*5
+|centigrade[1]
       t1
 180
       t1*5
@@ -60,9 +60,9 @@ Use <font face=courier size=-1>dbrun </font>to continue execution. It will run t
 <font face=courier size=-1>centigrade</font> is now stopped on line 1, and as you can see, you are able to check the value of local t1 that was defined in line 0. Step through the next lines and examine locals.<br>
 
 <pre>      dbrun ''
-¦stop
-¦       t3=.t2%9
-¦centigrade[2]
+|stop
+|       t3=.t2%9
+|centigrade[2]
       t2
 900
       t2%9

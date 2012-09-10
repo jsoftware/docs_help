@@ -27,7 +27,7 @@ The definition of <font face=courier size=-1>cut2 </font>could be read as: box c
 
 <pre>   cut2 'how now brown cow '
 +----+----+------+----+
-¦how ¦now ¦brown ¦cow ¦
+|how |now |brown |cow |
 +----+----+------+----+ </pre>
 In this example the items of the right argument are characters. The fret is the last character, which is a blank. The fret is used to break the entire argument into a series of arguments to which the verb &lt; is applied. Visually:<br>
 
@@ -39,7 +39,7 @@ The partial results are assembled into the final result.<br>
 
 <pre>   &lt;;._2 'how now brown cow '
 +---+---+-----+---+
-¦how¦now¦brown¦cow¦
+|how|now|brown|cow|
 +---+---+-----+---+</pre>
 The <font face=courier size=-1>cut2 </font>boxed results include the fret and the <font face=courier size=-1>&lt;;._2</font> boxed results do not include the fret.<br>
 <br>
@@ -52,7 +52,7 @@ This applies in the same way to numeric data. In the following <font face=courie
 <pre>   a =. 2 3 4 _1 5 3 2 _1 23 45 65 132 _1
    &lt;;._2 a
 +-----+-----+------------+
-¦2 3 4¦5 3 2¦23 45 65 132¦
+|2 3 4|5 3 2|23 45 65 132|
 +-----+-----+------------+
    #;._2 a
 3 3 4
@@ -62,20 +62,20 @@ A <font face=courier size=-1>1</font> or <font face=courier size=-1>_1</font> us
 
 <pre>   &lt;;._1 'madam i''m adam'
 +---+---+----++
-¦ada¦ i'¦ ada¦¦
+|ada| i'| ada||
 +---+---+----++</pre>
 Sometimes the partition information is separate from the data. Instead of frets in the data, the partition information can be provided in a left argument to the derived verb. The partition information is boolean data where a <font face=courier size=-1>1</font> indicates the start (with <font face=courier size=-1>1</font> or <font face=courier size=-1>_1</font>) or end (with <font face=courier size=-1>2</font> or <font face=courier size=-1>_2</font>) of the partitions.<br>
 
 <pre>   1 0 0 0 1 0 0 &lt;;.1 'abcdefg'
 +----+---+
-¦abcd¦efg¦
+|abcd|efg|
 +----+---+
    d =.  'the test is the thing'
    'the' E. d
 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
    ('the' E. d) &lt;;.1 d
 +------------+---------+
-¦the test is ¦the thing¦
+|the test is |the thing|
 +------------+---------+</pre>
 The example above uses a new primitive <font face=courier size=-1>E.</font> that you can look up in the J Dictionary if you want additional information at this time. However, without worrying about the details you should get the idea of what is happening.<br>
 <br>
@@ -83,7 +83,7 @@ Chopping up character lists into boxes is so useful that there is a standard uti
 
 <pre>   cutopen 'testing testing 1 2 3'
 +-------+-------+-+-+-+
-¦testing¦testing¦1¦2¦3¦
+|testing|testing|1|2|3|
 +-------+-------+-+-+-+</pre>
 <!--bottom jump start--><hr><a href="each.htm">&gt;&gt;</a>&nbsp;
 <a href="select_without_from.htm">&lt;&lt;</a>&nbsp;
