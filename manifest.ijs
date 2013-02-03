@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 HELP
 )
 
-VERSION=: '1.0.15'
+VERSION=: '1.0.16'
 
 FILES=: 0 : 0
 box.jpg
@@ -24,4 +24,4 @@ release/
 user/
 )
 
-RELEASE=: 'j701'
+RELEASE=: 'j801'
