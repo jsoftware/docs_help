@@ -52,8 +52,8 @@ wd'pclose'
 )
 
 filerep_file_button=: 3 : 0
-p =. '"" "" "" "Text(*.txt)|*.txt" ofn_filemustexist'
-fn =. wd 'mbopen ' , p
+p =. '"" "" "Text (*.txt)"'
+fn =. mbopen ' , p
 if. 0 ~: #fn do.
  wd 'set editm *' , report fn end.
 )</pre>
