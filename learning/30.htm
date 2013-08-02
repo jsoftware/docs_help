@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
+  <TITLE>   Ch 30: Sparse Arrays</TITLE>
+  <STYLE TYPE="text/css">
+    TT  {font-size: 12pt; COLOR: BLUE}
+    PRE {font-size: 12pt; COLOR: BLUE}
+
+    table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
+  </STYLE>
+</HEAD>
+
+<BODY BGCOLOR=WHITE><!--top jump start--><a href="31.htm">&gt;&gt;</a>&nbsp;
+<a href="29.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+Learning J<hr><!--top jump end-->
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
+  <tr> <td valign="top" width="17%"> <p> </td>
+   <td valign="top" width="83%">
+ <H1>Chapter 30: Sparse Arrays</H1>
+<H2>30.1  Introduction</H2>
+The sparse array facility of J allows a large array
+to be stored in the computer in a moderate amount of
+memory  if many of the array's elements
+are all the same.  In this case a value which occurs many times
+need be stored only once.
+<p>
+For an example, sparse representation might be considered for
+a connection matrix describing a network. In this chapter
+we will look at the J machinery for handling sparse arrays.<P>
+<A NAME="01"></A>
+<A NAME="02"></A>
+Suppose that <TT>D</TT> is a matrix with most of its elements
+the same:
+<PRE>
+<TT>   ] D =: 2 3 4 (2 2; 3 6; 4 4) } 16 16 $ 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</TT>
+<TT>   </TT>
+</PRE>
+This array can be stored in a compact form, called a "sparse array",
+where only its non-zero elements occupy storage.
+An ordinary array which is not sparse may be called a "dense" array.
+<p>
+There is a built-in function, <TT>$.</TT> (dollar dot)
+to compute a sparse array from a dense.
+<PRE>
+<TT>   S =: $. D</TT>
+</PRE>
+For many purposes dense matrix <TT>D</TT> and sparse matrix <TT>S</TT> are equivalent:
+<TT>S</TT> matches <TT>D</TT>, and therefore it has the same dimensions, and
+gives the same result on indexing:
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>S -: D</TT></TD>
+<TD><TT>($S) -: ($D)</TT></TD>
+<TD><TT>((< 0 0){ S)  -: (<0 0) { D</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>1</TT></TD>
+<TD><TT>1</TT></TD>
+<TD><TT>1</TT></TD>
+</TABLE>
+<p>
+<H2>30.2  Sparse Array is Compact</H2>
+Compared to matrix <TT>D</TT>, matrix <TT>S</TT> is economical in storage because the value
+which occurs many times in <TT>D</TT> is stored only once in <TT>S</TT>.
+This value is known as the "sparse element" of <TT>S</TT>, or the "zero" element
+of <TT>S</TT>.
+It happens to be <TT>0</TT> in the case of <TT>S</TT>, but need not be <TT>0</TT> always.
+<p>
+We can measure the size of the storage occupied by an array
+with the built-in <TT>7!:5</TT>.
+We see that the size of <TT>S</TT> (which the sparse form of <TT>D</TT>)
+ is smaller than the size <TT>D</TT> itself:
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>7!:5 <'S' </TT></TD>
+<TD><TT>7!:5 <'D' </TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>384</TT></TD>
+<TD><TT>2048</TT></TD>
+</TABLE>
+<p>
+<H2>30.3  Inspecting A Sparse Array</H2>
+There is a useful function <TT>datatype</TT> in the standard library.
+It shows the type of its argument.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>datatype D</TT></TD>
+<TD><TT>datatype S</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>integer</TT></TD>
+<TD><TT>sparse integer</TT></TD>
+</TABLE>
+<p>
+Recall that the built verb <TT>3!:0</TT> also gives the type of its argument.
+For a sparse array, the possible types reported by 3!:0 are
+<p>
+<TABLE ALIGN=CENTER>
+<TR  VALIGN=TOP> <TD>1024   </TD><TD>	sparse boolean </TD></TR>
+<TR  VALIGN=TOP> <TD>2048   </TD><TD>	sparse character</TD></TR>
+<TR  VALIGN=TOP> <TD>4096   </TD><TD>	sparse integer</TD></TR>
+<TR  VALIGN=TOP> <TD>8192	</TD><TD>   sparse floating point</TD></TR>
+<TR  VALIGN=TOP> <TD>16384	</TD><TD>   sparse complex</TD></TR>
+<TR  VALIGN=TOP> <TD>32768	</TD><TD>   sparse boxed</TD></TR>
+</TABLE>
+If we display <TT>S</TT> in the usual way , we see,  not the familiar representation of a matrix,
+but instead
+a list of index-value pairs, one pair for each (in this example)
+non-zero element.
+<PRE>
+<TT>   S </TT>
+<TT>2 2 | 2</TT>
+<TT>3 6 | 3</TT>
+<TT>4 4 | 4</TT>
+<TT>   </TT>
+</PRE>
+This display does not show that the sparse element of <TT>S</TT> is in fact integer zero.
+To show this, we can extract the sparse element with the verb <TT>3 &amp; $.</TT> .
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>se =: 3 $. S</TT></TD>
+<TD><TT>datatype se</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>0</TT></TD>
+<TD><TT>integer</TT></TD>
+</TABLE>
+<p>
+If we now compute a new matrix from <TT>S</TT>
+<PRE>
+<TT>   T =: S + 5</TT>
+<TT>   </TT>
+</PRE>
+we see that <TT>T</TT> is sparse, and the sparse element of <TT>T</TT> is not zero but <TT>5</TT>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>T</TT></TD>
+<TD><TT>3 $. T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>2 2 | 7<BR>
+3 6 | 8<BR>
+4 4 | 9</TT></TD>
+<TD><TT>5</TT></TD>
+</TABLE>
+<p>
+Another way to view a sparse array
+is simply to convert it to dense with <TT>0 &amp; $.</TT>
+<PRE>
+<TT>   view =: 0 &amp; $.   </TT>
+<TT>   </TT>
+</PRE>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>T</TT></TD>
+<TD><TT>view T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>2 2 | 7<BR>
+3 6 | 8<BR>
+4 4 | 9</TT></TD>
+<TD><TT>5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 7 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 8 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 9 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5<BR>
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5</TT></TD>
+</TABLE>
+<p>
+<H2>30.4  Computing with Sparse Arrays</H2>
+Computations with sparse arrays are pretty much the same as
+with dense arrays, except that they tend to produce sparse arrays
+as results. We saw this with <TT>S+5</TT> above.  Here is another example.
+Summing over <TT>T</TT> produces a vector of column-sums which is sparse
+<PRE>
+<TT>   ] V =: +/ T</TT>
+<TT>2 | 82</TT>
+<TT>4 | 84</TT>
+<TT>6 | 83</TT>
+<TT>   </TT>
+</PRE>
+but the "zero" element of <TT>V</TT> is the sum of a column of "zero" elements
+of <TT>T</TT>
+<PRE>
+<TT>   3 $. V </TT>
+<TT>80</TT>
+<TT>    </TT>
+</PRE>
+At the time of writing, there are still some limitations on what
+can be done with sparse arrays compared with dense arrays.
+See the Dictionary under <TT>$.</TT> for more information.
+<H2>30.5  Constructing A Sparse Array</H2>
+At this point it will be helpful to define a few terms.
+First note that, according to context,
+the numerals <TT>0</TT> or <TT>1</TT> or <TT>0.0</TT> or <TT>1.0</TT>
+could be valid as boolean or integer or real.  However
+in the absence of any context the J system takes them all to be in fact
+boolean.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>datatype 0</TT></TD>
+<TD><TT>datatype 1</TT></TD>
+<TD><TT>datatype 0.0</TT></TD>
+<TD><TT>datatype 1.0</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>boolean</TT></TD>
+<TD><TT>boolean</TT></TD>
+<TD><TT>boolean</TT></TD>
+<TD><TT>boolean</TT></TD>
+</TABLE>
+<p>
+It will be useful to define some values of unambiguous type.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>INTEGERZERO =: 3 - 3</TT></TD>
+<TD><TT>datatype INTEGERZERO</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>0</TT></TD>
+<TD><TT>integer</TT></TD>
+</TABLE>
+<p>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>INTEGERONE =: 3 - 2</TT></TD>
+<TD><TT>datatype INTEGERONE</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>1</TT></TD>
+<TD><TT>integer</TT></TD>
+</TABLE>
+<p>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>REALZERO =: 0.0*0.1</TT></TD>
+<TD><TT>datatype REALZERO</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>0</TT></TD>
+<TD><TT>floating</TT></TD>
+</TABLE>
+<p>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>REALONE =: ^ 0</TT></TD>
+<TD><TT>datatype REALONE</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>1</TT></TD>
+<TD><TT>floating</TT></TD>
+</TABLE>
+<p>
+Returning now to sparse arrays, the recommended method of constructing them
+is to begin by making an empty array of
+the required shape and type, but with no actual data.
+<p>
+An empty array is built by evaluating the expression
+<PRE>
+<TT>        1 $. shape;axes;zero</TT>
+</PRE>
+where
+<UL>
+  <LI>
+   <TT>shape</TT> specifies the dimensions
+   <LI> <TT>axes</TT> specifies which of those dimensions will be sparse,
+               as a list of axis-numbers.  For example,
+			   with 2 dimensions both sparse the
+			   list would be <TT>0 1</TT>   <p>
+   So far, in the examples
+   of sparse arrays, all axes have been sparse but we will see below
+   mixed sparse and dense axes.
+     <LI> <TT>zero</TT> specifies the value of the "zero" element,
+	 and hence the type of the array as a whole.
+	 An unambiguous value is evidently needed.
+</UL>
+<p>
+If <TT>zero</TT> is omitted the default is <TT>REALZERO</TT>.
+If both <TT>axes</TT> and <TT>zero</TT> are omitted, the default is all axes sparse
+and <TT>REALZERO</TT>.
+<p>
+So to build a 6 by 6 matrix, sparse in all dimensions (that is, on axis 0 and axis 1),
+of type integer with "zero" element of 0 we can write:
+<PRE>
+<TT>   U =: 1 $. 6 6 ; 0 1; INTEGERZERO </TT>
+</PRE>
+At this point, <TT>U</TT> is empty, that is, all "zero",
+so displays as nothing:
+<PRE>
+<TT>   U</TT>
+</PRE>
+Populate it by inserting a few non-zero elements into it
+<PRE>
+<TT>   U =: 4 5 6 7 ( 0 0 ; 1 1; 2 2; 3 3) } U</TT>
+<TT>   </TT>
+</PRE>
+and check that <TT>U</TT> is what we expect by viewing it:
+<PRE>
+<TT>   view U</TT>
+<TT>4 0 0 0 0 0</TT>
+<TT>0 5 0 0 0 0</TT>
+<TT>0 0 6 0 0 0</TT>
+<TT>0 0 0 7 0 0</TT>
+<TT>0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0</TT>
+<TT>   </TT>
+</PRE>
+<H2>30.6  Sparse and Dense Axes</H2>
+An array may be sparse on some axes and dense on others.
+In the following example <TT>W</TT> is sparse on its first axis
+ and dense on its second, because
+its list of sparse axes is just <TT>0</TT>
+<PRE>
+<TT>   saw   =: ,0   NB. sparse axes for W</TT>
+<TT>   </TT>
+<TT>   W =: 1 $. 3 5; saw ; INTEGERZERO  </TT>
+<TT>   </TT>
+<TT>   W =: 4 5 6 (0 1; 0 2; 1 3) } W</TT>
+<TT>   </TT>
+</PRE>
+It looks as expected:
+<PRE>
+<TT>   view W</TT>
+<TT>0 4 5 0 0</TT>
+<TT>0 0 0 6 0</TT>
+<TT>0 0 0 0 0</TT>
+<TT>   </TT>
+</PRE>
+but we see that it is stored as two dense rows only:
+<PRE>
+<TT>   W</TT>
+<TT>0 | 0 4 5 0 0</TT>
+<TT>1 | 0 0 0 6 0</TT>
+</PRE>
+Compare with an array sparse on second axis axis only,
+because its list of sparse axes is <TT>1</TT>
+<PRE>
+<TT>   saz=: ,1   NB. sparse axes for Z</TT>
+<TT>   Z =: 1 $. 3 5; saz; INTEGERZERO   </TT>
+<TT>   Z =: 4 5 6 (0 1; 0 2; 1 3) } Z</TT>
+</PRE>
+Z looks just like <TT>W</TT>
+<PRE>
+<TT>   view Z</TT>
+<TT>0 4 5 0 0</TT>
+<TT>0 0 0 6 0</TT>
+<TT>0 0 0 0 0</TT>
+<TT>   </TT>
+</PRE>
+but we see it is stored as three dense colums.
+<PRE>
+<TT>   Z</TT>
+<TT>1 | 4 0 0</TT>
+<TT>2 | 5 0 0</TT>
+<TT>3 | 0 6 0</TT>
+<TT>   </TT>
+<TT>   </TT>
+<TT>   </TT>
+</PRE>
+<H2>30.7  Deconstructing a Sparse Array</H2>
+As we noted above, if we display <TT>U</TT> itself, we see,  not the familiar representation of a matrix,
+but instead
+a list of index-value pairs, one pair for each non-zero
+element.
+<PRE>
+<TT>   U</TT>
+<TT>0 0 | 4</TT>
+<TT>1 1 | 5</TT>
+<TT>2 2 | 6</TT>
+<TT>3 3 | 7</TT>
+</PRE>
+We can extract the index from each pair  to get what is
+called the index-matrix of <TT>U</TT>.  This is an ordinary dense array
+<PRE>
+<TT>   4 $. U</TT>
+<TT>0 0</TT>
+<TT>1 1</TT>
+<TT>2 2</TT>
+<TT>3 3</TT>
+</PRE>
+To extract the value from each pair
+<PRE>
+<TT>    5 $. U</TT>
+<TT>4 5 6 7</TT>
+</PRE>
+As we noted above, <TT>0 &amp; $.</TT> will produce a dense array
+from a sparse:
+<PRE>
+<TT>   0 $. U</TT>
+<TT>4 0 0 0 0 0</TT>
+<TT>0 5 0 0 0 0</TT>
+<TT>0 0 6 0 0 0</TT>
+<TT>0 0 0 7 0 0</TT>
+<TT>0 0 0 0 0 0</TT>
+<TT>0 0 0 0 0 0</TT>
+<TT>   </TT>
+<TT>   </TT>
+<TT>   </TT>
+</PRE>
+<H2>30.8  Sparse Array From Relation</H2>
+Next we look at representing data as a sparse array
+as an alternative to representing data as a relation (that is,
+ a table).
+<p>
+The point is that the sparse array may be more convenient
+than the relation for some computations with the data.
+Thus we are interested in converting between sparse arrays and relations.
+<p>
+For example, suppose that  a given relation <TT>R</TT> represents
+sales of various commodities in various cities
+<PRE>
+<TT>   'Pa Qu Ro Sy' =: s: ' Paris Quebec Rome Sydney'</TT>
+<TT>   'Ap Ba Ch Da' =: s: ' Apples Bananas Cherries Damsons'</TT>
+<TT>   </TT>
+<TT>   </TT>
+<TT>   R =: (". ;. _2) 0 : 0</TT>
+<TT>Ap ; Pa; 99</TT>
+<TT>Ap ; Qu ; 50</TT>
+<TT>Ba ; Qu ; 10</TT>
+<TT>Ch ; Ro ; 19</TT>
+<TT>Da ; Sy ; 110</TT>
+<TT>Da ; Pa ; 88</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   R</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Apples  |`Paris |99 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Apples  |`Quebec|50 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Bananas |`Quebec|10 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Cherries|`Rome  |19 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Damsons |`Sydney|110|</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Damsons |`Paris |88 |</TT>
+<TT>+---------+-------+---+</TT>
+</PRE>
+We can convert the relation <TT>R</TT> to a sparse array as follows.
+<p>
+Firstly, we need to establish the domain -the set of all possible values -
+of the first column.  It can be computed from <TT>R</TT> :
+<PRE>
+<TT>   ] Fru =:  > ~. 0 { |: R</TT>
+<TT>`Apples `Bananas `Cherries `Damsons</TT>
+</PRE>
+Similarly for the domain of the second column:
+<PRE>
+<TT>   ] Cit =: > ~. 1 { |: R</TT>
+<TT>`Paris `Quebec `Rome `Sydney</TT>
+</PRE>
+Now the first column converted to indices into its domain:
+<PRE>
+<TT>   ] r =: Fru i. > 0 { |: R</TT>
+<TT>0 0 1 2 3 3</TT>
+<TT>   </TT>
+</PRE>
+Similarly for the second column:
+<PRE>
+<TT>   ] c =: Cit i. > 1 { |: R</TT>
+<TT>0 1 1 2 3 0</TT>
+<TT>   </TT>
+</PRE>
+and the values from the third
+<PRE>
+<TT>   ] v =: > 2 { |: R </TT>
+<TT>99 50 10 19 110 88</TT>
+<TT>   </TT>
+</PRE>
+Now we build an empty sparse array of dimensions <TT>#Fru</TT> by <TT>#Cit</TT> .
+By default the sparse axes will be 0 and 1 and the "zero" element will be <TT>REALZERO</TT> .
+The function <TT> 1&amp;$. </TT> produces the empty array.
+<PRE>
+<TT>   A =: (1 &amp; $.) (#Fru) , (#Cit)</TT>
+</PRE>
+Insert the values by amending in the ordinary way:
+<PRE>
+<TT>   A =: v (<"1 r,.c) } A</TT>
+<TT>   </TT>
+</PRE>
+and check we have what we expect:
+<PRE>
+<TT>   view A</TT>
+<TT>99 50  0   0</TT>
+<TT> 0 10  0   0</TT>
+<TT> 0  0 19   0</TT>
+<TT>88  0  0 110</TT>
+<TT>   </TT>
+</PRE>
+To display <TT>A</TT>  with labelling of rows and columns,
+the list of row-labels is <TT>Fru</TT> computed above,
+and the list  of column-labels is <TT>Cit</TT> :
+<PRE>
+<TT>   (a:, <"0 Cit), (<"0 Fru) ,. (<"0 view A)      </TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>|         |`Paris|`Quebec|`Rome|`Sydney|</TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>|`Apples  |99    |50     |0    |0      |</TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>|`Bananas |0     |10     |0    |0      |</TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>|`Cherries|0     |0      |19   |0      |</TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>|`Damsons |88    |0      |0    |110    |</TT>
+<TT>+---------+------+-------+-----+-------+</TT>
+<TT>   </TT>
+</PRE>
+Now we have finished producing the sparse array
+from the original relation, so we can can compute with our
+data as an array.
+<p>
+For example, total value of sales for each city is given by:
+<PRE>
+<TT>   +/ A	</TT>
+<TT>0 | 187</TT>
+<TT>1 |  60</TT>
+<TT>2 |  19</TT>
+<TT>3 | 110</TT>
+<TT>   </TT>
+</PRE>
+This is sparse, so taking the usual view :
+<PRE>
+<TT>   view +/ A</TT>
+<TT>187 60 19 110</TT>
+<TT>   	</TT>
+</PRE>
+<H2>30.9  Relation from Sparse Array</H2>
+To complete the circle, we look next at how
+to produce a relation from a sparse array,  <TT>A</TT> for example.
+<PRE>
+<TT>   A</TT>
+<TT>0 0 |  99</TT>
+<TT>0 1 |  50</TT>
+<TT>1 1 |  10</TT>
+<TT>2 2 |  19</TT>
+<TT>3 0 |  88</TT>
+<TT>3 3 | 110</TT>
+</PRE>
+The first step is to get the index-matrix for the non-zero elements.
+<PRE>
+<TT>   ] INDS =: 4 $. A   </TT>
+<TT>0 0</TT>
+<TT>0 1</TT>
+<TT>1 1</TT>
+<TT>2 2</TT>
+<TT>3 0</TT>
+<TT>3 3</TT>
+</PRE>
+and next the values.
+<PRE>
+<TT>   ] VALS =: 5 $. A  </TT>
+<TT>99 50 10 19 88 110</TT>
+</PRE>
+The first column of the relation we produce by indexing
+the domain <TT>Fru</TT> which we computed above.
+The second column is produced similarly from <TT>Cit</TT>.
+<PRE>
+<TT>   ] c0 =: (0 { |: INDS) { Fru</TT>
+<TT>`Apples `Apples `Bananas `Cherries `Damsons `Damsons</TT>
+<TT>   ] c1 =: (1 { |: INDS) { Cit</TT>
+<TT>`Paris `Quebec `Quebec `Rome `Paris `Sydney</TT>
+<TT>   </TT>
+</PRE>
+So finally we see that the relation recovered from the sparse array is
+<PRE>
+<TT>   (<"0 c0) ,. (<"0 c1) ,. (<"0 VALS)</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Apples  |`Paris |99 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Apples  |`Quebec|50 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Bananas |`Quebec|10 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Cherries|`Rome  |19 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Damsons |`Paris |88 |</TT>
+<TT>+---------+-------+---+</TT>
+<TT>|`Damsons |`Sydney|110|</TT>
+<TT>+---------+-------+---+</TT>
+</PRE>
+This is the end of Chapter 30
+  </tr> </table>
+<HR>
+ <p ALIGN=CENTER>
+ <A HREF="31.htm"> NEXT </A> <BR>
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
+<A HREF="kwic.htm"> Index </A>
+<HR>
+<P ALIGN=CENTER>
+<FONT SIZE=-1>The examples in this chapter
+were executed using J version 701.
+ This chapter last updated 21 Mar 2013<BR>
+Copyright &copy; Roger Stokes 2012.
+ This material may be freely reproduced,
+provided that this copyright notice is also reproduced.
+</FONT>
+ <!--bottom jump start--><hr><a href="31.htm">&gt;&gt;</a>&nbsp;
+<a href="29.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+Learning J<!--bottom jump end--></BODY>
+ </HTML>

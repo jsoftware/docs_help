@@ -1,20 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-    
-<HTML> 
-<HEAD> 
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=ISO-8859-1"> 
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)"> 
-  <META NAME="CREATED" CONTENT="20051014;16001218"> 
-	<META NAME="CHANGED" CONTENT="20051014;16020434"> 
-  <title>   Ch 24: Names and Locales</title> 
-  <STYLE TYPE="text/css"> 
-   <!-- 
-    TT  {font-size: 11pt; COLOR: BLUE} 
-    PRE {font-size: 11pt; COLOR: BLUE} 
-   --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
+  <TITLE>   Ch 24: Names and Locales</TITLE>
+  <STYLE TYPE="text/css">
+    TT  {font-size: 12pt; COLOR: BLUE}
+    PRE {font-size: 12pt; COLOR: BLUE}
+
+    table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
   </STYLE>
 </HEAD>
-          
+
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="25.htm">&gt;&gt;</a>&nbsp;
 <a href="23.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -27,139 +39,139 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end--> 
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
-  <tr> <td valign="top" width="17%"> <p> </td> 
-   <td valign="top" width="83%"> 
+Learning J<hr><!--top jump end-->
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
+  <tr> <td valign="top" width="17%"> <p> </td>
+   <td valign="top" width="83%">
  <H1>Chapter 24: Names and Locales</H1>
 In this chapter we look at locales.  The interest of locales is twofold:
 as a way of organizing large programs, and (as we will come to in the next
 chapter) as the basis of object-oriented programming in J.
 <H2>24.1  Background</H2>
-It is generally agreed that a  
-large program is best developed in several parts which are, 
+It is generally agreed that a
+large program is best developed in several parts which are,
 as much as possible, independent of each other.
 For example, an independent
-part of a larger program might be a collection of statistical functions, 
+part of a larger program might be a collection of statistical functions,
 with its own script-file.
 <p>
-For the things defined in an independent script,  
-we expect to choose names for those things 
-more or less freely, 
+For the things defined in an independent script,
+we expect to choose names for those things
+more or less freely,
 without regard for what names may be defined in other scripts.
-Clearly there may be a problem in combining independent scripts: 
-what if the same name accidentally receives different definitions 
-in different scripts?  
+Clearly there may be a problem in combining independent scripts:
+what if the same name accidentally receives different definitions
+in different scripts?
 The J facility of the "locale" gives a way to deal with this problem.
 <A NAME="01"></A>
 <H2>24.2  What are Locales?</H2>
-After entering an assignment of the form <TT>(name =: something)</TT> 
+After entering an assignment of the form <TT>(name =: something)</TT>
 we say we have a definition of <TT>name</TT>.
-Every definition is stored in some region of the memory of the J system 
-called a "locale". 
+Every definition is stored in some region of the memory of the J system
+called a "locale".
 Roughly speaking, locales are to definitions as directories are to files.
 The important features of locales are:
 <p>
 <UL>
 <LI>There can be several different locales existing at the same time.
-<LI>Each locale stores a collection of definitions. 
-<LI>The same name can occur at the same time in different locales with 
+<LI>Each locale stores a collection of definitions.
+<LI>The same name can occur at the same time in different locales with
 different definitions.
 </UL>
 <A NAME="02"></A>
 Hence a name of the form
-"name <TT>N</TT> as defined in locale <TT>L</TT>" is uniquely defined, without 
+"name <TT>N</TT> as defined in locale <TT>L</TT>" is uniquely defined, without
 conflict. Such a name
-can be written as <TT>N_L_</TT> (N underbar L underbar) and is called a 
+can be written as <TT>N_L_</TT> (N underbar L underbar) and is called a
 "locative name". Finally
 <UL>
-<LI>At any one time, only one locale is current. The current locale is 
+<LI>At any one time, only one locale is current. The current locale is
 the one whose definitions are
 available for immediate use.
 </UL>
-Hence a plain name <TT>N</TT> commonly means 
+Hence a plain name <TT>N</TT> commonly means
 "<TT>N</TT> as defined in the current locale".
 <p>
 Locales are neither nouns, verbs, adverbs nor
 conjunctions: that is, locales are not values which can be
-assigned to variables or be passed as arguments to functions. 
+assigned to variables or be passed as arguments to functions.
 They do have names,
 but whenever we need to refer to a locale by name we do so
 either with special syntactic forms, (locative names such as
 <TT>N_L_</TT>) or by quoting the name to form a string.
 <H2>24.3  Example</H2>
 Suppose we are interested in the correlation
-between the price of whisky and the general level of employee salaries. 
-Suppose also that we have available two scripts, 
-of independent origin, one with economic data and the 
+between the price of whisky and the general level of employee salaries.
+Suppose also that we have available two scripts,
+of independent origin, one with economic data and the
 other with statistical functions.  These script-files
 might have been created like this:
 <PRE>
-   (0 : 0) (1 !: 2) < 'economic.ijs'
-y  =: 1932  1934  1957  1969  1972   NB. years
-s  =: 1000  1000  3000  9000 11000   NB. salaries
-p  =: 1.59  1.68  2.00  4.50  5.59   NB. prices
-)
-   
-   (0 : 0) (1 !: 2) < 'statfns.ijs'  
-m =: +/ % #        NB.  Mean          
-n =: - m           NB.  Norm
-v =: m @: *: @: n  NB.  Variance                                  
-s =: %: @: v       NB.  Standard Deviation
-c =: m @: (*&n)    NB.  Covariance
-r =: c % (*&s)     NB.  Correlation Coefficient  
-)
+<TT>   (0 : 0) (1 !: 2) < 'economic.ijs'</TT>
+<TT>y  =: 1932  1934  1957  1969  1972   NB. years</TT>
+<TT>s  =: 1000  1000  3000  9000 11000   NB. salaries</TT>
+<TT>p  =: 1.59  1.68  2.00  4.50  5.59   NB. prices</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   (0 : 0) (1 !: 2) < 'statfns.ijs'  </TT>
+<TT>m =: +/ % #        NB.  Mean          </TT>
+<TT>n =: - m           NB.  Norm</TT>
+<TT>v =: m @: *: @: n  NB.  Variance                                  </TT>
+<TT>s =: %: @: v       NB.  Standard Deviation</TT>
+<TT>c =: m @: (*&amp;n)    NB.  Covariance</TT>
+<TT>r =: c % (*&amp;s)     NB.  Correlation Coefficient  </TT>
+<TT>)</TT>
 </PRE>
-We aim to load these two scripts, 
+We aim to load these two scripts,
 and then hope to compute the coefficient of correlation between prices <TT>p</TT>
-and salaries <TT>s</TT> as the value of the expression <TT>(p r s)</TT></TT>. 
+and salaries <TT>s</TT> as the value of the expression <TT>(p r s)</TT></TT>.
 <p>
-Unfortunately we can see that the name <TT>s</TT> 
+Unfortunately we can see that the name <TT>s</TT>
 means different things in the different scripts.
-If we were to load both scripts into the same locale, 
-one definition of <TT>s</TT> would overwrite the other. 
+If we were to load both scripts into the same locale,
+one definition of <TT>s</TT> would overwrite the other.
 The remedy is to load the two scripts into different locales.
 <p>
-There is always a locale named <TT>base</TT>, and by default this is usually 
-current.  
-We load <TT>economic.ijs</TT> into the current locale (<TT>base</TT>)  
+There is always a locale named <TT>base</TT>, and by default this is usually
+current.
+We load <TT>economic.ijs</TT> into the current locale (<TT>base</TT>)
 with the built-in verb <TT>(0 !: 0)</TT>.
 <PRE>
-   (0 !: 0) < 'economic.ijs'
+<TT>   (0 !: 0) < 'economic.ijs'</TT>
 </PRE>
 <A NAME="03"></A>
 Next we load <TT>statfns.ijs</TT> into another locale which we choose
 to call, say, <TT>stat</TT>.  To do this  with the minimum
-of new apparatus we can use the built-in verb <TT>(18 !: 4)</TT>. 
+of new apparatus we can use the built-in verb <TT>(18 !: 4)</TT>.
 <PRE>
-   (18 !: 4) < 'stat'
-   (0 !: 0)  < 'statfns.ijs'
-   (18 !: 4) < 'base'
+<TT>   (18 !: 4) < 'stat'</TT>
+<TT>   (0 !: 0)  < 'statfns.ijs'</TT>
+<TT>   (18 !: 4) < 'base'</TT>
 </PRE>
-The first line creates the <TT>stat</TT> locale and makes it current. The second 
-line loads 
-<TT>statfns.ijs</TT> into the now-current locale <TT>stat</TT>. The third line makes 
+The first line creates the <TT>stat</TT> locale and makes it current. The second
+line loads
+<TT>statfns.ijs</TT> into the now-current locale <TT>stat</TT>. The third line makes
 the <TT>base</TT> locale current again, to restore the status quo.
 <p>
-At this point our data variables <TT>s</TT> and <TT>p</TT> are available because they 
+At this point our data variables <TT>s</TT> and <TT>p</TT> are available because they
 are in
 <TT>base</TT> which is current. The correlation-coefficient
-function <TT>r</TT> is not yet available, because it is in 
-<TT>stat</TT> which is not current. 
+function <TT>r</TT> is not yet available, because it is in
+<TT>stat</TT> which is not current.
 The next step is to define the correlation-coefficient
-function to be <TT>r</TT>-as-defined-in-locale- <TT>stat</TT>, using the locative form 
+function to be <TT>r</TT>-as-defined-in-locale- <TT>stat</TT>, using the locative form
 of name
 <TT>r_stat_</TT>
 <PRE>
-   corr =: r_stat_
+<TT>   corr =: r_stat_</TT>
 </PRE>
-<TT>corr</TT> is available because it has just been defined in <TT>base</TT> 
+<TT>corr</TT> is available because it has just been defined in <TT>base</TT>
 (because <TT>base</TT> is current).
-Everything we need is now available. We can compute the correlation 
-between salaries 
+Everything we need is now available. We can compute the correlation
+between salaries
 and prices.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>s corr p</TT></TD>
 <TD><TT>p corr s</TT></TD>
@@ -173,11 +185,11 @@ and prices.
 <H3>24.3.1  Review</H3>
 What we have seen is the use of locative names to resolve name-conflicts
 between independent scripts. What it took was a relatively small amount
-of ad-hoc further definition. 
+of ad-hoc further definition.
 <p>
 In this tiny example the conflict was easily identified and could be easily
 fixed by editing one of the scripts. However, the point is that we aim
-to avoid tampering with independent scripts 
+to avoid tampering with independent scripts
 to get them to work together.
 <A NAME="04"></A>
 <H2>24.4  The Current Locale</H2>
@@ -185,94 +197,115 @@ Several locales may coexist, but at any one time
 only one is current.  There is a built-in verb
 (18 !: 5) which tells us the name of the current locale.
 <PRE>
-   (18 !: 5) ''  NB. show name of current locale
-+----+
-|base|
-+----+
+<TT>   (18 !: 5) ''  NB. show name of current locale</TT>
+<TT>+----+</TT>
+<TT>|base|</TT>
+<TT>+----+</TT>
 </PRE>
 The significance of the current locale is that
 it is in the current locale that simple names are evaluated:
 <PRE>
-   s
-1000 1000 3000 9000 11000
+<TT>   s</TT>
+<TT>1000 1000 3000 9000 11000</TT>
 </PRE>
 Notice that we get the value of <TT>s</TT> as defined in
 script <TT>economic.ijs</TT> which we loaded into <TT>base</TT>, and not the value
 of <TT>s</TT> in <TT>statfns.ijs</TT> which was loaded into locale <TT>stat</TT>.
 <p>
-It is the current locale in which new definitions 
+It is the current locale in which new definitions
 are stored.  To see what names are defined
 in the current locale we can use
 the built-in verb <TT>(4 !: 1)</TT> with an argument
-of <TT>0 1 2 3</TT>.
+of <TT>0 1 2 3</TT>. The resulting long list of names
+can be conveniently displayed
+ with the library-verb <TT>list</TT> .
 <PRE>
-   (4 !: 1) 0 1 2 3  NB. show all names in current locale
-+--+--+----+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
-|CH|IP|corr|indexfile|indexing|is_char|is_int|is_list|is_number|is_scalar|is_string|p|print|s|y|
-+--+--+----+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
-   
-   foo  =: +/
-   (4 !: 1) 0 1 2 3 
-+--+--+----+---+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
-|CH|IP|corr|foo|indexfile|indexing|is_char|is_int|is_list|is_number|is_scalar|is_string|p|print|s|y|
-+--+--+----+---+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
+<TT>   list (4 !: 1) 0 1 2 3  NB. show all names in current locale</TT>
+<TT>ASSERTING CH        IP        RUN       RUNR      TD        THIS      </TT>
+<TT>and       cd        corr      dir       drop      e         first     </TT>
+<TT>fst       hello     implies   indexfile indexing  is_bool   is_box    </TT>
+<TT>is_char   is_cmplx  is_extint is_float  is_int    is_list   is_number </TT>
+<TT>is_rat    is_real   is_scalar is_string last      most      not       </TT>
+<TT>p         print     pwd       rest      run       s         snd       </TT>
+<TT>take      thd       y                                                 </TT>
+</PRE>
+We can define a new verb, and see its name appear in the list:
+<PRE>
+<TT>   foo  =: +/</TT>
+<TT>   list (4 !: 1) 0 1 2 3 </TT>
+<TT>ASSERTING CH        IP        RUN       RUNR      TD        THIS      </TT>
+<TT>and       cd        corr      dir       drop      e         first     </TT>
+<TT>foo       fst       hello     implies   indexfile indexing  is_bool   </TT>
+<TT>is_box    is_char   is_cmplx  is_extint is_float  is_int    is_list   </TT>
+<TT>is_number is_rat    is_real   is_scalar is_string last      most      </TT>
+<TT>not       p         para      print     pwd       rest      run       </TT>
+<TT>s         snd       take      thd       y                             </TT>
 </PRE>
 As we saw above, we can change the current locale with the built-in verb
 <TT>(18 !: 4)</TT>.  We can make the <TT>stat</TT> locale current with:
 <PRE>
-   (18 !: 4) < 'stat'
+<TT>   (18 !: 4) < 'stat'</TT>
 </PRE>
 and now we can see what names are defined in this locale
-with: 
+with:
 <PRE>
-   (4 !: 1) 0 1 2 3 
-+-+-+-+-+-+-+
-|c|m|n|r|s|v|
-+-+-+-+-+-+-+
+<TT>    (4 !: 1) 0 1 2 3 </TT>
+<TT>+-+-+-+-+-+-+</TT>
+<TT>|c|m|n|r|s|v|</TT>
+<TT>+-+-+-+-+-+-+</TT>
 </PRE>
 and return to <TT>base</TT> again
 <PRE>
-   (18 !: 4) < 'base'
+<TT>   (18 !: 4) < 'base'</TT>
 </PRE>
 <H2>24.5  The z Locale Is Special</H2>
-The locale named <TT>z</TT> is special 
-in the following sense. 
-When a name is evaluated,  
-and a definition for that name is not present 
+The locale named <TT>z</TT> is special
+in the following sense.
+When a name is evaluated,
+and a definition for that name is not present
 in the current locale, then the <TT>z</TT> locale is automatically
 searched for that name.  Here is an example.
-We put into locale<TT>z</TT> a definition of a
+We put into locale <TT>z</TT> a definition of a
  variable <TT>q</TT>, say.
 <PRE>
-   (18 !: 4) < 'z'
-   q =: 99
-   (18 !: 4) < 'base'
+<TT>   (18 !: 4) < 'z'</TT>
+<TT>   q =: 99</TT>
+<TT>   (18 !: 4) < 'base'</TT>
+<TT>   </TT>
 </PRE>
-Now we see that <TT>q</TT> is not present in the current
-locale (<TT>base</TT>) but nevertheless we can 
+Now we see that the name <TT>q</TT> is not present in the current
+locale (<TT>base</TT>):
+<PRE>
+<TT>   list (4 !: 1) 0 1 2 3 </TT>
+<TT>ASSERTING CH        IP        RUN       RUNR      TD        THIS      </TT>
+<TT>and       cd        corr      dir       drop      e         first     </TT>
+<TT>foo       fst       hello     implies   indexfile indexing  is_bool   </TT>
+<TT>is_box    is_char   is_cmplx  is_extint is_float  is_int    is_list   </TT>
+<TT>is_number is_rat    is_real   is_scalar is_string last      most      </TT>
+<TT>not       p         para      print     pwd       rest      run       </TT>
+<TT>s         snd       take      thd       y                             </TT>
+<TT>   </TT>
+</PRE>
+but nevertheless we can
 evaluate the simple name <TT>q</TT> to get its value as defined in locale <TT>z</TT>.
 <PRE>
-   (4 !: 1) 0 1 2 3 
-+--+--+----+---+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
-|CH|IP|corr|foo|indexfile|indexing|is_char|is_int|is_list|is_number|is_scalar|is_string|p|print|s|y|
-+--+--+----+---+---------+--------+-------+------+-------+---------+---------+---------+-+-----+-+-+
-   q
-99
+<TT>   q</TT>
+<TT>99</TT>
 </PRE>
-Since we can find in <TT>z</TT> things which are not in <TT>base</TT>, 
+Since we can find in <TT>z</TT> things which are not in <TT>base</TT>,
 locale <TT>z</TT> is the natural home
-for functions of general utility.  On starting a J 
+for functions of general utility.  On starting a J
 session, locale <TT>z</TT> is automatically populated
-with a collection of useful predefined "library" 
+with a collection of useful predefined "library"
 functions.
 <p>
-The names of these functions in the <TT>z</TT> locale are 
+The names of these functions in the <TT>z</TT> locale are
 all available for
 immediate use, and yet the names, of which there are more than 100,
- do not clutter the <TT>base</TT> locale.  
-We saw above the use of built-in verbs such as <TT>(18 !: 4)</TT> 
-and <TT>(4 !: 1)</TT>. However 
-the library verbs of locale <TT>z</TT> are often more convenient. 
+ do not clutter the <TT>base</TT> locale.
+We saw above the use of built-in verbs such as <TT>(18 !: 4)</TT>
+and <TT>(4 !: 1)</TT>. However
+the library verbs of locale <TT>z</TT> are often more convenient.
 Here is a small selection:
 <p>
 <TABLE CELLPADDING=10 BORDER=1>
@@ -297,26 +330,26 @@ assigns the value of <TT>something</TT> to the name <TT>n</TT> in locale <TT>L</
 Locale <TT>L</TT> is created if it does not already exist.
 For example:
 <PRE>
-   n_L_ =: 7
+<TT>   n_L_ =: 7</TT>
 </PRE>
 creates the name <TT>n</TT> in locale <TT>L</TT> with value <TT>7</TT>.
 At this point it will be helpful to introduce
-a utility-function to view all the definitions 
-in a locale. 
+a utility-function to view all the definitions
+in a locale.
 We put this <TT>view</TT> function into locale <TT>z</TT>
 :
 <PRE>
-   VIEW_z_ =: 3 : '(> ,. ('' =: ''&,)@:(5!:5)"0) nl '''''
-   view_z_ =: 3 : 'VIEW__lo '''' [ lo =. < y'
+<TT>   VIEW_z_ =: 3 : '(> ,. ('' =: ''&amp;,)@:(5!:5)"0) nl '''''</TT>
+<TT>   view_z_ =: 3 : 'VIEW__lo '''' [ lo =. < y'</TT>
 </PRE>
 If we make a few more definitions:
 <PRE>
-   k_L_ =: 0
-   n_M_ =: 2
+<TT>   k_L_ =: 0</TT>
+<TT>   n_M_ =: 2</TT>
 </PRE>
 we can survey what we have in locales <TT>L</TT> and <TT>M</TT>:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT>view 'M'</TT></TD>
@@ -326,8 +359,8 @@ n =: 7</TT></TD>
 <TD><TT>n =: 2</TT></TD>
 </TABLE>
 <p>
-Returning now to the theme of assignments, the scheme is: 
-if the current locale is <TT>L</TT>, then 
+Returning now to the theme of assignments, the scheme is:
+if the current locale is <TT>L</TT>, then
 <TT>(foo_M_ =: something)</TT>  means:
 <p>
 <OL>
@@ -338,10 +371,10 @@ if the current locale is <TT>L</TT>, then
 </OL>
 For example:
 <PRE>
-   cocurrent 'L'
+<TT>   cocurrent 'L'</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT>view 'M'</TT></TD>
@@ -358,7 +391,7 @@ n =: 2</TT></TD>
 <p>
 <H3>24.6.2  Evaluating Names</H3>
 Now we look at locative names occurring in expressions.
-The scheme (call this scheme 2) is: 
+The scheme (call this scheme 2) is:
 if the current locale is <TT>L</TT> then <TT>(n_M_)</TT> means
 <p>
 <OL>
@@ -370,10 +403,10 @@ if the current locale is <TT>L</TT> then <TT>(n_M_)</TT> means
 <p>
 For example:
 <PRE>
-   cocurrent 'L'
+<TT>   cocurrent 'L'</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT>view 'M'</TT></TD>
@@ -390,16 +423,16 @@ n =: 2</TT></TD>
 Consider the expression <TT>(f_M_ n)</TT>.
 This means: function <TT>f</TT> (as defined in locale <TT>M</TT>)
 applied to an argument <TT>n</TT> (as defined in the current locale)
-In this case, the application of <TT>f</TT> to <TT>n</TT> 
+In this case, the application of <TT>f</TT> to <TT>n</TT>
 takes place in locale <TT>M</TT>. Here is an example:
 <PRE>
-   u_M_ =: 3 : 'y+k'
-   
-   cocurrent 'L'
-   
+<TT>   u_M_ =: 3 : 'y+k'</TT>
+<TT>   </TT>
+<TT>   cocurrent 'L'</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT>view 'M'</TT></TD>
@@ -416,12 +449,12 @@ u =: 3 : 'y+k'</TT></TD>
 We see that the argument <TT>n</TT> comes from the current locale
 <TT>L</TT>, but the constant <TT>k</TT> comes from
 the locale (<TT>M</TT>) from which we took verb <TT>u</TT>.
-The scheme (call it scheme 3) is: 
-if the current locale is <TT>L</TT> , 
-then <TT>(f_M_ something)</TT> 
+The scheme (call it scheme 3) is:
+if the current locale is <TT>L</TT> ,
+then <TT>(f_M_ something)</TT>
 means:
 <p>
-<OL> 
+<OL>
 <LI> evaluate <TT>something</TT> in <TT>L</TT> to get a value <TT>V</TT> say
 <LI> <TT>cocurrent 'M'</TT>
 <LI> in locale <TT>M</TT>, evaluate the expression <TT>f V</TT>  to get
@@ -433,25 +466,25 @@ means:
 Here is another example.  The verb <TT>g</TT>
 is taken from the same locale in which <TT>f</TT> is found:
 <PRE>
-   g_L_ =: +&1
-   g_M_ =: +&2
-   f_M_ =: g
-   
-   cocurrent 'L'
-   
+<TT>   g_L_ =: +&amp;1</TT>
+<TT>   g_M_ =: +&amp;2</TT>
+<TT>   f_M_ =: g</TT>
+<TT>   </TT>
+<TT>   cocurrent 'L'</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT>view 'M'</TT></TD>
 <TD><TT>f_M_ k</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>g =: +&1<BR>
+<TD><TT>g =: +&amp;1<BR>
 k =: 0<BR>
 n =: 7</TT></TD>
 <TD><TT>f =: g<BR>
-g =: +&2<BR>
+g =: +&amp;2<BR>
 k =: 6<BR>
 n =: 2<BR>
 u =: 3 : 'y+k'</TT></TD>
@@ -460,122 +493,122 @@ u =: 3 : 'y+k'</TT></TD>
 <p>
 <H3>24.6.4  Applying Adverbs</H3>
 Suppose <TT>A_X_</TT> is an adverb in locale <TT>X</TT>.
-The application of <TT>A_X_</TT> to an argument takes 
+The application of <TT>A_X_</TT> to an argument takes
 place in locale <TT>X</TT> rather than in the current locale.
 <p>
 To demonstrate this, we start by entering  definitions in fresh locales
 <TT>X</TT> and <TT>Y</TT>.
 <PRE>
-   A_X_ =: 1 : 'u & k'    NB. an adverb
-   k_X_ =: 17
-   k_Y_ =: 6
+<TT>   A_X_ =: 1 : 'u &amp; k'    NB. an adverb</TT>
+<TT>   k_X_ =: 17</TT>
+<TT>   k_Y_ =: 6</TT>
 </PRE>
 now make <TT>Y</TT> the current locale:
 <PRE>
-   cocurrent 'Y'
+<TT>   cocurrent 'Y'</TT>
 </PRE>
 and apply adverb <TT>A_X_</TT> to argument <TT>+</TT> .
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'X'</TT></TD>
 <TD><TT>view 'Y'</TT></TD>
 <TD><TT>+ A_X_</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>A =: 1 : 'u & k'<BR>
+<TD><TT>A =: 1 : 'u &amp; k'<BR>
 k =: 17</TT></TD>
 <TD><TT>k =: 6</TT></TD>
-<TD><TT>+&17</TT></TD>
+<TD><TT>+&amp;17</TT></TD>
 </TABLE>
 <p>
 Evidently the result is produced by taking <TT>k</TT>
 from locale <TT>X</TT> rather than from the current locale which is <TT>Y</TT>.
 <p>
-The scheme is that if the current locale is <TT>Y</TT>, 
+The scheme is that if the current locale is <TT>Y</TT>,
 and <TT>A</TT> is an adverb, the expression
 <TT>f A_X_</TT> means:
 <p>
 <OL>
-<LI> evaluate <TT>f</TT> in locale <TT>Y</TT> to get a value <TT>F</TT> say. 
+<LI> evaluate <TT>f</TT> in locale <TT>Y</TT> to get a value <TT>F</TT> say.
 <LI> cocurrent <TT>X</TT>
-<LI> evaluate <TT>F A</TT> in locale <TT>X</TT> to get a result <TT>G</TT> say. 
+<LI> evaluate <TT>F A</TT> in locale <TT>X</TT> to get a result <TT>G</TT> say.
 <LI> cocurrent <TT>Y</TT>
 <LI> <TT>G</TT>
 </OL>
 <A NAME="06"></A>
 <H2>24.7  Paths</H2>
-Recall that the <TT>z</TT> locale contains useful "library" functions, and that 
+Recall that the <TT>z</TT> locale contains useful "library" functions, and that
 we said there is
 a path from any locale to <TT>z</TT>.
 <p>
-We can inspect the path from a 
-locale 
-with the library verb <TT>copath</TT>; 
-we expect the path from locale <TT>base</TT> to be just <TT>z</TT>. 
+We can inspect the path from a
+locale
+with the library verb <TT>copath</TT>;
+we expect the path from locale <TT>base</TT> to be just <TT>z</TT>.
 <PRE>
-   copath 'base'   NB. show path
-+-+
-|z|
-+-+
+<TT>   copath 'base'   NB. show path</TT>
+<TT>+-+</TT>
+<TT>|z|</TT>
+<TT>+-+</TT>
 </PRE>
 A path is represented as a
-(list of) boxed string(s). We can build our own structure of search-paths 
+(list of) boxed string(s). We can build our own structure of search-paths
 between locales. We will give <TT>base</TT> a path to
 <TT>stat</TT> and then to <TT>z</TT>, using dyadic <TT>copath</TT>.
 <PRE>
-   ('stat';'z') copath 'base'
+<TT>   ('stat';'z') copath 'base'</TT>
 </PRE>
 and check the result is as expected:
 <PRE>
-   copath 'base'
-+----+-+
-|stat|z|
-+----+-+
+<TT>   copath 'base'</TT>
+<TT>+----+-+</TT>
+<TT>|stat|z|</TT>
+<TT>+----+-+</TT>
 </PRE>
-With this path in place, we can, while <TT>base</TT> 
+With this path in place, we can, while <TT>base</TT>
 is current, find names in <TT>base</TT>, <TT>stat</TT>
 and <TT>z</TT>.
 <PRE>
-   cocurrent 'base'
-   
-   s     NB. in base
-1000 1000 3000 9000 11000
-   
-   r     NB. in stat
-c % *&s
-   
-   q     NB. in z
-99
+<TT>   cocurrent 'base'</TT>
+<TT>   </TT>
+<TT>   s     NB. in base</TT>
+<TT>1000 1000 3000 9000 11000</TT>
+<TT>   </TT>
+<TT>   r     NB. in stat</TT>
+<TT>c % *&amp;s</TT>
+<TT>   </TT>
+<TT>   q     NB. in z</TT>
+<TT>99</TT>
 </PRE>
 Suppose we set up a path from <TT>L</TT> to <TT>M</TT>.  Notice
-that we want every path to terminate at locale <TT>z</TT>, 
+that we want every path to terminate at locale <TT>z</TT>,
 (otherwise we may lose access to the useful
 stuff in <TT>z</TT>) so we make the path go from <TT>L</TT> to <TT>M</TT>
 to <TT>z</TT>.
 <PRE>
-   ('M';'z') copath 'L'
+<TT>   ('M';'z') copath 'L'</TT>
 </PRE>
 If we access a name along a path,
 there is no change of current locale. Compare
 the effects of referring to verb <TT>u</TT>
-via a locative name and searching for <TT>u</TT> along a 
-path. 
+via a locative name and searching for <TT>u</TT> along a
+path.
 <PRE>
-   cocurrent 'L'
+<TT>   cocurrent 'L'</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT> view 'M'</TT></TD>
 <TD><TT>u_M_ 0</TT></TD>
 <TD><TT>u 0</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>g =: +&1<BR>
+<TD><TT>g =: +&amp;1<BR>
 k =: 0<BR>
 n =: 7</TT></TD>
 <TD><TT>f =: g<BR>
-g =: +&2<BR>
+g =: +&amp;2<BR>
 k =: 6<BR>
 n =: 2<BR>
 u =: 3 : 'y+k'</TT></TD>
@@ -583,28 +616,28 @@ u =: 3 : 'y+k'</TT></TD>
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-We see that in evaluating <TT>(u_M_ 0)</TT> there is a change of 
+We see that in evaluating <TT>(u_M_ 0)</TT> there is a change of
 locale to <TT>M</TT>, so that the variable <TT>k</TT> is picked up
 with its value in <TT>M</TT> of 6.  In evaluating <TT>(u 0)</TT>, where <TT>u</TT>
-is found along the path, the variable <TT>k</TT> is picked up from the 
+is found along the path, the variable <TT>k</TT> is picked up from the
 current locale, with its value in <TT>L</TT> of <TT>0</TT>.
 <p>
 When a name is found along a path, it is as though
 the definition were temporarily copied into
 the current locale. Here is another example.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>view 'L'</TT></TD>
 <TD><TT> view 'M'</TT></TD>
 <TD><TT>f_M_ 0</TT></TD>
 <TD><TT>f 0</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>g =: +&1<BR>
+<TD><TT>g =: +&amp;1<BR>
 k =: 0<BR>
 n =: 7</TT></TD>
 <TD><TT>f =: g<BR>
-g =: +&2<BR>
+g =: +&amp;2<BR>
 k =: 6<BR>
 n =: 2<BR>
 u =: 3 : 'y+k'</TT></TD>
@@ -618,7 +651,7 @@ with definitions from a script-file.
  We saw above one way to do this:
 in three steps:
 <p>
-(1) use <TT>cocurrent</TT> (or <TT>18 !: 4</TT>) to move to the 
+(1) use <TT>cocurrent</TT> (or <TT>18 !: 4</TT>) to move to the
 specified locale.
 <p>
 (2) execute the script-file with <TT>0!:0</TT>
@@ -627,111 +660,111 @@ specified locale.
 <p>
 A neater way is as follows. We first define:
 <PRE>
-   POP_z_ =: 0 !: 0
+<TT>   POP_z_ =: 0 !: 0</TT>
 </PRE>
-and then to populate locale <TT>Q</TT> 
+and then to populate locale <TT>Q</TT>
 say, from file <TT>economic.ijs</TT>,  we can write:
 <PRE>
-   POP_Q_ < 'economic.ijs'
+<TT>   POP_Q_ < 'economic.ijs'</TT>
 </PRE>
 which works like this:
 <p>
 <OL>
 <LI> The <TT>POP</TT> verb is defined in locale <TT>z</TT>.
-<LI> Encountering <TT>POP_Q_ < ...</TT> the system makes locale 
+<LI> Encountering <TT>POP_Q_ < ...</TT> the system makes locale
 <TT>Q</TT> temporarily current, creating <TT>Q</TT> if it does not already exist.
-<LI>The system looks for a definition of <TT>POP</TT>.  
+<LI>The system looks for a definition of <TT>POP</TT>.
 It does not find it in <TT>Q</TT>
 , because <TT>POP</TT> is of course defined in locale <TT>z</TT>.
-<LI>The system then looks along the path from <TT>Q</TT> 
+<LI>The system then looks along the path from <TT>Q</TT>
 to <TT>z</TT> and finds <TT>POP</TT>.  Note that the current locale
 is still (temporarily) <TT>Q</TT>.
-<LI> The <TT>POP</TT> verb is applied to its argument, in 
+<LI> The <TT>POP</TT> verb is applied to its argument, in
 temporarily-current locale <TT>Q</TT>.
 <LI> The current locale is automatically restored to
 whatever it was beforehand.
 </OL>
-Back to base. (If we are nipping about between locales it is advisable to 
+Back to base. (If we are nipping about between locales it is advisable to
 keep
 track of where we are.)
 <PRE>
-   cocurrent <'base'
+<TT>   cocurrent <'base'</TT>
 </PRE>
 <A NAME="07"></A>
 <H2>24.9  Indirect Locatives</H2>
-A variable can hold the name of a locale as a 
-boxed string. For example, given that <TT>M</TT> is a 
+A variable can hold the name of a locale as a
+boxed string. For example, given that <TT>M</TT> is a
 locale,
 <PRE>
-   loc =: < 'M'
+<TT>   loc =: < 'M'</TT>
 </PRE>
 Then a locative name such as <TT>k_M_</TT> can be
-written equivalently in the form <TT>k__loc</TT> 
+written equivalently in the form <TT>k__loc</TT>
 (u underscore underscore loc)
 <PRE>
-   k_M_
-6
-   
-   k__loc
-6
+<TT>   k_M_</TT>
+<TT>6</TT>
+<TT>   </TT>
+<TT>   k__loc</TT>
+<TT>6</TT>
 </PRE>
 The point of this indirect form is that it
 makes it convenient to supply locale-names as arguments to functions.
 <PRE>
-   NAMES =: 3 : 0
-locname =. < y
-names__locname ''
-)
-   
-   NAMES 'L'
-g k n 
-   
+<TT>   NAMES =: 3 : 0</TT>
+<TT>locname =. < y</TT>
+<TT>names__locname ''</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   NAMES 'L'</TT>
+<TT>g k n </TT>
+<TT>   </TT>
 </PRE>
 <A NAME="08"></A>
 <H2>24.10  Erasing Names from Locales</H2>
-Suppose we create a variable with the name <TT>var</TT>, say, 
+Suppose we create a variable with the name <TT>var</TT>, say,
 <PRE>
-   var =: 'hello'
+<TT>   var =: 'hello'</TT>
 </PRE>
 and demonstrate that it exists, that is, that the name <TT>var</TT> is
 one of the names in the namelist of the <TT>base</TT> locale:
 <PRE>
-   (<'var') e. nl_base_ ''
-1
-   
+<TT>   (<'var') e. nl_base_ ''</TT>
+<TT>1</TT>
+<TT>   </TT>
 </PRE>
-Now we can erase it with the <TT>erase</TT> library verb: 
+Now we can erase it with the <TT>erase</TT> library verb:
 <PRE>
-   erase <'var'
-1
+<TT>   erase <'var'</TT>
+<TT>1</TT>
 </PRE>
 and demonstrate that it no longer exists
 <PRE>
-   (<'var') e. nl_base_ ''
-0
-   
+<TT>   (<'var') e. nl_base_ ''</TT>
+<TT>0</TT>
+<TT>   </TT>
 </PRE>
-Now suppose that we create a variable <TT>foo</TT>, say, 
+Now suppose that we create a variable <TT>foo</TT>, say,
 in the base
 locale, and another, also called <TT>foo</TT>, in the <TT>z</TT> locale.
 Recall that there is always a path from <TT>base</TT> to <TT>z</TT>
 <PRE>
-   foo    =: 'hello'
-   foo_z_ =: 'goodbye'
-   
+<TT>   foo    =: 'hello'</TT>
+<TT>   foo_z_ =: 'goodbye'</TT>
+<TT>   </TT>
 </PRE>
 we demonstrate they both exist:
 <PRE>
-   (<'foo') e. nl_base_ ''
-1
-   (<'foo') e. nl_z_ ''
-1
-   
+<TT>   (<'foo') e. nl_base_ ''</TT>
+<TT>1</TT>
+<TT>   (<'foo') e. nl_z_ ''</TT>
+<TT>1</TT>
+<TT>   </TT>
 </PRE>
-erase <TT>foo</TT> from <TT>base</TT>, demonstrate that it has gone 
+erase <TT>foo</TT> from <TT>base</TT>, demonstrate that it has gone
 but that <TT>foo</TT> in <TT>z</TT> is still there:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>erase <'foo'</TT></TD>
 <TD><TT>(<'foo') e. nl_base_ '' </TT></TD>
@@ -742,10 +775,10 @@ but that <TT>foo</TT> in <TT>z</TT> is still there:
 <TD><TT>1</TT></TD>
 </TABLE>
 <p>
-Now if we erase again, <TT>foo</TT> will be found along 
+Now if we erase again, <TT>foo</TT> will be found along
 the path and erased from <TT>z</TT>.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>erase <'foo'</TT></TD>
 <TD><TT>(<'foo') e. nl_base_ '' </TT></TD>
@@ -757,21 +790,21 @@ the path and erased from <TT>z</TT>.
 </TABLE>
 <p>
 This is the end of Chapter 24
-  </tr> </table> 
-<HR>  
- <p ALIGN=CENTER> 
- <A HREF="25.htm"> NEXT </A> <BR> 
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
-<A HREF="kwic.htm"> Index </A> 
-<HR> 
-<P ALIGN=CENTER> 
-<FONT SIZE=-1>The examples in this chapter 
-were executed using J version  j701/beta/2010-11-24/22:45. 
- This chapter last updated 22 Dec 2010<BR> 
-Copyright &copy; Roger Stokes 2010. 
- This material may be freely reproduced, 
-provided that this copyright notice is also reproduced. 
-</FONT> 
+  </tr> </table>
+<HR>
+ <p ALIGN=CENTER>
+ <A HREF="25.htm"> NEXT </A> <BR>
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
+<A HREF="kwic.htm"> Index </A>
+<HR>
+<P ALIGN=CENTER>
+<FONT SIZE=-1>The examples in this chapter
+were executed using J version 701.
+ This chapter last updated 18 Jul 2013<BR>
+Copyright &copy; Roger Stokes 2013.
+ This material may be freely reproduced,
+provided that acknowledgement is made.
+</FONT>
  <!--bottom jump start--><hr><a href="25.htm">&gt;&gt;</a>&nbsp;
 <a href="23.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -784,6 +817,5 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY> 
- </HTML> 
- 
+Learning J<!--bottom jump end--></BODY>
+ </HTML>

@@ -2,16 +2,30 @@
 
 <HTML>
 <HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=ISO-8859-1">
-	<title>Learning Contents</title>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-	<META NAME="CREATED" CONTENT="20051014;16001218">
-	<META NAME="CHANGED" CONTENT="20060708;16020434">
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+	<TITLE>Learning J</TITLE>
 	<STYLE type="text/css">
-	<!--
-         TT  {font-size: 11pt; COLOR: BLUE}
-         PRE {font-size: 11pt; COLOR: BLUE}
-	-->
+	 TT  {font-size: 12pt; COLOR: BLUE}
+     PRE {font-size: 12pt; COLOR: BLUE}
+
+     table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
+  </STYLE>
+
+
 	</STYLE>
 
 </HEAD>
@@ -33,32 +47,43 @@ Learning J<hr><!--top jump end-->
 
 <TR> <TD>  &nbsp; </TD> </TR>
 
-<TR> <TD ALIGN=RIGHT> <FONT SIZE=7> Learning J </FONT>       </TD></TR>
-<TR> <TD ALIGN=RIGHT> <H2> Roger Stokes </H2>          </TD></TR>
+<TR> <TD ALIGN=RIGHT> <FONT SIZE=7> Learning J </FONT></TD></TR>
 
-<TR> <TD ALIGN=RIGHT> revised January 2011 </TD></TR>
+<TR> <TD ALIGN=RIGHT> <H3>An Introduction to the J Programming Language</H2> </TD></TR>
 
+<TR> <TD ALIGN=RIGHT> <H3> Roger Stokes </H2>          </TD></TR>
+
+<TR> <TD ALIGN=RIGHT> revised July 2013 </TD></TR>
+
+<TR> <TD>  &nbsp; </TD> <TD> &nbsp; </TD> </TR>
+<TR> <TD>  &nbsp; </TD> <TD> &nbsp; </TD> </TR>
 <TR> <TD>  &nbsp; </TD> <TD> &nbsp; </TD> </TR>
 
 <TR> <TD ALIGN=RIGHT> <A HREF="#short">   About this Book   </A> </TD> </TR>
 <TR> <TD ALIGN=RIGHT> <A HREF="#toc">     Table of Contents </A> </TD></TR>
-<TR> <TD ALIGN=RIGHT> <A HREF="#ack">     Acknowledgements  </A> </TD></TR>
+<TR> <TD ALIGN=RIGHT> <A HREF="#ack">     Acknowledgments  </A> </TD></TR>
 <TR> <TD ALIGN=RIGHT> <A HREF="kwic.htm"> Index             </A></TD></TR>
 <TR> <TD>  &nbsp; </TD> </TR>
+<TR> <TD>  &nbsp; </TD> </TR>
+<TR> <TD>  &nbsp; </TD> </TR>
+
 
 </TABLE>
 <HR>
-<HR>
 
- 
+
 <P ALIGN=CENTER>J software and documentation are available at the <A HREF="http://www.jsoftware.com"> J Software Home Page</A> </P>
 
-<P ALIGN=CENTER>This book is also available as a single zip-file  from
-<A HREF="http://www.rogerstokes.free-online.co.uk/book.zip"> here </A> </P>
+<P ALIGN=CENTER>This book is also available in various formats from
+<A HREF="http://www.rogerstokes.free-online.co.uk/learningj.htm"> here </A> </P>
 
-<P ALIGN=CENTER>Please send comments and criticisms to the <A HREF="http://www.jsoftware.com/j_forum.htm"> J Forum </A> </P>
+<P ALIGN=CENTER>Please send comments and criticisms to the <A HREF="http://www.jsoftware.com/forums.htm"> J Forum </A> </P>
 
 <HR>
+<p>Copyright &copy; Roger Stokes 2013.
+This material may be freely reproduced,
+provided that acknowledgment is made.
+</p>
 <HR>
 
 <A NAME=short></A>  <H3>ABOUT THIS BOOK</H3><p>
@@ -67,37 +92,37 @@ the computer-programming language J.
 <p>
 My hope is that the book will be useful to a wide
 readership. Care is taken to introduce only one new idea at a time,
-to provide examples at every step, and to make the examples very simple.  
-Even so, the experienced programmer will find much to appreciate in 
+to provide examples at every step, and to make the examples very simple.
+Even so, the experienced programmer will find much to appreciate in
 the radical simplicity
-and power of the J notation.  
+and power of the J notation.
 <p>
-The scope of this book is the core J language defined in the 
-<A HREF="http://www.jsoftware.com/help/dictionary/contents.htm"> J Dictionary</A>. 
-The coverage of the core language is meant to be relatively complete, covering 
+The scope of this book is the core J language defined in the
+<A HREF="../dictionary/contents.htm"> J Dictionary</A>.
+The coverage of the core language is meant to be relatively complete, covering
 (eventually) most of the Dictionary.
 <p>
-Hence the book does not cover topics such as graphics, plotting, GUI, 
-and database covered in the 
-<A HREF="http://www.jsoftware.com/help/user/contents.htm">J User Guide</A>, 
+Hence the book does not cover topics such as graphics, plotting, GUI,
+and database covered in the
+<A HREF="../user/contents.htm">J User Guide</A>,
 nor does it cover the <A HREF="http://www.jsoftware.com/jwiki/JAL"> J Application Library </A>.
 
-I should make clear what the aims of the book are not: neither 
-to teach principles of programming, nor to study algorithms, 
-or topics in mathematics or other subjects using J as a vehicle, 
-nor to provide definitive reference material. 
+I should make clear what the aims of the book are not: neither
+to teach principles of programming, nor to study algorithms,
+or topics in mathematics or other subjects using J as a vehicle,
+nor to provide definitive reference material.
 <p>
-The book is organized as follows.  Part 1 is a basic introduction 
-which touches on a variety of themes. The aim is to provide the reader, 
-by the end of Part 1, with an overview and a general appreciation of the 
-J language. The themes introduced in Part 1 are then developed in more 
+The book is organized as follows.  Part 1 is a basic introduction
+which touches on a variety of themes. The aim is to provide the reader,
+by the end of Part 1, with an overview and a general appreciation of the
+J language. The themes introduced in Part 1 are then developed in more
 depth and detail in the remainder of the book.
 <P>
-All the examples have been executed with a beta version of J701.
+All the examples have been executed with J701.
 <p>
 <HR>
- 
-<A NAME=toc></A> <H2>  TABLE OF CONTENTS  </H2> 
+
+<A NAME=toc></A> <H2>  TABLE OF CONTENTS  </H2>
 <p>
 
 <TABLE CELLPADDING=10>
@@ -121,7 +146,7 @@ All the examples have been executed with a beta version of J701.
           <a href="10.htm">10: Conditional and Other Forms</a><BR>
           <a href="11.htm">11: Tacit Verbs Concluded</a><BR>
           <a href="12.htm">12: Explicit Verbs</a><BR>
-	  
+
 <TR VALIGN=TOP> <TD> <H3>  Part 4: Defining Functions: Operators </H3>
      <TD> <a NAME=part4
              href="13.htm">13: Explicit Operators</a><BR>
@@ -129,7 +154,7 @@ All the examples have been executed with a beta version of J701.
 	  <a href="15.htm">15: Tacit Operators</a><BR>
 
 <TR VALIGN=TOP> <TD> <H3> Part 5: Structural Functions</H3>
-     <TD> <a NAME=part5 
+     <TD> <a NAME=part5
              href="16.htm">16: Rearrangements </a><BR>
           <a href="17.htm">17: Patterns of Application</a><BR>
           <a href="18.htm">18: Sets, Classes and Relations</a><BR>
@@ -153,25 +178,26 @@ All the examples have been executed with a beta version of J701.
           <a href="27.htm">27: Representations and Conversions</a><BR>
           <a href="28.htm">28: Data Files</a><BR>
           <a href="29.htm">29: Error Handling</a><BR>
-  
+          <a href="30.htm">30: Sparse Arrays</a><BR>
+          <a href="31.htm">31: Performance</a><BR>
+		   <a href="32.htm">32: Trees</a><BR>
+
+
 <TR VALIGN=TOP> <TD> <H3> Appendices</H3> </TD>
     <TD>   <a NAME=apps
               href="91.htm">A1: Evaluating Expressions</a><BR>
            <a href="92.htm">A2: Collected Terminology </a><BR>
-           <a href="kwic.htm"> Index </a> <BR> 
+           <a href="kwic.htm"> Index </a> <BR>
 </TABLE>
 
 <HR>
-<A NAME=ack></A><H3> Acknowledgements</H3> 
+<A NAME=ack></A><H3> Acknowledgments</H3>
 I am grateful to readers of earlier drafts for encouragement
-and for valuable criticisms and suggestions. 
+and for valuable criticisms and suggestions.
 <HR>
-<p>   
+<p>
 
-<p ALIGN=CENTER><FONT SIZE=-2>Copyright &copy; Roger Stokes 2011. 
-This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT></p>
+
 <!--bottom jump start--><hr><a href="01.htm">&gt;&gt;</a>&nbsp;
 <a href="contents.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

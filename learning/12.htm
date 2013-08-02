@@ -1,20 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-    
-<HTML> 
-<HEAD> 
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=ISO-8859-1"> 
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)"> 
-  <META NAME="CREATED" CONTENT="20051014;16001218"> 
-	<META NAME="CHANGED" CONTENT="20051014;16020434"> 
-  <title>   Ch 12: Explicit Verbs</title> 
-  <STYLE TYPE="text/css"> 
-   <!-- 
-    TT  {font-size: 11pt; COLOR: BLUE} 
-    PRE {font-size: 11pt; COLOR: BLUE} 
-   --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
+  <TITLE>   Ch 12: Explicit Verbs</TITLE>
+  <STYLE TYPE="text/css">
+    TT  {font-size: 12pt; COLOR: BLUE}
+    PRE {font-size: 12pt; COLOR: BLUE}
+
+    table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
   </STYLE>
 </HEAD>
-          
+
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="13.htm">&gt;&gt;</a>&nbsp;
 <a href="11.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -27,33 +39,33 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end--> 
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
-  <tr> <td valign="top" width="17%"> <p> </td> 
-   <td valign="top" width="83%"> 
+Learning J<hr><!--top jump end-->
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
+  <tr> <td valign="top" width="17%"> <p> </td>
+   <td valign="top" width="83%">
  <A NAME="01"></A>
 <H1>Chapter 12: Explicit Verbs</H1>
 This chapter continues from <A HREF="04.htm">Chapter 04</A> the theme
 of the explicit definition of verbs.
 <A NAME="02"></A>
 <H2>12.1  &nbsp;&nbsp; The Explicit Definition Conjunction</H2>
-Recall from <A HREF="04.htm">Chapter 04</A> the example of an explicit dyadic verb, the 
+Recall from <A HREF="04.htm">Chapter 04</A> the example of an explicit dyadic verb, the
 "positive difference" of two numbers, defined as larger minus smaller.
 <PRE>
-   PosDiff =: 4 : '(x >. y) - (x <. y)'
-   
-   3 PosDiff 4
-1
+<TT>   PosDiff =: 4 : '(x >. y) - (x <. y)'</TT>
+<TT>   </TT>
+<TT>   3 PosDiff 4</TT>
+<TT>1</TT>
 </PRE>
-The general scheme for the explicit definition of a function is to provide 
-two arguments to the Explicit Definition conjunction (<TT> : </TT>,  &nbsp; colon) 
+The general scheme for the explicit definition of a function is to provide
+two arguments to the Explicit Definition conjunction (<TT> : </TT>,  &nbsp; colon)
  in the form
 <PRE>
-             type : body
+<TT>             type : body</TT>
 </PRE>
 In the body, the variables <TT>x</TT> and <TT>y</TT> are the arguments.
 <H3>12.1.1  Type</H3>
-The type is a number: type-3 functions are monadic verbs or ambivalent 
+The type is a number: type-3 functions are monadic verbs or ambivalent
 verbs. Type-4 functions are
 strictly dyadic verbs (that is, with no monadic case).
 There are other types: types 1 and 2 are operators, covered in <A HREF="13.htm">Chapter 13</A> .
@@ -64,49 +76,49 @@ mnemonic names for the types, and other things, thus:
 <A NAME="03"></A>
 <A NAME="04"></A>
 <PRE>
-   noun        =: 0
-   adverb      =: 1
-   conjunction =: 2
-   verb        =: 3
-   monad       =: 3
-   dyad        =: 4
-   def         =: :
-   define      =: : 0
+<TT>   noun        =: 0</TT>
+<TT>   adverb      =: 1</TT>
+<TT>   conjunction =: 2</TT>
+<TT>   verb        =: 3</TT>
+<TT>   monad       =: 3</TT>
+<TT>   dyad        =: 4</TT>
+<TT>   def         =: :</TT>
+<TT>   define      =: : 0</TT>
 </PRE>
-Thus the <TT>PosDiff</TT> example above could be also written as: 
+Thus the <TT>PosDiff</TT> example above could be also written as:
 <PRE>
-   PosDiff =: dyad def '(x >. y) - (x <. y)'
-   
-   3 PosDiff 4
-1
-   
+<TT>   PosDiff =: dyad def '(x >. y) - (x <. y)'</TT>
+<TT>   </TT>
+<TT>   3 PosDiff 4</TT>
+<TT>1</TT>
+<TT>   </TT>
 </PRE>
 <H3>12.1.3  Body Styles</H3>
-The body of an explicit definition consists of one or more lines of text. 
-There are several ways to provide the body 
+The body of an explicit definition consists of one or more lines of text.
+There are several ways to provide the body
 The example above, <TT>PosDiff</TT>, shows a single line written as a string.
 <p>
-A multi-line body can be introduced with a right argument of <TT>0</TT> 
-for the colon operator. 
+A multi-line body can be introduced with a right argument of <TT>0</TT>
+for the colon operator.
 <PRE>
-   PosDiff =: 4 : 0
-larger  =. x >. y
-smaller =. x <. y
-larger - smaller
-)
-   
-   3 PosDiff 4
-1
+<TT>   PosDiff =: 4 : 0</TT>
+<TT>larger  =. x >. y</TT>
+<TT>smaller =. x <. y</TT>
+<TT>larger - smaller</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   3 PosDiff 4</TT>
+<TT>1</TT>
 </PRE>
 Another variation allows a multi-line body to be written compactly by
  embedding line-feeds. <TT>LF</TT> is predefined to be the line-feed character. Notice
-that the whole body must be parenthesized. 
+that the whole body must be parenthesized.
 <PRE>
-   PosDiff =: 4 : ('la =. x >. y', LF, 'sm =. x <. y', LF, 'la - sm')
-   
+<TT>   PosDiff =: 4 : ('la =. x >. y', LF, 'sm =. x <. y', LF, 'la - sm')</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>PosDiff</TT></TD>
 <TD><TT>3 PosDiff 4</TT></TD>
@@ -122,10 +134,10 @@ that the whole body must be parenthesized.
 Another variation uses a boxed list of lines (again with the body
 parenthesized):
 <PRE>
-   PosDiff =: 4 : ('la =. x >. y' ; 'sm =. x <. y' ;  'la - sm')
+<TT>   PosDiff =: 4 : ('la =. x >. y' ; 'sm =. x <. y' ;  'la - sm')</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>PosDiff</TT></TD>
 <TD><TT>3 PosDiff 4</TT></TD>
@@ -140,24 +152,24 @@ parenthesized):
 <p>
 Notice that these are not variations
  of syntax, but rather alternative
-expressions for constructing a data-structure acceptable as the 
+expressions for constructing a data-structure acceptable as the
 right-argument of the <TT> : </TT> operator.
 <A NAME="05"></A>
 <H3>12.1.4  Ambivalent Verbs</H3>
 An ambivalent verb has both a monadic and a dyadic case.
-In the definition, the monadic case is presented first, 
+In the definition, the monadic case is presented first,
 then a line consisting of a solo colon, and then the dyadic case.
 For example:
 <PRE>
-   log =: 3 : 0
-^. y     NB. monad - natural logarithm 
-:
-x ^. y   NB. dyad  - base-x  logarithm  
-)
-   
+<TT>   log =: 3 : 0</TT>
+<TT>^. y     NB. monad - natural logarithm </TT>
+<TT>:</TT>
+<TT>x ^. y   NB. dyad  - base-x  logarithm  </TT>
+<TT>)</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>log 2.7182818</TT></TD>
 <TD><TT>10 log 100</TT></TD>
@@ -167,31 +179,31 @@ x ^. y   NB. dyad  - base-x  logarithm
 </TABLE>
 <p>
 <H2>12.2  Assignments</H2>
-In this section we consider assignments, 
+In this section we consider assignments,
 which are of significance in defining explicit functions.
 <A NAME="06"></A>
 <H3>12.2.1  Local and Global Variables</H3>
 Consider the example
 <PRE>
-   foo =: 3 : 0
-L =.  y
-G =:  y
-L
-)
+<TT>   foo =: 3 : 0</TT>
+<TT>L =.  y</TT>
+<TT>G =:  y</TT>
+<TT>L</TT>
+<TT>)</TT>
 </PRE>
 Here, the assignment of the form
 <PRE>
-               L =. expression
+<TT>               L =. expression</TT>
 </PRE>
-causes the value of <TT>expression</TT> to be assigned to a 
+causes the value of <TT>expression</TT> to be assigned to a
 local variable named <TT>L</TT>. Saying that <TT>L</TT> is local
 means that <TT>L</TT> exists only while the function <TT>foo</TT>
 is executing, and furthermore this <TT>L</TT> is distinct from any
 other variable named <TT>L</TT>.  By contrast, the assignment of the form
 <PRE>
-               G =: expression
+<TT>               G =: expression</TT>
 </PRE>
-causes the value of <TT>expression</TT> to be assigned to a 
+causes the value of <TT>expression</TT> to be assigned to a
 global variable named <TT>G</TT>. Saying that <TT>G</TT> is global
 means that the unique variable <TT>G</TT> exists
 independently, in its own right.
@@ -201,12 +213,12 @@ To illustrate, we define two GLOBAL variables called
 is not the same as global <TT>L</TT>, while the <TT>G</TT> mentioned in foo is the same
 as global G:
 <PRE>
-   L =: 'old L'
-   G =: 'old G'
-   
+<TT>   L =: 'old L'</TT>
+<TT>   G =: 'old G'</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>foo</TT></TD>
 <TD><TT>foo 'new'</TT></TD>
@@ -223,91 +235,91 @@ as global G:
 <TD><TT>new</TT></TD>
 </TABLE>
 <p>
-With versions of J from J6 onward, it is regarded as an 
+With versions of J from J6 onward, it is regarded as an
 error to make a global assignment (with <TT>=:</TT>) to a variable
 with the same name as an already-existing local variable.
 <p>
-For example, the argument variables <TT>x</TT> and <TT>y</TT> are local, 
-so it would normally be an error in an explicit verb to make 
-a global assignment to a variable named <TT>y</TT> . 
+For example, the argument variables <TT>x</TT> and <TT>y</TT> are local,
+so it would normally be an error in an explicit verb to make
+a global assignment to a variable named <TT>y</TT> .
 <PRE>
-   foo =: 3 : 0
-z =. y + 1
-y =: 'hello'
-z
-)
-   
-   foo 6 
-|domain error: foo
-|   y    =:'hello'
-   
+<TT>   foo =: 3 : 0</TT>
+<TT>z =. y + 1</TT>
+<TT>y =: 'hello'</TT>
+<TT>z</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   foo 6 </TT>
+<TT>|domain error: foo</TT>
+<TT>|   y    =:'hello'</TT>
+<TT>   </TT>
 </PRE>
 If we really, really wanted to assign to a global named <TT>y</TT>
 from within an explicit definition, the local <TT>y</TT> must first be erased.
 <PRE>
-   foo =: 3 : 0
-z =. y+1
-erase <'y'
-y =: 'hello'
-z
-)
-   
-   foo 6
-7
-   y
-hello
-   
-   
+<TT>   foo =: 3 : 0</TT>
+<TT>z =. y+1</TT>
+<TT>erase <'y'</TT>
+<TT>y =: 'hello'</TT>
+<TT>z</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   foo 6</TT>
+<TT>7</TT>
+<TT>   y</TT>
+<TT>hello</TT>
+<TT>   </TT>
+<TT>   </TT>
 </PRE>
 <A NAME="07"></A>
 <H3>12.2.2  Local Functions</H3>
 We have seen local variables, which are nouns.
-We may also have local functions. 
+We may also have local functions.
 A local function may be tacit or explicit,  as in the following  example
 <PRE>
-   foo =: 3 : 0
-Square  =. *:
-Cube    =. 3 : 'y * y * y'
-(Square y) + (Cube y)
-)
-   
-   foo 2
-12
+<TT>   foo =: 3 : 0</TT>
+<TT>Square  =. *:</TT>
+<TT>Cube    =. 3 : 'y * y * y'</TT>
+<TT>(Square y) + (Cube y)</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   foo 2</TT>
+<TT>12</TT>
 </PRE>
 However, what we can't have is an explicit local function defined by
 an inner multiline body Recall that a multiline body is a script
 terminated by a solo right parenthesis, so we cannot have one such body inside another.
-Instead, we could use an alternative form for the body of an inner 
+Instead, we could use an alternative form for the body of an inner
 function, such as <TT>scale</TT> in the following example:
 <PRE>
-   FTOC =: 3 : 0
-   line1   =. 'k =. 5 % 9'
-   line2   =. 'k * y'
-scale =. 3 : (line1 ; line2)  
-scale y - 32
-)
-   
-   FTOC 212
-100
+<TT>   FTOC =: 3 : 0</TT>
+<TT>   line1   =. 'k =. 5 % 9'</TT>
+<TT>   line2   =. 'k * y'</TT>
+<TT>scale =. 3 : (line1 ; line2)  </TT>
+<TT>scale y - 32</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   FTOC 212</TT>
+<TT>100</TT>
 </PRE>
 One final point on the topic of inner functions.
 A name, of a variable or function, is either global or local. If it is local, then
 that means it is recognised in the function in which it is defined. However
 it is not recognised in any inner function. For example:
 <PRE>
-   K =: 'hello '
-   
-   zip =: 3 : 0
-K =. 'goodbye '
-zap =. 3 : 'K , y'
-zap y
-)
-   
-   zip 'George'
-hello George
+<TT>   K =: 'hello '</TT>
+<TT>   </TT>
+<TT>   zip =: 3 : 0</TT>
+<TT>K =. 'goodbye '</TT>
+<TT>zap =. 3 : 'K , y'</TT>
+<TT>zap y</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   zip 'George'</TT>
+<TT>hello George</TT>
 </PRE>
-We see that there is a global <TT>K</TT> and a local <TT>K</TT>. The inner function 
-<TT>zap</TT> uses the global <TT>K</TT> because the <TT>K</TT> which is local to 
+We see that there is a global <TT>K</TT> and a local <TT>K</TT>. The inner function
+<TT>zap</TT> uses the global <TT>K</TT> because the <TT>K</TT> which is local to
 <TT>zip</TT> is not local to <TT>zap</TT>.
 <A NAME="08"></A>
 <A NAME="09"></A>
@@ -316,7 +328,7 @@ J provides a convenient means of unpacking a list by
 assigning
 different names to different items.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>'day mo yr' =: 16 10 95</TT></TD>
 <TD><TT>day</TT></TD>
@@ -334,7 +346,7 @@ we have a string with names separated by spaces.
 <p>
 A variation uses a boxed set of names:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>('day';'mo';'yr') =: 17 11 96</TT></TD>
 <TD><TT>day</TT></TD>
@@ -347,15 +359,15 @@ A variation uses a boxed set of names:
 <TD><TT>96</TT></TD>
 </TABLE>
 <p>
-The parentheses around the left hand of the 
+The parentheses around the left hand of the
 assignment force evaluation as a set of names, to give
 what is called "indirect assignment".
 To illustrate:
 <PRE>
-   N =: 'DAY';'MO';'YR'
+<TT>   N =: 'DAY';'MO';'YR'</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>(N) =: 18 12 97</TT></TD>
 <TD><TT>DAY</TT></TD>
@@ -371,7 +383,7 @@ To illustrate:
 As a convenience, a multiple assignment will automatically
 remove one layer of boxing from the right-hand side:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>(N) =: 19;'Jan';98</TT></TD>
 <TD><TT>DAY</TT></TD>
@@ -400,13 +412,13 @@ For example, the familiar formula to find the roots of a quadratic
 <TT>(a*x^2) +(b*x)+c</TT>, given the vector of
 coefficients <TT>a,b,c</TT> might be:
 <PRE>
-   rq =: 3 : 0
-'a b c' =: y
-((-b) (+,-) %: (b^2)-4*a*c) % (2*a)
-)
+<TT>   rq =: 3 : 0</TT>
+<TT>'a b c' =. y</TT>
+<TT>((-b) (+,-) %: (b^2)-4*a*c) % (2*a)</TT>
+<TT>)</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>rq 1 1 _6</TT></TD>
 <TD><TT>rq 1 ; 1 ; _6</TT></TD>
@@ -421,17 +433,17 @@ coefficients <TT>a,b,c</TT> might be:
 <H3>12.3.1  Review</H3>
 Recall from <A HREF="04.htm">Chapter 04</A> the positive-difference function defined as:
 <PRE>
-   POSDIFF =: 4 : 0
-if.   x > y
-do.   x - y
-else. y - x
-end.
-)
-   
-   3 POSDIFF 4
-1
+<TT>   POSDIFF =: 4 : 0</TT>
+<TT>if.   x > y</TT>
+<TT>do.   x - y</TT>
+<TT>else. y - x</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   3 POSDIFF 4</TT>
+<TT>1</TT>
 </PRE>
-Everything from  <TT>if.</TT> to <TT>end.</TT> is called a "control structure". 
+Everything from  <TT>if.</TT> to <TT>end.</TT> is called a "control structure".
 In it, <TT>if.</TT> <TT>do.</TT> <TT>else.</TT> and <TT>end.</TT> are called "control words".
 <p>
 The plan for this section is to use this example for a general
@@ -439,69 +451,87 @@ discussion of control structures, and then go on to look at
 a number of particular control structures.
 <H3>12.3.2  Layout</H3>
 We can freely choose a layout for the expressions and control words forming
-a control structure. 
-Immediately before or immediately after any control word, 
+a control structure.
+Immediately before or immediately after any control word,
 any end-of-line is optional, so that we can choose to remove one or insert one.
-For example, by removing as many as possible from <TT>POSDIFF</TT> we get 
+For example, by removing as many as possible from <TT>POSDIFF</TT> we get
 <PRE>
-   PD =: 4 : 'if.  x > y  do.  x - y  else.  y - x  end. '
-   
-   3 PD 4
-1
-   
+<TT>   PD =: 4 : 'if.  x > y  do.  x - y  else.  y - x  end. '</TT>
+<TT>   </TT>
+<TT>   3 PD 4</TT>
+<TT>1</TT>
+<TT>   </TT>
 </PRE>
 <H3>12.3.3  Expressions versus Control Structures</H3>
 We speak of evaluating an expression.  We regard assignments as expressions, since
 they produce values, but in this case it is natural to speak of "executing" the
 assignment, since there is an effect as well as a value produced. We will
-use the words "execute" and "evaluate" more or less interchangeably
+use the words "execute" and "evaluate" more or less interchangeably.
 <p>
-Executing (or evaluating) a control structure produces a value, the value of 
+Executing (or evaluating) a control structure produces a value, the value of
 one of the expressions within it.
-Nevertheless, a  control structure is not an expression, 
+Nevertheless, a  control structure is not an expression,
 and cannot form part of an expression.
 The following is a syntax error:
 <PRE>
-   foo =: 3 : '1 + if. y > 0 do. y else. 0 end.'
-   
-   foo 6
-|syntax error: foo
-|       1+
+<TT>   foo =: 3 : '1 + if. y > 0 do. y else. 0 end.'</TT>
+<TT>   </TT>
+<TT>   foo 6</TT>
+<TT>|syntax error: foo</TT>
+<TT>|       1+</TT>
 </PRE>
 Observing the distinction between expressions and control structures,
-we can say that the body of an explicit definition is a sequence of items, 
+we can say that the body of an explicit definition is a sequence of items,
 where an item is
-either an expression or a control structure. 
-Here is an example where the body is an expression followed by a control structure 
+either an expression or a control structure.
+Here is an example where the body is an expression followed by a control structure
 followed by an expression.
 <PRE>
-   PD1 =: 4 : 0
-w =. x - y
-if. x > y do. z =. w  else. z =. - w end.
-z
-)
-   
-   3 PD1 4
-1
+<TT>   PD1 =: 4 : 0</TT>
+<TT>w =. x - y</TT>
+<TT>if. x > y do. z =. w  else. z =. - w end.</TT>
+<TT>z</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   3 PD1 4</TT>
+<TT>1</TT>
+<TT>   </TT>
+</PRE>
+The value produced by a control structure is discarded if the
+control structure it is not the last item in the sequence.
+However, this value can be captured
+when the item is the last, so that the value  becomes the result
+delivered by the function.
+<p>
+Hence the previous example can be simplified to:
+<PRE>
+<TT>   PD2 =: 4 : 0</TT>
+<TT>w =. x - y</TT>
+<TT>if. x > y do. w else. - w end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   3 PD 4</TT>
+<TT>1</TT>
+<TT>   </TT>
 </PRE>
 <A NAME="12"></A>
 <H3>12.3.4  Blocks</H3>
 The examples above show the pattern:
 <PRE>
-                if. T do. B1 else. B2 end.
+<TT>                if. T do. B1 else. B2 end.</TT>
 </PRE>
-meaning: if the expression <TT>T</TT> evaluates to "true", then execute the 
+meaning: if the expression <TT>T</TT> evaluates to "true", then execute the
 expression <TT>B1</TT>, and otherwise execute the expression <TT>B2</TT>.
 <p>
 <A NAME="aaa"> </A>
-Expression <TT>T</TT> is regarded as evaluating to "true" if <TT>T</TT> evaluates to 
+Expression <TT>T</TT> is regarded as evaluating to "true" if <TT>T</TT> evaluates to
 any array of which the first element is not <TT>0</TT>.
 <PRE>
-   foo =: 3 : 'if.  y do. ''yes''  else. ''no''  end.'
-   
+<TT>   foo =: 3 : 'if.  y do. ''yes''  else. ''no''  end.'</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>foo 1 1 1</TT></TD>
 <TD><TT>foo  'abc' </TT></TD>
@@ -519,24 +549,24 @@ A block is a sequence of items,  where an item is
 either an expression  or a control structure. The result
 delivered by a block is the value of the last item of the block.
 <p>
-Here is an example, to form the sum of a list, where the T-block 
+Here is an example, to form the sum of a list, where the T-block
 and the B2-block each consist of a sequence.
 <PRE>
-   sum =: 3 : 0
-if. 
-    length  =. # y      NB. T block
-    length  = 0         NB. T block
-do. 
-    0                   NB. B1 block
-else. 
-    first =. {. y       NB. B2 block
-    rest  =. }. y       NB. B2 block
-    first + sum rest    NB. B2 block
-end.
-)
-   
-   sum 1 2 3
-6
+<TT>   sum =: 3 : 0</TT>
+<TT>if. </TT>
+<TT>    length  =. # y      NB. T block</TT>
+<TT>    length  = 0         NB. T block</TT>
+<TT>do. </TT>
+<TT>    0                   NB. B1 block</TT>
+<TT>else. </TT>
+<TT>    first =. {. y       NB. B2 block</TT>
+<TT>    rest  =. }. y       NB. B2 block</TT>
+<TT>    first + sum rest    NB. B2 block</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   sum 1 2 3</TT>
+<TT>6</TT>
 </PRE>
 Here we see that the value of the T-block (true or false)
 is the value of the last expression in the sequence, <TT>(length = 0)</TT>
@@ -544,164 +574,256 @@ is the value of the last expression in the sequence, <TT>(length = 0)</TT>
 The items of a block may be (inner) control structures.
 For example, here is a function to classify the temperature of porridge:
 <PRE>
-   ClaTePo =: 3 : 0
-if. y > 80  do.      'too hot'
-else.
-      if. y < 60 do. 'too cold'
-      else.          'just right'
-      end.
-end.
-)
-   
-   ClaTePo 70
-just right
+<TT>   ClaTePo =: 3 : 0</TT>
+<TT>if. y > 80  do.      'too hot'</TT>
+<TT>else.</TT>
+<TT>      if. y < 60 do. 'too cold'</TT>
+<TT>      else.          'just right'</TT>
+<TT>      end.</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   ClaTePo 70</TT>
+<TT>just right</TT>
 </PRE>
 <H3>12.3.5  Variants of if.</H3>
 A neater version of the last example is:
 <PRE>
-   CLATEPO =: 3 : 0
-if.     y > 80 do. 'too hot'
-elseif. y < 60 do. 'too cold'
-elseif. 1      do. 'just right'
-end.
-)
-   
-   CLATEPO 70
-just right
-   
+<TT>   CLATEPO =: 3 : 0</TT>
+<TT>if.     y > 80 do. 'too hot'</TT>
+<TT>elseif. y < 60 do. 'too cold'</TT>
+<TT>elseif. 1      do. 'just right'</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   CLATEPO 70</TT>
+<TT>just right</TT>
+<TT>   </TT>
 </PRE>
 showing the pattern:
 <PRE>
-         if. T1 do. B1 elseif. T2 do. B2  ... elseif. Tn do. Bn end.
+<TT>         if. T1 do. B1 elseif. T2 do. B2  ... elseif. Tn do. Bn end.</TT>
 </PRE>
 Notice that according to this scheme, if
-all of the tests <TT>T1</TT> ... <TT>Tn</TT> fail, 
+all of the tests <TT>T1</TT> ... <TT>Tn</TT> fail,
 then none of the blocks <TT>B1</TT> .. <TT>Bn</TT> will be executed.
 Consequently we may wish to make <TT>Tn</TT> a catch-all
 test, with the constant value <TT>1</TT>, as in the example
 of <TT>CLATEPO</TT> above.
 <p>
+If all the tests do fail, so that none of the blocks B0 ... Bn
+is executed, then the result will be
+<TT>i. 0 0</TT> which is a J convention for a null value.
+<PRE>
+<TT>   foo =: 3 : 'if. y = 1 do. 99 elseif. y = 2 do. 77 end. '</TT>
+<TT>   </TT>
+<TT>   (i. 0 0) -: foo 0</TT>
+<TT>1</TT>
+<TT>   </TT>
+</PRE>
 There is also the pattern:
 <PRE>
-            if. T do. B end.
+<TT>          if. T do. B end.</TT>
 </PRE>
 Here either <TT>B</TT> is executed or it is not. For example, positive-difference yet again:
 <PRE>
-   PD =: 4 : 0
-z =. x - y
-if. y > x do. z =. y - x end.
-z
-)
-   
-   3 PD 4
-1
-   
+<TT>   PD =: 4 : 0</TT>
+<TT>z =. x - y</TT>
+<TT>if. y > x do. z =. y - x end.</TT>
+<TT>z</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   3 PD 4</TT>
+<TT>1</TT>
 </PRE>
+<H3>12.3.6  The select. Control Structure</H3>
+Consider this example of a verb to classify a name, using an <TT>if.</TT>
+control structure.
+<PRE>
+<TT>   class =: 3 : 0</TT>
+<TT>t =. 4 !: 0 < y</TT>
+<TT>if.     t = 0 do. 'noun'</TT>
+<TT>elseif. t = 1 do. 'adverb'</TT>
+<TT>elseif. t = 2 do. 'conjunction'</TT>
+<TT>elseif. t = 3 do. 'verb'</TT>
+<TT>elseif. 1     do. 'bad name'</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   class 'class'</TT>
+<TT>verb</TT>
+<TT>   class 'oops'</TT>
+<TT>bad name</TT>
+<TT>   </TT>
+</PRE>
+A neater formulation is allowed by the <TT>select.</TT> control structure.
+<PRE>
+<TT>   CLASS =: 3 : 0</TT>
+<TT>select.  4 !: 0 < y</TT>
+<TT>case. 0 do. 'noun'</TT>
+<TT>case. 1 do. 'adverb'</TT>
+<TT>case. 2 do. 'conjunction'</TT>
+<TT>case. 3 do. 'verb'</TT>
+<TT>case.   do. 'bad name'</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   CLASS 'CLASS'</TT>
+<TT>verb</TT>
+<TT>   CLASS 'oops'</TT>
+<TT>bad name</TT>
+<TT>   </TT>
+</PRE>
+Suppose we are interested only in a three-way classification, into
+nouns, verbs and operators (meaning adverbs or conjunctions).
+We could of course write:
+<PRE>
+<TT>   Class =: 3 : 0</TT>
+<TT>select.  4 !: 0 < y</TT>
+<TT>case. 0 do. 'noun'</TT>
+<TT>case. 1 do. 'operator'</TT>
+<TT>case. 2 do. 'operator'</TT>
+<TT>case. 3 do. 'verb'</TT>
+<TT>case.   do. 'bad name'</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+</PRE>
+but this can be abbreviated as:
+<PRE>
+<TT>   Clss =: 3 : 0</TT>
+<TT>select.  4 !: 0 < y</TT>
+<TT>case. 0    do. 'noun'</TT>
+<TT>case. 1;2  do. 'operator'</TT>
+<TT>case. 3    do. 'verb'</TT>
+<TT>case.      do. 'bad name'</TT>
+<TT>end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+</PRE>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>Clss 'Clss' </TT></TD>
+<TD><TT>o =: @: </TT></TD>
+<TD><TT>Clss 'o' </TT></TD>
+<TD><TT>Clss 'oops' </TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>verb</TT></TD>
+<TD><TT>+--+<BR>
+|@:|<BR>
++--+</TT></TD>
+<TD><TT>operator</TT></TD>
+<TD><TT>bad name</TT></TD>
+</TABLE>
+<p>
 <A NAME="13"></A>
-<H3>12.3.6  while. and whilst.</H3>
+<H3>12.3.7  The while. and whilst. Control Structures</H3>
 In the general pattern
 <PRE>
-             while. T do. B end.
+<TT>             while. T do. B end.</TT>
 </PRE>
 block <TT>B</TT> is executed repeatedly
 so long as block <TT>T</TT> evaluates to true.
 Here is an example, a version of the factorial function:
 <PRE>
-   fact =: 3 : 0
-r =. 1
-while. y > 1
-do.    r  =. r * y
-       y =. y - 1
-end.
-r
-)
-   
-   fact 5
-120
+<TT>   fact =: 3 : 0</TT>
+<TT>r =. 1</TT>
+<TT>while. y > 1</TT>
+<TT>do.    r  =. r * y</TT>
+<TT>       y =. y - 1</TT>
+<TT>end.</TT>
+<TT>r</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   fact 5</TT>
+<TT>120</TT>
 </PRE>
 The  variation <TT>whilst. T do. B end.</TT> means
 <PRE>
-             B
+<TT>             B</TT>
 </PRE>
 <PRE>
-             while. T do. B end.
+<TT>             while. T do. B end.</TT>
 </PRE>
-that is, block <TT>B</TT> is executed once,  and then 
+that is, block <TT>B</TT> is executed once,  and then
 repeatedly so long as block <TT>T</TT> is true.
 <A NAME="14"></A>
-<H3>12.3.7  for</H3>
+<H3>12.3.8  for. </H3>
 The pattern
 <PRE>
-             for_a. A do. B. end.
+<TT>             for_a. A do. B. end.</TT>
 </PRE>
 means: for each item <TT>a</TT> in array <TT>A</TT>, execute block <TT>B</TT>.
-Here <TT>a</TT> may be any name; 
+Here <TT>a</TT> may be any name;
 the variable <TT>a</TT> takes on the value
 of each item of <TT>A</TT> in turn.
 For example,  to sum a list:
 <PRE>
-   Sum =: 3 : 0
-r =. 0
-for_term. y do.  r =. r+term end.
-r
-)
-   
-   Sum 1 2 3
-6
+<TT>   Sum =: 3 : 0</TT>
+<TT>r =. 0</TT>
+<TT>for_term. y do.  r =. r+term end.</TT>
+<TT>r</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   Sum 1 2 3</TT>
+<TT>6</TT>
 </PRE>
-In addition to the variable <TT>a</TT> for the value of an item, 
+In addition to the variable <TT>a</TT> for the value of an item,
 the variable <TT>a_index</TT> is available to give
 the index of the item. For example, this function numbers the items:
 <PRE>
-   f3 =: 3 : 0
-r =. 0 2 $ 0
-for_item. y do.  r =. r , (item_index; item) end.
-r
-)
-   
-   f3 'ab';'cdef';'gh'
-+-+----+
-|0|ab  |
-+-+----+
-|1|cdef|
-+-+----+
-|2|gh  |
-+-+----+
+<TT>   f3 =: 3 : 0</TT>
+<TT>r =. 0 2 $ 0</TT>
+<TT>for_item. y do.  r =. r , (item_index; item) end.</TT>
+<TT>r</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   f3 'ab';'cdef';'gh'</TT>
+<TT>+-+----+</TT>
+<TT>|0|ab  |</TT>
+<TT>+-+----+</TT>
+<TT>|1|cdef|</TT>
+<TT>+-+----+</TT>
+<TT>|2|gh  |</TT>
+<TT>+-+----+</TT>
 </PRE>
 Another variation is the pattern <TT>for. A do. B end.</TT>
-in which block B is executed as many times as there are items of <TT>A</TT>.
+in which block <TT>B</TT> is executed as many times as there are items of <TT>A</TT>.
 For example, here is a verb to count the items of a list.
 <PRE>
-   f4 =: 3 : 0
-count =. 0
-for. y do. count =. count+1 end.
-)
-   
-   f4 'hello'
-5
-   
+<TT>   f4 =: 3 : 0</TT>
+<TT>count =. 0</TT>
+<TT>for. y do. count =. count+1 end.</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   f4 'hello'</TT>
+<TT>5</TT>
+<TT>   </TT>
+<TT>   </TT>
+<TT>   </TT>
 </PRE>
-<H3>12.3.8  Other Control Structures</H3>
+<H3>12.3.9  Other Control Structures</H3>
 <A HREF="29.htm">Chapter 29</A> covers the control structure
 <TT>try.  catch.  end.</TT> . Other control words and structures
 are covered in the J Dictionary
 <p>
 This is the end of Chapter 12.
-  </tr> </table> 
-<HR>  
- <p ALIGN=CENTER> 
- <A HREF="13.htm"> NEXT </A> <BR> 
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
-<A HREF="kwic.htm"> Index </A> 
-<HR> 
-<P ALIGN=CENTER> 
-<FONT SIZE=-1>The examples in this chapter 
-were executed using J version  j701/beta/2010-11-24/22:45. 
- This chapter last updated 22 Dec 2010<BR> 
-Copyright &copy; Roger Stokes 2010. 
- This material may be freely reproduced, 
-provided that this copyright notice is also reproduced. 
-</FONT> 
+  </tr> </table>
+<HR>
+ <p ALIGN=CENTER>
+ <A HREF="13.htm"> NEXT </A> <BR>
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
+<A HREF="kwic.htm"> Index </A>
+<HR>
+<P ALIGN=CENTER>
+<FONT SIZE=-1>The examples in this chapter
+were executed using J version 701.
+ This chapter last updated 13 Dec 2012<BR>
+Copyright &copy; Roger Stokes 2012.
+ This material may be freely reproduced,
+provided that this copyright notice is also reproduced.
+</FONT>
  <!--bottom jump start--><hr><a href="13.htm">&gt;&gt;</a>&nbsp;
 <a href="11.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -714,6 +836,5 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY> 
- </HTML> 
- 
+Learning J<!--bottom jump end--></BODY>
+ </HTML>

@@ -1,0 +1,509 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
+  <TITLE>   Ch 32: Trees</TITLE>
+  <STYLE TYPE="text/css">
+    TT  {font-size: 12pt; COLOR: BLUE}
+    PRE {font-size: 12pt; COLOR: BLUE}
+
+    table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
+  </STYLE>
+</HEAD>
+
+<BODY BGCOLOR=WHITE><!--top jump start--><a href="91.htm">&gt;&gt;</a>&nbsp;
+<a href="31.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+Learning J<hr><!--top jump end-->
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
+  <tr> <td valign="top" width="17%"> <p> </td>
+   <td valign="top" width="83%">
+ <H1>Chapter 32: Trees</H1>
+<A NAME="01"></A>
+<H2>32.1  Introduction</H2>
+Data structures consisting of boxes within boxes may be called trees.
+J provides several special functions in support of computations with trees.
+<p>
+<p>
+Here is an example of a tree:
+<PRE>
+<TT>   ] T =:  'the cat' ; 'sat' ; < 'on' ; < ('the';'mat')</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|the cat|sat|+--+---------+|</TT>
+<TT>|       |   ||on|+---+---+||</TT>
+<TT>|       |   ||  ||the|mat|||</TT>
+<TT>|       |   ||  |+---+---+||</TT>
+<TT>|       |   |+--+---------+|</TT>
+<TT>+-------+---+--------------+</TT>
+</PRE>
+Those boxes with no inner boxes will be called leaves. We see that <TT>T</TT>
+has 7 boxes of which 5 are leaves.
+<H2>32.2  Fetching </H2>
+<A NAME="02"></A>
+<A NAME="03"></A>
+Evidently, the content of any box can be fetched from tree <TT>T</TT>
+by a combination of indexing and unboxing.
+<PRE>
+<TT>   ] a =: > 2 { T</TT>
+<TT>+--+---------+</TT>
+<TT>|on|+---+---+|</TT>
+<TT>|  ||the|mat||</TT>
+<TT>|  |+---+---+|</TT>
+<TT>+--+---------+</TT>
+<TT>   </TT>
+<TT>   ] b =: > 1 { a</TT>
+<TT>+---+---+</TT>
+<TT>|the|mat|</TT>
+<TT>+---+---+</TT>
+<TT>   </TT>
+<TT>   ] c =: > 1 { b</TT>
+<TT>mat</TT>
+</PRE>
+but there is a built-in verb, "Fetch" (dyadic <TT>{::</TT>) , for this purpose.
+Its left argument is a sequence of indexes (called a path):
+<PRE>
+<TT>   (2;1;1) {:: T</TT>
+<TT>mat</TT>
+</PRE>
+Further examples:
+<PRE>
+<TT>   2 {:: T</TT>
+<TT>+--+---------+</TT>
+<TT>|on|+---+---+|</TT>
+<TT>|  ||the|mat||</TT>
+<TT>|  |+---+---+|</TT>
+<TT>+--+---------+</TT>
+<TT>   </TT>
+<TT>   (2 ;1) {:: T</TT>
+<TT>+---+---+</TT>
+<TT>|the|mat|</TT>
+<TT>+---+---+</TT>
+<TT>   </TT>
+</PRE>
+<H2>32.3  The Domain of Fetch</H2>
+The right argument of <TT>{::</TT> must be a vector, or higher rank, and not a scalar,
+or else an error results. (Recall that a single box is a scalar).
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>0 {:: , <'hello' </TT></TD>
+<TD><TT>0 {:: < 'hello' </TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>hello</TT></TD>
+<TD><TT>error</TT></TD>
+</TABLE>
+<p>
+Let us say that a full-length path is a path which fetches
+the data content from a leaf.
+<p>
+Along a full-length path, every index must select a scalar, a box, or else
+an error results. In other words, we must have a single path.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>T</TT></TD>
+<TD><TT>(2; 1 ; 0 1) {:: T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+-------+---+--------------+<BR>
+|the cat|sat|+--+---------+|<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||on|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;||the|mat|||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|+--+---------+|<BR>
++-------+---+--------------+</TT></TD>
+<TD><TT>error</TT></TD>
+</TABLE>
+<p>
+The data fetched from a leaf is the result of opening
+the last box selected along the path. This data can, as we saw above,
+be an array, a list say.
+<PRE>
+<TT>   (2;1;1) {:: T</TT>
+<TT>mat</TT>
+<TT>   </TT>
+</PRE>
+If this data is an indexable array, then a further index can be
+appended to a full-length path, giving an over-length path, to fetch a
+further single scalar.  The next example shows fetching <TT>'m'</TT> from <TT>'mat'</TT>.
+<PRE>
+<TT>   (2;1;1;0) {:: T</TT>
+<TT>m</TT>
+<TT>   </TT>
+<TT>   </TT>
+</PRE>
+<H2>32.4  The "Map" Verb </H2>
+<A NAME="04"></A>
+Monadic <TT>{::</TT> is called "Map". It shows all the paths to the leaves.
+<PRE>
+<TT>   {:: T</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>|+-+|+-+|+-----+-----------------+|</TT>
+<TT>||0|||1|||+-+-+|+-------+-------+||</TT>
+<TT>|+-+|+-+|||2|0|||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||+-+-+|||2|1|0|||2|1|1||||</TT>
+<TT>|   |   ||     ||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||     |+-------+-------+||</TT>
+<TT>|   |   |+-----+-----------------+|</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>   </TT>
+</PRE>
+<H2>32.5  What is the Height of This Tree? </H2>
+<A NAME="05"></A>
+<A NAME="06"></A>
+The verb <TT>L.</TT> ("LevelOf") reports the length of the longest path
+in a tree,  that is, the maximum length
+of a path to fetch the
+unboxed data-content of a leaf. In the book "A Programming Language"
+Kenneth Iverson uses the term "height" for the length of the longest path
+of a tree.
+<p>
+The length of a path is the number of indexing-and-unboxing steps needed.
+It is evident that it takes at most 3 steps to fetch any data-content from <TT>T</TT>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>T</TT></TD>
+<TD><TT>L.T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+-------+---+--------------+<BR>
+|the cat|sat|+--+---------+|<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||on|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;||the|mat|||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|+--+---------+|<BR>
++-------+---+--------------+</TT></TD>
+<TD><TT>3</TT></TD>
+</TABLE>
+<p>
+One step is needed to fetch the content of the leaf of a tree consisting only of
+a single leaf, for example <TT>,<6 </TT>.  The step is <TT>> @: (0&amp;{)</TT>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>A =: ,<6</TT></TD>
+<TD><TT>L. A</TT></TD>
+<TD><TT>(> @: (0&amp;{)) A </TT></TD>
+<TD><TT> 0 {:: A</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+-+<BR>
+|6|<BR>
++-+</TT></TD>
+<TD><TT>1</TT></TD>
+<TD><TT>6</TT></TD>
+<TD><TT>6</TT></TD>
+</TABLE>
+<p>
+and it evidently needs no steps to fetch the content of <TT>'hello'</TT>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>L. 'hello' </TT></TD>
+<TD><TT>(0$0) {:: 'hello' </TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>0</TT></TD>
+<TD><TT>hello</TT></TD>
+</TABLE>
+<p>
+<H2>32.6  Levels and the L: Conjunction</H2>
+<A NAME="07"></A>
+A box with no inner box (a leaf) is said to be at level 0.
+<p>
+Here is another tree:
+<PRE>
+<TT>   ] D =: (<'one'; 'two'), (<  'three' ; 'four')</TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>||one|two|||three|four||</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>+---------+------------+</TT>
+<TT>   </TT>
+</PRE>
+We can apply a given function to the values inside the leaves, that is, at level 0,
+with the aid of the <TT>L:</TT> conjunction (called "Level At").
+<p>
+Reversing the content of each level-0 node, that is, each leaf:
+<PRE>
+<TT>   |. L: 0 D</TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>||eno|owt|||eerht|ruof||</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>+---------+------------+</TT>
+</PRE>
+Reversing  at level 1:
+<PRE>
+<TT>   |. L: 1 D</TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+----+-----+|</TT>
+<TT>||two|one|||four|three||</TT>
+<TT>|+---+---+|+----+-----+|</TT>
+<TT>+---------+------------+</TT>
+</PRE>
+and at level 2:
+<PRE>
+<TT>   |. L: 2 D</TT>
+<TT>+------------+---------+</TT>
+<TT>|+-----+----+|+---+---+|</TT>
+<TT>||three|four|||one|two||</TT>
+<TT>|+-----+----+|+---+---+|</TT>
+<TT>+------------+---------+</TT>
+</PRE>
+We see that we can apply a function at each of the levels 0 1 2 .
+The level at which the function is applied can also be specified
+as a negative number:
+<PRE>
+<TT>   |. L: _2 D   </TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>||eno|owt|||eerht|ruof||</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>+---------+------------+</TT>
+<TT>   </TT>
+<TT>   |. L: _1 D</TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+----+-----+|</TT>
+<TT>||two|one|||four|three||</TT>
+<TT>|+---+---+|+----+-----+|</TT>
+<TT>+---------+------------+</TT>
+</PRE>
+Levels for trees are analogous to ranks for arrays.
+<TT>L:</TT> is the analogue of the rank conjunction <TT>"</TT> .
+<H2>32.7  The Spread Conjunction</H2>
+<A NAME="08"></A>
+We saw above that the result of the <TT>L:</TT> conjunction has the same
+tree-structure as the argument.  There is another conjunction, <TT>S:</TT> (called "Spread")
+which is like <TT>L:</TT> in applying a function at a level, but unlike
+<TT>L:</TT> in that the results are delivered, not as a tree but simply as a flat list.
+<PRE>
+<TT>   D</TT>
+<TT>+---------+------------+</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>||one|two|||three|four||</TT>
+<TT>|+---+---+|+-----+----+|</TT>
+<TT>+---------+------------+</TT>
+<TT>   </TT>
+<TT>   |. S: 0 D</TT>
+<TT>eno  </TT>
+<TT>owt  </TT>
+<TT>eerht</TT>
+<TT>ruof </TT>
+</PRE>
+The result above is a list (a "flat list") of 4 items,
+each item being a string.
+<PRE>
+<TT>   |. S: 1 D</TT>
+<TT>+----+-----+</TT>
+<TT>|two |one  |</TT>
+<TT>+----+-----+</TT>
+<TT>|four|three|</TT>
+<TT>+----+-----+</TT>
+</PRE>
+The result above is a list of 2 items, each item being a list of 2 boxes.
+<PRE>
+<TT>   |. S: 2 D</TT>
+<TT>+------------+---------+</TT>
+<TT>|+-----+----+|+---+---+|</TT>
+<TT>||three|four|||one|two||</TT>
+<TT>|+-----+----+|+---+---+|</TT>
+<TT>+------------+---------+</TT>
+</PRE>
+The result above is a list of 2 items, each item being a box.
+<H2>32.8  Trees with Varying Path-lengths</H2>
+In the example tree <TT>D</TT> above all the path-lengths to a leaf
+are the same length. However, in general path-lengths may vary.
+For the example tree <TT>T</TT>,
+<PRE>
+<TT>   T</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|the cat|sat|+--+---------+|</TT>
+<TT>|       |   ||on|+---+---+||</TT>
+<TT>|       |   ||  ||the|mat|||</TT>
+<TT>|       |   ||  |+---+---+||</TT>
+<TT>|       |   |+--+---------+|</TT>
+<TT>+-------+---+--------------+</TT>
+</PRE>
+the paths are shown by <TT>{:: T</TT> and the lengths of the paths
+are given by
+<PRE>
+<TT>   (# S: 1) {:: T </TT>
+<TT>1 1 2 3 3</TT>
+</PRE>
+Reversing the contents of the level-0 nodes gives no surprises:
+<PRE>
+<TT>   |. L: 0 T</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|tac eht|tas|+--+---------+|</TT>
+<TT>|       |   ||no|+---+---+||</TT>
+<TT>|       |   ||  ||eht|tam|||</TT>
+<TT>|       |   ||  |+---+---+||</TT>
+<TT>|       |   |+--+---------+|</TT>
+<TT>+-------+---+--------------+</TT>
+</PRE>
+but if we reverse contents of the level-1 nodes we see that
+some but not all of the level-0 leaves reappear at level 1.
+<PRE>
+<TT>   |. L: 1 T</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|tac eht|tas|+--+---------+|</TT>
+<TT>|       |   ||no|+---+---+||</TT>
+<TT>|       |   ||  ||mat|the|||</TT>
+<TT>|       |   ||  |+---+---+||</TT>
+<TT>|       |   |+--+---------+|</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>   </TT>
+</PRE>
+The explanation is that at level 1 the given verb is applied to
+<UL>
+  <LI> those nodes strictly at level 1, that is, those for which <TT>1=L. node</TT> AND
+<p>
+  <LI> those nodes strictly at level 0 not already accounted for
+       by being contained within a level 1 node.
+</UL>
+<p>
+Similarly, if we reverse the contents of the level-2 nodes we see:
+<PRE>
+<TT>   |. L: 2 T</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|tac eht|tas|+---------+--+|</TT>
+<TT>|       |   ||+---+---+|on||</TT>
+<TT>|       |   |||the|mat||  ||</TT>
+<TT>|       |   ||+---+---+|  ||</TT>
+<TT>|       |   |+---------+--+|</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>   </TT>
+</PRE>
+In this example some of the results of reverse are
+strings, and some are lists of boxes.  They are of different types.
+These results of different types cannot simply be assembled without
+more ado into a flat list as would be attempted by S:
+<p>
+Hence <TT>u S: 1</TT> may fail unless the verb u itself provides uniform results
+at every node. Compare these two examples:
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>|. S: 1 T</TT></TD>
+<TD><TT>(< @: |.) S: 1 T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>error</TT></TD>
+<TD><TT>+-------+---+--+---------+<BR>
+|tac eht|tas|no|+---+---+|<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;||mat|the||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;|+---+---+|<BR>
++-------+---+--+---------+</TT></TD>
+</TABLE>
+<p>
+The Level conjunction <TT>L:</TT> walks the tree in the same way,
+that is, it hits the same nodes for reversing,
+<p>
+<PRE>
+<TT>   |. L: 0 T</TT>
+<TT>+-------+---+--------------+</TT>
+<TT>|tac eht|tas|+--+---------+|</TT>
+<TT>|       |   ||no|+---+---+||</TT>
+<TT>|       |   ||  ||eht|tam|||</TT>
+<TT>|       |   ||  |+---+---+||</TT>
+<TT>|       |   |+--+---------+|</TT>
+<TT>+-------+---+--------------+</TT>
+</PRE>
+However, Level does not try to build a flat list of results,
+rather puts each individual result back into its position in the tree.
+Hence where Spread will fail because it tries to build a flat list,
+Level will succeed.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>|. S: 1 T</TT></TD>
+<TD><TT>|. L: 1 T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>error</TT></TD>
+<TD><TT>+-------+---+--------------+<BR>
+|tac eht|tas|+--+---------+|<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||no|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;||mat|the|||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;|+---+---+||<BR>
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|+--+---------+|<BR>
++-------+---+--------------+</TT></TD>
+</TABLE>
+<p>
+<H2>32.9  L. Revisited</H2>
+Here we show that the LevelOf a tree can be computed from its Map
+that is, that L. T, say, can be found from {:: T
+<PRE>
+<TT>   {:: T                NB. Map giving the paths to leaves</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>|+-+|+-+|+-----+-----------------+|</TT>
+<TT>||0|||1|||+-+-+|+-------+-------+||</TT>
+<TT>|+-+|+-+|||2|0|||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||+-+-+|||2|1|0|||2|1|1||||</TT>
+<TT>|   |   ||     ||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||     |+-------+-------+||</TT>
+<TT>|   |   |+-----+-----------------+|</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>   </TT>
+<TT>   # S: 1 {:: T         NB. the length of each path</TT>
+<TT>1 1 2 3 3</TT>
+<TT>   </TT>
+<TT>   >. / # S: 1 {:: T    NB. the maximum of the lengths</TT>
+<TT>3</TT>
+<TT>   </TT>
+<TT>   L. T                 NB.  the LevelOf T </TT>
+<TT>3</TT>
+<TT>   </TT>
+<TT>   </TT>
+</PRE>
+This is the end of Chapter 32.
+  </tr> </table>
+<HR>
+ <p ALIGN=CENTER>
+ <A HREF="91.htm"> NEXT </A> <BR>
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
+<A HREF="kwic.htm"> Index </A>
+<HR>
+<P ALIGN=CENTER>
+<FONT SIZE=-1>The examples in this chapter
+were executed using J version 701.
+ This chapter last updated 31 July 2013<BR>
+Copyright &copy; Roger Stokes 2013.
+ This material may be freely reproduced,
+provided that acknowledgement is made.
+</FONT>
+ <!--bottom jump start--><hr><a href="91.htm">&gt;&gt;</a>&nbsp;
+<a href="31.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+Learning J<!--bottom jump end--></BODY>
+ </HTML>

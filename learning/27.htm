@@ -1,20 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-    
-<HTML> 
-<HEAD> 
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)"> 
-  <META NAME="CREATED" CONTENT="20051014;16001218"> 
-	<META NAME="CHANGED" CONTENT="20051014;16020434"> 
-  <title>   Ch 27: Representations and Conversions</title> 
-  <STYLE TYPE="text/css"> 
-   <!-- 
-    TT  {font-size: 11pt; COLOR: BLUE} 
-    PRE {font-size: 11pt; COLOR: BLUE} 
-   --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
+  <TITLE>   Ch 27: Representations and Conversions</TITLE>
+  <STYLE TYPE="text/css">
+    TT  {font-size: 12pt; COLOR: BLUE}
+    PRE {font-size: 12pt; COLOR: BLUE}
+
+    table.jtable {
+         border-width: thin;
+         border-spacing: 2px;
+         border-style: solid;
+         border-color: gray;
+         border-collapse: collapse;
+         background-color: white;
+     }
+     table.jtable td {
+         border-width: 1px;
+         padding: 10px;
+         border-style: solid;
+         border-color: gray;
+         background-color: white;
+     }
   </STYLE>
 </HEAD>
-          
+
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="28.htm">&gt;&gt;</a>&nbsp;
 <a href="26.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -27,10 +39,10 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end--> 
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
-  <tr> <td valign="top" width="17%"> <p> </td> 
-   <td valign="top" width="83%"> 
+Learning J<hr><!--top jump end-->
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
+  <tr> <td valign="top" width="17%"> <p> </td>
+   <td valign="top" width="83%">
  <H1>Chapter 27: Representations and Conversions</H1>
 In this chapter we look at various transformations of functions and data.
 <H2>27.1  Classes and Types</H2>
@@ -45,12 +57,12 @@ there are 4 classes to which <TT>something</TT> may belong.
 <p>
 There is a built-in verb <TT>4!:0</TT> which here we can call <TT>class</TT>.
 <PRE>
-   class =: 4!:0
+<TT>   class =: 4!:0</TT>
 </PRE>
-We can discover the class of <TT>something</TT> by applying 
+We can discover the class of <TT>something</TT> by applying
 <TT>class</TT> to the argument <TT><'name'</TT>. For example,
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>n =: 6</TT></TD>
 <TD><TT>class < 'n'</TT></TD>
@@ -62,52 +74,52 @@ We can discover the class of <TT>something</TT> by applying
 The result of <TT>0</TT> for the class of <TT>n</TT> means that <TT>n</TT>
 is a noun. The cases are:
 <PRE>
-          0  noun
+<TT>          0  noun</TT>
 </PRE>
 <PRE>
-          1  adverb
+<TT>          1  adverb</TT>
 </PRE>
 <PRE>
-          2  conjunction
+<TT>          2  conjunction</TT>
 </PRE>
 <PRE>
-          3  verb
+<TT>          3  verb</TT>
 </PRE>
 and two more cases: the string <TT>'n'</TT> is not a valid name,
-or <TT>n</TT> is valid as a name but no value is assigned 
+or <TT>n</TT> is valid as a name but no value is assigned
 to <TT>n</TT>.
 <PRE>
-         _2  invalid
+<TT>         _2  invalid</TT>
 </PRE>
 <PRE>
-         _1  unassigned
+<TT>         _1  unassigned</TT>
 </PRE>
 For example:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
-<TD><TT>C =: &</TT></TD>
+<TD><TT>C =: &amp;</TT></TD>
 <TD><TT>class <'C'</TT></TD>
 <TD><TT>class <'yup'</TT></TD>
 <TD><TT>class  <'1+2'</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>&</TT></TD>
+<TD><TT>&amp;</TT></TD>
 <TD><TT>2</TT></TD>
 <TD><TT>_1</TT></TD>
 <TD><TT>_2</TT></TD>
 </TABLE>
 <p>
-The argument of <TT>class</TT> 
-identifies the object of interest by quoting its name 
+The argument of <TT>class</TT>
+identifies the object of interest by quoting its name
 to make a string, such as <TT>'C'</TT>.
 <p>
-Why is the argument not simply the object?  Because, by the very purpose 
+Why is the argument not simply the object?  Because, by the very purpose
 of the
 <TT>class</TT> function, the object may be a verb, noun, adverb or conjunction, and
-an adverb or conjunction cannot be supplied as argument to any other 
+an adverb or conjunction cannot be supplied as argument to any other
 function.
 <p>
-Why not? Suppose the object of interest is the 
+Why not? Suppose the object of interest is the
 conjunction <TT>C</TT>.  No matter how <TT>class</TT> is defined,
 whether verb or adverb, any expression of the
 form <TT>(class C)</TT> or <TT>(C class)</TT> is a bident
@@ -120,11 +132,11 @@ numbers or of characters, and so on. The type
 of any array may be discovered by applying the built-in verb
 <TT>3!:0</TT>
 <PRE>
-   type =: 3!:0
+<TT>   type =: 3!:0</TT>
 </PRE>
 For example
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>type 0.1</TT></TD>
 <TD><TT>type 'abc'</TT></TD>
@@ -137,34 +149,34 @@ The result of <TT>8</TT> means floating-point and the result <TT>2</TT>
 means character.
 Possible cases for the result are (amongst others):
 <PRE>
-               1  boolean
+<TT>               1  boolean</TT>
 </PRE>
 <PRE>
-               2  character  (that is, 8-bit characters)
+<TT>               2  character  (that is, 8-bit characters)</TT>
 </PRE>
 <PRE>
-               4  integer
+<TT>               4  integer</TT>
 </PRE>
 <PRE>
-               8  floating point
+<TT>               8  floating point</TT>
 </PRE>
 <PRE>
-              16  complex
+<TT>              16  complex</TT>
 </PRE>
 <PRE>
-              32  boxed
+<TT>              32  boxed</TT>
 </PRE>
 <PRE>
-              64  extended integer
+<TT>              64  extended integer</TT>
 </PRE>
 <PRE>
-             128  rational
+<TT>             128  rational</TT>
 </PRE>
 <PRE>
-           65536  symbol
+<TT>           65536  symbol</TT>
 </PRE>
 <PRE>
-          131072  wide character (16-bit)
+<TT>          131072  wide character (16-bit)</TT>
 </PRE>
 <A NAME="03"></A>
 <H2>27.2  Execute</H2>
@@ -173,13 +185,13 @@ There is a built-in verb <TT>".</TT> (doublequote dot, called
 representing a valid J expression, and the result
 is the value of that expression.
 <PRE>
-   ". '1+2'
-3
+<TT>   ". '1+2'</TT>
+<TT>3</TT>
 </PRE>
 The string can represent an assignment, and the assignment is
 executed:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>". 'w =: 1 + 2'</TT></TD>
 <TD><TT>w</TT></TD>
@@ -188,13 +200,13 @@ executed:
 <TD><TT>3</TT></TD>
 </TABLE>
 <p>
-If the string represents a verb or adverb or conjunction, 
- the result is null, 
+If the string represents a verb or adverb or conjunction,
+ the result is null,
 because Execute is itself a verb and therefore
 its results must be nouns. However we
 can successfully Execute assignments to get functions.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>". '+'</TT></TD>
 <TD><TT> ". 'f =: +'</TT></TD>
@@ -210,24 +222,24 @@ can successfully Execute assignments to get functions.
 When an expression is entered at the keyboard,
 a value is computed and displayed on-screen.
 Here we look at how values
-are represented in on-screen displays. 
+are represented in on-screen displays.
 For example, if we define a function <TT>foo</TT>:
 <PRE>
-   foo =: +/ % #
+<TT>   foo =: +/ % #</TT>
 </PRE>
 and then view the definition of <TT>foo</TT>:
 <PRE>
-   foo
-+-----+-+-+
-|+-+-+|%|#|
-||+|/|| | |
-|+-+-+| | |
-+-----+-+-+
+<TT>   foo</TT>
+<TT>+-----+-+-+</TT>
+<TT>|+-+-+|%|#|</TT>
+<TT>||+|/|| | |</TT>
+<TT>|+-+-+| | |</TT>
+<TT>+-----+-+-+</TT>
 </PRE>
 <A NAME="05"></A>
 we see on the screen some representation of <TT>foo</TT>.
 What we see depends on which of several options is
- currently in effect for representing functions on-screen.  
+ currently in effect for representing functions on-screen.
 <p>
 By default
 the current option is the "boxed representation",
@@ -237,57 +249,57 @@ Other options are available, described below. To select and make current
 an option for representing functions on-screen,
 enter one of the following expressions:
 <PRE>
-            (9!:3) 2  NB. boxed (default)
+<TT>            (9!:3) 2  NB. boxed (default)</TT>
 </PRE>
 <PRE>
-            (9!:3) 5  NB. linear
+<TT>            (9!:3) 5  NB. linear</TT>
 </PRE>
 <PRE>
-            (9!:3) 6  NB. parenthesized
+<TT>            (9!:3) 6  NB. parenthesized</TT>
 </PRE>
 <PRE>
-            (9!:3) 4  NB. tree
+<TT>            (9!:3) 4  NB. tree</TT>
 </PRE>
 <PRE>
-            (9!:3) 1  NB. atomic
+<TT>            (9!:3) 1  NB. atomic</TT>
 </PRE>
-The current option remains in effect until we choose 
-a different option. 
+The current option remains in effect until we choose
+a different option.
 <A NAME="06"></A>
 <H3>27.3.1  Linear Representation</H3>
 If we choose the the linear representation,
 and look at <TT>foo</TT> again:
 <PRE>
-   (9!:3) 5  NB. linear 
-
-   foo
-+/ % #
+<TT>   (9!:3) 5  NB. linear </TT>
+<TT></TT>
+<TT>   foo</TT>
+<TT>+/ % #</TT>
 </PRE>
 we see <TT>foo</TT> in a form in which
-it could be typed in at the keyboard, that is, 
+it could be typed in at the keyboard, that is,
 as an expression.
 <p>
 Notice that the linear form is equivalent to the original
-definition, but not necessarily textually identical: 
+definition, but not necessarily textually identical:
 it tends to minimize parentheses.
 <PRE>
-   bar =: (+/) % #
-   
-   bar
-+/ % #
+<TT>   bar =: (+/) % #</TT>
+<TT>   </TT>
+<TT>   bar</TT>
+<TT>+/ % #</TT>
 </PRE>
 Functions, that is, verbs, adverbs and conjunctions,
  are shown in the current representation.
 By contrast, nouns are always shown in the boxed representation,
-regardless of the current option. Even though 
+regardless of the current option. Even though
 linear is current, we see:
 <PRE>
-   noun =: 'abc';'pqr'
-   
-   noun
-+---+---+
-|abc|pqr|
-+---+---+
+<TT>   noun =: 'abc';'pqr'</TT>
+<TT>   </TT>
+<TT>   noun</TT>
+<TT>+---+---+</TT>
+<TT>|abc|pqr|</TT>
+<TT>+---+---+</TT>
 </PRE>
 <A NAME="07"></A>
 <H3>27.3.2  Parenthesized</H3>
@@ -295,58 +307,58 @@ The parenthesized representation is like linear
 in showing a function as an expression. Unlike linear,
 the parenthesized form helpfully adds parentheses
 to make the logical structure of the expression
-more evident. 
+more evident.
 <PRE>
-   (9!:3) 6  NB. parenthesized
-
-   zot =: f @: g @: h
-   
-   zot
-(f@:g)@:h
+<TT>   (9!:3) 6  NB. parenthesized</TT>
+<TT></TT>
+<TT>   zot =: f @: g @: h</TT>
+<TT>   </TT>
+<TT>   zot</TT>
+<TT>(f@:g)@:h</TT>
 </PRE>
 <A NAME="08"></A>
 <H3>27.3.3  Tree Representation</H3>
-Tree representation is another way of displaying 
+Tree representation is another way of displaying
 structure graphically:
 <PRE>
-   (9!:3) 4  NB. tree
-
-   zot
-              +- f
-       +- @: -+- g
--- @: -+- h       
-   
+<TT>   (9!:3) 4  NB. tree</TT>
+<TT></TT>
+<TT>   zot</TT>
+<TT>              +- f</TT>
+<TT>       +- @: -+- g</TT>
+<TT>-- @: -+- h       </TT>
+<TT>   </TT>
 </PRE>
 <H3>27.3.4  Atomic Representation</H3>
 See below
 <p>
 Before continuing, we return the current representation option to linear.
 <PRE>
-   (9!:3) 5
-
+<TT>   (9!:3) 5</TT>
+<TT></TT>
 </PRE>
 <A NAME="09"></A>
 <H2>27.4  Representation Functions</H2>
 Regardless of the current option for
 showing representations on-screen,
-any desired representation may be generated 
+any desired representation may be generated
 as a noun by
-applying a suitable built-in verb. 
+applying a suitable built-in verb.
 <p>
 If <TT>y</TT> is a name with an assigned value,
-then a representation of <TT>y</TT> is a noun produced by applying one of the 
+then a representation of <TT>y</TT> is a noun produced by applying one of the
 following verbs to the argument <TT><'y'</TT>
 <PRE>
-   br =:  5!:2    NB. boxed 
-   lr =:  5!:5    NB. linear
-   pr =:  5!:6    NB. parenthesized
-   tr =:  5!:4    NB. tree
-   ar =:  5!:1    NB. atomic
+<TT>   br =:  5!:2    NB. boxed </TT>
+<TT>   lr =:  5!:5    NB. linear</TT>
+<TT>   pr =:  5!:6    NB. parenthesized</TT>
+<TT>   tr =:  5!:4    NB. tree</TT>
+<TT>   ar =:  5!:1    NB. atomic</TT>
 </PRE>
-For example, the boxed and parenthesized 
+For example, the boxed and parenthesized
 forms of <TT>zot</TT> are shown by:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>br  < 'zot'</TT></TD>
 <TD><TT>pr < 'zot'</TT></TD>
@@ -362,7 +374,7 @@ forms of <TT>zot</TT> are shown by:
 We can get various representations of a noun, for example
 the boxed and the linear:
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>br <'noun'</TT></TD>
 <TD><TT>lr <'noun'</TT></TD>
@@ -377,7 +389,7 @@ Representations produced by <TT>5!:n</TT> are themselves nouns.
 The linear form of verb <TT>foo</TT> is a character-string
 of length 6.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>foo</TT></TD>
 <TD><TT>s =: lr <'foo'</TT></TD>
@@ -388,12 +400,12 @@ of length 6.
 <TD><TT>6</TT></TD>
 </TABLE>
 <p>
-The 6 characters of <TT>s</TT> represent an expression denoting a verb. 
+The 6 characters of <TT>s</TT> represent an expression denoting a verb.
 To capture the verb expressed by string <TT>s</TT>,
 we could prefix the string with characters to make an assignment,
 and Execute the assignment.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>s</TT></TD>
 <TD><TT>$ s</TT></TD>
@@ -412,31 +424,31 @@ and Execute the assignment.
 <H3>27.4.1  Atomic Representation</H3>
 We saw in <A HREF="10.htm">Chapter 10</A> and <A HREF="14.htm">Chapter 14</A>,
 that it is useful to be able to form sequences of functions.
-By this we mean, not trains of verbs, but gerunds. 
-A gerund, regarded as a sequence of verbs, can for example be indexed to 
+By this we mean, not trains of verbs, but gerunds.
+A gerund, regarded as a sequence of verbs, can for example be indexed to
 find a verb
 applicable in a particular case of the argument.
 <p>
 To be indexable, a sequence must be an array, a noun. Thus we are interested
-in transforming a verb into a noun representing that verb, 
-and vice versa. A gerund is a list of such nouns, containing atomic 
+in transforming a verb into a noun representing that verb,
+and vice versa. A gerund is a list of such nouns, containing atomic
 representations.
-The atomic representation is suitable for this purpose 
+The atomic representation is suitable for this purpose
 because it has an inverse. None of the other representation functions
 have true inverses.
 <p>
 The atomic representation of anything is a single box
-with inner structure.  
+with inner structure.
 For an example, suppose that <TT>h</TT> is a verb defined
 as a hook. (A hook is about the simplest example
-of a verb with non-trivial structure.) 
+of a verb with non-trivial structure.)
 <PRE>
-   h =: + %
+<TT>   h =: + %</TT>
 </PRE>
-compare the boxed and the atomic 
+compare the boxed and the atomic
 representations of <TT>h</TT>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>br <'h'</TT></TD>
 <TD><TT>ar  < 'h'</TT></TD>
@@ -453,29 +465,29 @@ representations of <TT>h</TT>
 +---------+</TT></TD>
 </TABLE>
 <p>
-The inner structure is an encoding which allows the verb to be recovered 
+The inner structure is an encoding which allows the verb to be recovered
 from the noun efficiently
-without reparsing the original definition. 
+without reparsing the original definition.
 It mirrors the internal form in which a definition is stored.
-It is NOT meant as yet another graphic display of structure. 
+It is NOT meant as yet another graphic display of structure.
 <p>
-The encoding is described in the Dictionary. We will not go into much 
-detail here. 
-Very briefly, in this example we see that <TT>h</TT> is a hook 
- (because <TT>2</TT> is an encoding of "hook") 
-where the first verb is <TT>+</TT> 
-and the second is <TT>%</TT>. 
+The encoding is described in the Dictionary. We will not go into much
+detail here.
+Very briefly, in this example we see that <TT>h</TT> is a hook
+ (because <TT>2</TT> is an encoding of "hook")
+where the first verb is <TT>+</TT>
+and the second is <TT>%</TT>.
 <p>
-The next example shows that we can generate atomic representations of a 
+The next example shows that we can generate atomic representations of a
 noun, a verb, an adverb or a conjunction.
 <PRE>
-   N =: 6
-   V =: h
-   A =: /
-   C =: &
+<TT>   N =: 6</TT>
+<TT>   V =: h</TT>
+<TT>   A =: /</TT>
+<TT>   C =: &amp;</TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>ar <'N'</TT></TD>
 <TD><TT>ar <'V'</TT></TD>
@@ -494,24 +506,24 @@ noun, a verb, an adverb or a conjunction.
 |/|<BR>
 +-+</TT></TD>
 <TD><TT>+-+<BR>
-|&|<BR>
+|&amp;|<BR>
 +-+</TT></TD>
 </TABLE>
 <p>
 <H3>27.4.2  Inverse of Atomic Representation</H3>
-The inverse of representation is sometimes called "abstraction",  
-(in the sense that for example a number is an abstract mathematical object 
-represented by a numeral.)  The inverse of atomic representation is <TT>5!:0</TT> 
-which we can call <TT>ab</TT>.  
+The inverse of representation is sometimes called "abstraction",
+(in the sense that for example a number is an abstract mathematical object
+represented by a numeral.)  The inverse of atomic representation is <TT>5!:0</TT>
+which we can call <TT>ab</TT>.
 <PRE>
-   ab =: 5!:0
+<TT>   ab =: 5!:0</TT>
 </PRE>
 <TT>ab</TT> is an adverb, because it must be able to generate any of noun,
-verb, adverb or conjunction. 
-For example, we see that the abstraction of the 
+verb, adverb or conjunction.
+For example, we see that the abstraction of the
 atomic representation of <TT>h</TT> is equal to <TT>h</TT>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>h</TT></TD>
 <TD><TT>r =: ar < 'h'</TT></TD>
@@ -531,7 +543,7 @@ atomic representation of <TT>h</TT> is equal to <TT>h</TT>
 and similarly for an argument of any type. For example
 for noun <TT>N</TT> or conjunction <TT>C</TT>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>N</TT></TD>
 <TD><TT>rN=: ar <'N'</TT></TD>
@@ -546,8 +558,8 @@ for noun <TT>N</TT> or conjunction <TT>C</TT>
 |+-+-+|<BR>
 +-----+</TT></TD>
 <TD><TT>6</TT></TD>
-<TD><TT>&</TT></TD>
-<TD><TT>&</TT></TD>
+<TD><TT>&amp;</TT></TD>
+<TD><TT>&amp;</TT></TD>
 </TABLE>
 <p>
 <H3>27.4.3  Execute Revisited</H3>
@@ -556,7 +568,7 @@ Recall that Execute evaluates strings expressing nouns but not verbs.
 Since Execute is itself a verb it cannot
 deliver verbs as its result.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>". '1+2'</TT></TD>
 <TD><TT>". '+'</TT></TD>
@@ -569,14 +581,14 @@ To evaluate strings expressing values of any class
 we can define an adverb <TT>eval</TT> say, which delivers its result
 by abstracting an atomic representation of it.
 <PRE>
-   eval =: 1 : 0
-". 'w =. ' , u
-(ar < 'w') ab
-)
-   
+<TT>   eval =: 1 : 0</TT>
+<TT>". 'w =. ' , u</TT>
+<TT>(ar < 'w') ab</TT>
+<TT>)</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>'1+2' eval</TT></TD>
 <TD><TT>mean =:  '+/ % #' eval</TT></TD>
@@ -590,15 +602,15 @@ by abstracting an atomic representation of it.
 <H3>27.4.4  The Tie Conjunction Revisited</H3>
 Recall from <A HREF="14.htm">Chapter 14</A> that we form gerunds
 with the Tie conjunction <TT>`</TT>. Its arguments can be two
-verbs. 
+verbs.
 <PRE>
-   G =: (+ %) ` h  
+<TT>   G =: (+ %) ` h  </TT>
 </PRE>
 Its result is a list of atomic representations.
 To demonstrate, we choose one, say the first in the list, and abstract
-the verb. 
+the verb.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>G</TT></TD>
 <TD><TT>r =: 0 { G</TT></TD>
@@ -623,17 +635,17 @@ the verb.
 <p>
 The example shows that Tie can take arguments of
 expressions denoting verbs. By contrast, the atomic representation
-function (<TT>ar</TT> or <TT>5!:1</TT>) 
+function (<TT>ar</TT> or <TT>5!:1</TT>)
  must take a boxed name to identify its argument.
 <p>
 Here is a conjunction <TT>T</TT> which, like Tie,
 can take verbs (not names) as arguments and produces atomic representations.
 <PRE>
-   T =: 2 : '(ar <''u.'') , (ar <''v.'')'
-   
+<TT>   T =: 2 : '(ar <''u.'') , (ar <''v.'')'</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>(+ %) T h</TT></TD>
 <TD><TT>(+ %) ` h</TT></TD>
@@ -656,74 +668,42 @@ can take verbs (not names) as arguments and produces atomic representations.
 <p>
 <A NAME="11"></A>
 <A NAME="12"></A>
-<H2>27.5  Conversions of Data</H2>
-Consider a graphics file holding an image
-in the "bitmap" format. Published descriptions
-of the bitmap format are something like this:
-<PRE>
-         Offset  Size  ...   Description
-</PRE>
-<PRE>
-       
-</PRE>
-<PRE>
-          0       2          The characters BM for bitmap
-</PRE>
-<PRE>
-          2       4          The total size of the file
-</PRE>
-<PRE>
-                                   :
-</PRE>
-<PRE>
-                                   :
-</PRE>
-<PRE>
-         28       2          Color bits per pixel 1 4 8 or 24
-</PRE>
-We see here the layout of the first few bytes 
-in the file, described as characters,
-16-bit numbers or 32-bit numbers.  such descriptions are ultimately
-descriptions, in terms independent of
-any particular programming language, of how strings of bits 
-are to be interpreted. Data described in this way
-is called "binary" data. 
-<p>
-Now we look at functions for converting between
-values in J arrays and binary forms of such values,
+<H2>27.5  Conversions for Binary Data</H2>
+Binary data is, briefly,
+values represented compactly as character strings.
+Here we look at functions for converting between
+values in J arrays and binary data,
 with a view to handling files with binary data.
 Data files will be covered in <A HREF="28.htm">Chapter 28</A> .
 <p>
-(In the following it is asserted that
-a character occupies one byte 
-and a floating point number occupies 8. 
-That is, we assume J version 4.05 or similar, 
-running on a PC.)
+In the following, a 32-bit PC is assumed, so it is
+assumed that a character occupies one byte
+and a floating point number occupies 8.
 <p>
 A J array, of floating-point numbers for example,
 is stored
-in the memory of the computer. 
+in the memory of the computer.
 Storage is required
 to hold information about the type, rank and shape of
 the array, together with storage for each number
 in the array. Each floating-point
-number in the array needs 8 bytes of storage. 
+number in the array needs 8 bytes of storage.
 <p>
-There are built-in functions to convert 
+There are built-in functions to convert
 a floating-point number to a character-string
-of length 8, and vice versa.  
+of length 8, and vice versa.
 <p>
 <PRE>
-   cf8 =:   2 & (3!:5)   NB. float to 8 chars
-   c8f =:  _2 & (3!:5)   NB. 8 chars to float 
+<TT>   cf8 =:   2 &amp; (3!:5)   NB. float to 8 chars</TT>
+<TT>   c8f =:  _2 &amp; (3!:5)   NB. 8 chars to float </TT>
 </PRE>
-In the following example, we see that 
-the number <TT>n</TT> is floating-point, 
+In the following example, we see that
+the number <TT>n</TT> is floating-point,
 <TT>n</TT> is converted to give the string <TT>s</TT> which
 is of length 8, and <TT>s</TT> is converted back
 to give a floating-point number equal to <TT>n</TT>.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>n =: 0.1</TT></TD>
 <TD><TT>$  s =: cf8 n</TT></TD>
@@ -738,13 +718,13 @@ Characters in the result <TT>s</TT> are mostly non-printable.
 We can inspect the characters by locating them
 in the ASCII character-set:
 <PRE>
-   a. i. s 
-154 153 153 153 153 153 185 63
+<TT>   a. i. s </TT>
+<TT>154 153 153 153 153 153 185 63</TT>
 </PRE>
 Now consider converting arrays of numbers. A list
 of numbers is converted to a single string, and vice versa::
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>a =: 0.1 0.1</TT></TD>
 <TD><TT>$ s =: cf8 a</TT></TD>
@@ -755,18 +735,17 @@ of numbers is converted to a single string, and vice versa::
 <TD><TT>0.1 0.1</TT></TD>
 </TABLE>
 <p>
-The monadic rank of <TT>cf8</TT> is infinite: <TT>cf8</TT> applies 
-just once to its whole argument. 
+The monadic rank of <TT>cf8</TT> is infinite: <TT>cf8</TT> applies
+just once to its whole argument.
 <PRE>
-   RANKS =: 1 : 'u b. 0'
-   cf8 RANKS
-_ _ _
-   
+<TT>   RANKS =: 1 : 'u b. 0'</TT>
+<TT>   cf8 RANKS</TT>
+<TT>_ _ _</TT>
 </PRE>
 but the argument
 must be a scalar or list, or else an error results.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>b =: 2 2 $ a</TT></TD>
 <TD><TT>$ w =: cf8 b</TT></TD>
@@ -781,22 +760,21 @@ must be a scalar or list, or else an error results.
 A floating-point number is convertible to 8 characters.
 There is an option to convert a float to and from
 a shorter 4-character string, sacrificing precision
-for economy of storage. 
+for economy of storage.
 <PRE>
-   cf4 =:  1 & (3!:5)   NB. float to 4 chars
-   c4f =: _1 & (3!:5)   NB. 4 chars to float
-   
+<TT>   cf4 =:  1 &amp; (3!:5)   NB. float to 4 chars</TT>
+<TT>   c4f =: _1 &amp; (3!:5)   NB. 4 chars to float</TT>
 </PRE>
 As we might expect,
  converting a float
 to 4 characters and back again can introduce a small
 error.
 <PRE>
-   p =: 3.14159265358979323
-   
+<TT>   p =: 3.14159265358979323</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>p </TT></TD>
 <TD><TT>$ z =: cf4 p</TT></TD>
@@ -813,12 +791,12 @@ A J integer needs 4 bytes of storage.
 There are functions to convert between
 J integers and 4-character strings.
 <PRE>
-   ci4 =:  2 & (3!:4)  NB. integer to 4 char
-   c4i =: _2 & (3!:4)  NB. 4 char  to integer
-   
+<TT>   ci4 =:  2 &amp; (3!:4)  NB. integer to 4 char</TT>
+<TT>   c4i =: _2 &amp; (3!:4)  NB. 4 char  to integer</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>i =: 1 _100</TT></TD>
 <TD><TT>$ s =: ci4 i</TT></TD>
@@ -833,9 +811,9 @@ We see that the length of <TT>s</TT> is 8 because
 <TT>s</TT> represents two integers.
 <p>
 Suppose <TT>k</TT> is an integer and <TT>c</TT> is the conversion
-of <TT>k</TT> to 4 characters. 
+of <TT>k</TT> to 4 characters.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>k =: 256+65</TT></TD>
 <TD><TT>$ c =: ci4 k</TT></TD>
@@ -848,9 +826,9 @@ Since characters in <TT>c</TT> are mostly non-printable,
 we inspect them by viewing their locations in the ASCII alphabet.
 We see that the characters are
 the base-256 digits in the value of <TT>k</TT>,
-stored in <TT>c</TT> in the order least-significant first (on a PC)..  
+stored in <TT>c</TT> in the order least-significant first (on a PC)..
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>k</TT></TD>
 <TD><TT>a. i. c </TT></TD>
@@ -865,12 +843,12 @@ Integers in the range <TT>_32768</TT> to <TT>32767</TT>
 can be converted to 2-character strings and vice
 versa.
 <PRE>
-   ci2 =:  1 & (3!:4)  NB. integer to 2 char
-   c2i =: _1 & (3!:4)  NB. 2 char  to int
-   
+<TT>   ci2 =:  1 &amp; (3!:4)  NB. integer to 2 char</TT>
+<TT>   c2i =: _1 &amp; (3!:4)  NB. 2 char  to int</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>i</TT></TD>
 <TD><TT>$ s =: ci2 i</TT></TD>
@@ -881,17 +859,17 @@ versa.
 <TD><TT>1 _100</TT></TD>
 </TABLE>
 <p>
-Integers in the range <TT>0</TT> to <TT>65535</TT> 
+Integers in the range <TT>0</TT> to <TT>65535</TT>
 can be converted to 2-character strings
-and vice versa. 
+and vice versa.
 Such strings are described as "16bit unsigned".
 <PRE>
-   ui2 =: ci2         NB. integer to 2-char,  unsigned  
-   u2i =: 0 & (3!:4)  NB. 2 char  to integer, unsigned
-   
+<TT>   ui2 =: ci2         NB. integer to 2-char,  unsigned  </TT>
+<TT>   u2i =: 0 &amp; (3!:4)  NB. 2 char  to integer, unsigned</TT>
+<TT>   </TT>
 </PRE>
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
+<TABLE class=jtable>
 <TR  VALIGN=TOP>
 <TD><TT>m =: 65535</TT></TD>
 <TD><TT>$ s =: ui2 m</TT></TD>
@@ -902,22 +880,126 @@ Such strings are described as "16bit unsigned".
 <TD><TT>65535</TT></TD>
 </TABLE>
 <p>
+<H2>27.6  Unicode</H2>
+In this section we look at J support for Unicode.
+<p>
+There are three kinds of character data in J.
+<UL>
+<LI> Ordinary character data we have seen already as 8-bit ASCII
+<LI> 16-bit characters, called "wide characters" for Unicode.
+<LI> Sequences of 8-bit characters, which represent Unicode characters,
+for the purpose of writing Unicode in files.
+This representation is called the UTF-8 encoding.
+</UL>
+The following diagram shows the J functions available for
+converting character data from one
+kind to another.  The functions are members of the <TT>u:</TT> family.
+<p>
+<IMG SRC="unicode.svg" ALT="diagram 27" WIDTH=400 HEIGHT=400> <p>
+<A NAME="13"></A>
+We have seen that J supports character data.   For example
+<PRE>
+<TT>   C =: 'this is a string'</TT>
+</PRE>
+The built-in verb <TT> 3 !: 0 </TT> shows the type of a data value.
+<PRE>
+<TT>   3!:0  C</TT>
+<TT>2</TT>
+</PRE>
+The result of <TT>2</TT> indicates that the data type of <TT>C</TT>
+ is 8-bit characters, called "char".
+<p>
+J also provides another data type with 16-bit characters, called "wchar" ("wide character").
+The built-in function monadic <TT>u:</TT> converts char data to wchar.
+<PRE>
+<TT>   ] W =: u: C</TT>
+<TT>this is a string</TT>
+</PRE>
+wchar data is displayed as before, but its data-type is shown as 131072
+<PRE>
+<TT>   3!:0 W</TT>
+<TT>131072</TT>
+</PRE>
+A 16-bit wchar character can be one of the many characters in the Unicode standard.
+The  built-in function  <TT> 4&amp;u: </TT> produces a wchar character specified by
+the  argument, which is an integer in the range 0-65536, called a Unicode "code point".
+<p>
+A code point is often given as 4 hex digits.
+For example, the code point for the Greek letter alpha is hex 03b1
+which we can write as <TT>16b03b1</TT>
+<PRE>
+<TT>   ] alpha =: 4&amp;u: 16b03b1</TT>
+<TT>α</TT>
+</PRE>
+alpha is a wchar:
+<PRE>
+<TT>   3!:0  alpha</TT>
+<TT>131072</TT>
+</PRE>
+We can build a wchar string including alpha :
+<PRE>
+<TT>   ] U =: (u: 'the Greek letter alpha looks like this:  ') , alpha</TT>
+<TT>the Greek letter alpha looks like this:  α</TT>
+<TT>    </TT>
+</PRE>
+Suppose now that our wchar data <TT>U</TT> is to be exported, say by writing it to a data file .
+We will need to encode our 16-bit wchar data as a sequence of 8-bit bytes,
+according to some recognised standard encoding scheme. The UTF-8 standard is suitable.
+<p>
+The built-in function <TT> 8&amp;u: </TT> produces a character string
+which is a UTF-8 encoding of wchar data
+<PRE>
+<TT>   ] Z =: 8&amp;u: U</TT>
+<TT>the Greek letter alpha looks like this:  α</TT>
+</PRE>
+We see that <TT>Z</TT> is of data type 2, (that is  8-bit char) and that the number of bytes in <TT>Z</TT>
+is one more than the number of characters in <TT>U</TT>, because alpha is encoded as two bytes.
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT> 3!:0  Z </TT></TD>
+<TD><TT> # U </TT></TD>
+<TD><TT># Z </TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>2</TT></TD>
+<TD><TT>42</TT></TD>
+<TD><TT>43</TT></TD>
+</TABLE>
+<p>
+The inverse of <TT>8&amp;u:</TT> is the built-in function <TT>7&amp;u:</TT> which produces wchar characters from
+a UTF-8 string.
+<PRE>
+<TT>   ] A =: 7&amp;u: Z</TT>
+<TT>the Greek letter alpha looks like this:  α</TT>
+</PRE>
+We can view the Unicode code-points of the letters in <TT>A</TT>.
+The built-in function <TT>3&amp;u:</TT> produces code-point integers from wchar data.
+If we look at the last few characters of A, we see as we expect that
+the code-point integer of alpha is decimal 945, that is, hex 03b1.
+<PRE>
+<TT>   ] L =:  _6 {. A      NB. last few of A</TT>
+<TT>is:  α</TT>
+<TT>   </TT>
+<TT>   3 &amp; u: L</TT>
+<TT>105 115 58 32 32 945</TT>
+<TT>   </TT>
+</PRE>
 This is the end of Chapter 27
-  </tr> </table> 
-<HR>  
- <p ALIGN=CENTER> 
- <A HREF="28.htm"> NEXT </A> <BR> 
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
-<A HREF="kwic.htm"> Index </A> 
-<HR> 
-<P ALIGN=CENTER> 
-<FONT SIZE=-1>The examples in this chapter 
-were executed using J version  j701/beta/2010-11-24/22:45. 
- This chapter last updated 08 Jan 2011<BR> 
-Copyright &copy; Roger Stokes 2010. 
- This material may be freely reproduced, 
-provided that this copyright notice is also reproduced. 
-</FONT> 
+  </tr> </table>
+<HR>
+ <p ALIGN=CENTER>
+ <A HREF="28.htm"> NEXT </A> <BR>
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
+<A HREF="kwic.htm"> Index </A>
+<HR>
+<P ALIGN=CENTER>
+<FONT SIZE=-1>The examples in this chapter
+were executed using J version 701.
+ This chapter last updated 18 Dec 2012<BR>
+Copyright &copy; Roger Stokes 2012.
+ This material may be freely reproduced,
+provided that this copyright notice is also reproduced.
+</FONT>
  <!--bottom jump start--><hr><a href="28.htm">&gt;&gt;</a>&nbsp;
 <a href="26.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -930,6 +1012,5 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY> 
- </HTML> 
- 
+Learning J<!--bottom jump end--></BODY>
+ </HTML>
