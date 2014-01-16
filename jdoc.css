@@ -6,5 +6,8 @@ h1 {font-size: large}
 h2 {font-size: medium}
 h3 {font-size: medium}
 h4 {font-size: medium}
-pre {background:#FFF8ED; border: 1pt solid #AEBDCC; padding: 5pt }
-
+pre {background: #fff8ed; border: 1pt solid #aebdcc; padding: 5pt}
+.hdef {border: 1px solid #aebdcc;background-color: #e6e6fa;padding: 2pt}
+.noun,.nounid {text-align: left;padding: 4px; border: 1px solid #aebdcc; border-collapse: collapse}
+.nounid {background-color: #e6e6fa; font-weight: bold}
+table.noun {margin-bottom: 1em}

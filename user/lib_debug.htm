@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>debug.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_dir.htm">&gt;&gt;</a>&nbsp;<a href="lib_dates.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">debug.ijs</h1>
+</div>
+<p>This script defines debug utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">D</td>
+<td align="left"><a href="#dbctx">dbctx</a>, <a href="#dberm">dberm</a>, <a href="#dberr">dberr</a>, <a href="#dbg">dbg</a>, <a href="#dbhelp">dbhelp</a>, <a href="#dbjmp">dbjmp</a>, <a href="#dblocals">dblocals</a>, <a href="#dblxq">dblxq</a>, <a href="#dblxs">dblxs</a>, <a href="#dbnxt">dbnxt</a>, <a href="#dbq">dbq</a>, <a href="#dbr">dbr</a>, <a href="#dbret">dbret</a>, <a href="#dbrr">dbrr</a>, <a href="#dbrrx">dbrrx</a>, <a href="#dbrun">dbrun</a>, <a href="#dbs">dbs</a>, <a href="#dbsig">dbsig</a>, <a href="#dbsq">dbsq</a>, <a href="#dbss">dbss</a>, <a href="#dbst">dbst</a>, <a href="#dbstack">dbstack</a>, <a href="#dbstk">dbstk</a>, <a href="#dbstop">dbstop</a>, <a href="#dbstopme">dbstopme</a>, <a href="#dbstopnext">dbstopnext</a>, <a href="#dbstops">dbstops</a>, <a href="#dbtrace">dbtrace</a>, <a href="#dbview">dbview</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Nouns</h2>
+<table class="noun"><tr><td class="nounid">
+dbhelp
+</td><td class="noun">
+display help message
+</td></tr>
+</table>
+
+<h2 id="dbctx" class="hdef">dbctx (verb)</h2>
+<p>Display context as character matrix</p>
+<p>y is ignored</p>
+<p>x is the number of lines before and after the current stop</p>
+<h2 id="dberm" class="hdef">dberm (verb)</h2>
+<p>Last error message.</p>
+<h2 id="dberr" class="hdef">dberr (verb)</h2>
+<p>Last error number.</p>
+<h2 id="dbg" class="hdef">dbg (verb)</h2>
+<p>Reset, set suspension mode (0=disable, 1=enable).</p>
+<h2 id="dbjmp" class="hdef">dbjmp (verb)</h2>
+<p>Jump to line number.</p>
+<h2 id="dblocals" class="hdef">dblocals (verb)</h2>
+<p>Display names and locals on stack.</p>
+<h3>Syntax</h3>
+<pre><code>[namelist] dblocals stack_indices</code></pre>
+<p>If indices is empty, defaults to all</p>
+<h3>Example</h3>
+<pre><code> dblocals &#39;&#39;            NB. display all local names in stack
+&#39;abc Z&#39; dblocals i.5    NB. display names abc and Z where found in first 5 definitions on stack</code></pre>
+<h2 id="dblxq" class="hdef">dblxq (verb)</h2>
+<p>Latent expression query.</p>
+<h2 id="dblxs" class="hdef">dblxs (verb)</h2>
+<p>Latent expression set.</p>
+<h2 id="dbnxt" class="hdef">dbnxt (verb)</h2>
+<p>Run next (skip line and run).</p>
+<h2 id="dbq" class="hdef">dbq (verb)</h2>
+<p>Queries suspension mode (set by dbr).</p>
+<h2 id="dbr" class="hdef">dbr (verb)</h2>
+<p>Reset, set suspension mode (0=disable, 1=enable).</p>
+<h2 id="dbret" class="hdef">dbret (verb)</h2>
+<p>Exit and return argument.</p>
+<h2 id="dbrr" class="hdef">dbrr (verb)</h2>
+<p>Re-run with specified arguments.</p>
+<h2 id="dbrrx" class="hdef">dbrrx (verb)</h2>
+<p>Re-run with specified executed arguments.</p>
+<h2 id="dbrun" class="hdef">dbrun (verb)</h2>
+<p>Run again (from current stop).</p>
+<h2 id="dbs" class="hdef">dbs (verb)</h2>
+<p>Display stack.</p>
+<h2 id="dbsig" class="hdef">dbsig (verb)</h2>
+<p>Signal error.</p>
+<h2 id="dbsq" class="hdef">dbsq (verb)</h2>
+<p>Stop query.</p>
+<h2 id="dbss" class="hdef">dbss (verb)</h2>
+<p>Stop set.</p>
+<h2 id="dbst" class="hdef">dbst (verb)</h2>
+<p>Returns stack text.</p>
+<h2 id="dbstack" class="hdef">dbstack (verb)</h2>
+<pre><code>Displays call stack with header</code></pre>
+<p>Ignores definition and source script (default)</p>
+<p>y is the number of lines to display, all if empty or a name on the stack</p>
+<p>limits display to screenwidth</p>
+<h2 id="dbstk" class="hdef">dbstk (verb)</h2>
+<p>Call stack.</p>
+<h2 id="dbstop" class="hdef">dbstop (verb)</h2>
+<p>Set stops on all lines in namelist</p>
+<p>Adds to current set of stops.</p>
+<h2 id="dbstopme" class="hdef">dbstopme (verb)</h2>
+<p>Set stops on current definition if y.</p>
+<p>Does nothing if suspension is off.</p>
+<h2 id="dbstopnext" class="hdef">dbstopnext (verb)</h2>
+<p>Set stop on next line of current definition if y.</p>
+<p>Does nothing if suspension is off.</p>
+<h2 id="dbstops" class="hdef">dbstops (verb)</h2>
+<p>Set stops on all lines in namelist</p>
+<p>Replaces current set of stops</p>
+<h2 id="dbtrace" class="hdef">dbtrace (verb)</h2>
+<p>Trace control.</p>
+<h2 id="dbview" class="hdef">dbview (verb)</h2>
+<p>View stack.</p>
+<!--bottom jump start--><a href="lib_dir.htm">&gt;&gt;</a>&nbsp;<a href="lib_dates.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

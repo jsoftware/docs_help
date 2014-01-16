@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>sysenv.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_text.htm">&gt;&gt;</a>&nbsp;<a href="lib_strings.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">sysenv.ijs</h1>
+</div>
+<p>This script defines text system environment and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left"><a href="#FHS">FHS</a></td>
+</tr>
+<tr class="even">
+<td align="left">H</td>
+<td align="left"><a href="#hostpathsep">hostpathsep</a></td>
+</tr>
+<tr class="odd">
+<td align="left">I</td>
+<td align="left"><a href="#IF64">IF64</a>, <a href="#IFDEF">IFDEF</a>, <a href="#IFIOS">IFIOS</a>, <a href="#IFJCDROID">IFJCDROID</a>, <a href="#IFJHS">IFJHS</a>, <a href="#IFQT">IFQT</a>, <a href="#IFRASPI">IFRASPI</a>, <a href="#IFUNIX">IFUNIX</a>, <a href="#IFWIN">IFWIN</a>, <a href="#IFWINCE">IFWINCE</a>, <a href="#IFWINE">IFWINE</a>, <a href="#IFWOW64">IFWOW64</a></td>
+</tr>
+<tr class="even">
+<td align="left">J</td>
+<td align="left"><a href="#jcwdpath">jcwdpath</a>, <a href="#jpathsep">jpathsep</a>, <a href="#jsystemdefs">jsystemdefs</a></td>
+</tr>
+<tr class="odd">
+<td align="left">U</td>
+<td align="left"><a href="#UNAME">UNAME</a></td>
+</tr>
+<tr class="even">
+<td align="left">W</td>
+<td align="left"><a href="#winpathsep">winpathsep</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Nouns</h2>
+<table class="noun"><tr><td class="nounid">
+FHS
+</td><td class="noun">
+filesystem hierarchy: 0=not used 1=linux
+</td></tr>
+<tr><td class="nounid">
+IF64
+</td><td class="noun">
+if a 64 bit J system
+</td></tr>
+<tr><td class="nounid">
+IFIOS
+</td><td class="noun">
+if iOS (iPhone/iPad)
+</td></tr>
+<tr><td class="nounid">
+IFJCDROID
+</td><td class="noun">
+if JConsole for Android
+</td></tr>
+<tr><td class="nounid">
+IFJHS
+</td><td class="noun">
+if jhs libraries loaded
+</td></tr>
+<tr><td class="nounid">
+IFQT
+</td><td class="noun">
+if Qt libraries loaded
+</td></tr>
+<tr><td class="nounid">
+IFRASPI
+</td><td class="noun">
+if Raspberry Pi
+</td></tr>
+<tr><td class="nounid">
+IFUNIX
+</td><td class="noun">
+if UNIX
+</td></tr>
+<tr><td class="nounid">
+IFWIN
+</td><td class="noun">
+if Windows (2000 and up)
+</td></tr>
+<tr><td class="nounid">
+IFWINCE
+</td><td class="noun">
+if Windows CE
+</td></tr>
+<tr><td class="nounid">
+IFWINE
+</td><td class="noun">
+if Wine (Wine Is Not an Emulator)
+</td></tr>
+<tr><td class="nounid">
+IFWOW64
+</td><td class="noun">
+if running J32 on a 64 bit o/s
+</td></tr>
+<tr><td class="nounid">
+UNAME
+</td><td class="noun">
+name of UNIX o/s
+</td></tr>
+</table>
+
+<h2 id="hostpathsep" class="hdef">hostpathsep (verb)</h2>
+<p>Converts path name to use host path separator.</p>
+<h2 id="IFDEF" class="hdef">IFDEF (verb)</h2>
+<p>If DEFxxx exists.</p>
+<h2 id="jcwdpath" class="hdef">jcwdpath (verb)</h2>
+<p>Adds path to J current working directory.</p>
+<h2 id="jpathsep" class="hdef">jpathsep (verb)</h2>
+<p>Converts path name to use / separator.</p>
+<h2 id="jsystemdefs" class="hdef">jsystemdefs (verb)</h2>
+<p>Loads appropriate netdefs or hostdefs.</p>
+<h2 id="winpathsep" class="hdef">winpathsep (verb)</h2>
+<p>Converts path name to use  separator.</p>
+<!--bottom jump start--><a href="lib_text.htm">&gt;&gt;</a>&nbsp;<a href="lib_strings.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

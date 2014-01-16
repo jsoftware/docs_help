@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>text.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_unxlib.htm">&gt;&gt;</a>&nbsp;<a href="lib_sysenv.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">text.ijs</h1>
+</div>
+<p>This script defines text utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left"><a href="#cutpara">cutpara</a></td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="left"><a href="#foldpara">foldpara</a>, <a href="#foldtext">foldtext</a></td>
+</tr>
+<tr class="odd">
+<td align="left">T</td>
+<td align="left"><a href="#topara">topara</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cutpara" class="hdef">cutpara (verb)</h2>
+<p>Cut text into boxed list of paragraphs.</p>
+<h3>Syntax</h3>
+<pre><code>cutpara text</code></pre>
+<h3>Example</h3>
+<pre><code>   cutpara &#39;one&#39;,LF,&#39;two&#39;,LF2,&#39;three&#39;
+┌────────┬─────┐
+│one two │three│
+└────────┴─────┘</code></pre>
+<h2 id="foldpara" class="hdef">foldpara (verb)</h2>
+<p>Fold string of text with no LF.</p>
+<p>See also <a href="foldtext">foldtext</a> which calls this utility on each paragraph.</p>
+<h3>Syntax</h3>
+<pre><code>width fold data</code></pre>
+<h2 id="foldtext" class="hdef">foldtext (verb)</h2>
+<p>Fold text to given width.</p>
+<h3>Syntax</h3>
+<pre><code>width foldtext text</code></pre>
+<h3>Example</h3>
+<pre><code>   A=: &#39;In the very middle of the court was a table, with a large dish of tarts upon it.&#39;
+
+   30 foldtext A
+In the very middle of the
+court was a table, with a
+large dish of tarts upon it.</code></pre>
+<h2 id="topara" class="hdef">topara (verb)</h2>
+<p>Convert text to paragraphs.</p>
+<h3>Syntax</h3>
+<pre><code>topara text</code></pre>
+<p>Replaces single LFs not followed by blanks by spaces, except for LF's at the beginning</p>
+<h3>Example</h3>
+<pre><code>   topara &#39;one&#39;,LF,&#39;two&#39;,LF2,&#39;three&#39;
+one two
+
+three</code></pre>
+<!--bottom jump start--><a href="lib_unxlib.htm">&gt;&gt;</a>&nbsp;<a href="lib_sysenv.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

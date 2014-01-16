@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>dll.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_files.htm">&gt;&gt;</a>&nbsp;<a href="lib_dir.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">dll.ijs</h1>
+</div>
+<p>This script defines utilities for calling DLLs and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left"><a href="#AND">AND</a></td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="left"><a href="#cd">cd</a>, <a href="#cdcb">cdcb</a>, <a href="#cder">cder</a>, <a href="#cderx">cderx</a>, <a href="#cdf">cdf</a></td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="left"><a href="#endian">endian</a>, <a href="#Endian">Endian</a></td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="left"><a href="#fc">fc</a>, <a href="#fh">fh</a></td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="left"><a href="#gh">gh</a></td>
+</tr>
+<tr class="even">
+<td align="left">I</td>
+<td align="left"><a href="#ic">ic</a></td>
+</tr>
+<tr class="odd">
+<td align="left">J</td>
+<td align="left"><a href="#JB01">JB01</a>, <a href="#JBOXED">JBOXED</a>, <a href="#JCHAR">JCHAR</a>, <a href="#JCMPX">JCMPX</a>, <a href="#JFL">JFL</a>, <a href="#JINT">JINT</a>, <a href="#JPTR">JPTR</a>, <a href="#JSIZES">JSIZES</a>, <a href="#JSTR">JSTR</a>, <a href="#JTYPES">JTYPES</a></td>
+</tr>
+<tr class="even">
+<td align="left">M</td>
+<td align="left"><a href="#mema">mema</a>, <a href="#memf">memf</a>, <a href="#memr">memr</a>, <a href="#memw">memw</a></td>
+</tr>
+<tr class="odd">
+<td align="left">O</td>
+<td align="left"><a href="#OR">OR</a></td>
+</tr>
+<tr class="even">
+<td align="left">S</td>
+<td align="left"><a href="#symdat">symdat</a>, <a href="#symget">symget</a>, <a href="#symget">symget</a></td>
+</tr>
+<tr class="odd">
+<td align="left">X</td>
+<td align="left"><a href="#XOR">XOR</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Nouns</h2>
+<table class="noun"><tr><td class="nounid">
+JB01
+</td><td class="noun">
+1
+</td></tr>
+<tr><td class="nounid">
+JBOXED
+</td><td class="noun">
+32
+</td></tr>
+<tr><td class="nounid">
+JCHAR
+</td><td class="noun">
+2
+</td></tr>
+<tr><td class="nounid">
+JCMPX
+</td><td class="noun">
+16
+</td></tr>
+<tr><td class="nounid">
+JFL
+</td><td class="noun">
+8
+</td></tr>
+<tr><td class="nounid">
+JINT
+</td><td class="noun">
+4
+</td></tr>
+<tr><td class="nounid">
+JPTR
+</td><td class="noun">
+JINT
+</td></tr>
+<tr><td class="nounid">
+JSIZES
+</td><td class="noun">
+size in bytes of corresponding JTYPES
+</td></tr>
+<tr><td class="nounid">
+JSTR
+</td><td class="noun">
+_1,JCHAR
+</td></tr>
+<tr><td class="nounid">
+JTYPES
+</td><td class="noun">
+JB01,JCHAR,JINT,JPTR,JFL,JCMPX,JBOXED
+</td></tr>
+</table>
+
+<h2 id="AND" class="hdef">AND (verb)</h2>
+<p>Bitwise AND (&amp;).</p>
+<h2 id="cd" class="hdef">cd (verb)</h2>
+<p>Call DLL procedure.</p>
+<h2 id="cdcb" class="hdef">cdcb (verb)</h2>
+<p>Callback address.</p>
+<h2 id="cder" class="hdef">cder (verb)</h2>
+<p>Error information.</p>
+<h2 id="cderx" class="hdef">cderx (verb)</h2>
+<p>GetLastError information.</p>
+<h2 id="cdf" class="hdef">cdf (verb)</h2>
+<p>Free DLLs.</p>
+<h2 id="endian" class="hdef">endian (verb)</h2>
+<p>Flip intel bytes (little endian).</p>
+<h2 id="Endian" class="hdef">Endian (verb)</h2>
+<p>Flip powerpc bytes (BIG Endian).</p>
+<h2 id="fc" class="hdef">fc (verb)</h2>
+<p>Float conversion.</p>
+<h2 id="fh" class="hdef">fh (verb)</h2>
+<p>Free header.</p>
+<h2 id="gh" class="hdef">gh (verb)</h2>
+<p>Allocate header.</p>
+<h2 id="ic" class="hdef">ic (verb)</h2>
+<p>Integer conversion e.g.</p>
+<p>   25185 25699 = _1 ic 'abcd'<br />   'abcd' = 1 ic _1 ic 'abcd'<br />   1684234849 1751606885 = _2 ic 'abcdefgh'<br />   'abcdefgh' = 2 ic _2 ic 'abcdefgh'</p>
+<h2 id="mema" class="hdef">mema (verb)</h2>
+<p>Memory allocate.</p>
+<h2 id="memf" class="hdef">memf (verb)</h2>
+<p>Memory free.</p>
+<h2 id="memr" class="hdef">memr (verb)</h2>
+<p>Memory read.</p>
+<h2 id="memw" class="hdef">memw (verb)</h2>
+<p>Memory write.</p>
+<h2 id="OR" class="hdef">OR (verb)</h2>
+<p>Bitwise OR (|).</p>
+<h2 id="symdat" class="hdef">symdat (verb)</h2>
+<p>Get address of data for name.</p>
+<h2 id="symget" class="hdef">symget (verb)</h2>
+<p>Get address of locale entry for name.</p>
+<h2 id="symget" class="hdef">symget (verb)</h2>
+<p>Set array as address.</p>
+<h2 id="XOR" class="hdef">XOR (verb)</h2>
+<p>Bitwise XOR (^).</p>
+<!--bottom jump start--><a href="lib_files.htm">&gt;&gt;</a>&nbsp;<a href="lib_dir.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

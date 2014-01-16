@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>break.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_colib.htm">&gt;&gt;</a>&nbsp;<a href="lib_android.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">break.ijs</h1>
+</div>
+<p>This script defines break utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<p><code>setbreak 'default'</code> is done by the profile.</p>
+<p>setbreak creates file <code>~break/Pid.Class</code> and writes 0 to the first byte.</p>
+<p>Pid is the process id and Class is normally 'default'.</p>
+<p>setbreak calls 9!:47 with this file.</p>
+<p>9!:47 maps the first byte of file, and JE tests this byte for break requests.</p>
+<p>Another task writes 1 or 2 to the file for attention/break.</p>
+<p>9!:46 returns the filename.</p>
+<p><code>break</code> y sets break for JEs with class y.</p>
+<p>JEs with the same class all get the break. A non-default class protects JE from the default break.</p>
+<p>A new setbreak replaces the old.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left"><a href="#break">break</a></td>
+</tr>
+<tr class="even">
+<td align="left">S</td>
+<td align="left"><a href="#setbreak">setbreak</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="break" class="hdef">break (verb)</h2>
+<p>Break J execution.</p>
+<h2 id="setbreak" class="hdef">setbreak (verb)</h2>
+<p>Set break</p>
+<!--bottom jump start--><a href="lib_colib.htm">&gt;&gt;</a>&nbsp;<a href="lib_android.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>files.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_jal.htm">&gt;&gt;</a>&nbsp;<a href="lib_dll.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">files.ijs</h1>
+</div>
+<p>This script defines file utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<p>read verbs take a right argument of a filename, optionally linked with one or two numbers (as for 1!:11):</p>
+<p> 0 = start of read (may be negative)<br /> 1 = length of read (default rest of file)</p>
+<p>write verbs return number of characters written.</p>
+<p>filenames may be open or boxed character or unicode strings</p>
+<p>string verbs write out text delimited with the host OS delimiter, and read in text delimited by LF.</p>
+<p>on error, the result is _1, e.g. for file not found/file read error/file write error</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left"><a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="fappend" class="hdef">fappend (verb)</h2>
+<p>Append text to file.</p>
+<p>The text is first ravelled. The file is created if necessary.</p>
+<p>Returns number of characters written, or an error message.</p>
+<h3>Syntax</h3>
+<pre><code>text fappend filename</code></pre>
+<h3>Example</h3>
+<pre><code>   &#39;chatham&#39; fappend &#39;newfile.txt&#39;
+7</code></pre>
+<h2 id="fappends" class="hdef">fappends (verb)</h2>
+<p>Append string to file.</p>
+<p>The text is first ravelled into a vector with each row terminated by the host delimiter.</p>
+<p>The file is created if necessary. Returns number of characters written, or an error message.</p>
+<h2 id="fapplylines" class="hdef">fapplylines (adverb)</h2>
+<p>Apply verb to lines in file delimited by LF.</p>
+<h2 id="fboxname" class="hdef">fboxname (verb)</h2>
+<p>Fix and box filename.</p>
+<h2 id="fcopynew" class="hdef">fcopynew (verb)</h2>
+<p>Copies files if changed.</p>
+<h3>Syntax</h3>
+<pre><code>tofile fcopynew fromfiles</code></pre>
+<p>returns: 0, size not changed<br />         1, size changed<br />        _1 failure</p>
+<h2 id="fdir" class="hdef">fdir (verb)</h2>
+<p>File directory.</p>
+<h3>Example</h3>
+<pre><code>fdir jpath &#39;~system/main/s*.ijs&#39;</code></pre>
+<h2 id="ferase" class="hdef">ferase (verb)</h2>
+<p>Erases a file.</p>
+<p>Returns 1 if successful, otherwise _1</p>
+<h2 id="fexist" class="hdef">fexist (verb)</h2>
+<p>Returns 1 if the file exists, otherwise 0.</p>
+<h2 id="fgets" class="hdef">fgets (verb)</h2>
+<p>Convert text read from file to J string.</p>
+<h2 id="fmakex" class="hdef">fmakex (verb)</h2>
+<p>Make file executable.</p>
+<h2 id="fpathcreate" class="hdef">fpathcreate (verb)</h2>
+<p>Create a folder path, returning success.</p>
+<h2 id="fpathname" class="hdef">fpathname (verb)</h2>
+<p>Split file name into path;name.</p>
+<h2 id="fread" class="hdef">fread (verb)</h2>
+<p>Read file.</p>
+<p>y is filename {;start size}<br />optional x calls freads</p>
+<h2 id="freadblock" class="hdef">freadblock (verb)</h2>
+<p>Read block of lines from file.</p>
+<p>Lines are terminated by LF.</p>
+<p>Blocksize is ~1e6</p>
+<p>y is filename;start position</p>
+<p>returns: block;new start position</p>
+<h2 id="freadr" class="hdef">freadr (verb)</h2>
+<p>Read records from flat file.</p>
+<p>y is filename {;record start, # of records}</p>
+<p>Records are assumed of fixed length delimited by one (only) of CR, LF, or CRLF.</p>
+<p>the result is a matrix of records.</p>
+<h2 id="freads" class="hdef">freads (verb)</h2>
+<p>Read file as string.</p>
+<p>y is filename {;start size}<br />x is optional (b and m same as fread):<br />   = b read as boxed vector<br />   = m read as matrix</p>
+<h2 id="freplace" class="hdef">freplace (verb)</h2>
+<p>Replace text in file.</p>
+<h3>Syntax</h3>
+<pre><code>dat freplace file;pos</code></pre>
+<h2 id="fsize" class="hdef">fsize (verb)</h2>
+<p>Returns file size or _1 if error</p>
+<h2 id="fss" class="hdef">fss (verb)</h2>
+<p>Search file for string, returning indices.</p>
+<h3>Syntax</h3>
+<pre><code>str fss file</code></pre>
+<h2 id="fssrplc" class="hdef">fssrplc (verb)</h2>
+<p>File string search and replace.</p>
+<h3>Syntax</h3>
+<pre><code>(old;new) fssrplc file</code></pre>
+<h2 id="fstamp" class="hdef">fstamp (verb)</h2>
+<p>Returns file timestamp.</p>
+<h2 id="ftype" class="hdef">ftype (verb)</h2>
+<p>Get file type, as:</p>
+<p>0 = not exist<br />1 = file<br />2 = directory</p>
+<h2 id="fwrite" class="hdef">fwrite (verb)</h2>
+<p>Write text to file.</p>
+<h2 id="fwrite" class="hdef">fwrite (verb)</h2>
+<p>Write text to file if changed.</p>
+<h2 id="fwrites" class="hdef">fwrites (verb)</h2>
+<p>Write string to file.</p>
+<!--bottom jump start--><a href="lib_jal.htm">&gt;&gt;</a>&nbsp;<a href="lib_dll.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>android.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_break.htm">&gt;&gt;</a>&nbsp;<a href="library.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">android.ijs</h1>
+</div>
+<p>This script defines android utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<h2>Definitions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left"><a href="#anddf">anddf</a>, <a href="#andunzip">andunzip</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="anddf" class="hdef">anddf (verb)</h2>
+<p>Download a file via android's embedded http client overwriting target file.</p>
+<h3>Example</h3>
+<pre><code>&#39;http://www.jsoftware.com/moin_static180/common/jwlogo.png&#39; anddf jpath&#39;~temp/jwlogo.png&#39;</code></pre>
+<h3>Syntax</h3>
+<pre><code>x anddf y</code></pre>
+<p>returns:</p>
+<p>&gt;=0 success, number of bytes in file<br /> _1 unknown error<br /> _2 target file exists and is not writable<br /> _3 parent directory is not writable<br /> _5 malformed url<br /> _6 i/o exception during transport<br /> _99 web request returns invalid '0' status code<br />&lt;= _100 negation of unsuccessful http response code (!=200), ie. _404 &quot;Not Found&quot;</p>
+<h2 id="andunzip" class="hdef">andunzip (verb)</h2>
+<p>Monadically, it unzips the file at y into the same directory.</p>
+<p>Optional x may specify an alternate output directory</p>
+<h3>Syntax</h3>
+<pre><code>andunzip y ; x andunzip y</code></pre>
+<p>returns:</p>
+<p> 0 success<br />_1 generic i/o error<br />_2 zipfile not found<br />_3 output directory not writable<br />_4 zip format exception</p>
+<!--bottom jump start--><a href="lib_break.htm">&gt;&gt;</a>&nbsp;<a href="library.htm">&lt;&lt;</a>&nbsp;<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;User
+<!--bottom jump end--></body>
+</html>
