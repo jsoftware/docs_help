@@ -1,6 +1,6 @@
 <html>
 <head><link rel=stylesheet href="../jdoc.css" type="text/css"><title>Binaries - Shared Libraries - Directories</title>
-</head><body> <!--top jump start--><a href="library.htm">&gt;&gt;</a>&nbsp;
+</head><body><!--top jump start--><a href="library.htm">&gt;&gt;</a>&nbsp;
 <a href="start_errors.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
@@ -78,7 +78,7 @@ libfubar.so.5.2   binary file for fubar version 5.2
 libfubar.so.5.1   binary file for fubar version 5.1
 </pre>
 When a binary is built for distribution the link is done with just the name fubar. The linker finds libfubar.so then libfubar.so.5 and then libfubar.so.5.2 and resolves everything based on the code there. But it puts the name libfubar.so.5 (not the starting name libfubar.so and not the name of the file actually used) in the resulting binary. When the binary is run it starts at libfubar.so.5. Generally this is good because it means that libfubar.so.5 could link to a new binary libfubar.so.5.3 with nice fixes. But it could be bad because you're not getting exactly what you were built to expect. The theory is that the 5 is a major change and you wouldn't want to quitely be given version 6 instead, but that that the 2 or 3 are minor versions (bug fixes) and you would want the latest.
-<!--bottom jump start--><hr><a href="dlls.htm">&gt;&gt;</a>&nbsp;
+<!--bottom jump start--><hr><a href="library.htm">&gt;&gt;</a>&nbsp;
 <a href="start_errors.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
