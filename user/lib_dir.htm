@@ -26,14 +26,43 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines directory utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">D</td>
-<td align="left"><a href="#dir">dir</a>, <a href="#dircompare">dircompare</a>, <a href="#dircompares">dircompares</a>, <a href="#dirfind">dirfind</a>, <a href="#dirpath">dirpath</a>, <a href="#dirss">dirss</a>, <a href="#dirssrplc">dirssrplc</a>, <a href="#dirtree">dirtree</a>, <a href="#dirused">dirused</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+D
+</td><td>
+<a href="#dir">dir</a>, <a href="#dircompare">dircompare</a>, <a href="#dircompares">dircompares</a>, <a href="#dirfind">dirfind</a>, <a href="#dirpath">dirpath</a>, <a href="#dirss">dirss</a>, <a href="#dirssrplc">dirssrplc</a>, <a href="#dirtree">dirtree</a>, <a href="#dirused">dirused</a>
+</td></tr>
 </table>
+
+<hr><table class="rdef"><tr><td id="dircompare" class="rid">
+dircompare
+</td><td class="rtype">
+v
+</td><td class="rdef">
+compare files in directories
+</td></tr>
+<tr><td id="dircompares" class="rid">
+dircompares
+</td><td class="rtype">
+v
+</td><td class="rdef">
+compare files in directories
+</td></tr>
+<tr><td id="dirss" class="rid">
+dirss
+</td><td class="rtype">
+v
+</td><td class="rdef">
+directory string search
+</td></tr>
+<tr><td id="dirused" class="rid">
+dirused
+</td><td class="rtype">
+v
+</td><td class="rdef">
+get count and space of files in directory tree
+</td></tr>
+</table>
+
 <h2 id="dir" class="hdef">dir (verb)</h2>
 <p>y = file specification<br />    if empty, defaults to *</p>
 <p>x is optional:<br />  - if not given, defaults to 'n'<br />  - if character, returns a formatted directory,<br />      where x is the sort option:<br />        d=by date<br />        n=by name<br />        s=by size<br />  - if numeric, there are 1 or 2 elements:<br />        0{ 0= list short names<br />            1= boxed list of full pathnames<br />            2= full directory list<br />        1{ 0= filenames only (default)<br />            1= include subdirectories</p>
@@ -41,10 +70,6 @@ User<hr><!--top jump end-->
 <h3>Example</h3>
 <pre><code>dir &#39;&#39;
 1 dir jpath &#39;~system/main/d*.ijs&#39;</code></pre>
-<h2 id="dircompare" class="hdef">dircompare (verb)</h2>
-<p>Compare files in directories.</p>
-<h2 id="dircompares" class="hdef">dircompares (verb)</h2>
-<p>Compare files in directories.</p>
 <h2 id="dirfind" class="hdef">dirfind (verb)</h2>
 <p>Find name in directory</p>
 <h3>Syntax</h3>
@@ -54,8 +79,6 @@ User<hr><!--top jump end-->
 <p>Optional x=0 all paths (default)<br />           1 non-empty paths (i.e. having files)</p>
 <h3>Example</h3>
 <pre><code>dirpath &#39;examples&#39;</code></pre>
-<h2 id="dirss" class="hdef">dirss (verb)</h2>
-<p>Directory string search.</p>
 <h2 id="dirssrplc" class="hdef">dirssrplc (verb)</h2>
 <p>Directory string search and replace.</p>
 <h3>Syntax</h3>
@@ -75,8 +98,6 @@ User<hr><!--top jump end-->
 dirtree &#39;main&#39;
 dirtree jpath &#39;~system/packages/*.ijs&#39;
 2014 5 23 dirtree &#39;&#39;   - files dated on or after date.</code></pre>
-<h2 id="dirused" class="hdef">dirused (verb)</h2>
-<p>Get count and space of files in directory tree.</p>
 <!--bottom jump start--><hr><a href="lib_dll.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_debug.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

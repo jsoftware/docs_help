@@ -26,34 +26,47 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines date and time utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">C</td>
-<td align="left"><a href="#calendar">calendar</a></td>
-</tr>
-<tr class="even">
-<td align="left">G</td>
-<td align="left"><a href="#getdate">getdate</a></td>
-</tr>
-<tr class="odd">
-<td align="left">I</td>
-<td align="left"><a href="#isotimestamp">isotimestamp</a></td>
-</tr>
-<tr class="even">
-<td align="left">T</td>
-<td align="left"><a href="#timestamp">timestamp</a>, <a href="#todate">todate</a>, <a href="#todayno">todayno</a>, <a href="#tsdiff">tsdiff</a>, <a href="#tsrep">tsrep</a>, <a href="#tstamp">tstamp</a></td>
-</tr>
-<tr class="odd">
-<td align="left">V</td>
-<td align="left"><a href="#valdate">valdate</a></td>
-</tr>
-<tr class="even">
-<td align="left">W</td>
-<td align="left"><a href="#weekday">weekday</a>, <a href="#weeknumber">weeknumber</a>, <a href="#weeksinyear">weeksinyear</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+C
+</td><td>
+<a href="#calendar">calendar</a>
+</td></tr>
+<tr><td class="key">
+G
+</td><td>
+<a href="#getdate">getdate</a>
+</td></tr>
+<tr><td class="key">
+I
+</td><td>
+<a href="#isotimestamp">isotimestamp</a>
+</td></tr>
+<tr><td class="key">
+T
+</td><td>
+<a href="#timestamp">timestamp</a>, <a href="#todate">todate</a>, <a href="#todayno">todayno</a>, <a href="#tsdiff">tsdiff</a>, <a href="#tsrep">tsrep</a>, <a href="#tstamp">tstamp</a>
+</td></tr>
+<tr><td class="key">
+V
+</td><td>
+<a href="#valdate">valdate</a>
+</td></tr>
+<tr><td class="key">
+W
+</td><td>
+<a href="#weekday">weekday</a>, <a href="#weeknumber">weeknumber</a>, <a href="#weeksinyear">weeksinyear</a>
+</td></tr>
 </table>
+
+<hr><table class="rdef"><tr><td id="timestamp" class="rid">
+timestamp
+</td><td class="rtype">
+v
+</td><td class="rdef">
+format time stamps as: 23 May 1998 16:06:39
+</td></tr>
+</table>
+
 <h2 id="calendar" class="hdef">calendar (verb)</h2>
 <p>Returns calendar for year, as a list of months</p>
 <h3>Syntax</h3>
@@ -92,8 +105,6 @@ User<hr><!--top jump end-->
 <h2 id="isotimestamp" class="hdef">isotimestamp (verb)</h2>
 <p>Format time stamps as: 2000-05-23 16:06:39.268</p>
 <p>y is one or more time stamps in 6!:0 format.</p>
-<h2 id="timestamp" class="hdef">timestamp (verb)</h2>
-<p>Format time stamps as: 23 May 1998 16:06:39.</p>
 <h2 id="todate" class="hdef">todate (verb)</h2>
 <p>Converts day numbers to dates, converse <a href="#todayno">todayno</a></p>
 <p>This conversion is exact and provides a means of performing exact date arithmetic.</p>

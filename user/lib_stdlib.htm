@@ -26,175 +26,602 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines core utilities for the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">A</td>
-<td align="left"><a href="#adverb">adverb</a>, <a href="#alpha17">alpha17</a>, <a href="#alpha27">alpha27</a>, <a href="#apply">apply</a>, <a href="#assert">assert</a></td>
-</tr>
-<tr class="even">
-<td align="left">B</td>
-<td align="left"><a href="#bind">bind</a>, <a href="#boxopen">boxopen</a>, <a href="#boxxopen">boxxopen</a>, <a href="#bx">bx</a></td>
-</tr>
-<tr class="odd">
-<td align="left">C</td>
-<td align="left"><a href="#clear">clear</a>, <a href="#conjunction">conjunction</a>, <a href="#CR">CR</a>, <a href="#CRLF">CRLF</a>, <a href="#cutLF">cutLF</a>, <a href="#cutopen">cutopen</a></td>
-</tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="left"><a href="#datatype">datatype</a>, <a href="#Debug">Debug</a>, <a href="#def">def</a>, <a href="#define">define</a>, <a href="#DEL">DEL</a>, <a href="#dfh">dfh</a>, <a href="#do">do</a>, <a href="#drop">drop</a>, <a href="#dyad">dyad</a></td>
-</tr>
-<tr class="odd">
-<td align="left">E</td>
-<td align="left"><a href="#each">each</a>, <a href="#EAV">EAV</a>, <a href="#echo">echo</a>, <a href="#EMPTY">EMPTY</a>, <a href="#empty">empty</a>, <a href="#erase">erase</a>, <a href="#every">every</a>, <a href="#evtloop">evtloop</a>, <a href="#exit">exit</a>, <a href="#expand">expand</a></td>
-</tr>
-<tr class="even">
-<td align="left">F</td>
-<td align="left"><a href="#fetch">fetch</a>, <a href="#FF">FF</a>, <a href="#file2url">file2url</a>, <a href="#fixdotdot">fixdotdot</a>, <a href="#fliprgb">fliprgb</a></td>
-</tr>
-<tr class="odd">
-<td align="left">G</td>
-<td align="left"><a href="#getargs">getargs</a>, <a href="#getenv">getenv</a></td>
-</tr>
-<tr class="even">
-<td align="left">H</td>
-<td align="left"><a href="#hfd">hfd</a></td>
-</tr>
-<tr class="odd">
-<td align="left">I</td>
-<td align="left"><a href="#inv">inv</a>, <a href="#inverse">inverse</a>, <a href="#iospath">iospath</a>, <a href="#isatty">isatty</a>, <a href="#isutf8">isutf8</a>, <a href="#items">items</a></td>
-</tr>
-<tr class="even">
-<td align="left">L</td>
-<td align="left"><a href="#leaf">leaf</a>, <a href="#LF">LF</a>, <a href="#LF2">LF2</a>, <a href="#list">list</a></td>
-</tr>
-<tr class="odd">
-<td align="left">M</td>
-<td align="left"><a href="#monad">monad</a></td>
-</tr>
-<tr class="even">
-<td align="left">N</td>
-<td align="left"><a href="#nameclass">nameclass</a>, <a href="#namelist">namelist</a>, <a href="#names">names</a>, <a href="#nc">nc</a>, <a href="#nl">nl</a>, <a href="#Note">Note</a>, <a href="#noun">noun</a></td>
-</tr>
-<tr class="odd">
-<td align="left">O</td>
-<td align="left"><a href="#on">on</a></td>
-</tr>
-<tr class="even">
-<td align="left">P</td>
-<td align="left"><a href="#pick">pick</a></td>
-</tr>
-<tr class="odd">
-<td align="left">R</td>
-<td align="left"><a href="#rows">rows</a></td>
-</tr>
-<tr class="even">
-<td align="left">S</td>
-<td align="left"><a href="#script">script</a>, <a href="#scriptd">scriptd</a>, <a href="#sign">sign</a>, <a href="#sminfo">sminfo</a>, <a href="#smoutput">smoutput</a>, <a href="#sort">sort</a>, <a href="#split">split</a>, <a href="#stderr">stderr</a>, <a href="#stdin">stdin</a>, <a href="#stdout">stdout</a></td>
-</tr>
-<tr class="odd">
-<td align="left">T</td>
-<td align="left"><a href="#TAB">TAB</a>, <a href="#table">table</a>, <a href="#take">take</a>, <a href="#timespacex">timespacex</a>, <a href="#timex">timex</a>, <a href="#tmoutput">tmoutput</a>, <a href="#toCRLF">toCRLF</a>, <a href="#toHOST">toHOST</a>, <a href="#toJ">toJ</a>, <a href="#tolower">tolower</a>, <a href="#toupper">toupper</a>, <a href="#type">type</a></td>
-</tr>
-<tr class="even">
-<td align="left">U</td>
-<td align="left"><a href="#ucp">ucp</a>, <a href="#ucpcount">ucpcount</a>, <a href="#usleep">usleep</a>, <a href="#utf8">utf8</a>, <a href="#uucp">uucp</a></td>
-</tr>
-<tr class="odd">
-<td align="left">V</td>
-<td align="left"><a href="#verb">verb</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+A
+</td><td>
+<a href="#adverb">adverb</a>, <a href="#alpha17">alpha17</a>, <a href="#alpha27">alpha27</a>, <a href="#apply">apply</a>, <a href="#assert">assert</a>
+</td></tr>
+<tr><td class="key">
+B
+</td><td>
+<a href="#bind">bind</a>, <a href="#boxopen">boxopen</a>, <a href="#boxxopen">boxxopen</a>, <a href="#bx">bx</a>
+</td></tr>
+<tr><td class="key">
+C
+</td><td>
+<a href="#clear">clear</a>, <a href="#conjunction">conjunction</a>, <a href="#CR">CR</a>, <a href="#CRLF">CRLF</a>, <a href="#cutLF">cutLF</a>, <a href="#cutopen">cutopen</a>
+</td></tr>
+<tr><td class="key">
+D
+</td><td>
+<a href="#datatype">datatype</a>, <a href="#Debug">Debug</a>, <a href="#def">def</a>, <a href="#define">define</a>, <a href="#DEL">DEL</a>, <a href="#dfh">dfh</a>, <a href="#do">do</a>, <a href="#drop">drop</a>, <a href="#dyad">dyad</a>
+</td></tr>
+<tr><td class="key">
+E
+</td><td>
+<a href="#each">each</a>, <a href="#EAV">EAV</a>, <a href="#echo">echo</a>, <a href="#EMPTY">EMPTY</a>, <a href="#empty">empty</a>, <a href="#erase">erase</a>, <a href="#every">every</a>, <a href="#evtloop">evtloop</a>, <a href="#exit">exit</a>, <a href="#expand">expand</a>
+</td></tr>
+<tr><td class="key">
+F
+</td><td>
+<a href="#fetch">fetch</a>, <a href="#FF">FF</a>, <a href="#file2url">file2url</a>, <a href="#fixdotdot">fixdotdot</a>, <a href="#fliprgb">fliprgb</a>
+</td></tr>
+<tr><td class="key">
+G
+</td><td>
+<a href="#getargs">getargs</a>, <a href="#getenv">getenv</a>
+</td></tr>
+<tr><td class="key">
+H
+</td><td>
+<a href="#hfd">hfd</a>
+</td></tr>
+<tr><td class="key">
+I
+</td><td>
+<a href="#inv">inv</a>, <a href="#inverse">inverse</a>, <a href="#iospath">iospath</a>, <a href="#isatty">isatty</a>, <a href="#isutf8">isutf8</a>, <a href="#items">items</a>
+</td></tr>
+<tr><td class="key">
+L
+</td><td>
+<a href="#leaf">leaf</a>, <a href="#LF">LF</a>, <a href="#LF2">LF2</a>, <a href="#list">list</a>
+</td></tr>
+<tr><td class="key">
+M
+</td><td>
+<a href="#monad">monad</a>
+</td></tr>
+<tr><td class="key">
+N
+</td><td>
+<a href="#nameclass">nameclass</a>, <a href="#namelist">namelist</a>, <a href="#names">names</a>, <a href="#nc">nc</a>, <a href="#nl">nl</a>, <a href="#Note">Note</a>, <a href="#noun">noun</a>
+</td></tr>
+<tr><td class="key">
+O
+</td><td>
+<a href="#on">on</a>
+</td></tr>
+<tr><td class="key">
+P
+</td><td>
+<a href="#pick">pick</a>
+</td></tr>
+<tr><td class="key">
+R
+</td><td>
+<a href="#rows">rows</a>
+</td></tr>
+<tr><td class="key">
+S
+</td><td>
+<a href="#script">script</a>, <a href="#scriptd">scriptd</a>, <a href="#sign">sign</a>, <a href="#sminfo">sminfo</a>, <a href="#smoutput">smoutput</a>, <a href="#sort">sort</a>, <a href="#split">split</a>, <a href="#stderr">stderr</a>, <a href="#stdin">stdin</a>, <a href="#stdout">stdout</a>
+</td></tr>
+<tr><td class="key">
+T
+</td><td>
+<a href="#TAB">TAB</a>, <a href="#table">table</a>, <a href="#take">take</a>, <a href="#timespacex">timespacex</a>, <a href="#timex">timex</a>, <a href="#tmoutput">tmoutput</a>, <a href="#toCRLF">toCRLF</a>, <a href="#toHOST">toHOST</a>, <a href="#toJ">toJ</a>, <a href="#tolower">tolower</a>, <a href="#toupper">toupper</a>, <a href="#type">type</a>
+</td></tr>
+<tr><td class="key">
+U
+</td><td>
+<a href="#ucp">ucp</a>, <a href="#ucpcount">ucpcount</a>, <a href="#usleep">usleep</a>, <a href="#utf8">utf8</a>, <a href="#uucp">uucp</a>
+</td></tr>
+<tr><td class="key">
+V
+</td><td>
+<a href="#verb">verb</a>
+</td></tr>
 </table>
-<h2>Nouns</h2>
-<table class="noun"><tr><td class="nounid">
+
+<hr><table class="rdef"><tr><td id="adverb" class="rid">
 adverb
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 1
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="alpha17" class="rid">
+alpha17
+</td><td class="rtype">
+v
+</td><td class="rdef">
+remove alpha channel
+</td></tr>
+<tr><td id="alpha27" class="rid">
+alpha27
+</td><td class="rtype">
+v
+</td><td class="rdef">
+add alpha channel
+</td></tr>
+<tr><td id="apply" class="rid">
+apply
+</td><td class="rtype">
+v
+</td><td class="rdef">
+apply verb x to y
+</td></tr>
+<tr><td id="bx" class="rid">
+bx
+</td><td class="rtype">
+v
+</td><td class="rdef">
+indices of 1's in boolean (same as I.)
+</td></tr>
+<tr><td id="conjunction" class="rid">
 conjunction
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 2
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="CR" class="rid">
 CR
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 carriage return character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="CRLF" class="rid">
 CRLF
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 CR,LF pair
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="cutLF" class="rid">
+cutLF
+</td><td class="rtype">
+v
+</td><td class="rdef">
+cut text on LF, removing empties
+</td></tr>
+<tr><td id="datatype" class="rid">
+datatype
+</td><td class="rtype">
+v
+</td><td class="rdef">
+noun datatype
+</td></tr>
+<tr><td id="Debug" class="rid">
 Debug
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 debug flag, initialized to 0
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="def" class="rid">
+def
+</td><td class="rtype">
+c
+</td><td class="rdef">
+: (explicit definition)
+</td></tr>
+<tr><td id="define" class="rid">
+define
+</td><td class="rtype">
+a
+</td><td class="rdef">
+: 0 (explicit definition script form)
+</td></tr>
+<tr><td id="DEL" class="rid">
 DEL
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 ascii 127 character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="dfh" class="rid">
+dfh
+</td><td class="rtype">
+v
+</td><td class="rdef">
+decimal from hex
+</td></tr>
+<tr><td id="do" class="rid">
+do
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for &quot;.
+</td></tr>
+<tr><td id="drop" class="rid">
+drop
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for }.
+</td></tr>
+<tr><td id="dyad" class="rid">
 dyad
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 4
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="each" class="rid">
+each
+</td><td class="rtype">
+a
+</td><td class="rdef">
+each (&amp;.&gt;)
+</td></tr>
+<tr><td id="EAV" class="rid">
 EAV
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 ascii 255 character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="echo" class="rid">
+echo
+</td><td class="rtype">
+v
+</td><td class="rdef">
+write argument to session
+</td></tr>
+<tr><td id="EMPTY" class="rid">
 EMPTY
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 empty matrix (i.0 0)
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="empty" class="rid">
+empty
+</td><td class="rtype">
+v
+</td><td class="rdef">
+return empty result (i.0 0)
+</td></tr>
+<tr><td id="erase" class="rid">
+erase
+</td><td class="rtype">
+v
+</td><td class="rdef">
+erase namelist
+</td></tr>
+<tr><td id="every" class="rid">
+every
+</td><td class="rtype">
+a
+</td><td class="rdef">
+every (&amp;&gt;)
+</td></tr>
+<tr><td id="evtloop" class="rid">
+evtloop
+</td><td class="rtype">
+v
+</td><td class="rdef">
+initialize event loop
+</td></tr>
+<tr><td id="exit" class="rid">
+exit
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 2!:55 (exit)
+</td></tr>
+<tr><td id="fetch" class="rid">
+fetch
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for {::
+</td></tr>
+<tr><td id="FF" class="rid">
 FF
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 formfeed character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="file2url" class="rid">
+file2url
+</td><td class="rtype">
+v
+</td><td class="rdef">
+convert to file:// format
+</td></tr>
+<tr><td id="fixdotdot" class="rid">
+fixdotdot
+</td><td class="rtype">
+v
+</td><td class="rdef">
+fix up a/b/c/d/../../e/../f to a/b/f
+</td></tr>
+<tr><td id="fliprgb" class="rid">
+fliprgb
+</td><td class="rtype">
+v
+</td><td class="rdef">
+flip between argb and abgr byte order
+</td></tr>
+<tr><td id="getargs" class="rid">
+getargs
+</td><td class="rtype">
+v
+</td><td class="rdef">
+get args
+</td></tr>
+<tr><td id="getenv" class="rid">
+getenv
+</td><td class="rtype">
+v
+</td><td class="rdef">
+cover for get environment variable, 2!:5
+</td></tr>
+<tr><td id="hfd" class="rid">
+hfd
+</td><td class="rtype">
+v
+</td><td class="rdef">
+hex from decimal
+</td></tr>
+<tr><td id="inv" class="rid">
+inv
+</td><td class="rtype">
+a
+</td><td class="rdef">
+inverse (^:_1)
+</td></tr>
+<tr><td id="inverse" class="rid">
+inverse
+</td><td class="rtype">
+a
+</td><td class="rdef">
+inverse (^:_1)
+</td></tr>
+<tr><td id="iospath" class="rid">
+iospath
+</td><td class="rtype">
+v
+</td><td class="rdef">
+iOS file system path
+</td></tr>
+<tr><td id="isutf8" class="rid">
+isutf8
+</td><td class="rtype">
+v
+</td><td class="rdef">
+if character string is valid utf8
+</td></tr>
+<tr><td id="items" class="rid">
+items
+</td><td class="rtype">
+a
+</td><td class="rdef">
+name for (&quot;_1)
+</td></tr>
+<tr><td id="leaf" class="rid">
+leaf
+</td><td class="rtype">
+a
+</td><td class="rdef">
+leaf (L:0)
+</td></tr>
+<tr><td id="LF" class="rid">
 LF
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 linefeed character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="LF2" class="rid">
 LF2
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 LF,LF pair
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="monad" class="rid">
 monad
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 3
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="nameclass" class="rid">
+nameclass
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 4!:0
+</td></tr>
+<tr><td id="namelist" class="rid">
+namelist
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 4!:1
+</td></tr>
+<tr><td id="names" class="rid">
+names
+</td><td class="rtype">
+v
+</td><td class="rdef">
+formatted namelist
+</td></tr>
+<tr><td id="nc" class="rid">
+nc
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 4!:0
+</td></tr>
+<tr><td id="noun" class="rid">
 noun
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 0
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="on" class="rid">
+on
+</td><td class="rtype">
+c
+</td><td class="rdef">
+name for @:
+</td></tr>
+<tr><td id="pick" class="rid">
+pick
+</td><td class="rtype">
+v
+</td><td class="rdef">
+pick (&gt;@{)
+</td></tr>
+<tr><td id="rows" class="rid">
+rows
+</td><td class="rtype">
+a
+</td><td class="rdef">
+rows (&quot;1)
+</td></tr>
+<tr><td id="script" class="rid">
+script
+</td><td class="rtype">
+v
+</td><td class="rdef">
+load script, cover for 0!:0
+</td></tr>
+<tr><td id="scriptd" class="rid">
+scriptd
+</td><td class="rtype">
+v
+</td><td class="rdef">
+load script with display, cover for 0!:1
+</td></tr>
+<tr><td id="sign" class="rid">
+sign
+</td><td class="rtype">
+v
+</td><td class="rdef">
+sign (*)
+</td></tr>
+<tr><td id="sminfo" class="rid">
+sminfo
+</td><td class="rtype">
+v
+</td><td class="rdef">
+info box or output to session
+</td></tr>
+<tr><td id="smoutput" class="rid">
+smoutput
+</td><td class="rtype">
+v
+</td><td class="rdef">
+output to session
+</td></tr>
+<tr><td id="sort" class="rid">
+sort
+</td><td class="rtype">
+v
+</td><td class="rdef">
+sort up
+</td></tr>
+<tr><td id="stderr" class="rid">
+stderr
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 1!:2&amp;5
+</td></tr>
+<tr><td id="stdin" class="rid">
+stdin
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 1!:1&amp;3 with obverse stdout
+</td></tr>
+<tr><td id="stdout" class="rid">
+stdout
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for 1!:2&amp;4
+</td></tr>
+<tr><td id="TAB" class="rid">
 TAB
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 tab character
 </td></tr>
-<tr><td class="nounid">
+<tr><td id="take" class="rid">
+take
+</td><td class="rtype">
+v
+</td><td class="rdef">
+name for {.
+</td></tr>
+<tr><td id="tmoutput" class="rid">
+tmoutput
+</td><td class="rtype">
+v
+</td><td class="rdef">
+output to stdout
+</td></tr>
+<tr><td id="toCRLF" class="rid">
+toCRLF
+</td><td class="rtype">
+v
+</td><td class="rdef">
+converts character strings to CRLF delimiter
+</td></tr>
+<tr><td id="toHOST" class="rid">
+toHOST
+</td><td class="rtype">
+v
+</td><td class="rdef">
+converts character strings to Host delimiter
+</td></tr>
+<tr><td id="toJ" class="rid">
+toJ
+</td><td class="rtype">
+v
+</td><td class="rdef">
+converts character strings to J delimiter (linefeed)
+</td></tr>
+<tr><td id="tolower" class="rid">
+tolower
+</td><td class="rtype">
+v
+</td><td class="rdef">
+convert text to lower case
+</td></tr>
+<tr><td id="toupper" class="rid">
+toupper
+</td><td class="rtype">
+v
+</td><td class="rdef">
+convert text to upper case
+</td></tr>
+<tr><td id="type" class="rid">
+type
+</td><td class="rtype">
+v
+</td><td class="rdef">
+object type
+</td></tr>
+<tr><td id="verb" class="rid">
 verb
-</td><td class="noun">
+</td><td class="rtype">
+n
+</td><td class="rdef">
 integer 3
 </td></tr>
 </table>
 
-<h2 id="alpha17" class="hdef">alpha17 (verb)</h2>
-<p>Remove alpha channel.</p>
-<h2 id="alpha27" class="hdef">alpha27 (verb)</h2>
-<p>Add alpha channel.</p>
-<h2 id="apply" class="hdef">apply (verb)</h2>
-<p>Apply verb x to y.</p>
 <h2 id="assert" class="hdef">assert (verb)</h2>
 <p>assertion failure if 0 e. y e.g. 'invalid age' assert 0 &lt;: age</p>
 <h2 id="bind" class="hdef">bind (conjunction)</h2>
@@ -207,14 +634,10 @@ integer 3
 <h2 id="boxxopen" class="hdef">boxxopen (verb)</h2>
 <p>Box argument if open and not empty.</p>
 <p>See also <a href="boxxopen">boxxopen</a>.</p>
-<h2 id="bx" class="hdef">bx (verb)</h2>
-<p>Indices of 1's in boolean (same as I.).</p>
 <h2 id="clear" class="hdef">clear (verb)</h2>
 <p>Clear all names in locale, returns any names not erased.</p>
 <h3>Example</h3>
 <pre><code>clear &#39;myloc&#39;</code></pre>
-<h2 id="cutLF" class="hdef">cutLF (verb)</h2>
-<p>Cut text on LF, removing empties.</p>
 <h2 id="cutopen" class="hdef">cutopen (verb)</h2>
 <p>Cut argument if open. This allows an open argument to be given where a boxed list is required.</p>
 <p>Most common situations are handled. it is similar to boxopen, except allowing multiple arguments in the character string.</p>
@@ -222,75 +645,15 @@ integer 3
 <p>if y is boxed it is returned unchanged, otherwise:<br />if y has rank 2 or more, the boxed major cells are returned<br />if y has rank 0 or 1, it is cut on delimiters in given in x, or<br />  if x not given, LF if in y else blank. Empty items are deleted.</p>
 <p>e.g. if script=: 0!:0 @ cutopen, then</p>
 <pre><code>   script &#39;work.ijs util.ijs&#39;</code></pre>
-<h2 id="datatype" class="hdef">datatype (verb)</h2>
-<p>Noun datatype.</p>
-<h2 id="def" class="hdef">def (conjunction)</h2>
-<p>: (explicit definition).</p>
-<h2 id="define" class="hdef">define (adverb)</h2>
-<p>: 0 (explicit definition script form).</p>
-<h2 id="dfh" class="hdef">dfh (verb)</h2>
-<p>Decimal from hex.</p>
-<h2 id="do" class="hdef">do (verb)</h2>
-<p>Name for &quot;.</p>
-<h2 id="drop" class="hdef">drop (verb)</h2>
-<p>Name for }.</p>
-<h2 id="each" class="hdef">each (adverb)</h2>
-<p>Each (&amp;.&gt;).</p>
-<h2 id="echo" class="hdef">echo (verb)</h2>
-<p>Write argument to session.</p>
-<h2 id="empty" class="hdef">empty (verb)</h2>
-<p>Return empty result (i.0 0).</p>
-<h2 id="erase" class="hdef">erase (verb)</h2>
-<p>Erase namelist.</p>
-<h2 id="every" class="hdef">every (adverb)</h2>
-<p>Every (&amp;&gt;).</p>
-<h2 id="evtloop" class="hdef">evtloop (verb)</h2>
-<p>Initialize event loop.</p>
-<h2 id="exit" class="hdef">exit (verb)</h2>
-<p>Name for 2!:55 (exit).</p>
 <h2 id="expand" class="hdef">expand (verb)</h2>
 <p>form: boolean expand data</p>
-<h2 id="fetch" class="hdef">fetch (verb)</h2>
-<p>Name for {::.</p>
-<h2 id="file2url" class="hdef">file2url (verb)</h2>
-<p>Convert to file:// format.</p>
-<h2 id="fixdotdot" class="hdef">fixdotdot (verb)</h2>
-<p>Fix up a/b/c/d/../../e/../f to a/b/f.</p>
-<h2 id="fliprgb" class="hdef">fliprgb (verb)</h2>
-<p>Flip between argb and abgr byte order.</p>
-<h2 id="getargs" class="hdef">getargs (verb)</h2>
-<p>Get args.</p>
-<h2 id="getenv" class="hdef">getenv (verb)</h2>
-<p>Cover for get environment variable, 2!:5.</p>
-<h2 id="hfd" class="hdef">hfd (verb)</h2>
-<p>Hex from decimal.</p>
-<h2 id="inv" class="hdef">inv (adverb)</h2>
-<p>Inverse (^:_1).</p>
-<h2 id="inverse" class="hdef">inverse (adverb)</h2>
-<p>Inverse (^:_1).</p>
-<h2 id="iospath" class="hdef">iospath (verb)</h2>
-<p>IOS file system path.</p>
 <h2 id="isatty" class="hdef">isatty (verb)</h2>
 <p>Test whether a file descriptor refers to a terminal</p>
 <p>FILE_TYPE_CHAR=: 2<br />STD_INPUT_HANDLE=: _10<br />STD_OUTPUT_HANDLE=: _11<br />STD_ERROR_HANDLE=: _12</p>
-<h2 id="isutf8" class="hdef">isutf8 (verb)</h2>
-<p>If character string is valid utf8.</p>
-<h2 id="items" class="hdef">items (adverb)</h2>
-<p>Name for (&quot;_1).</p>
-<h2 id="leaf" class="hdef">leaf (adverb)</h2>
-<p>Leaf (L:0).</p>
 <h2 id="list" class="hdef">list (verb)</h2>
 <p>syntax: {width} list data accepts data as one of:</p>
 <p> boxed list<br /> character vector, delimited by CR, LF or CRLF; or by ' '<br /> character matrix</p>
 <p>formats in given width, default screenwidth</p>
-<h2 id="nameclass" class="hdef">nameclass (verb)</h2>
-<p>Name for 4!:0.</p>
-<h2 id="namelist" class="hdef">namelist (verb)</h2>
-<p>Name for 4!:1.</p>
-<h2 id="names" class="hdef">names (verb)</h2>
-<p>Formatted namelist.</p>
-<h2 id="nc" class="hdef">nc (verb)</h2>
-<p>Name for 4!:0.</p>
 <h2 id="nl" class="hdef">nl (verb)</h2>
 <p>Selective namelist.</p>
 <h3>Syntax</h3>
@@ -308,24 +671,6 @@ integer 3
 <pre><code>Note 1
 ... note text
 )</code></pre>
-<h2 id="on" class="hdef">on (conjunction)</h2>
-<p>Name for @:.</p>
-<h2 id="pick" class="hdef">pick (verb)</h2>
-<p>Pick (&gt;@{).</p>
-<h2 id="rows" class="hdef">rows (adverb)</h2>
-<p>Rows (&quot;1).</p>
-<h2 id="script" class="hdef">script (verb)</h2>
-<p>Load script, cover for 0!:0.</p>
-<h2 id="scriptd" class="hdef">scriptd (verb)</h2>
-<p>Load script with display, cover for 0!:1.</p>
-<h2 id="sign" class="hdef">sign (verb)</h2>
-<p>Sign (*).</p>
-<h2 id="sminfo" class="hdef">sminfo (verb)</h2>
-<p>Info box or output to session.</p>
-<h2 id="smoutput" class="hdef">smoutput (verb)</h2>
-<p>Output to session.</p>
-<h2 id="sort" class="hdef">sort (verb)</h2>
-<p>Sort up.</p>
 <h2 id="split" class="hdef">split (verb)</h2>
 <p>Split head from tail.</p>
 <h3>Example</h3>
@@ -337,12 +682,6 @@ integer 3
 ┌──┬───┐
 │ab│cde│
 └──┴───┘</code></pre>
-<h2 id="stderr" class="hdef">stderr (verb)</h2>
-<p>Name for 1!:2&amp;5.</p>
-<h2 id="stdin" class="hdef">stdin (verb)</h2>
-<p>Name for 1!:1&amp;3 with obverse stdout.</p>
-<h2 id="stdout" class="hdef">stdout (verb)</h2>
-<p>Name for 1!:2&amp;4.</p>
 <h2 id="table" class="hdef">table (adverb)</h2>
 <p>table - function table (adverb)</p>
 <h3>Example</h3>
@@ -354,8 +693,6 @@ integer 3
 │2│20 22 24 26│
 │3│30 33 36 39│
 └─┴───────────┘</code></pre>
-<h2 id="take" class="hdef">take (verb)</h2>
-<p>Name for {.</p>
 <h2 id="timespacex" class="hdef">timespacex (verb)</h2>
 <p>Time and space for expressions.</p>
 <h3>Syntax</h3>
@@ -370,20 +707,6 @@ integer 3
 <h3>Syntax</h3>
 <pre><code>[repetitions] timex &#39;expression&#39;</code></pre>
 <p>See also <a href="#timespacex">timespacex</a>.</p>
-<h2 id="tmoutput" class="hdef">tmoutput (verb)</h2>
-<p>Output to stdout.</p>
-<h2 id="toCRLF" class="hdef">toCRLF (verb)</h2>
-<p>Converts character strings to CRLF delimiter.</p>
-<h2 id="toHOST" class="hdef">toHOST (verb)</h2>
-<p>Converts character strings to Host delimiter.</p>
-<h2 id="toJ" class="hdef">toJ (verb)</h2>
-<p>Converts character strings to J delimiter (linefeed).</p>
-<h2 id="tolower" class="hdef">tolower (verb)</h2>
-<p>Convert text to lower case.</p>
-<h2 id="toupper" class="hdef">toupper (verb)</h2>
-<p>Convert text to upper case.</p>
-<h2 id="type" class="hdef">type (verb)</h2>
-<p>Object type.</p>
 <h2 id="ucp" class="hdef">ucp (verb)</h2>
 <p>This is 7-bit ascii (if possible) or utf16 (compare <a href="#uucp">uucp</a>).</p>
 <p>inverse is <a href="#utf8">utf8</a>.</p>

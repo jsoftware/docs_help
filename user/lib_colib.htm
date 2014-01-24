@@ -26,28 +26,89 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines the class/object library and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">C</td>
-<td align="left"><a href="#coclass">coclass</a>, <a href="#cocreate">cocreate</a>, <a href="#cocurrent">cocurrent</a>, <a href="#codestroy">codestroy</a>, <a href="#coerase">coerase</a>, <a href="#cofullname">cofullname</a>, <a href="#coinsert">coinsert</a>, <a href="#coname">coname</a>, <a href="#conames">conames</a>, <a href="#conew">conew</a>, <a href="#conl">conl</a>, <a href="#copath">copath</a>, <a href="#coreset">coreset</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+C
+</td><td>
+<a href="#coclass">coclass</a>, <a href="#cocreate">cocreate</a>, <a href="#cocurrent">cocurrent</a>, <a href="#codestroy">codestroy</a>, <a href="#coerase">coerase</a>, <a href="#cofullname">cofullname</a>, <a href="#coinsert">coinsert</a>, <a href="#coname">coname</a>, <a href="#conames">conames</a>, <a href="#conew">conew</a>, <a href="#conl">conl</a>, <a href="#copath">copath</a>, <a href="#coreset">coreset</a>
+</td></tr>
 </table>
-<h2 id="coclass" class="hdef">coclass (verb)</h2>
-<p>Set class/object class.</p>
-<h2 id="cocreate" class="hdef">cocreate (verb)</h2>
-<p>Create object.</p>
-<h2 id="cocurrent" class="hdef">cocurrent (verb)</h2>
-<p>Set current locale.</p>
-<h2 id="codestroy" class="hdef">codestroy (verb)</h2>
-<p>Destroy current object.</p>
+
+<hr><table class="rdef"><tr><td id="coclass" class="rid">
+coclass
+</td><td class="rtype">
+v
+</td><td class="rdef">
+set class/object class
+</td></tr>
+<tr><td id="cocreate" class="rid">
+cocreate
+</td><td class="rtype">
+v
+</td><td class="rdef">
+create object
+</td></tr>
+<tr><td id="cocurrent" class="rid">
+cocurrent
+</td><td class="rtype">
+v
+</td><td class="rdef">
+set current locale
+</td></tr>
+<tr><td id="codestroy" class="rid">
+codestroy
+</td><td class="rtype">
+v
+</td><td class="rdef">
+destroy current object
+</td></tr>
+<tr><td id="cofullname" class="rid">
+cofullname
+</td><td class="rtype">
+v
+</td><td class="rdef">
+return name with locale qualifier
+</td></tr>
+<tr><td id="coname" class="rid">
+coname
+</td><td class="rtype">
+v
+</td><td class="rdef">
+return current class/object name
+</td></tr>
+<tr><td id="conames" class="rid">
+conames
+</td><td class="rtype">
+v
+</td><td class="rdef">
+formatted class/object name list
+</td></tr>
+<tr><td id="conew" class="rid">
+conew
+</td><td class="rtype">
+v
+</td><td class="rdef">
+create object
+</td></tr>
+<tr><td id="copath" class="rid">
+copath
+</td><td class="rtype">
+v
+</td><td class="rdef">
+set/get class/object path
+</td></tr>
+<tr><td id="coreset" class="rid">
+coreset
+</td><td class="rtype">
+v
+</td><td class="rdef">
+destroy object locales,
+</td></tr>
+</table>
+
 <h2 id="coerase" class="hdef">coerase (verb)</h2>
 <p>Erase object.</p>
 <h3>Example</h3>
 <pre><code>coerase &lt;&#39;jzplot&#39;</code></pre>
-<h2 id="cofullname" class="hdef">cofullname (verb)</h2>
-<p>Return name with locale qualifier.</p>
 <h2 id="coinsert" class="hdef">coinsert (verb)</h2>
 <p>adds argument and copath of argument to current path.</p>
 <p>paths are in order of argument, except that z is at the end.</p>
@@ -55,20 +116,10 @@ User<hr><!--top jump end-->
 <pre><code>coinsert &#39;cdir&#39;
 coinsert &#39;cdir pobj&#39;
 coinsert &#39;cdir&#39;;&#39;pobj&#39;</code></pre>
-<h2 id="coname" class="hdef">coname (verb)</h2>
-<p>Return current class/object name.</p>
-<h2 id="conames" class="hdef">conames (verb)</h2>
-<p>Formatted class/object name list.</p>
-<h2 id="conew" class="hdef">conew (verb)</h2>
-<p>Create object.</p>
 <h2 id="conl" class="hdef">conl (verb)</h2>
 <p>Return class/object name list.</p>
 <h3>Syntax</h3>
 <pre><code>conl n</code></pre>
-<h2 id="copath" class="hdef">copath (verb)</h2>
-<p>Set/get class/object path.</p>
-<h2 id="coreset" class="hdef">coreset (verb)</h2>
-<p>Destroy object locales,.</p>
 <!--bottom jump start--><hr><a href="lib_coutil.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_break.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

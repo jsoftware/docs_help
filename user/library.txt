@@ -41,7 +41,6 @@ lib_colib.htm#copath
 lib_coutil.htm#copathnl
 lib_coutil.htm#copathnlx
 lib_colib.htm#coreset
-lib_coutil.htm#coselect
 lib_coutil.htm#costate
 lib_stdlib.htm#CR
 lib_stdlib.htm#CRLF
@@ -131,7 +130,6 @@ lib_stdlib.htm#fetch
 lib_files.htm#fexist
 lib_stdlib.htm#FF
 lib_files.htm#fgets
-lib_dll.htm#fh
 lib_sysenv.htm#FHS
 lib_stdlib.htm#file2url
 lib_stdlib.htm#fixdotdot
@@ -159,7 +157,6 @@ lib_stdlib.htm#getargs
 lib_dates.htm#getdate
 lib_stdlib.htm#getenv
 lib_jal.htm#getqtbin
-lib_dll.htm#gh
 lib_stdlib.htm#hfd
 lib_sysenv.htm#hostpathsep
 lib_dll.htm#ic

@@ -3,7 +3,7 @@ NB. docs/help manifest
 CAPTION=: 'HELP'
 
 DESCRIPTION=: 0 : 0
-HELP
+J Help Files
 )
 
 VERSION=: '1.0.22'

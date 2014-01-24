@@ -26,46 +26,160 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines string utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">C</td>
-<td align="left"><a href="#charsub">charsub</a>, <a href="#chopstring">chopstring</a>, <a href="#cut">cut</a>, <a href="#cuts">cuts</a></td>
-</tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="left"><a href="#deb">deb</a>, <a href="#delstring">delstring</a>, <a href="#dlb">dlb</a>, <a href="#dltb">dltb</a>, <a href="#dltbs">dltbs</a>, <a href="#dquote">dquote</a>, <a href="#dropafter">dropafter</a>, <a href="#dropto">dropto</a>, <a href="#dtb">dtb</a>, <a href="#dtbs">dtbs</a></td>
-</tr>
-<tr class="odd">
-<td align="left">F</td>
-<td align="left"><a href="#fstringreplace">fstringreplace</a></td>
-</tr>
-<tr class="even">
-<td align="left">J</td>
-<td align="left"><a href="#joinstring">joinstring</a></td>
-</tr>
-<tr class="odd">
-<td align="left">L</td>
-<td align="left"><a href="#ljust">ljust</a></td>
-</tr>
-<tr class="even">
-<td align="left">Q</td>
-<td align="left"><a href="#quote">quote</a></td>
-</tr>
-<tr class="odd">
-<td align="left">R</td>
-<td align="left"><a href="#rjust">rjust</a>, <a href="#rplc">rplc</a></td>
-</tr>
-<tr class="even">
-<td align="left">S</td>
-<td align="left"><a href="#splitnostring">splitnostring</a>, <a href="#splitstring">splitstring</a>, <a href="#ss">ss</a>, <a href="#stringreplace">stringreplace</a></td>
-</tr>
-<tr class="odd">
-<td align="left">T</td>
-<td align="left"><a href="#takeafter">takeafter</a>, <a href="#taketo">taketo</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+C
+</td><td>
+<a href="#charsub">charsub</a>, <a href="#chopstring">chopstring</a>, <a href="#cut">cut</a>, <a href="#cuts">cuts</a>
+</td></tr>
+<tr><td class="key">
+D
+</td><td>
+<a href="#deb">deb</a>, <a href="#delstring">delstring</a>, <a href="#dlb">dlb</a>, <a href="#dltb">dltb</a>, <a href="#dltbs">dltbs</a>, <a href="#dquote">dquote</a>, <a href="#dropafter">dropafter</a>, <a href="#dropto">dropto</a>, <a href="#dtb">dtb</a>, <a href="#dtbs">dtbs</a>
+</td></tr>
+<tr><td class="key">
+F
+</td><td>
+<a href="#fstringreplace">fstringreplace</a>
+</td></tr>
+<tr><td class="key">
+J
+</td><td>
+<a href="#joinstring">joinstring</a>
+</td></tr>
+<tr><td class="key">
+L
+</td><td>
+<a href="#ljust">ljust</a>
+</td></tr>
+<tr><td class="key">
+Q
+</td><td>
+<a href="#quote">quote</a>
+</td></tr>
+<tr><td class="key">
+R
+</td><td>
+<a href="#rjust">rjust</a>, <a href="#rplc">rplc</a>
+</td></tr>
+<tr><td class="key">
+S
+</td><td>
+<a href="#splitnostring">splitnostring</a>, <a href="#splitstring">splitstring</a>, <a href="#ss">ss</a>, <a href="#stringreplace">stringreplace</a>
+</td></tr>
+<tr><td class="key">
+T
+</td><td>
+<a href="#takeafter">takeafter</a>, <a href="#taketo">taketo</a>
+</td></tr>
 </table>
+
+<hr><table class="rdef"><tr><td id="cut" class="rid">
+cut
+</td><td class="rtype">
+v
+</td><td class="rdef">
+cut text, by default on blanks
+</td></tr>
+<tr><td id="deb" class="rid">
+deb
+</td><td class="rtype">
+v
+</td><td class="rdef">
+delete extra blanks
+</td></tr>
+<tr><td id="delstring" class="rid">
+delstring
+</td><td class="rtype">
+v
+</td><td class="rdef">
+delete occurrences of x from y
+</td></tr>
+<tr><td id="dlb" class="rid">
+dlb
+</td><td class="rtype">
+v
+</td><td class="rdef">
+delete leading blanks
+</td></tr>
+<tr><td id="dltb" class="rid">
+dltb
+</td><td class="rtype">
+v
+</td><td class="rdef">
+delete leading and trailing blanks
+</td></tr>
+<tr><td id="dropafter" class="rid">
+dropafter
+</td><td class="rtype">
+v
+</td><td class="rdef">
+drop after x in y
+</td></tr>
+<tr><td id="dropto" class="rid">
+dropto
+</td><td class="rtype">
+v
+</td><td class="rdef">
+drop to x in y
+</td></tr>
+<tr><td id="dtb" class="rid">
+dtb
+</td><td class="rtype">
+v
+</td><td class="rdef">
+delete trailing blanks
+</td></tr>
+<tr><td id="joinstring" class="rid">
+joinstring
+</td><td class="rtype">
+v
+</td><td class="rdef">
+join boxed list y with x; see splitstring
+</td></tr>
+<tr><td id="ljust" class="rid">
+ljust
+</td><td class="rtype">
+v
+</td><td class="rdef">
+left justify
+</td></tr>
+<tr><td id="quote" class="rid">
+quote
+</td><td class="rtype">
+v
+</td><td class="rdef">
+quote text
+</td></tr>
+<tr><td id="rjust" class="rid">
+rjust
+</td><td class="rtype">
+v
+</td><td class="rdef">
+right justify
+</td></tr>
+<tr><td id="ss" class="rid">
+ss
+</td><td class="rtype">
+v
+</td><td class="rdef">
+string search
+</td></tr>
+<tr><td id="takeafter" class="rid">
+takeafter
+</td><td class="rtype">
+v
+</td><td class="rdef">
+take after x in y
+</td></tr>
+<tr><td id="taketo" class="rid">
+taketo
+</td><td class="rtype">
+v
+</td><td class="rdef">
+take to x in y
+</td></tr>
+</table>
+
 <h2 id="charsub" class="hdef">charsub (verb)</h2>
 <p>Character substitution.</p>
 <h3>Syntax</h3>
@@ -86,21 +200,11 @@ User<hr><!--top jump end-->
 ┌───────────┬─┬────┐
 │hello|world│4│84.3│
 └───────────┴─┴────┘</code></pre>
-<h2 id="cut" class="hdef">cut (verb)</h2>
-<p>Cut text, by default on blanks.</p>
 <h2 id="cuts" class="hdef">cuts (conjunction)</h2>
 <p>This builds verbs to cut strings at given text and apply verbs to the pieces.</p>
 <h3>Syntax</h3>
 <pre><code>string (verb cuts n) text</code></pre>
 <p> n=_1 up to but not including string<br /> n= 1 up to and including string<br /> n=_2 after but not including string<br /> n= 2 after and including string</p>
-<h2 id="deb" class="hdef">deb (verb)</h2>
-<p>Delete extra blanks.</p>
-<h2 id="delstring" class="hdef">delstring (verb)</h2>
-<p>Delete occurrences of x from y.</p>
-<h2 id="dlb" class="hdef">dlb (verb)</h2>
-<p>Delete leading blanks.</p>
-<h2 id="dltb" class="hdef">dltb (verb)</h2>
-<p>Delete leading and trailing blanks.</p>
 <h2 id="dltbs" class="hdef">dltbs (verb)</h2>
 <p>Delete multiple leading and trailing blanks. Text is delimited by characters in x with default LF</p>
 <h3>Example</h3>
@@ -113,12 +217,6 @@ User<hr><!--top jump end-->
 <h3>Example</h3>
 <pre><code>   dquote &#39;Pete&quot;s Place&#39;
 &quot;Pete&quot;&quot;s Place&quot;</code></pre>
-<h2 id="dropafter" class="hdef">dropafter (verb)</h2>
-<p>Drop after x in y.</p>
-<h2 id="dropto" class="hdef">dropto (verb)</h2>
-<p>Drop to x in y.</p>
-<h2 id="dtb" class="hdef">dtb (verb)</h2>
-<p>Delete trailing blanks.</p>
 <h2 id="dtbs" class="hdef">dtbs (verb)</h2>
 <p>Delete multiple trailing blanks in text. Text is delimited by characters in x with default CRLF</p>
 <h3>Example</h3>
@@ -130,14 +228,6 @@ User<hr><!--top jump end-->
 <p>Replace strings in file</p>
 <h3>Syntax</h3>
 <pre><code>(old;new) fstringreplace file</code></pre>
-<h2 id="joinstring" class="hdef">joinstring (verb)</h2>
-<p>Join boxed list y with x; see splitstring.</p>
-<h2 id="ljust" class="hdef">ljust (verb)</h2>
-<p>Left justify.</p>
-<h2 id="quote" class="hdef">quote (verb)</h2>
-<p>Quote text.</p>
-<h2 id="rjust" class="hdef">rjust (verb)</h2>
-<p>Right justify.</p>
 <h2 id="rplc" class="hdef">rplc (verb)</h2>
 <p>This is <a href="#stringreplace">stringreplace</a> but with arguments reversed.</p>
 <h3>Example</h3>
@@ -147,8 +237,6 @@ hallowed</code></pre>
 <p>Split y by non-overlapping substrings x This is a non-overlapping variant of E.</p>
 <h2 id="splitstring" class="hdef">splitstring (verb)</h2>
 <p>Split y by substring x. see <a href="#joinstring">joinstring</a>.</p>
-<h2 id="ss" class="hdef">ss (verb)</h2>
-<p>String search.</p>
 <h2 id="stringreplace" class="hdef">stringreplace (verb)</h2>
 <p>Replace characters in text string.</p>
 <h3>Syntax</h3>
@@ -161,10 +249,6 @@ hallowed</code></pre>
 
     (&#39;ba&#39;;&#39;+&#39;;&#39;aba&#39;;&#39;XYZT&#39;) stringreplace &#39;ababa&#39;
  a++</code></pre>
-<h2 id="takeafter" class="hdef">takeafter (verb)</h2>
-<p>Take after x in y.</p>
-<h2 id="taketo" class="hdef">taketo (verb)</h2>
-<p>Take to x in y.</p>
 <!--bottom jump start--><hr><a href="lib_sysenv.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_stdlib.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

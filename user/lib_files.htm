@@ -32,14 +32,78 @@ User<hr><!--top jump end-->
 <p>string verbs write out text delimited with the host OS delimiter, and read in text delimited by LF.</p>
 <p>on error, the result is _1, e.g. for file not found/file read error/file write error</p>
 <h2>Definitions</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">F</td>
-<td align="left"><a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a></td>
-</tr>
-</tbody>
+<table class="map"><tr><td class="key">
+F
+</td><td>
+<a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a>
+</td></tr>
 </table>
+
+<hr><table class="rdef"><tr><td id="fboxname" class="rid">
+fboxname
+</td><td class="rtype">
+v
+</td><td class="rdef">
+fix and box filename
+</td></tr>
+<tr><td id="fgets" class="rid">
+fgets
+</td><td class="rtype">
+v
+</td><td class="rdef">
+convert text read from file to J string
+</td></tr>
+<tr><td id="fmakex" class="rid">
+fmakex
+</td><td class="rtype">
+v
+</td><td class="rdef">
+make file executable
+</td></tr>
+<tr><td id="fpathcreate" class="rid">
+fpathcreate
+</td><td class="rtype">
+v
+</td><td class="rdef">
+create a folder path, returning success
+</td></tr>
+<tr><td id="fpathname" class="rid">
+fpathname
+</td><td class="rtype">
+v
+</td><td class="rdef">
+split file name into path;name
+</td></tr>
+<tr><td id="fstamp" class="rid">
+fstamp
+</td><td class="rtype">
+v
+</td><td class="rdef">
+returns file timestamp
+</td></tr>
+<tr><td id="fwrite" class="rid">
+fwrite
+</td><td class="rtype">
+v
+</td><td class="rdef">
+write text to file
+</td></tr>
+<tr><td id="fwrite" class="rid">
+fwrite
+</td><td class="rtype">
+v
+</td><td class="rdef">
+write text to file if changed
+</td></tr>
+<tr><td id="fwrites" class="rid">
+fwrites
+</td><td class="rtype">
+v
+</td><td class="rdef">
+write string to file
+</td></tr>
+</table>
+
 <h2 id="fappend" class="hdef">fappend (verb)</h2>
 <p>Append text to file.</p>
 <p>The text is first ravelled. The file is created if necessary.</p>
@@ -55,8 +119,6 @@ User<hr><!--top jump end-->
 <p>The file is created if necessary. Returns number of characters written, or an error message.</p>
 <h2 id="fapplylines" class="hdef">fapplylines (adverb)</h2>
 <p>Apply verb to lines in file delimited by LF.</p>
-<h2 id="fboxname" class="hdef">fboxname (verb)</h2>
-<p>Fix and box filename.</p>
 <h2 id="fcopynew" class="hdef">fcopynew (verb)</h2>
 <p>Copies files if changed.</p>
 <h3>Syntax</h3>
@@ -71,14 +133,6 @@ User<hr><!--top jump end-->
 <p>Returns 1 if successful, otherwise _1</p>
 <h2 id="fexist" class="hdef">fexist (verb)</h2>
 <p>Returns 1 if the file exists, otherwise 0.</p>
-<h2 id="fgets" class="hdef">fgets (verb)</h2>
-<p>Convert text read from file to J string.</p>
-<h2 id="fmakex" class="hdef">fmakex (verb)</h2>
-<p>Make file executable.</p>
-<h2 id="fpathcreate" class="hdef">fpathcreate (verb)</h2>
-<p>Create a folder path, returning success.</p>
-<h2 id="fpathname" class="hdef">fpathname (verb)</h2>
-<p>Split file name into path;name.</p>
 <h2 id="fread" class="hdef">fread (verb)</h2>
 <p>Read file.</p>
 <p>y is filename {;start size}<br />optional x calls freads</p>
@@ -110,17 +164,9 @@ User<hr><!--top jump end-->
 <p>File string search and replace.</p>
 <h3>Syntax</h3>
 <pre><code>(old;new) fssrplc file</code></pre>
-<h2 id="fstamp" class="hdef">fstamp (verb)</h2>
-<p>Returns file timestamp.</p>
 <h2 id="ftype" class="hdef">ftype (verb)</h2>
 <p>Get file type, as:</p>
 <p>0 = not exist<br />1 = file<br />2 = directory</p>
-<h2 id="fwrite" class="hdef">fwrite (verb)</h2>
-<p>Write text to file.</p>
-<h2 id="fwrite" class="hdef">fwrite (verb)</h2>
-<p>Write text to file if changed.</p>
-<h2 id="fwrites" class="hdef">fwrites (verb)</h2>
-<p>Write string to file.</p>
 <!--bottom jump start--><hr><a href="lib_jal.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_dll.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
