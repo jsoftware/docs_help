@@ -1,7 +1,7 @@
 <html>
 <head><link rel=stylesheet href="../jdoc.css" type="text/css"><title>9!: Global Parameters</title>
 <link href="../jdoc.css" rel=stylesheet></head>
-<body><!--top jump start--><a href="dx011.htm">&gt;&gt;</a>&nbsp;
+<body><!--top jump start--><a href="dx013.htm">&gt;&gt;</a>&nbsp;
 <a href="dx008.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
@@ -22,7 +22,7 @@ Dictionary<hr><!--top jump end-->
 </tr></table>
 <br>
 
-<p><tt>9!:(2*n) </tt>queries a parameter and 
+<p><tt>9!:(2*n) </tt>queries a parameter and
 (if available)<tt> 9!:(1+2*n) </tt>sets it.
 In versions of J with a GUI, these parameters are usually queried and set
 by the menu item &nbsp; Edit|Configure...
@@ -39,8 +39,8 @@ by the menu item &nbsp; Edit|Configure...
 
 <tr><td valign=top><a name="2"></a><tt>9!:2 y<br>9!:3 y</tt></td>
 <td valign=top>
-<b>Default Displays</b>. The representation(s) to used for 
-default displays of non-nouns. The representations are as 
+<b>Default Displays</b>. The representation(s) to used for
+default displays of non-nouns. The representations are as
 defined in<tt> <a href="dx005.htm">5!:n</a></tt> : 1 atomic, 2 boxed, 4 tree, 5 linear, 6 paren.
 </td></tr>
 
@@ -48,13 +48,13 @@ defined in<tt> <a href="dx005.htm">5!:n</a></tt> : 1 atomic, 2 boxed, 4 tree, 5 
 
 <tr><td valign=top><a name="6"></a><tt>9!:6 y<br>9!:7 y</tt></td>
 <td valign=top>
-<b>Box-Drawing Characters</b>.  The eleven characters used to draw boxes 
+<b>Box-Drawing Characters</b>.  The eleven characters used to draw boxes
 (initially<tt> +++++++++|-</tt>).<br><br><br>
 </td></tr>
 
 <tr><td valign=top><a name="8"></a><tt>9!:8 y<br>9!:9 y</tt></td>
 <td valign=top>
-<b>Error Messages</b>.  e.g. replace English messages 
+<b>Error Messages</b>.  e.g. replace English messages
 (default) by French.
 </td></tr>
 
@@ -62,8 +62,8 @@ defined in<tt> <a href="dx005.htm">5!:n</a></tt> : 1 atomic, 2 boxed, 4 tree, 5 
 
 <tr><td valign=top><a name="10"></a><tt>9!:10 y<br>9!:11 y</tt></td>
 <td valign=top>
-<b>Print Precision</b>.  The print precision in default 
-output (initially 6). The precision in particular cases can 
+<b>Print Precision</b>.  The print precision in default
+output (initially 6). The precision in particular cases can
 be set using fit, thus:<tt> &quot;:!.p</tt>
 </td></tr>
 
@@ -71,7 +71,7 @@ be set using fit, thus:<tt> &quot;:!.p</tt>
 
 <tr><td valign=top><a name="12"></a><tt>9!:12 y</tt></td>
 <td valign=top>
-<b>System Type</b>. 
+<b>System Type</b>.
 <table>
 <tr><td><tt>&nbsp;5&nbsp;</tt></td><td>Unix</td></tr>
 <tr><td><tt>&nbsp;6</tt></td><td>Windows32 (95/98/2000/NT)</td></tr>
@@ -94,7 +94,7 @@ be set using fit, thus:<tt> &quot;:!.p</tt>
 <tr><td valign=top><a name="16"></a><tt>9!:16 y<br>9!:17 y</tt></td>
 <td valign=top>
 <b>Boxed Display Positioning</b>.<tt> y </tt>is<tt> r,c </tt>
-specifying row and column positioning: 
+specifying row and column positioning:
 0 (top, left); 1 (centre); 2 (bottom, right)
 </td></tr>
 
@@ -102,8 +102,8 @@ specifying row and column positioning:
 
 <tr><td valign=top><a name="18"></a><tt>9!:18 y<br>9!:19 y</tt></td>
 <td valign=top>
-<b>Comparison Tolerance</b>. Queries and sets the comparison tolerance.  
-See <a href="d000.htm">Equal<tt> </tt>(<tt>=</tt>)</a>.<tt> </tt>The tolerance in particular 
+<b>Comparison Tolerance</b>. Queries and sets the comparison tolerance.
+See <a href="d000.htm">Equal<tt> </tt>(<tt>=</tt>)</a>.<tt> </tt>The tolerance in particular
 cases can be set using fit, thus:<tt> =!.t</tt> .
 </td></tr>
 
@@ -111,7 +111,7 @@ cases can be set using fit, thus:<tt> =!.t</tt> .
 
 <tr><td valign=top><a name="20"></a><tt>9!:20 y<br>9!:21 y</tt></td>
 <td valign=top>
-<b>Memory Limit</b>. An upper bound on the size of any one memory allocation.  
+<b>Memory Limit</b>. An upper bound on the size of any one memory allocation.
 The memory limit is initially 2^30 on 32-bit systems and 2^62 on 64-bit systems.
 </td></tr>
 
@@ -119,13 +119,13 @@ The memory limit is initially 2^30 on 32-bit systems and 2^62 on 64-bit systems.
 
 <tr><td valign=top><a name="24"></a><tt>9!:24 y<br>9!:25 y</tt></td>
 <td valign=top>
-<b>Security Level</b>. The security level is either 0 or 1.  
-It is initially 0, and may be set to 1 (and can not be reset to 0).  
-When the security level is 1, executing Window driver commands 
-and certain foreigns<tt> </tt>(<tt>!:</tt>)<tt> </tt>that can alter 
-the external state cause a &ldquo;security violation&rdquo; error to be signalled.  
+<b>Security Level</b>. The security level is either 0 or 1.
+It is initially 0, and may be set to 1 (and can not be reset to 0).
+When the security level is 1, executing Window driver commands
+and certain foreigns<tt> </tt>(<tt>!:</tt>)<tt> </tt>that can alter
+the external state cause a &ldquo;security violation&rdquo; error to be signalled.
 The following foreigns are prohibited: dyads<tt> 0!:n</tt> ,<tt> 1!:n </tt>
-except<tt> 1!:40</tt> ,<tt> 1!:41</tt>, <tt> </tt>and<tt> 1!:42</tt> 
+except<tt> 1!:40</tt> ,<tt> 1!:41</tt>, <tt> </tt>and<tt> 1!:42</tt>
 ,<tt> 2!:n</tt> ,<tt> </tt>and<tt> 16!:n</tt> .
 </td></tr>
 
@@ -142,7 +142,7 @@ except<tt> 1!:40</tt> ,<tt> 1!:41</tt>, <tt> </tt>and<tt> 1!:42</tt>
 <td valign=top>
 <b>Immex Flag</b>. If the immediate execution flag is 1,
 then on entry into immediate execution, the flag is set to 0
-and the immediate execution 
+and the immediate execution
 phrase<tt> </tt>(<tt>9!:27</tt>)<tt> </tt>
 is executed.
 </td></tr>
@@ -152,13 +152,13 @@ is executed.
 <tr><td valign=top><a name="32"></a><tt>9!:32 y<br>9!:33 y</tt></td>
 <td valign=top>
 <b>Execution Time Limit</b>. The execution time limit is a single
-non-negative (possibly non-integral) number of seconds.  
-The limit is reduced for every line of immediate execution that 
-exceeds a minimum granularity, and execution is interrupted 
+non-negative (possibly non-integral) number of seconds.
+The limit is reduced for every line of immediate execution that
+exceeds a minimum granularity, and execution is interrupted
 with a &ldquo;time limit error&rdquo; if a non-zero limit is set and goes to 0.
 Current limitations:<ul>
 <li>The resolution is milliseconds.
-<li>Under Windows the limit is on elapsed time while J is running, 
+<li>Under Windows the limit is on elapsed time while J is running,
 instead of the task processor time as is intended.
 <li>Under Windows the granularity is approximately 1.5 seconds.
 </ul>
@@ -190,8 +190,8 @@ Examples:
 
 <tr><td valign=top><a name="34"></a><tt>9!:34 y<br>9!:35 y</tt></td>
 <td valign=top>
-<b>Assertions</b>. 1 if and only if assertions are to be evaluated, 
-with a default setting of 1.  
+<b>Assertions</b>. 1 if and only if assertions are to be evaluated,
+with a default setting of 1.
 See the<tt> <a href="cassert.htm">assert.</a> </tt>control word.
 </td></tr>
 
@@ -212,7 +212,7 @@ and &ldquo;...&rdquo; appended.</td></tr>
 
 <tr>
 <td valign=top nowrap>maximum line before &nbsp;&nbsp;</td>
-<td valign=top>If the total number of output lines exceeds the sum of 
+<td valign=top>If the total number of output lines exceeds the sum of
 &ldquo;maximum lines before&rdquo;<tt> b </tt>and &ldquo;maximum lines after&rdquo;<tt> a</tt> ,<tt> </tt>
 then the first<tt> b </tt>lines are output, followed by a line of &ldquo;...&rdquo;,
 followed by the last<tt> a </tt>lines.</td></tr>
@@ -229,12 +229,12 @@ The defaults for output controls are<tt> 0 256 0 222</tt> .</td></tr>
 <tr><td valign=top><a name="38"></a><tt>9!:38 y<br>9!:39 y</tt></td>
 <td valign=top>
 <b>Locale Hash Table Size</b>. A 2-element vector that controls the default
-hash table sizes for <a href="dx018.htm">named and numbered locales</a>, with a default 
+hash table sizes for <a href="dx018.htm">named and numbered locales</a>, with a default
 of<tt> 3&nbsp;2</tt> .<tt> </tt>A specified size of<tt> i </tt>indicates a
-table requiring<tt> w*2^6+i </tt>bytes where<tt> w </tt>is the number 
+table requiring<tt> w*2^6+i </tt>bytes where<tt> w </tt>is the number
 of bytes in a word.
-A larger hash table size improves performance; 
-regardless of the hash table size, a locale may contain an 
+A larger hash table size improves performance;
+regardless of the hash table size, a locale may contain an
 effectively unlimited number of names.<br><br>
 
 The following table lists the initial hash table sizes:<br>
@@ -250,7 +250,7 @@ The following table lists the initial hash table sizes:<br>
 </table>
 <br>
 
-The hash table size of a locale can be individually specified when 
+The hash table size of a locale can be individually specified when
 the locale is created, using the dyad<tt> <a href="dx018.htm#3">18!:3</a></tt> .
 </td></tr>
 
@@ -260,8 +260,8 @@ the locale is created, using the dyad<tt> <a href="dx018.htm#3">18!:3</a></tt> .
 <td valign=top>
 <b>Retain Comments and White Space</b>. Specifies whether comments and
 non-essential white space are retained in explicit definitions.
-The default is 1 (<i>retain</i> comments and white space).  
-A setting of 1 can result in explicit definitions, 
+The default is 1 (<i>retain</i> comments and white space).
+A setting of 1 can result in explicit definitions,
 even commentless ones, requiring
 double the amount of storage.
 </td></tr>
@@ -281,22 +281,22 @@ double the amount of storage.
 <tr><td>&nbsp;</td></tr>
 
 <tr><td valign=top><a name="46"></a><tt>9!:46 y<br>9!:47 y</tt></td>
-<td valign=top><b>&ldquo;Break&rdquo; File.</b> 
+<td valign=top><b>&ldquo;Break&rdquo; File.</b>
 The name of the file used for &ldquo;break&rdquo; handling.
 </td></tr>
 
 <tr><td>&nbsp;</td></tr>
 
 <tr><td valign=top><a name="48"></a><tt>9!:48 y<br>9!:49 y</tt></td>
-<td valign=top><b>Explicit Argument Names.</b> 
-This is a temporary facility that controls whether 
+<td valign=top><b>Explicit Argument Names.</b>
+This is a temporary facility that controls whether
 the names<tt> x. y. u. v. m. n. </tt>are permitted.
 </td></tr>
 </table>
 
 <br>
 
-<!--bottom jump start--><hr><a href="dx011.htm">&gt;&gt;</a>&nbsp;
+<!--bottom jump start--><hr><a href="dx013.htm">&gt;&gt;</a>&nbsp;
 <a href="dx008.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
