@@ -1,6 +1,6 @@
 NB. docs/help manifest
 
-CAPTION=: 'HELP'
+CAPTION=: 'J Help Files'
 
 DESCRIPTION=: 0 : 0
 J Help Files
