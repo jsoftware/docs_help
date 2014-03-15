@@ -235,7 +235,7 @@ lib_stdlib.htm#stdout
 lib_strings.htm#stringreplace
 lib_dll.htm#symdat
 lib_dll.htm#symget
-lib_dll.htm#symget
+lib_dll.htm#symset
 lib_stdlib.htm#TAB
 lib_stdlib.htm#table
 lib_stdlib.htm#take
