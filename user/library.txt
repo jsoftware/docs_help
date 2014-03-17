@@ -30,6 +30,7 @@ lib_coutil.htm#cofindv
 lib_colib.htm#cofullname
 lib_coutil.htm#coinfo
 lib_colib.htm#coinsert
+lib_compare.htm#compare
 lib_colib.htm#coname
 lib_colib.htm#conames
 lib_colib.htm#conew
@@ -123,6 +124,8 @@ lib_files.htm#fappends
 lib_files.htm#fapplylines
 lib_files.htm#fboxname
 lib_dll.htm#fc
+lib_compare.htm#fcompare
+lib_compare.htm#fcompares
 lib_files.htm#fcopynew
 lib_files.htm#fdir
 lib_files.htm#ferase
@@ -188,6 +191,7 @@ lib_sysenv.htm#jcwdpath
 lib_dll.htm#JFL
 lib_dll.htm#JINT
 lib_strings.htm#joinstring
+lib_jade.htm#jpath
 lib_sysenv.htm#jpathsep
 lib_dll.htm#JPTR
 lib_dll.htm#JSIZES
@@ -199,6 +203,8 @@ lib_stdlib.htm#LF
 lib_stdlib.htm#LF2
 lib_stdlib.htm#list
 lib_strings.htm#ljust
+lib_jade.htm#load
+lib_jade.htm#loadd
 lib_dll.htm#mema
 lib_dll.htm#memf
 lib_dll.htm#memr
@@ -215,12 +221,15 @@ lib_stdlib.htm#on
 lib_dll.htm#OR
 lib_stdlib.htm#pick
 lib_strings.htm#quote
+lib_jade.htm#require
 lib_strings.htm#rjust
 lib_stdlib.htm#rows
 lib_strings.htm#rplc
 lib_stdlib.htm#script
 lib_stdlib.htm#scriptd
+lib_jade.htm#scripts
 lib_break.htm#setbreak
+lib_jade.htm#show
 lib_stdlib.htm#sign
 lib_stdlib.htm#sminfo
 lib_stdlib.htm#smoutput
@@ -267,8 +276,10 @@ lib_stdlib.htm#utf8
 lib_stdlib.htm#uucp
 lib_dates.htm#valdate
 lib_stdlib.htm#verb
+lib_jade.htm#wcsize
 lib_dates.htm#weekday
 lib_dates.htm#weeknumber
 lib_dates.htm#weeksinyear
 lib_sysenv.htm#winpathsep
+lib_jade.htm#xedit
 lib_dll.htm#XOR

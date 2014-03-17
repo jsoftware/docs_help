@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>jade.ijs</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../jdoc.css" type="text/css" />
+</head>
+<body><!--top jump start--><a href="lib_jal.htm">&gt;&gt;</a>&nbsp;
+<a href="lib_files.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+User<hr><!--top jump end-->
+<div id="header">
+<h1 class="title">jade.ijs</h1>
+</div>
+<p>This script defines J session utilities ((J application development environment) and is included in the J standard library.</p>
+<p>Definitions are loaded into the j locale with cover functions in z.</p>
+<h2>Definitions</h2>
+<table class="map"><tr><td class="key">
+J
+</td><td>
+<a href="#jpath">jpath</a>
+</td></tr>
+<tr><td class="key">
+L
+</td><td>
+<a href="#load">load</a>, <a href="#loadd">loadd</a>
+</td></tr>
+<tr><td class="key">
+R
+</td><td>
+<a href="#require">require</a>
+</td></tr>
+<tr><td class="key">
+S
+</td><td>
+<a href="#scripts">scripts</a>, <a href="#show">show</a>
+</td></tr>
+<tr><td class="key">
+W
+</td><td>
+<a href="#wcsize">wcsize</a>
+</td></tr>
+<tr><td class="key">
+X
+</td><td>
+<a href="#xedit">xedit</a>
+</td></tr>
+</table>
+
+<h2 id="jpath" class="hdef">jpath (verb)</h2>
+<p>Convert folder name to full path.</p>
+<h3>Example</h3>
+<pre><code>   jpath &#39;~bin/profile.ijs&#39;
+/home/elmo/j8/bin/profile.ijs</code></pre>
+<p>For more information, on folder names see <a href="http://www.jsoftware.com/jwiki/Guides/Folders%20and%20Projects">Folders and Projects</a>.</p>
+<h2 id="load" class="hdef">load (verb)</h2>
+<p>load scripts</p>
+<p>Argument is a list of names, as full or relative pathnames, or script shortnames.</p>
+<h3>Example</h3>
+<pre><code>load &#39;numeric plot&#39;           - load numeric and plot scripts
+load &#39;~system/main/task.ijs&#39;  - load the task script</code></pre>
+<p>load calls the utility getscripts_j_ to resolve names, for example:</p>
+<pre><code>   &gt;getscripts_j_ &#39;numeric&#39;
+/home/elmo/j8/addons/general/misc/numeric.ijs</code></pre>
+<h2 id="loadd" class="hdef">loadd (verb)</h2>
+<p>load scripts with display</p>
+<p>This is the same as load except that the script is displayed as it is executed.</p>
+<h2 id="require" class="hdef">require (verb)</h2>
+<p>load scripts if not already loaded</p>
+<h2 id="scripts" class="hdef">scripts (verb)</h2>
+<p>this lists the script shortnames, which are stored in Public_j_.</p>
+<h3>Syntax</h3>
+<pre><code>scripts &#39;&#39;        NB. list names
+scripts &#39;v&#39;       NB. list names with corresponding scripts</code></pre>
+<h2 id="show" class="hdef">show (verb)</h2>
+<p>show names using a linear representation</p>
+<p>Useful for a quick summary of definitions.</p>
+<h3>Syntax</h3>
+<pre><code>show namelist  (e.g. show &#39;deb edit list&#39;)
+show numbers   (from 0 1 2 3=nouns, adverbs etc)
+show &#39;&#39;        (equivalent to show 0 1 2 3)</code></pre>
+<h3>Example</h3>
+<pre><code>   show &#39;IF*&#39; nl_z_ 0
+IF64=: 1
+IFIOS=: 0
+IFJCDROID=: 0
+...</code></pre>
+<h2 id="wcsize" class="hdef">wcsize (verb)</h2>
+<p>Return size of console, as columns and rows.</p>
+<h3>Example</h3>
+<pre><code>   wcsize&#39;&#39;
+79 24</code></pre>
+<h2 id="xedit" class="hdef">xedit (verb)</h2>
+<p>Load file in external editor.</p>
+<h3>Syntax</h3>
+<pre><code>xedit file [ ; row ]   (row is optional and is 0-based)</code></pre>
+<!--bottom jump start--><hr><a href="lib_jal.htm">&gt;&gt;</a>&nbsp;
+<a href="lib_files.htm">&lt;&lt;</a>&nbsp;
+<a href="../user/contents.htm">Usr</a>&nbsp;
+<a href="../primer/contents.htm">Pri</a>&nbsp;
+<a href="../jforc/contents.htm">JfC</a>&nbsp;
+<a href="../learning/contents.htm">LJ</a>&nbsp;
+<a href="../phrases/contents.htm">Phr</a>&nbsp;
+<a href="../dictionary/contents.htm">Dic</a>&nbsp;
+<a href="../release/contents.htm">Rel</a>&nbsp;
+<a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
+<a href="../dictionary/xmain.htm">!:</a>&nbsp;
+<a href="../index.htm">Help</a>&nbsp;
+User<!--bottom jump end--></body>
+</html>

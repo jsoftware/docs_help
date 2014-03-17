@@ -4,12 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>jal.ijs</title>
+  <title>compare.ijs</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../jdoc.css" type="text/css" />
 </head>
-<body><!--top jump start--><a href="lib_stdlib.htm">&gt;&gt;</a>&nbsp;
-<a href="lib_jade.htm">&lt;&lt;</a>&nbsp;
+<body><!--top jump start--><a href="lib_coutil.htm">&gt;&gt;</a>&nbsp;
+<a href="lib_colib.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
 <a href="../jforc/contents.htm">JfC</a>&nbsp;
@@ -22,32 +22,44 @@
 <a href="../index.htm">Help</a>&nbsp;
 User<hr><!--top jump end-->
 <div id="header">
-<h1 class="title">jal.ijs</h1>
+<h1 class="title">compare.ijs</h1>
 </div>
-<p>This script defines jal utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
+<p>This script defines comparison utilities and is included in the J standard library. Definitions are loaded into the jcompare locale with cover functions in z.</p>
 <h2>Definitions</h2>
 <table class="map"><tr><td class="key">
-G
+C
 </td><td>
-<a href="#getqtbin">getqtbin</a>
+<a href="#compare">compare</a>
 </td></tr>
 <tr><td class="key">
-I
+F
 </td><td>
-<a href="#install">install</a>
+<a href="#fcompare">fcompare</a>, <a href="#fcompares">fcompares</a>
 </td></tr>
 </table>
 
-<h2 id="getqtbin" class="hdef">getqtbin (verb)</h2>
-<p>Get Qt binaries.</p>
-<p>Always downloads the jqt binary.</p>
-<p>For the qt library (required for mac and win):</p>
-<p>y is 0 - download if not present<br />     1 - always download</p>
-<h2 id="install" class="hdef">install (verb)</h2>
-<p>Install from jal.</p>
-<p>y is either 'qtide' to install the Qt IDE, or 'all' to install all jal packages.</p>
-<!--bottom jump start--><hr><a href="lib_stdlib.htm">&gt;&gt;</a>&nbsp;
-<a href="lib_jade.htm">&lt;&lt;</a>&nbsp;
+<h2 id="compare" class="hdef">compare (verb)</h2>
+<p>Compare character data.</p>
+<h3>Syntax</h3>
+<pre><code>text1 compare text2</code></pre>
+<p>Arguments may be character strings or character matrices with trailing blanks ignored.</p>
+<p>Result shows lines not matched, in form:</p>
+<pre><code>n [l] text</code></pre>
+<p>where:</p>
+<p>  n = 0=left argument, 1=right argument<br /> [l] = line number<br /> text = text on line</p>
+<h2 id="fcompare" class="hdef">fcompare (verb)</h2>
+<p>Compare two text files.</p>
+<h3>Syntax</h3>
+<pre><code>opt fcompare files</code></pre>
+<p>where:</p>
+<p> opt is optional suffix<br /> files is 2 file names or prefixes, given<br /> either as character string cut on blanks<br /> or as 2-element boxed list</p>
+<h3>Example</h3>
+<pre><code>fcompare &#39;~mywork/myutil.ijs ~/jbak/mywork/myutil.ijs&#39;
+&#39;/myutil.ijs&#39; fcompare jpath &#39;~mywork&#39;;&#39;/jbak/mywork&#39;</code></pre>
+<h2 id="fcompares" class="hdef">fcompares (verb)</h2>
+<p>as fcompare but ignoring different line separators</p>
+<!--bottom jump start--><hr><a href="lib_coutil.htm">&gt;&gt;</a>&nbsp;
+<a href="lib_colib.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
 <a href="../primer/contents.htm">Pri</a>&nbsp;
 <a href="../jforc/contents.htm">JfC</a>&nbsp;
