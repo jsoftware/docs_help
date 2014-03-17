@@ -35,7 +35,7 @@ User<hr><!--top jump end-->
 <table class="map"><tr><td class="key">
 F
 </td><td>
-<a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a>
+<a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#frename">frename</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fview">fview</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a>
 </td></tr>
 </table>
 
@@ -80,6 +80,13 @@ fstamp
 v
 </td><td class="rdef">
 returns file timestamp
+</td></tr>
+<tr><td id="fview" class="rid">
+fview
+</td><td class="rtype">
+v
+</td><td class="rdef">
+view file (requires textview)
 </td></tr>
 <tr><td id="fwrite" class="rid">
 fwrite
@@ -150,6 +157,11 @@ write string to file
 <h2 id="freads" class="hdef">freads (verb)</h2>
 <p>Read file as string.</p>
 <p>y is filename {;start size}<br />x is optional (b and m same as fread):<br />   = b read as boxed vector<br />   = m read as matrix</p>
+<h2 id="frename" class="hdef">frename (verb)</h2>
+<p>Renames file.</p>
+<h3>Syntax</h3>
+<pre><code>newname frename oldname</code></pre>
+<p>Returns 1 if rename successful.</p>
 <h2 id="freplace" class="hdef">freplace (verb)</h2>
 <p>Replace text in file.</p>
 <h3>Syntax</h3>

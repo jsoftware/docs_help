@@ -146,6 +146,7 @@ lib_files.htm#fread
 lib_files.htm#freadblock
 lib_files.htm#freadr
 lib_files.htm#freads
+lib_files.htm#frename
 lib_files.htm#freplace
 lib_files.htm#fsize
 lib_files.htm#fss
@@ -153,6 +154,7 @@ lib_files.htm#fssrplc
 lib_files.htm#fstamp
 lib_strings.htm#fstringreplace
 lib_files.htm#ftype
+lib_files.htm#fview
 lib_files.htm#fwrite
 lib_files.htm#fwrite
 lib_files.htm#fwrites
