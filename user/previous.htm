@@ -14,7 +14,7 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-User<hr><!--top jump end--> 
+User<hr><!--top jump end-->
 <h1>J50x and J40x Features</h1>
 
 
@@ -25,7 +25,7 @@ See <a href="../release/contents.htm">Release Notes</a> for a summary of J Engin
 <br>
 A J installation has 3 parts: (Binary, Library, and Help). A full release has all 3 in a single package. Beta releases may have 3 packages. Noun JVERSION has release info and is displayed in Help|About J. When reporting problems to the J forum it is useful to provide this information in the report.<br>
 <br>
-Plot has been rewritten to provide a clean base for future development. The code is modular, for example, output commands are independent from calculations, so that a plot can now be directed to another format such as EPS. Layout calculations are more accurate, permitting a tighter fit of various plot decorations (labels, tic marks, etc), and ultimately providing a larger window for the actual graphics. For a summary of changes, see <a href="plot_changes.htm">Plot Changes</a>.<br>
+Plot has been rewritten to provide a clean base for future development. The code is modular, for example, output commands are independent from calculations, so that a plot can now be directed to another format such as EPS. Layout calculations are more accurate, permitting a tighter fit of various plot decorations (labels, tic marks, etc), and ultimately providing a larger window for the actual graphics.<br>
 <br>
 J now uses the PCRE (Perl Compatible Regular Expression) engine on all platforms. The PCRE library is distributed in the J Binary installation. The PCRE engine is much faster than the old regex library used in previous J Windows releases and provides useful Perl extensions to the core POSIX definitions. See <a href="regex.htm">Regular Expression</a> in the User Manual.<br>
 <br>
@@ -42,7 +42,7 @@ Big files: The J64 <font face=courier size=-1>(1!:x)</font> file primitives prop
 <br>
 The <font face=courier size=-1>(1!:x)</font> file primitives no longer attempt to keep the file pointer unchanged over operations.<br>
 <br>
-<a href="../learning/book.htm">Learning J</a> by Roger Stokes and <a href="../jforc/contents.htm">J for C Programmers</a> by Henry Rich have both been updated for this release.<br>
+<a href="../learning/contents.htm">Learning J</a> by Roger Stokes and <a href="../jforc/contents.htm">J for C Programmers</a> by Henry Rich have both been updated for this release.<br>
 <br>
 There are 2 new labs: 'Queens and&nbsp;&nbsp;Knights' and 'Special Searches'.<br>
 <br>
@@ -78,7 +78,7 @@ The client and server classes run in all J Front Ends (Jconsole,&nbsp;&nbsp;Jwdw
 <br>
 An updated version of Henry Rich's <a href="../jforc/contents.htm">J for C Programmers</a> is included.<br>
 <br>
-An updated version of Roger Stokes&nbsp;&nbsp;<a href="../learning/book.htm">Learning J</a> is included.<br>
+An updated version of Roger Stokes&nbsp;&nbsp;<a href="../learning/contents.htm">Learning J</a> is included.<br>
 <br>
 Solitaire (Studio|Demos) was contributed by high school student Ken Cramer. In some Unix systems the simple method of drawing the dragged stack of cards is too slow so the dragging is indicated by a rubber band. Use File|Options to toggle between full drawing and rubber band.<br>
 <br>
@@ -86,9 +86,9 @@ Jwdp now supports wd commands pcolor and setcolor and gl2 commands glmark and gl
 <br>
 Jwdp also supports wd commands javalaf and javasetlaf for different GUI LAFs (Look and Feel). The Java LAFs are handled by Edit|Configure|Look and Feel. Metal is the default laf and is the recommended portable LAF. The Motif LAF doesn't look good and the Windows LAF is only available in Windows.<br>
 <br>
-See <a href="../user/gl2_commands.htm">gl2 commands</a> for documentation on new commands glclip, glclipreset, and changes to glcapture.<br>
+See <a href="/docs/help602/user/gl2_commands.htm">gl2 commands</a> for documentation on new commands glclip, glclipreset, and changes to glcapture.<br>
 <br>
-See <a href="../user/wd_commands.htm">wd commands</a> for documentation on changes to clippaste for support of clipboard filenames.<br>
+See <a href="/docs/help602/user/wd_commands.htm">wd commands</a> for documentation on changes to clippaste for support of clipboard filenames.<br>
 <br>
 A new wd event handler wdmsg_handler is run when the J application window (result of <font face=courier size=-1>wd'qhwndx'</font>) receives a WM_APP (32768) message. The wdmsg_handler arguments are the integers msgid, wparam, lparam. Lab Windows Notification Area shows how this event handler can be used to make use of the notification icon area on the taskbar.<br>
 <br>
@@ -300,7 +300,7 @@ The Debug window now includes single-step and single-step-into buttons, plus sev
 <br>
  The toolbar Open button now responds to the current cursor position. If the name at the cursor is a noun, its definition is displayed in a viewer; otherwise the script where the name is defined is opened.<br>
 <br>
-See Debug for more details, or with the Debug window active, press Ctrl-H for a list of the available shortcut keys. 
+See Debug for more details, or with the Debug window active, press Ctrl-H for a list of the available shortcut keys.
 <h1>J 4.03 Release</h1>
 <b>Code Editor</b><br>
 <br>

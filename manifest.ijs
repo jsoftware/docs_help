@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 J Help Files
 )
 
-VERSION=: '1.0.30'
+VERSION=: '1.0.31'
 
 FILES=: 0 : 0
 box.jpg

@@ -14,32 +14,32 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-User<hr><!--top jump end--> 
+User<hr><!--top jump end-->
 <h1>J601 Features</h1>
 
 The 601 release is a major release (5 to 6). In minor releases (503 to 504) we avoid changes which will break existing applications. In a major release we introduce incompatible changes if we feel there is sufficient long term benefit. If you have production code that you want to migrate to this release you will have to pay careful attention to these changes and may have to reprogram. See <a href="#incompat">incompatibilities</a> for a summary of incompatible changes.<br><br>
 
 Names<b> x y m n u v </b>are the arguments in user definitions in preference over the names<b> x. y. m. n. u. v. </b>used in previous releases. This release supports only the new spellings or both depending on a configuration setting. The old spellings will be decomitted in a future release. It will take a while for old scripts and documentation to catch up with this change. When you see the old form, translate to the new. Although x y m n u v are normal names, they do have special significance as arguments, and this should be kept in mind and they should not be used except in the context of arguments. <br><br>
 
-J uses UTF-8 (Unicode) encoding for 8 bit data. Previous releases used ANSI code pages. J character data (8 bits) is treated as UTF-8 encoding. This makes it relatively easy to have text input and output in any mix of languages in J applications. Previously character data was treated as ASCII or ANSI code page encodings. See <a href="../user/unicode.htm">Unicode</a> for details.<br><br>
+J uses UTF-8 (Unicode) encoding for 8 bit data. Previous releases used ANSI code pages. J character data (8 bits) is treated as UTF-8 encoding. This makes it relatively easy to have text input and output in any mix of languages in J applications. Previously character data was treated as ASCII or ANSI code page encodings. See <a href="http://www.jsoftware.com/docs/help602/user/unicode.htm">Unicode</a> for details.<br><br>
 
-Break (ctrl+c, ctrl+break, break, command+.) has changed completely. See <a href="../user/interrupt.htm">Interrupt Execution</a> for details.<br><br>
+Break (ctrl+c, ctrl+break, break, command+.) has changed completely. See <a href="docs/help602/user/interrupt.htm">Interrupt Execution</a> for details.<br><br>
 
 See <a href="../release/contents.htm">Release Notes</a> for a summary of J Engine changes.<br><br>
 
-New random number generators, including Mersenne Twister as the default RNG. See <a href="../release/ran601.htm">? Improved</a> and <a href="../dictionary/d640.htm">Roll and Deal</a> for details. <br><br>
+New random number generators, including Mersenne Twister as the default RNG. See <a href="../dictionary/d640.htm">Roll and Deal</a> for details. <br><br>
 
 The new <font face=courier size=-1>8!:n</font> family supports efficient formatting. See <a href="../dictionary/dx008.htm">format</a> for details.<br><br>
 
-The most visible new facility is the new Grid control. This control is implemented in open J code and is built on top of the isigraph control (as is Plot). This new grid control replaces the obsolete and decomitted grid control that was implemented in the J Front End. See Studio|Demos|grid for a demo and <a href="../user/grid.htm">Grid Control</a> for documentation.<br><br>
+The most visible new facility is the new Grid control. This control is implemented in open J code and is built on top of the isigraph control (as is Plot). This new grid control replaces the obsolete and decomitted grid control that was implemented in the J Front End. See Studio|Demos|grid for a demo and <a href="http://www.jsoftware.com/docs/help602/user/grid.htm">Grid Control</a> for documentation.<br><br>
 
 Form editor has improved performance.<br><br>
 
 gl2 has changed significantly. It is simpler, faster, and more nearly the same across platforms. The changes were partly driven by requirements for the new grid control. The gl2 commands for the old grid control are decomitted. The gl2 documentation has been updated, but probably the best way to get familiar with the new gl2 is to work through the lab Graphics - gl2 commands.<br><br>
 
-isigraph control supports new events for the middle mouse button, mouse wheel, and focus (gained and lost). See <a href="../user/isigraph_events.htm">isigraph events</a> for details.<br><br>
+isigraph control supports new events for the middle mouse button, mouse wheel, and focus (gained and lost). See <a href="http://www.jsoftware.com/docs/help602/user/isigraph_events.htm">isigraph events</a> for details.<br><br>
 
-Box draw characters are used to draw boxes for J boxed data. The portable form of box drawing is with the ascii characters +-|. See <a href="../user/boxdraw.htm">Box Draw Characters</a> for various options.<br><br>
+Box draw characters are used to draw boxes for J boxed data. The portable form of box drawing is with the ascii characters +-|. See <a href="http://www.jsoftware.com/docs/help602/user/boxdraw.htm">Box Draw Characters</a> for various options.<br><br>
 
 Calling DLLs (Windows dll and Unix so or dylib) is much improved. See <a href="call_procedure.htm">Calling Procedures</a> for details. Change summary: automatic data conversions, cd is rank 1, an open argument is treated as if <font face=courier size=-1>&lt;"0</font> was applied, option &gt; returns just the scalar procedure result, and call overhead has been significantly reduced.<br><br>
 
@@ -49,9 +49,9 @@ Jwdp (Java based J Front End) now uses the J Engine as a shared library. Previou
  Win jwdp 601 is 15 times faster than Win jwdp 504<br>
 The Win jwdp is now within a factor of two performance with jwdw and can be used for serious cross platform development.<br><br>
 
-wd wait command is now supported in both Jwdw and Jwdp. It is used to create modal dialog boxes similar to the mb... family of commands. See <a href="../user/wd_commands.htm">wd commands</a> for more information.<br><br>
+wd wait command is now supported in both Jwdw and Jwdp. It is used to create modal dialog boxes similar to the mb... family of commands. See <a href="http://www.jsoftware.com/docs/help602/user/wd_commands.htm">wd commands</a> for more information.<br><br>
 
-wd msgs command allows processing of messages (such as repaints) and discards those that would cause wdhandler events. See <a href="../user/wd_commands.htm">wd commands</a> for more information.<br><br>
+wd msgs command allows processing of messages (such as repaints) and discards those that would cause wdhandler events. See <a href="http://www.jsoftware.com/docs/help602/user/wd_commands.htm">wd commands</a> for more information.<br><br>
 
 Jwdp (Java based J Front End) supports the es_password style.<br><br>
 
@@ -62,18 +62,18 @@ PCRE (Perl Compatible Regular Expression) shared library has been updated to the
 Jconsole startup runs script user\config\startup_console.ijs if it exists. Put Jconsole customization in this script. This is similar to startup.ijs used in Jwd startup in Edit|Configure.<br><br>
 
 New User Manual chapters:<br>
- <a href="../user/interrupt.htm">Interrupt Execution</a><br>
- <a href="../user/boxdraw.htm">Box Draw Characters</a><br>
- <a href="../user/unicode.htm">Unicode</a><br>
- <a href="../user/dll_so.htm">Binaries - Shared Libraries - Directories</a><br>
- <a href="../user/message_pump.htm">Message Pump and Long-Running Sentences</a><br><br>
+ <a href="http://www.jsoftware.com/docs/help602/user/interrupt.htm">Interrupt Execution</a><br>
+ <a href="http://www.jsoftware.com/docs/help602/user/boxdraw.htm">Box Draw Characters</a><br>
+ <a href="http://www.jsoftware.com/docs/help602/user/unicode.htm">Unicode</a><br>
+ <a href="http://www.jsoftware.com/docs/help602/user/dll_so.htm">Binaries - Shared Libraries - Directories</a><br>
+ <a href="http://www.jsoftware.com/docs/help602/user/message_pump.htm">Message Pump and Long-Running Sentences</a><br><br>
 
 <a name="incompat"></a>
 
 <h1>J60x Engine incompatibilities with J504</h1>
 J Engine is generally upward compatible. The exceptions are:<br><br>
 
-Names x y m n u v are used as the arguments in explicit definitions. The old spellings x. y. m. n. u. v. are still supported depending on a configuration setting (Edit|Configure). Conversion utilities are in system/extras/migrate/fixargs.ijs and are discussed at J wiki page <a href="http://www.jsoftware.com/jwiki/scripts/fixargs">Fixargs</a>. <font face=courier size=-1>9!:48''</font> queries whether x. is allowed, <font face=courier size=-1>9!:49[0</font> disallows it, and <font face=courier size=-1>9!:48[1</font> allows it.<br><br>
+Names x y m n u v are used as the arguments in explicit definitions. The old spellings x. y. m. n. u. v. are still supported depending on a configuration setting (Edit|Configure). Conversion utilities are in system/extras/migrate/fixargs.ijs and are discussed at J wiki page <a href="http://www.jsoftware.com/jwiki/Scripts/Fixargs">Fixargs</a>. <font face=courier size=-1>9!:48''</font> queries whether x. is allowed, <font face=courier size=-1>9!:49[0</font> disallows it, and <font face=courier size=-1>9!:48[1</font> allows it.<br><br>
 
 Global assignment (<font face=courier size=-1>=:</font>) in an explicit definition to a name that has a local definition signals domain error.<br><br>
 
