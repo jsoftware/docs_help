@@ -16,16 +16,11 @@
 <a href="../index.htm">Help</a>&nbsp;
 User<hr><!--top jump end-->
 
-
-
-
 <TR valign="baseline"><TD><H1>Regular Expression Verbs</h1>
-<TR><TD colspan="2"> 
-
-
+<TR><TD colspan="2">
 
 <P>
-The standard regex verbs are defined in <code>system\main\regex.ijs</code> .The main verbs are <code>rxmatch</code> and <code>rxmatches</code>. The former locates the first occurrence of a match in the string; the latter locates all occurrences.  Four other verbs create, list, display, and free up compiled patterns: <code>rxcomp, rxhandles, rxinfo</code>, and <code>rxfree</code>.
+The standard regex verbs are defined in <code>~system/main/regex.ijs</code>. The main verbs are <code>rxmatch</code> and <code>rxmatches</code>. The former locates the first occurrence of a match in the string; the latter locates all occurrences.  Four other verbs create, list, display, and free up compiled patterns: <code>rxcomp, rxhandles, rxinfo</code>, and <code>rxfree</code>.
 
 <P>
 Most of the rest of the definitions either use the <code>rxmatch</code> or <code>rxmatches</code> verbs, or take the result of them as arguments.
@@ -38,6 +33,7 @@ match=. pattern rxmatch string
 <TD VALIGN="TOP" WIDTH=400><P>
 Find first match
 </TR></TABLE>
+
 The result of <code>rxmatch</code> is a table, each row being an index/length pair. The first row describes the entire match, one row per subexpression follow which describes where each subexpression was found in the string.  Where a match does not occur, <code>_1 0</code> is returned.
 <br><br>
 
@@ -52,23 +48,23 @@ Find all matches
 
 <TABLE>
 <tr>
-<TD VALIGN="TOP" WIDTH=700><P>
+<TD VALIGN="TOP" WIDTH=300><P>
 phandle =. <code>rxcomp</code> pattern
 <TD VALIGN="TOP" WIDTH=800><P>
 Compile pattern
 </tr><tr>
 <TD VALIGN="TOP" WIDTH=300><P>
-<code>rxfree</code> phandle    
+<code>rxfree</code> phandle
 <TD VALIGN="TOP" WIDTH=400><P>
 Release compiled pattern
 </tr><tr>
 <TD VALIGN="TOP" WIDTH=300><P>
-phandles =. <code>rxhandles</code> ''  
+phandles =. <code>rxhandles</code> ''
 <TD VALIGN="TOP" WIDTH=400><P>
 Return all pattern handles
 </tr><tr>
 <TD VALIGN="TOP" WIDTH=300><P>
-'nsub pat' =. <code>rxinfo</code> phandle  
+'nsub pat' =. <code>rxinfo</code> phandle
 <TD VALIGN="TOP" WIDTH=400><P>
 Return #subexprs;pattern
 </TR></table>
@@ -80,7 +76,7 @@ The verbs <code>rxcomp, rxhandles, rxinfo</code>, and <code>rxfree</code> allow 
 <P>
 <code>rxhandles</code> returns a list of all existing handles.
 
-  <P>
+<P>
 <code>rxinfo</code> returns information about a handle.  It currently returns a boxed list of <code>1 +</code> the number of subexpressions and the original pattern.  The length of the result may be extended (on the right) in the future.
 
 <P>
@@ -206,7 +202,7 @@ NB. do the match</PRE>
 </tr><tr><TD VALIGN="TOP" WIDTH=350>
 <pre>rxfree handle</pre>
 <TD VALIGN="TOP" WIDTH=400>
-NB.  (once handle is no longer required)
+NB. (once handle is no longer required)
 </TR></table>
 
 <P>
@@ -223,14 +219,19 @@ For example, the pattern <code>'(x+)([[:digit:]]+)'</code> matches one or more l
  9 7
  9 3
 12 4
+
    (pat;1 2) rxmatches str   NB. just the 'x's and digits
  9 3
 12 4
 
    pat |. rxapply str        NB. reverse the whole match
 just one 4321xxx match here
-   (pat;,2) |. rxapply str   NB.  reverse just the digits
+
+   (pat;,2) |. rxapply str   NB. reverse just the digits
 just one xxx4321 match here
+
+   rxfree pat                NB. free compiled pattern
+
 </pre>
 
 <P>
@@ -242,35 +243,38 @@ just one xxx4321 match here
 2 4
 
    pat=. '([[:alpha:]][[:alnum:]_]*) *=[.;]'   NB. subexp is name in assign
-   pat rxmatch str         NB. pattern at 2/6; name at 2/4
+   pat rxmatch str                             NB. pattern at 2/6; name at 2/4
 2 6
 2 4
+
    pat rxmatches str       NB. find all matches
  2 6
  2 4
- 
+
 11 5
 11 3
 
    ]phandle=. rxcomp pat   NB. compile
 1
    rxcomp '[wrong'         NB. a bad pattern
-|domain error: rxcomp
-|       rxcomp'[wrong'
-   rxerror ''
-Unmatched [ or [^
+|unbalanced [] at offset 6     : rxcomp_jregex_
+|   (rxerror'')    13!:8[12
+
+   rxerror''
+unbalanced [] at offset 6
+
    rxhandles ''            NB. just handle 1 defined
 1
 
-   rxinfo phandle          NB.  return (1+#subexp);pattern
-+-+---------------------------------+
-|2|([[:alpha:]][[:alnum:]_]*) *=[.;]|
-+-+---------------------------------+
+   rxinfo phandle          NB. return (1+#subexp);pattern
+┌─┬─────────────────────────────────┐
+│2│([[:alpha:]][[:alnum:]_]*) *=[.;]│
+└─┴─────────────────────────────────┘
 
    phandle rxmatches str   NB. use phandle like pattern
  2 6
  2 4
- 
+
 11 5
 11 3
 
@@ -278,51 +282,57 @@ Unmatched [ or [^
 foo3=.
 
    phandle rxall str       NB. all matching substrings
-+------+-----+
-|foo3=.|j42=.|
-+------+-----+
+┌──────┬─────┐
+│foo3=.│j42=.│
+└──────┴─────┘
 
    phandle rxindex&amp;&gt; '  foo=.10';'nothing at all'   NB. index of match
 2 14
 
    phandle rxE str                 NB. mask over matches
-0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0<br><br>
+0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
 
    '[[:digit:]]*' rxeq '2342342'   NB. test for exact match
 1
    '[[:digit:]]*' rxeq '2342 342'
-0                NB. rxfrom selects substring using index/length pairs
+0
 
-   phandle rxmatch str
+   phandle rxmatch str             NB. entire and subexpression match
 2 6
-2 4        NB. entire and subexpression match<br><br>
+2 4
 
-   m=. phandle rxmatches str
-   phandle rxmerge str
-+------+----+
-|foo3=.|foo3|
-+------+----+
-
-   phandle rxmatches str            NB.  all matches
+   phandle rxmatches str           NB. all matches
  2 6
  2 4
- 
+
 11 5
 11 3
-   ]m=.(phandle;,0) rxmatches str   NB.  entire matches only
+
+   (phandle rxmatches str) rxfrom str  NB. rxfrom selects substrings
+┌──────┬────┐
+│foo3=.│foo3│
+├──────┼────┤
+│j42=. │j42 │
+└──────┴────┘
+
+   ]m=.(phandle;,0) rxmatches str   NB. entire matches only
  2 6
 11 5
-   m rxcut str       NB.  return alternating non-match/match boxes
-+--+------+---+-----+-------+
-|3,|foo3=.|23,|j42=.|123,123|
-+--+------+---+-----+-------+
 
-   phandle |. rxapply str        NB.  reverse each match
+   m rxcut str                   NB. return alternating non-match/match boxes
+┌──┬──────┬───┬─────┬───────┐
+│3,│foo3=.│23,│j42=.│123,123│
+└──┴──────┴───┴─────┴───────┘
+
+   ('first';'second') m rxmerge str  NB. replace matches
+3,first23,second123,123
+
+   phandle |. rxapply str        NB. reverse each match
 3,.=3oof23,.=24j123,123
-   (phandle;,1) |. rxapply str   NB.   reverse just name part of match
+
+   (phandle;,1) |. rxapply str   NB. reverse just name part of match
 3,3oof=.23,24j=.123,123</PRE>
-
-
+</pre>
 </TD>
   </tr>
 <TR><TD>
