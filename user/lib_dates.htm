@@ -121,7 +121,7 @@ format time stamps as: 23 May 1998 16:06:39
 <h2 id="todayno" class="hdef">todayno (verb)</h2>
 <p>Converts dates to day numbers, converse <a href="#todate">todate</a></p>
 <p>y = dates</p>
-<p>x = optional:<br />  0 - dates in form <yyyy mm dd> (default)<br />  1 - dates in form <yyyymmdd><br />  2 - dates in form <yyyy mm dd hh MM ss></p>
+<p>x = optional:<br />  0 - dates in form YYYY MM DD (default)<br />  1 - dates in form YYYYMMDD<br />  2 - dates in form YYYY MM DD HH MM SS</p>
 <p>0 = todayno 1800 1 1, or earlier</p>
 <h3>Example</h3>
 <pre><code>   todayno 1998 5 23
@@ -163,7 +163,7 @@ format time stamps as: 23 May 1998 16:06:39
 5</code></pre>
 <h2 id="weeknumber" class="hdef">weeknumber (verb)</h2>
 <p>Gives the year and weeknumber of date.</p>
-<p>A week belongs to a year iff 4 days of the week belong to that year. see http://www.phys.uu.nl/~vgent/calendar/isocalendar.htm</p>
+<p>A week belongs to a year iff 4 days of the week belong to that year. see <a href="http://www.phys.uu.nl/~vgent/calendar/isocalendar.htm">iso 8601 calendar</a></p>
 <p>y = dates In the ISO 8601 calendar a week starts on monday.</p>
 <h3>Example</h3>
 <pre><code>   weeknumber 2005 1 2
