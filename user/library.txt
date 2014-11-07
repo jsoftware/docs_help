@@ -1,6 +1,6 @@
 lib_stdlib.htm#adverb
 lib_stdlib.htm#alpha17
-lib_stdlib.htm#alpha27
+lib_stdlib.htm#alpha23
 lib_dll.htm#AND
 lib_android.htm#anddf
 lib_android.htm#andunzip
