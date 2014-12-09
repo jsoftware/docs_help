@@ -29,7 +29,7 @@ User<hr><!--top jump end-->
 <table class="map"><tr><td class="key">
 A
 </td><td>
-<a href="#adverb">adverb</a>, <a href="#alpha17">alpha17</a>, <a href="#alpha23">alpha23</a>, <a href="#apply">apply</a>, <a href="#assert">assert</a>
+<a href="#adverb">adverb</a>, <a href="#apply">apply</a>, <a href="#assert">assert</a>
 </td></tr>
 <tr><td class="key">
 B
@@ -59,7 +59,7 @@ F
 <tr><td class="key">
 G
 </td><td>
-<a href="#getargs">getargs</a>, <a href="#getenv">getenv</a>
+<a href="#getalpha">getalpha</a>, <a href="#getargs">getargs</a>, <a href="#getenv">getenv</a>
 </td></tr>
 <tr><td class="key">
 H
@@ -104,7 +104,7 @@ R
 <tr><td class="key">
 S
 </td><td>
-<a href="#script">script</a>, <a href="#scriptd">scriptd</a>, <a href="#sign">sign</a>, <a href="#sminfo">sminfo</a>, <a href="#smoutput">smoutput</a>, <a href="#sort">sort</a>, <a href="#split">split</a>, <a href="#stderr">stderr</a>, <a href="#stdin">stdin</a>, <a href="#stdout">stdout</a>
+<a href="#script">script</a>, <a href="#scriptd">scriptd</a>, <a href="#setalpha">setalpha</a>, <a href="#sign">sign</a>, <a href="#sminfo">sminfo</a>, <a href="#smoutput">smoutput</a>, <a href="#sort">sort</a>, <a href="#split">split</a>, <a href="#stderr">stderr</a>, <a href="#stdin">stdin</a>, <a href="#stdout">stdout</a>
 </td></tr>
 <tr><td class="key">
 T
@@ -129,20 +129,6 @@ adverb
 n
 </td><td class="rdef">
 integer 1
-</td></tr>
-<tr><td id="alpha17" class="rid">
-alpha17
-</td><td class="rtype">
-v
-</td><td class="rdef">
-remove alpha channel
-</td></tr>
-<tr><td id="alpha23" class="rid">
-alpha23
-</td><td class="rtype">
-v
-</td><td class="rdef">
-add alpha channel
 </td></tr>
 <tr><td id="apply" class="rid">
 apply
@@ -347,6 +333,13 @@ v
 </td><td class="rdef">
 flip between argb and abgr byte order
 </td></tr>
+<tr><td id="getalpha" class="rid">
+getalpha
+</td><td class="rtype">
+v
+</td><td class="rdef">
+get alpha channel
+</td></tr>
 <tr><td id="getargs" class="rid">
 getargs
 </td><td class="rtype">
@@ -501,6 +494,13 @@ v
 </td><td class="rdef">
 load script with display, cover for 0!:1
 </td></tr>
+<tr><td id="setalpha" class="rid">
+setalpha
+</td><td class="rtype">
+v
+</td><td class="rdef">
+set alpha channel
+</td></tr>
 <tr><td id="sign" class="rid">
 sign
 </td><td class="rtype">
@@ -629,11 +629,11 @@ integer 3
 <h2 id="boxopen" class="hdef">boxopen (verb)</h2>
 <p>Box argument if open.</p>
 <p>e.g. if script=: 0!:0 @ boxopen, then either<br />  script 'work.ijs' or script &lt;'work.ijs'</p>
-<p>See also <a href="boxxopen">boxxopen</a>.</p>
+<p>See also <a href="#boxxopen">boxxopen</a>.</p>
 <p>Use <a href="#cutopen">cutopen</a> to allow multiple arguments.</p>
 <h2 id="boxxopen" class="hdef">boxxopen (verb)</h2>
 <p>Box argument if open and not empty.</p>
-<p>See also <a href="boxxopen">boxxopen</a>.</p>
+<p>See also <a href="#boxopen">boxopen</a>.</p>
 <h2 id="clear" class="hdef">clear (verb)</h2>
 <p>Clear all names in locale, returns any names not erased.</p>
 <h3>Example</h3>

@@ -1,6 +1,4 @@
 lib_stdlib.htm#adverb
-lib_stdlib.htm#alpha17
-lib_stdlib.htm#alpha23
 lib_dll.htm#AND
 lib_android.htm#anddf
 lib_android.htm#andunzip
@@ -158,6 +156,7 @@ lib_files.htm#fview
 lib_files.htm#fwrite
 lib_files.htm#fwrite
 lib_files.htm#fwrites
+lib_stdlib.htm#getalpha
 lib_stdlib.htm#getargs
 lib_dates.htm#getdate
 lib_stdlib.htm#getenv
@@ -230,6 +229,7 @@ lib_strings.htm#rplc
 lib_stdlib.htm#script
 lib_stdlib.htm#scriptd
 lib_jade.htm#scripts
+lib_stdlib.htm#setalpha
 lib_break.htm#setbreak
 lib_jade.htm#show
 lib_stdlib.htm#sign
