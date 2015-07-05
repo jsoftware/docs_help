@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 19: Numbers</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 19: Numbers</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="20.htm">&gt;&gt;</a>&nbsp;
 <a href="18.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,10 +39,10 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 19: Numbers</H1>
 The topics covered in this chapter are:
@@ -69,14 +69,14 @@ Each kind of number has its own internal representation in
  memory. For example,
 an array containing only the truth-values <TT>0</TT> and <TT>1</TT>
 is stored in a compact internal form, called "boolean",
-rather
-than in the floating-point form.
+rather 
+than in the floating-point form. 
 Similarly an array containing only (relatively small)
-whole numbers is stored in a compact form
-called "integer".
+whole numbers is stored in a compact form  
+called "integer".  
 <p>
 The choice of appropriate representation
-is managed entirely automatically by the J system,
+is managed entirely automatically by the J system, 
 and is not normally something the programmer must be aware of.
 However, there is a means of testing
 the representation of a number.  Here is a utility function for the purpose.
@@ -103,7 +103,7 @@ the representation of a number.  Here is a utility function for the purpose.
 <A NAME="02"></A>
 <H3>19.1.1  Booleans</H3>
 There are built-in functions for logical computation with
-boolean values.
+boolean values. 
 Giving conventional names to these functions:
 <PRE>
 <TT>   and    =: *.</TT>
@@ -188,20 +188,20 @@ is defined by <TT>not</TT> composed with the hook <TT>and not</TT>
 <A NAME="03"></A>
 Notice that in the truth-table above the rows are given in an order
 such that p,q = successively 00 01 10 11 in binary or 0 1 2 3.
-Call this the standard order.
+Call this the standard order. 
 <p>
-With the rows of a truth-table in standard order,
+With the rows of a truth-table in standard order, 
 the result-column can be read as a 4-bit number, <TT>1 1 0 1</TT> in this example.
-This means that there are altogether only 16 possible logical functions
-of two arguments, and that any of them can be specified by
+This means that there are altogether only 16 possible logical functions 
+of two arguments, and that any of them can be specified by 
 giving its 4-bit result.
 <p>
-There is a built-in adverb <TT>b.</TT>
+There is a built-in adverb <TT>b.</TT> 
 (lowercase b dot, called "Boolean"),
-which can take an integer in the range 0-15, expressing a 4-bit result,
+which can take an integer in the range 0-15, expressing a 4-bit result, 
 and produces the corresponding logical function.
 <p>
-For example, we saw above that for logical implication
+For example, we saw above that for logical implication 
 its 4-bit specification is <TT>1 1 0 1</TT> or <TT>13</TT>, giving us another way
  to define implication as <TT>13 b.</TT>
 We see:
@@ -234,7 +234,7 @@ We see:
 <A NAME="04"></A>
 We regard the booleans as numbers because they can
 be interpreted as having arithmetic values. To illustrate,
-implication has the same truth-table as
+implication has the same truth-table as 
 less-than-or-equal:
 <p>
 <TABLE class=jtable>
@@ -296,7 +296,7 @@ floating-point if larger than the maximum integer.
 J provides all the expected functions on integers, so not much need be said here.
 However, this might be a good place to mention that bitwise logical functions
  on integers
-are available through the built-in adverb <TT>b.</TT> we met above. To begin, here is a
+are available through the built-in adverb <TT>b.</TT> we met above. To begin, here is a 
 utility function to show the first and last few bits of an integer (assumed 32-bit).
 <PRE>
 <TT>   bits =: (3 : ' (8{.y), ''...'', (24 }.y) ') @: ({&amp;'01')@:((32#2) &amp; #:) </TT>
@@ -321,8 +321,8 @@ For example <TT>(1 b.)</TT> is logical-and on booleans, while <TT>(17 b.)</TT> i
 <TT>00000000...00000001</TT>
 <TT>   </TT>
 </PRE>
-The verb <TT>(32 b.)</TT> rotates the bits of <TT>y</TT> leftward by <TT>x</TT> places,
-or rightward for negative x.
+The verb <TT>(32 b.)</TT> rotates the bits of <TT>y</TT> leftward by <TT>x</TT> places, 
+or rightward for negative x. 
 Similarly <TT>(33 b.)</TT> shifts and  <TT>(34 b.)</TT> performs a "signed shift"
 that is, propagating the sign bit on a rightward move.
 For example:
@@ -360,7 +360,7 @@ Here is a bitwise version.
 A floating-point number is a number represented in the computer in such a way that:
 (1) there may be a a fractional part as well as a whole-number part.
 (2) a fixed amount of computer storage is occupied by the number, whatever the value of the number.
-and therefore (3) the precision with which the number is represented is limited to
+and therefore (3) the precision with which the number is represented is limited to 
 at most about 17 significant decimal digits (on a PC).
 <p>
 Examples of floating-point numbers are <TT>0.25 2.5 12345678901</TT>
@@ -369,10 +369,10 @@ We will use the term "real" more or less interchangeably with "floating-point".
 <p>
 <H3>19.1.5  Scientific Notation</H3>
 What is sometimes called "scientific notation"
-is a convenient way of writing
-very large or very small numbers.
+is a convenient way of writing 
+very large or very small numbers. 
 For example, 1500000 may be written as <TT>1.5e6</TT>,
- meaning <TT>1.5 * 10^6</TT>.
+ meaning <TT>1.5 * 10^6</TT>. 
 The general scheme is that a number written in the form <TT>XeY</TT>, where <TT>Y</TT> is a
 (positive or negative) integer means <TT>(X * 10^Y)</TT>.
 <p>
@@ -387,15 +387,15 @@ The general scheme is that a number written in the form <TT>XeY</TT>, where <TT>
 <TD><TT>0.00015</TT></TD>
 </TABLE>
 <p>
-Note that in <TT>3e2</TT> the letter <TT>e</TT> is not any kind of function;
-it is part of the notation for writing numbers,
-just as a decimal point is part of the notation.
+Note that in <TT>3e2</TT> the letter <TT>e</TT> is not any kind of function; 
+it is part of the notation for writing numbers, 
+just as a decimal point is part of the notation. 
 <p>
 We say that the string of characters <TT>3</TT> followed by <TT>e</TT> followed by <TT>2</TT> is a numeral
-which denotes the number <TT>300</TT>.
-The string of characters <TT>3</TT> followed by <TT>0</TT>
-followed by <TT>0</TT> is another numeral denoting the same number.
-Different forms of numerals provide convenient ways to express
+which denotes the number <TT>300</TT>.  
+The string of characters <TT>3</TT> followed by <TT>0</TT> 
+followed by <TT>0</TT> is another numeral denoting the same number. 
+Different forms of numerals provide convenient ways to express 
 different numbers.  A number expressed by a numeral is also called a "constant"
 (as opposed to a variable.)
 <p>
@@ -420,12 +420,12 @@ but even so the expression <TT>a = b</TT> produces "true".
 <TD><TT>1</TT></TD>
 </TABLE>
 <p>
-If we say that the "relative difference" of two numbers is
+If we say that the "relative difference" of two numbers is 
 the magnitude of the difference divided by the larger of the magnitudes:
 <PRE>
 <TT>   RD =: (| @: -) % (>. &amp;: |)</TT>
 </PRE>
-then for <TT>a=b</TT> to be true, the relative difference
+then for <TT>a=b</TT> to be true, the relative difference 
 <TT>(a RD b)</TT> must not exceed a small value
 called the "comparison tolerance" which is by default <TT>2^_44</TT>
 <p>
@@ -472,8 +472,8 @@ However, <TT>1+tiny</TT> is tolerantly equal to <TT>1</TT>.
 <TD><TT>1</TT></TD>
 </TABLE>
 <p>
-The value of the comparison tolerance currently in effect
-is given by the built-in verb
+The value of the comparison tolerance currently in effect 
+is given by the built-in verb 
 <TT>9!:18</TT> applied to a null argument. It is currently <TT>2^_44</TT>.
 <p>
 <TABLE class=jtable>
@@ -488,9 +488,9 @@ is given by the built-in verb
 Applying the built-in
 verb <TT>9!:19</TT> to an argument <TT>y</TT> sets the tolerance to <TT>y</TT>
 subsequently.
-The following example shows that when the
+The following example shows that when the 
 tolerance is <TT>2^_44</TT>, then
-<TT>a = b</TT> but when the tolerance is set to zero
+<TT>a = b</TT> but when the tolerance is set to zero 
 it is no longer the case that <TT>a = b</TT>.
 <p>
 <TABLE class=jtable>
@@ -507,7 +507,7 @@ it is no longer the case that <TT>a = b</TT>.
 </TABLE>
 <p>
 The tolerance queried by <TT>9!:18</TT> and set by <TT>9!:19</TT> is a global
-parameter, influencing the outcome of computations with <TT>=</TT>.
+parameter, influencing the outcome of computations with <TT>=</TT>.  
 A verb to apply a specified tolerance <TT>t</TT>, regardless of the global parameter,
 can be written as <TT>= !. t</TT>.  For example, strict (zero-tolerance) equality
 can be defined by:
@@ -529,7 +529,7 @@ Resetting the global tolerance to the default value, we see:
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-Comparison with <TT>=</TT> is tolerant,
+Comparison with <TT>=</TT> is tolerant, 
 and so are comparisons with <TT><, <:, >, >:, ~:</TT> and <TT>-:</TT>.
 For example, the difference <TT>a-b</TT> is positive but too small to make it true that
 <TT>a>b</TT>
@@ -543,7 +543,7 @@ For example, the difference <TT>a-b</TT> is positive but too small to make it tr
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-Permissible tolerances range between <TT>0</TT> and <TT>2^_35</TT>.
+Permissible tolerances range between <TT>0</TT> and <TT>2^_35</TT>.  
 That is, an attempt to set the tolerance larger
 than <TT>2^_35</TT> is an error:
 <p>
@@ -556,19 +556,19 @@ than <TT>2^_35</TT> is an error:
 <TD><TT>error</TT></TD>
 </TABLE>
 <p>
-The effect of disallowing large tolerances
-is that no two different integers compare equal when
+The effect of disallowing large tolerances 
+is that no two different integers compare equal when 
 converted to floating-point.
 <A NAME="09"></A>
 <H3>19.1.7  Complex Numbers</H3>
-The square root of -1 is the imaginary number conventionally
+The square root of -1 is the imaginary number conventionally 
 called "i".
-A complex number which is conventionally  written as,
-for example, 3+i4 is in J written as <TT>3j4</TT>.
+A complex number which is conventionally  written as, 
+for example, 3+i4 is in J written as <TT>3j4</TT>.  
 <p>
-In J an imaginary number is represented as a
+In J an imaginary number is represented as a 
 complex number with real part zero.
-Thus "i", the square root of -1, can be
+Thus "i", the square root of -1, can be 
 written <TT>0j1</TT>.
 <p>
 <TABLE class=jtable>
@@ -583,8 +583,8 @@ written <TT>0j1</TT>.
 </TABLE>
 <p>
 A complex number can be built from two separate real numbers by arithmetic
-in the ordinary way,
-or more conveniently with the built-in function <TT>j.</TT> (lowercase j dot, called
+in the ordinary way, 
+or more conveniently with the built-in function <TT>j.</TT> (lowercase j dot, called 
 "Complex").
 <p>
 <TABLE class=jtable>
@@ -611,8 +611,8 @@ Some more examples of arithmetic with complex numbers:
 <p>
 A complex number such as <TT>3j4</TT> is a single number, a scalar. To extract
 its real part and imaginary part separately we can use the built-in verb
-<TT>+.</TT>(plus dot, called "Real/Imaginary").
-To extract separately the magnitude and angle (in radians) we can use the
+<TT>+.</TT>(plus dot, called "Real/Imaginary").  
+To extract separately the magnitude and angle (in radians) we can use the 
 built-in verb <TT>*.</TT> (asterisk dot, called "Length/Angle").
 <p>
 <TABLE class=jtable>
@@ -659,9 +659,9 @@ we can write <TT>XadY</TT>.
 <p>
 <A NAME="10"></A>
 <H3>19.1.8  Extended Integers</H3>
-A floating-point number, having a limited storage space in the computer's memory,
- can represent an integer exactly only up to about 17 digits.
-For exact computations with longer numbers, "extended integers" are available.
+A floating-point number, having a limited storage space in the computer's memory, 
+ can represent an integer exactly only up to about 17 digits. 
+For exact computations with longer numbers, "extended integers" are available. 
 An "extended integer" is a number which exactly represents an integer no matter how many digits are needed.
 An extended integer is written with the digits followed with the letter 'x'. Compare the following:
 <p>
@@ -702,7 +702,7 @@ A "rational number" is a single number which represents exactly the ratio of two
 integers, for example, two-thirds is the ratio of 2 to 3.  Two-thirds
 can be written as a rational number with the notation <TT>2r3</TT>.
 <p>
-The point of rationals is that they are are exact representations
+The point of rationals is that they are are exact representations 
 using extended integers. Arithmetic with rationals gives exact results.
 <p>
 <TABLE class=jtable>
@@ -772,7 +772,7 @@ We have numbers of six different types:
 boolean, integer, extended integer, rational, floating-point and complex.
 <p>
 Arithmetic can be done with a mixture of types.
-For example an integer plus an extended gives an extended,
+For example an integer plus an extended gives an extended, 
 and a rational times a float gives a float.
 <p>
 <TABLE class=jtable>
@@ -785,7 +785,7 @@ and a rational times a float gives a float.
 </TABLE>
 <p>
 The general scheme is that the six types
- form a progression: from boolean
+ form a progression: from boolean 
 to integer to extended to rational to floating-point to complex.
 We say that boolean is the simplest or "lowest" type
 and complex as the most general or "highest" type
@@ -839,21 +839,21 @@ Infinity is a floating-point number:
 <TT><A NAME="13"></A></TT>
 </PRE>
 <H3>19.2.2  "Indeterminate" Numbers</H3>
-A floating-point number is a 64-bit value, but not all 64-bit values are
-valid as floating-point numbers.
+A floating-point number is a 64-bit value, but not all 64-bit values are 
+valid as floating-point numbers. 
 Any which is not valid is said to be "Not a Number", or a "NaN".
-Such a value might occur, for example, in data imported into a
+Such a value might occur, for example, in data imported into a 
 J program from an unreliable external source.
 <p>
-When displaying the values of numbers, the J system reports any supposed
-floating-point number,  which is in fact "Not a Number", as the symbol
+When displaying the values of numbers, the J system reports any supposed 
+floating-point number,  which is in fact "Not a Number", as the symbol 
 <TT> _. </TT> (underbar dot, called "Indeterminate").
 <p>
-Floating-point arithmetic on <TT> _. </TT> arguments cannot be relied upon to
+Floating-point arithmetic on <TT> _. </TT> arguments cannot be relied upon to 
 produce meaningful results. Thus <TT> _.</TT> is best regarded solely as a mark of error.
 <p>
 The sole reliable test for <TT> _. </TT> is the verb <TT> 128 !: 5 </TT> .
-In the following example note the difference between results of the unreliable test
+In the following example note the difference between results of the unreliable test 
 <TT>X = _. </TT>  and the reliable test <TT> 128 !: 5 X</TT>  .
 <p>
 <TABLE class=jtable>
@@ -879,20 +879,20 @@ the binary digits.  Note that the result is a list.
 <TT>   #: 5</TT>
 <TT>1 0 1</TT>
 </PRE>
-We say that the binary digits are the base-2 representation. More generally,
- a base-n representation can be produced. The left argument of dyadic <TT>#:</TT> (called "Antibase") specifies the both the base and the number of digits. To get four binary digits we can write:
+We say that the binary digits are the base-2 representation. More generally, 
+ a base-n representation can be produced. The left argument of dyadic <TT>#:</TT> (called "Antibase") specifies the both the base and the number of digits. To get four binary digits we can write: 
 <PRE>
 <TT>   2 2 2 2 #: 5</TT>
 <TT>0 1 0 1</TT>
 </PRE>
-63 as two base-8 (octal) digits:
+63 as two base-8 (octal) digits: 
 <PRE>
 <TT>   8 8 #: 63</TT>
 <TT>7 7</TT>
 <TT>   </TT>
 </PRE>
-A mixed-base representation is possible.  How many hours, minutes and seconds
- are there in 7265 seconds?
+A mixed-base representation is possible.  How many hours, minutes and seconds 
+ are there in 7265 seconds? 
 <PRE>
 <TT>   24 60 60 #: 7265</TT>
 <TT>2 1 5</TT>
@@ -910,7 +910,7 @@ Dyadic <TT>#.</TT> is called "Base". Its left argument specifies a number-base f
 <TT>   2 #. 1 0 1</TT>
 <TT>5</TT>
 </PRE>
-Equivalently:
+Equivalently: 
 <PRE>
 <TT>   2 2 2 #. 1 0 1</TT>
 <TT>5</TT>
@@ -935,7 +935,7 @@ Again, mixed bases are possible: 2 hours 1 minute 5 seconds is  7265 seconds
 We have seen above numerals formed with the letters <TT>e</TT>, <TT>r</TT> and <TT>j</TT>, for example:
 <TT>1e3</TT>, <TT>2r3</TT>, and <TT>3j4</TT>. Here we look at more letters for forming numerals.
 <p>
-A numeral written with letter <TT>p</TT>, of the form <TT>XpY</TT>  means <TT>X * pi ^ Y</TT>
+A numeral written with letter <TT>p</TT>, of the form <TT>XpY</TT>  means <TT>X * pi ^ Y</TT> 
 where <TT>pi</TT> is the familiar value 3.14159265....
 <p>
 <TABLE class=jtable>
@@ -949,7 +949,7 @@ where <TT>pi</TT> is the familiar value 3.14159265....
 <TD><TT>0.63662</TT></TD>
 </TABLE>
 <p>
-Similarly, a numeral written with letter <TT>x</TT>, of the form <TT>XxY</TT>  means <TT>X * e ^ Y</TT>
+Similarly, a numeral written with letter <TT>x</TT>, of the form <TT>XxY</TT>  means <TT>X * e ^ Y</TT> 
 where <TT>e</TT> is the familiar value 2.718281828....
 <p>
 <p>
@@ -966,20 +966,20 @@ where <TT>e</TT> is the familiar value 2.718281828....
 <p>
 These <TT>p</TT> and <TT>x</TT> forms of numeral provide a convenient way of writing constants
 accurately without writing out many digits.
-Finally, we can write numerals with a base other than 10.
+Finally, we can write numerals with a base other than 10. 
 For example the binary or base-2 number with binary digits <TT>101</TT> has the value <TT>5</TT>
- and can be written as <TT>2b101</TT>.
+ and can be written as <TT>2b101</TT>. 
 <PRE>
 <TT>   2b101 </TT>
 <TT>5</TT>
 </PRE>
 The general scheme is that <TT>NbDDD.DDD</TT> is a numeral in number-base <TT>N</TT> with digits <TT>DDD.DDD</TT> .
 With bases larger than 10, we will need
-digits larger than 9, so we take letter <TT>'a'</TT> as a digit with value 10, <TT>'b'</TT> with value 11,
-and so on up to <TT>'z'</TT> with value 35.
+digits larger than 9, so we take letter <TT>'a'</TT> as a digit with value 10, <TT>'b'</TT> with value 11, 
+and so on up to <TT>'z'</TT> with value 35. 
 <p>
 For example, letter <TT>'f'</TT> has digit-value 15, so in hexadecimal (base 16) the
-numeral written <TT>16bff</TT> has the value <TT>255</TT>.
+numeral written <TT>16bff</TT> has the value <TT>255</TT>. 
 The number-base <TT>N</TT> is given in decimal.
 <p>
 <TABLE class=jtable>
@@ -991,7 +991,7 @@ The number-base <TT>N</TT> is given in decimal.
 <TD><TT>255</TT></TD>
 </TABLE>
 <p>
-One more example. <TT>10b0.9</TT> is evidently a base-10 number meaning "nine-tenths" and so,
+One more example. <TT>10b0.9</TT> is evidently a base-10 number meaning "nine-tenths" and so, 
 in base 20, <TT>20b0.f</TT> means "fifteen twentieths"
 <PRE>
 <TT>   10b0.9 20b0.f</TT>
@@ -999,13 +999,13 @@ in base 20, <TT>20b0.f</TT> means "fifteen twentieths"
 </PRE>
 <H3>19.4.1  Combining the Notations</H3>
 The notation-letters <TT>e</TT>, <TT>r</TT>, <TT>j</TT> <TT>ar</TT> <TT>ad</TT> <TT>p</TT>
-<TT>x</TT> and <TT>b</TT> may be used in combination.
+<TT>x</TT> and <TT>b</TT> may be used in combination. 
 For example we can write <TT>1r2p1</TT>
-to mean "pi over two". Here are some further examples
+to mean "pi over two". Here are some further examples 
  of possible combinations.
 <p>
 A numeral in the form <TT>XrY</TT> denotes the number
-<TT>X%Y</TT>.  A numeral in the form <TT>XeYrZ</TT> denotes
+<TT>X%Y</TT>.  A numeral in the form <TT>XeYrZ</TT> denotes 
 the number <TT>(XeY) % Z</TT> because <TT>e</TT> is considered before <TT>r</TT>.
 <p>
 <TABLE class=jtable>
@@ -1069,7 +1069,7 @@ denotes the number <TT>Z-in-base-(XpY)</TT> because
 A number is displayed by J with, by default, up to 6 or 7
 significant digits.
 This means that, commonly, small integers are shown exactly,
-while large numbers, or numbers with many
+while large numbers, or numbers with many 
 significant digits, are shown approximately.
 <p>
 <TABLE class=jtable>
@@ -1113,10 +1113,10 @@ of print-precision currently in effect, while
 <H3>19.5.1  The "Format" Verb</H3>
 There is a built-in verb <TT>":</TT>
  (doublequote colon, called "Format").
-Monadic Format converts a number into a string
+Monadic Format converts a number into a string 
  representing the number with the print-precision
 currently in effect. In the following example,
-note that <TT>a</TT> is a scalar,
+note that <TT>a</TT> is a scalar, 
 while the formatted representation of <TT>a</TT> is a list of characters.
 <p>
 <TABLE class=jtable>
@@ -1147,9 +1147,9 @@ a single string.
 </TABLE>
 <p>
 Dyadic Format allows more control over the
-representation.
-The left argument is complex: a value of
-say, <TT>8j4</TT> will format the numbers in a width of
+representation. 
+The left argument is complex: a value of 
+say, <TT>8j4</TT> will format the numbers in a width of 
 <TT>8</TT> characters and with <TT>4</TT> decimal places.
 <p>
 <TABLE class=jtable>
@@ -1183,7 +1183,7 @@ is negative (as in <TT>10j_3</TT>) then numbers are shown in "scientific notatio
  3.333e_1&nbsp;&nbsp;2.500e_1</TT></TD>
 </TABLE>
 <p>
-Note that monadic format shows a complex number
+Note that monadic format shows a complex number 
 in the usual way, but dyadic format shows only the real part of a complex number.
 <p>
 <TABLE class=jtable>
@@ -1199,18 +1199,18 @@ in the usual way, but dyadic format shows only the real part of a complex number
 <p>
 More formatting options are
 provided by the built-in verbs <TT>8!:n</TT>.
-Here is a small example to show a few of the many options described in the
-J dictionary.
+Here is a small example to show a few of the many options described in the 
+J dictionary.  
 <p>
-Suppose our table of numbers to be formatted is <TT>N</TT>
+Suppose our table of numbers to be formatted is <TT>N</TT> 
 <PRE>
 <TT>    ] N =: 3 2 $  3.8  _2000 0  123.45 _3.14 15000</TT>
 <TT>  3.8  _2000</TT>
 <TT>    0 123.45</TT>
 <TT>_3.14  15000</TT>
 </PRE>
-We can format each column of <TT>N</TT> separately. Suppose numbers in the first
-column are to be presented as blank when zero, 6 characters wide with 0
+We can format each column of <TT>N</TT> separately. Suppose numbers in the first 
+column are to be presented as blank when zero, 6 characters wide with 0 
 decimal places. We write a "formatting phrase" like this
 <PRE>
 <TT>   fp1 =: 'b6.0'</TT>
@@ -1219,7 +1219,7 @@ Here the <TT>'b'</TT> means blank when zero.
 <p>
 Suppose for the second column we require a comma between each 3 digits.
 We require negative numbers to be shown with a following "CR" and therefore
-non-negative numbers should be followed by two blank characters, so that
+non-negative numbers should be followed by two blank characters, so that 
 decimal points line up vertically.  We require a 12-character width with
  2 decimal places.
 <p>
@@ -1230,7 +1230,7 @@ A suitable formatting phrase is like this:
 Here the <TT>'c'</TT> means commas, <TT>n{CR}</TT> means CR after a negative number
 and <TT>q{  }</TT> means 2 spaces after a non-negative.
 <p>
-Applying the formatting verb <TT>8!:2</TT> we see
+Applying the formatting verb <TT>8!:2</TT> we see 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -1245,7 +1245,7 @@ _3.14&nbsp;&nbsp;15000</TT></TD>
 &nbsp;&nbsp;&nbsp;&nbsp;-3 15,000.00</TT></TD>
 </TABLE>
 <p>
-The formatted result is a character table of dimensions 3 by 18,
+The formatted result is a character table of dimensions 3 by 18, 
 because <TT>N</TT> has 3 rows, and
 we specified widths of 6 and 12 for first and second columns.
 <PRE>
@@ -1273,7 +1273,7 @@ randomly with equal probability.
 <p>
 A list of random numbers is generated
 by repeating the n-value.
-For example, four rolls of a six-sided die is given by
+For example, four rolls of a six-sided die is given by 
 <PRE>
 <TT>   ? 6 6 6 6</TT>
 <TT>3 4 5 2</TT>
@@ -1285,7 +1285,7 @@ or more conveniently by:
 </PRE>
 <H3>19.6.2  Uniform Distribution</H3>
 With an argument of zero, monadic <TT>?</TT> generates random reals
-uniformly distributed,  greater than <TT>0</TT> and less than <TT>1</TT>.
+uniformly distributed,  greater than <TT>0</TT> and less than <TT>1</TT>. 
 <PRE>
 <TT>   ? 0 0 0 0</TT>
 <TT>0.14112615 0.083891464 0.41388488 0.055053198</TT>
@@ -1294,22 +1294,22 @@ uniformly distributed,  greater than <TT>0</TT> and less than <TT>1</TT>.
 <H3>19.6.3  Other Distributions</H3>
 The built-in verb <TT>?</TT> generates equiprobable numbers.
 Various other distributions
-are provided by the
-<A HREF="http://www.jsoftware.com/jwiki/Addons/stats/distribs">
+are provided by the 
+<A HREF="http:www.jsoftware.com/jwiki/Addons/stats/distribs">
 J Application Library stats/distribs Addon</A>
 <A NAME="26"></A>
 <H3>19.6.4  Deal</H3>
-Dyadic <TT>?</TT> is called "Deal".  <TT>x ? y</TT> is a list of <TT>x</TT> integers randomly chosen
+Dyadic <TT>?</TT> is called "Deal".  <TT>x ? y</TT> is a list of <TT>x</TT> integers randomly chosen 
 from <TT>i. y</TT> without replacement, that is, the <TT>x</TT> integers are all different.
 <p>
 Suppose that cards in a deck are numbered <TT>0</TT> to <TT>51</TT>,
-then <TT>13 ? 52</TT> will deal a single hand of 13 randomly selected cards, all different.
+then <TT>13 ? 52</TT> will deal a single hand of 13 randomly selected cards, all different. 
 <PRE>
 <TT>   13 ? 52</TT>
 <TT>44 2 36 30 0 6 43 26 28 1 34 48 41</TT>
 </PRE>
-A shuffle of the whole deck is given by <TT>52 ? 52</TT>.
-To shuffle and then deal four hands:
+A shuffle of the whole deck is given by <TT>52 ? 52</TT>. 
+To shuffle and then deal four hands: 
 <PRE>
 <TT>   4 13 $ 52 ? 52</TT>
 <TT>15 18  3  8 11 25 27 51 20 31 50 48 35</TT>
@@ -1319,21 +1319,21 @@ To shuffle and then deal four hands:
 <TT>   </TT>
 </PRE>
 This brings us to the end of Chapter 19.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="20.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 02 Jul 2013<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="20.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 02 Jul 2013<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="20.htm">&gt;&gt;</a>&nbsp;
 <a href="18.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -1346,5 +1346,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 8: Composing Verbs</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 8: Composing Verbs</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="09.htm">&gt;&gt;</a>&nbsp;
 <a href="07.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,19 +39,19 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 8: Composing Verbs</H1>
-This chapter is concerned with operators which combine two verbs to produce
+This chapter is concerned with operators which combine two verbs to produce 
 new composite verbs.
 <A NAME="02"></A>
 <H2>8.1  Composition of Monad and Monad</H2>
 Recall from <A HREF="03.htm">Chapter 03</A> the composition conjunction <TT>@:</TT> (at colon, called "At").
 Given verbs <TT>sum</TT> and <TT>square</TT>
-we can define a composite verb, sum-of-the-squares.
+we can define a composite verb, sum-of-the-squares. 
 <PRE>
 <TT>   sum    =: +/</TT>
 <TT>   square =: *:</TT>
@@ -70,7 +70,7 @@ The general scheme is that if <TT>f</TT> and <TT>g</TT> are monads then
 <PRE>
 <TT>               (f @: g) y    means   f (g y)</TT>
 </PRE>
-Note in particular that <TT>f</TT> is applied to the whole result <TT>(g y)</TT>.
+Note in particular that <TT>f</TT> is applied to the whole result <TT>(g y)</TT>. 
 To illustrate,
 suppose <TT>g</TT> applies separately to each row of a table, so we have:
 <PRE>
@@ -103,7 +103,7 @@ If <TT>f</TT> is a monad and <TT>g</TT> is a dyad, then <TT>(f @: g)</TT> is a d
 <PRE>
 <TT>           x (f @: g) y    means    f (x g y)</TT>
 </PRE>
-For example, the sum of the product of two vectors <TT>x</TT> and <TT>y</TT> is called
+For example, the sum of the product of two vectors <TT>x</TT> and <TT>y</TT> is called 
 the "scalar product".
 <PRE>
 <TT>   sp =: +/ @: *</TT>
@@ -170,21 +170,21 @@ To review, we have seen three  different schemes for
 <PRE>
 <TT>            x (f &amp;: g) y    =    (g x) f (g y)</TT>
 </PRE>
-There is a fourth scheme,
+There is a fourth scheme, 
 <PRE>
 <TT>              (f &amp;: g) y    =    f (g y) </TT>
 </PRE>
-which is, evidently, the same as the first.
+which is, evidently, the same as the first. 
 This apparent duplication may be useful if we are interested
-in writing an ambivalent definition,
+in writing an ambivalent definition, 
 that is, with both a monadic and a dyadic case.
 <p>
 Notice that from the first and second schemes it follows that if
-verb <TT>g</TT> is ambivalent
-then the composition <TT>f @: g</TT> is also ambivalent.
-For example,
-suppose <TT>g</TT> is the ambivalent built-in verb <TT>|.</TT> with <TT>|. y</TT>
-being the reverse of <TT>y</TT> and <TT>x |. y</TT> being
+verb <TT>g</TT> is ambivalent 
+then the composition <TT>f @: g</TT> is also ambivalent.  
+For example, 
+suppose <TT>g</TT> is the ambivalent built-in verb <TT>|.</TT> with <TT>|. y</TT> 
+being the reverse of <TT>y</TT> and <TT>x |. y</TT> being 
 the rotation of <TT>y</TT> by <TT>x</TT> places.
 <p>
 <TABLE class=jtable>
@@ -203,7 +203,7 @@ the rotation of <TT>y</TT> by <TT>x</TT> places.
 </TABLE>
 <p>
 From the third and fourth schemes above it follows that if verb <TT>f</TT> is ambivalent,
-then  <TT>(f &amp;: g)</TT> is ambivalent.
+then  <TT>(f &amp;: g)</TT> is ambivalent. 
 For example, suppose that <TT>f</TT> is the verb <TT>%</TT> (reciprocal or divide).
 and <TT>g</TT> is <TT>*:</TT> (square).
 <p>
@@ -222,8 +222,8 @@ and <TT>g</TT> is <TT>*:</TT> (square).
 <p>
 <A NAME="05"></A>
 <H2>8.5  More on Composition:  Monad Tracking Monad</H2>
-There is a conjunction <TT>@</TT> (at, called "Atop").
-It is a variation of the <TT>@:</TT> conjunction.
+There is a conjunction <TT>@</TT> (at, called "Atop"). 
+It is a variation of the <TT>@:</TT> conjunction. 
 Here is an example to show the difference between <TT>(f @: g)</TT> and <TT>(f @ g)</TT>.
 <PRE>
 <TT>   y =: 2 2 $ 0 1 2 3</TT>
@@ -249,12 +249,12 @@ Here is an example to show the difference between <TT>(f @: g)</TT> and <TT>(f @
 +-+-+</TT></TD>
 </TABLE>
 <p>
-We see that with <TT>(f @: g)</TT> verb <TT>f</TT> is applied once. However, with <TT>(f@g)</TT>,
+We see that with <TT>(f @: g)</TT> verb <TT>f</TT> is applied once. However, with <TT>(f@g)</TT>, 
 for each separate application
-of <TT>g</TT> there is a corresponding application of <TT>f</TT>. We could say that
+of <TT>g</TT> there is a corresponding application of <TT>f</TT>. We could say that 
 applications of <TT>f</TT> track the applications of <TT>g</TT>.
 <p>
-Recall from <A HREF="07.htm">Chapter 07</A> that a verb has in general three ranks,
+Recall from <A HREF="07.htm">Chapter 07</A> that a verb has in general three ranks, 
 monadic, left and right, and for a verb <TT>f</TT> these ranks are yielded
 by the expression <TT>f b. 0</TT>. For example
 <p>
@@ -272,7 +272,7 @@ Suppose that the monadic rank of <TT>g</TT> is <TT>G</TT>.
 <TT>   G =: 0 { (g b. 0)</TT>
 </PRE>
 Then <TT>(f @ g)</TT> means
-<TT>(f @: g)</TT> applied separately to each
+<TT>(f @: g)</TT> applied separately to each 
 <TT>G</TT>-cell, that is, <TT>(f @: g)"G</TT>.
 <p>
 <TABLE class=jtable>
@@ -299,7 +299,7 @@ Suppose <TT>f</TT> and <TT>g</TT> are defined by:
 <TT>   f =: <</TT>
 <TT>   g =: |. " 0 1  NB. dyadic</TT>
 </PRE>
-Here <TT>x g y</TT> means: rotate vectors in <TT>y</TT> by corresponding scalars in <TT>x</TT>.
+Here <TT>x g y</TT> means: rotate vectors in <TT>y</TT> by corresponding scalars in <TT>x</TT>. 
 For example:
 <p>
 <TABLE class=jtable>
@@ -336,14 +336,14 @@ Here now is an example to show the difference between <TT>f @: g</TT> and <TT>f 
 +---+---+</TT></TD>
 </TABLE>
 <p>
-We see that with <TT>(f @: g)</TT> verb <TT>f</TT> is applied once. With <TT>(f@g)</TT>, for each
+We see that with <TT>(f @: g)</TT> verb <TT>f</TT> is applied once. With <TT>(f@g)</TT>, for each 
 separate application
 of <TT>g</TT> there is a corresponding application of <TT>f</TT>.
 <p>
 Suppose that the left and right ranks of dyad <TT>g</TT> are <TT>L</TT> and <TT>R</TT>.
 Then <TT>(f @ g)</TT> means
-<TT>(f @: g)</TT> applied separately to each pair of an <TT>L</TT>-cell from <TT>x</TT> and
-corresponding <TT>R</TT>-cell from
+<TT>(f @: g)</TT> applied separately to each pair of an <TT>L</TT>-cell from <TT>x</TT> and 
+corresponding <TT>R</TT>-cell from 
 <TT>y</TT>. That is, <TT>(f@g)</TT> means <TT>(f @: g)"G</TT> where <TT>G = L,R</TT>.
 <p>
 <TABLE class=jtable>
@@ -375,7 +375,7 @@ If both arguments of <TT>&amp;</TT> are verbs then <TT>&amp;</TT> has a differen
 In this case it is is a composition operator,  called "Compose".
  Now we look at the composition <TT>f &amp; g</TT> for dyadic <TT>f</TT>.
 <p>
-Suppose <TT>g</TT> is the "Square" function,
+Suppose <TT>g</TT> is the "Square" function, 
 and <TT>f</TT> is the "comma" function
 which joins two lists.
 <PRE>
@@ -413,7 +413,7 @@ between <TT>(f &amp;: g)</TT> and <TT>(f &amp; g)</TT>
 <p>
 We see that in <TT>(f &amp;: g)</TT> the verb <TT>f</TT> is applied just once,
 to give <TT>1 4 , 9 16</TT>. By contrast,
-in <TT>(f &amp; g)</TT> there are two separate applications of <TT>f</TT>,
+in <TT>(f &amp; g)</TT> there are two separate applications of <TT>f</TT>,  
 giving firstly <TT>1,9</TT> and secondly <TT>4,16</TT>.
 <p>
 The scheme is that
@@ -439,7 +439,7 @@ To illustrate:
 </TABLE>
 <p>
 <H2>8.8  Ambivalence Again</H2>
-The composition <TT>f&amp;g</TT> can be ambivalent. The dyadic case, <TT>x f&amp;g y</TT>, we saw above.
+The composition <TT>f&amp;g</TT> can be ambivalent. The dyadic case, <TT>x f&amp;g y</TT>, we saw above. 
 For the monadic case, <TT>f&amp;g y</TT> means the same as <TT>f@g y</TT>.
 <PRE>
 <TT>   f =: <</TT>
@@ -460,7 +460,7 @@ For the monadic case, <TT>f&amp;g y</TT> means the same as <TT>f@g y</TT>.
 </TABLE>
 <p>
 <H2>8.9  Summary</H2>
-Here is a summary of the 8 cases we have looked at so far.
+Here is a summary of the 8 cases we have looked at so far.  
 <PRE>
 <TT>         @:       (f @: g) y  =  f (g y)</TT>
 </PRE>
@@ -494,7 +494,7 @@ Here is a summary of the 8 cases we have looked at so far.
 <PRE>
 <TT>         &amp;      x (f &amp; g)  y  =  (g x) (f " (G,G)) (g y)</TT>
 </PRE>
-where <TT>G</TT> is the monadic rank of <TT>g</TT> and <TT>LR</TT> is the vector of left and right
+where <TT>G</TT> is the monadic rank of <TT>g</TT> and <TT>LR</TT> is the vector of left and right 
 ranks of <TT>g</TT>.
 <A NAME="07"></A>
 <H2>8.10  Inverses</H2>
@@ -517,7 +517,7 @@ verb <TT>(%:)</TT>. The reciprocal verb is its own inverse.
 Many verbs in J have inverses.
 There is a built-in conjunction <TT>^:</TT> (caret colon, called "Power") such that
 the expression <TT>f ^: _1</TT> is the inverse of verb <TT>f</TT>. (This is like writing
- f<SUP>-1</SUP> in conventional notation.)
+ f<SUP>-1</SUP> in conventional notation.) 
 <p>
 For example, the inverse of square is square root:
 <p>
@@ -532,7 +532,7 @@ For example, the inverse of square is square root:
 <p>
 <TT>^:</TT> can automatically find inverses, not only of
 built-in verbs, but of user-defined verbs such as compositions.
-For example, the inverse of
+For example, the inverse of 
 "twice the square-root of"  is "the square of half of"
 <PRE>
 <TT>   foo    =: (2&amp;*) @: %:</TT>
@@ -556,12 +556,12 @@ For example, the inverse of
 We now look at composition with the conjunction
  <TT>&amp;.</TT> (ampersand dot, called "Under").
 The idea is that the composition "<TT>f</TT> Under <TT>g</TT>"
-means: apply <TT>g</TT>, then <TT>f</TT>, then
+means: apply <TT>g</TT>, then <TT>f</TT>, then 
 the inverse of <TT>g</TT>.
 <p>
 For an example, the square root of a number can be found
-by taking the logarithm, halving and taking the antilog,
-that is, halving under logarithm.
+by taking the logarithm, halving and taking the antilog, 
+that is, halving under logarithm.  
 Recall that halve is <TT>-:</TT> and logarithm is <TT>^.</TT>
 <p>
 <p>
@@ -579,21 +579,21 @@ The general scheme is that
 <TT>             (f &amp;. g) y   means  (g ^: _1) f g y</TT>
 </PRE>
 This is the end of Chapter 8.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="09.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="09.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 29 Jul 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="09.htm">&gt;&gt;</a>&nbsp;
 <a href="07.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -606,5 +606,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

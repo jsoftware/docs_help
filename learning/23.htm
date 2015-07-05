@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 23: Calculus</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 23: Calculus</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="24.htm">&gt;&gt;</a>&nbsp;
 <a href="22.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,21 +39,21 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <A NAME="02"></A>
 <H1>Chapter 23: Calculus</H1>
-This chapter covers J operators for differentiation and
+This chapter covers J operators for differentiation and 
 integration.  It covers
 <UL>
 <LI> The conjunction <TT>d.</TT> which differentiates and integrates analytically,
 that is, it transforms expressions denoting functions into expressions
  denoting functions.</LI>
 <p>
-<LI> The conjunction <TT>D.</TT> which differentiates numerically, and thus
+<LI> The conjunction <TT>D.</TT> which differentiates numerically, and thus 
 broadens
 the range of functions which can be differentiated. It also covers partial
  derivatives. </LI>
@@ -61,8 +61,8 @@ the range of functions which can be differentiated. It also covers partial
 <LI> A library script with functions for numerical integration.</LI>
 </UL>
 <H2>23.1  Differentiation</H2>
-There is a built-in conjunction <TT>d.</TT>(lowercase d dot). Its left argument
-is a function to be differentiated. Its right argument is <TT>1</TT> if the first
+There is a built-in conjunction <TT>d.</TT>(lowercase d dot). Its left argument 
+is a function to be differentiated. Its right argument is <TT>1</TT> if the first 
 derivative is required, or <TT>2</TT> for the second derivative, and so on.
 The first derivative of the "cube" function <TT>^&amp;3</TT> is "3 times the square".
 <PRE>
@@ -70,7 +70,7 @@ The first derivative of the "cube" function <TT>^&amp;3</TT> is "3 times the squ
 <TT>3&amp;*@(^&amp;2)</TT>
 </PRE>
 The general scheme is that if <TT>e</TT> is (an expression denoting) a function,
-then <TT>e d. n</TT> is (an expression denoting) the n'th derivative of <TT>e</TT>.
+then <TT>e d. n</TT> is (an expression denoting) the n'th derivative of <TT>e</TT>.    
 Here is another example, expressing the cube function as the polynomial
 <TT>0 0 0 1 &amp; p.</TT>
 <PRE>
@@ -78,7 +78,7 @@ Here is another example, expressing the cube function as the polynomial
 <TT>0 0 3&amp;p.</TT>
 <TT>   </TT>
 </PRE>
-Suppose we define a verb <TT>cube</TT>:
+Suppose we define a verb <TT>cube</TT>: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -89,8 +89,8 @@ Suppose we define a verb <TT>cube</TT>:
 <TD><TT>8</TT></TD>
 </TABLE>
 <p>
-Differentiating with <TT>d.</TT>, we see that the derivative is, as expected,
-3-times-the-square, but the
+Differentiating with <TT>d.</TT>, we see that the derivative is, as expected, 
+3-times-the-square, but the 
 expression for the derivative is not very informative.
 <p>
 <TABLE class=jtable>
@@ -106,7 +106,7 @@ The reason is that <TT>cube</TT> is a name denoting a verb, and such names
 are in general not evaluated until
 the verb is applied. (See <a href="91.htm"> Appendix 1 </a>.)
 If we want to inspect the derivative of <TT>cube</TT>, we can force
-evaluation of the name <TT>cube</TT> by applying the  <TT>f.</TT> adverb.
+evaluation of the name <TT>cube</TT> by applying the  <TT>f.</TT> adverb. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -117,7 +117,7 @@ evaluation of the name <TT>cube</TT> by applying the  <TT>f.</TT> adverb.
 <TD><TT>0 0 3&amp;p.</TT></TD>
 </TABLE>
 <p>
-Alternatively, we could force evaluation of the expression for the
+Alternatively, we could force evaluation of the expression for the 
 derivative, again by applying <TT>f.</TT>
 <p>
 <TABLE class=jtable>
@@ -131,7 +131,7 @@ derivative, again by applying <TT>f.</TT>
 <p>
 <H2>23.2  Integration</H2>
 With a right argument of <TT>_1</TT>, the conjunction <TT>d.</TT>
-integrates the left argument.  The integral of
+integrates the left argument.  The integral of 
 "3 times the square" is "cube".
 <PRE>
 <TT>   0 0 3 &amp; p. d. _1</TT>
@@ -139,10 +139,10 @@ integrates the left argument.  The integral of
 </PRE>
 <H2>23.3  The Domain of d.</H2>
 Functions which are differentiable or integrable with <TT>d.</TT>
-must firstly be scalar. That is, they must take scalar arguments
+must firstly be scalar. That is, they must take scalar arguments 
 and deliver scalar results, and all intermediate
-quantities must be scalars.
-Here is an example. The function "(x-1)*(x-2)"
+quantities must be scalars. 
+Here is an example. The function "(x-1)*(x-2)" 
 can be written in several different ways. Here are two:
 <p>
 <TABLE class=jtable>
@@ -159,8 +159,8 @@ can be written in several different ways. Here are two:
 </TABLE>
 <p>
 <TT>f</TT> is scalar, and in the domain of <TT>d.</TT> However, <TT>g</TT> is not scalar, because
-it forms the intermediate quantity <TT>x - 1 2</TT> which is a vector. Thus <TT>g</TT>
-is not in the domain of <TT>d.</TT>. To demonstrate this, we force evaluation of the
+it forms the intermediate quantity <TT>x - 1 2</TT> which is a vector. Thus <TT>g</TT> 
+is not in the domain of <TT>d.</TT>. To demonstrate this, we force evaluation of the 
 derivatives.
 <p>
 <TABLE class=jtable>
@@ -172,7 +172,7 @@ derivatives.
 <TD><TT>error</TT></TD>
 </TABLE>
 <p>
-Secondly,
+Secondly, 
 <TT>d.</TT> can differentiate  constant functions, polynomials, exponentials
 <TT>^x</TT> and integral powers <TT>x^n</TT>.
 <p>
@@ -219,7 +219,7 @@ of the fork <TT>(sin + cos)</TT> is <TT>(cos - sin)</TT>.
 </TABLE>
 <p>
 If <TT>f</TT> and <TT>g</TT> are differentiable with <TT>d.</TT>, then
-so are the compositions <TT>f@g</TT> and <TT>f@:g</TT>
+so are the compositions <TT>f@g</TT> and <TT>f@:g</TT> 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -233,19 +233,19 @@ so are the compositions <TT>f@g</TT> and <TT>f@:g</TT>
 </TABLE>
 <p>
 <H2>23.4  The Conjunction D.</H2>
-The conjunction <TT>D.</TT> (uppercase D dot) computes
+The conjunction <TT>D.</TT> (uppercase D dot) computes 
 derivatives. It differs from <TT>d.</TT> in two ways.
 <p>
-<UL>
+<UL> 
 <LI> By using numerical methods it can differentiate
- arbitrary functions, that is, it is not limited to the domain
+ arbitrary functions, that is, it is not limited to the domain 
 of <TT>d.</TT></LI>
 <LI> It is not limited to scalar functions: it can
-differentiate functions with vector arguments to
+differentiate functions with vector arguments to 
 produce partial derivatives.</LI>
 </UL>
 <H3>23.4.1  The Domain of D.</H3>
-Since <TT>D.</TT> can use numerical methods,
+Since <TT>D.</TT> can use numerical methods, 
 its arguments can be arbitrary functions. For example,
 recall the function <TT>g</TT> above, to compute "(x-1)*(x-2)",which was demonstrated above
 to be outside the domain of <TT>d.</TT> .
@@ -266,7 +266,7 @@ However it is within the domain of <TT>D.</TT>. Its derivative is "2x-3"
 <H3>23.4.2  Partial Derivatives with D.</H3>
 Next we look at functions which compute a scalar
 from a vector argument. For example consider a surface where the
-height at a point <TT>(x,y)</TT> is given by
+height at a point <TT>(x,y)</TT> is given by 
 <PRE>
 <TT>                 (sin x) * (cos y)</TT>
 </PRE>
@@ -290,10 +290,10 @@ of the function <TT>h</TT> at the point <TT>(x,y)</TT>.
 <TD><TT>0.8083071 _0.1866971</TT></TD>
 </TABLE>
 <p>
-The result <TT>p</TT> gives the values of the partial derivatives
+The result <TT>p</TT> gives the values of the partial derivatives 
 with respect to <TT>x</TT> and with respect to <TT>y</TT>.
 <p>
-We can check this result.
+We can check this result. 
 Suppose  we
  define a function <TT>q</TT> say, for the height
 along the line <TT>y=0.5</TT>. We want <TT>q(x)</TT> to be
@@ -301,9 +301,9 @@ along the line <TT>y=0.5</TT>. We want <TT>q(x)</TT> to be
 <PRE>
 <TT>   q =: h @: (, &amp; 0.5)</TT>
 </PRE>
-The idea now is that the derivative of <TT>q</TT> applied to
+The idea now is that the derivative of <TT>q</TT> applied to 
 argument <TT>x</TT> should be the same as the first partial
-derivative of <TT>h</TT> at <TT>x,0.5</TT>.
+derivative of <TT>h</TT> at <TT>x,0.5</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -327,7 +327,7 @@ to the point <TT>(2x,3y)</TT> in 2-space.
 <TD><TT>2 3</TT></TD>
 </TABLE>
 <p>
-In general such a function will take an argument-vector of length <TT>m</TT> and produce
+In general such a function will take an argument-vector of length <TT>m</TT> and produce 
 a result-vector of length <TT>n</TT>. Hence there will be <TT>m*n</TT> partial derivatives,
 one for each element of the result with respect to each element of the argument.
 The six partial derivatives of <TT>foo</TT> at the point <TT>xyz = 1 1 1</TT> are shown by:
@@ -343,10 +343,10 @@ The six partial derivatives of <TT>foo</TT> at the point <TT>xyz = 1 1 1</TT> ar
 0 0</TT></TD>
 </TABLE>
 <p>
-Consider now a function such as <TT>cube</TT> which produces scalars from scalars.
+Consider now a function such as <TT>cube</TT> which produces scalars from scalars. 
 Given a vector argument, it will
 produce a vector result of the same length, where an element of the result
-depends only on the corresponding element of the argument.
+depends only on the corresponding element of the argument. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -389,20 +389,20 @@ function:
 <p>
 <H2>23.5  Numerical Integration</H2>
 There is a library script-file called <TT>integrat.ijs</TT> . It contains several different operators
-for integration. Documentation is given in the script file.
+for integration. Documentation is given in the script file.  
 <p>
-It can be downloaded from the JSoftware website: here is a
-<A HREF="http://www.jsoftware.com/svn/addons/trunk/math/misc/integrat.ijs">
-link to integrat.ijs  </A>
+It can be be downloaded from the JSoftware website: here is a  
+<A HREF="http://www.jsoftware.com/svn/addons/trunk/math/misc/integrat.ijs"> 
+link to integrat.ijs  </A> 
 <p>
-Assuming that we have downloaded into a directory, say <TT>C:\temp</TT> for example,
+Assuming that we have downloaded into a directory, say <TT>C:\temp</TT> for example, 
 then we load it into the J session with:
 <PRE>
 <TT>      load 'c:\temp\integrat.ijs'</TT>
 </PRE>
-One of the integration operators provided is the
+One of the integration operators provided is the 
 conjunction
-<TT>adapt</TT> ("numeric integration by adaptive quadrature"). The expression
+<TT>adapt</TT> ("numeric integration by adaptive quadrature"). The expression 
 <TT>f adapt (L,U)</TT> computes the numeric value
 of the definite integral of <TT>f</TT> between limits <TT>L</TT> and <TT>U</TT>. For example,
 we expect the integral of <TT>3&amp;*</TT> between <TT>0</TT> and <TT>1</TT> to be <TT>1.5</TT>
@@ -417,21 +417,21 @@ we expect the integral of <TT>3&amp;*</TT> between <TT>0</TT> and <TT>1</TT> to 
 </TABLE>
 <p>
 This is the end of Chapter 23.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="24.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 16 Dec 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="24.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 16 Dec 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="24.htm">&gt;&gt;</a>&nbsp;
 <a href="22.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -444,5 +444,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 13: Explicit Operators</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 13: Explicit Operators</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="14.htm">&gt;&gt;</a>&nbsp;
 <a href="12.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,38 +39,38 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 13: Explicit Operators</H1>
-This chapter covers explicit definition of operators, that is, adverbs
-and conjunctions defined with the colon conjunction.
+This chapter covers explicit definition of operators, that is, adverbs 
+and conjunctions defined with the colon conjunction. 
 <p>
-The scheme for explicit definition is:
+The scheme for explicit definition is: 
 <PRE>
 <TT>            1 : body     is an adverb</TT>
 </PRE>
 <PRE>
 <TT>            2 : body     is a conjunction</TT>
 </PRE>
-where <TT>body</TT> is one or more lines of text.
-The possibilities for the result produced by an operator so defined
-are: a tacit verb, an explicit verb, a noun or another operator. We will
+where <TT>body</TT> is one or more lines of text. 
+The possibilities for the result produced by an operator so defined 
+are: a tacit verb, an explicit verb, a noun or another operator. We will 
 look at each case in turn.
 <A NAME="02"></A>
 <H2>13.1  Operators Generating Tacit Verbs</H2>
-Recall from <A HREF="07.htm">Chapter 07</A> the built-in rank conjunction <TT>"</TT>.
-For any verb <TT>u</TT>, the expression <TT>u"0</TT> is a verb which applies <TT>u</TT> to the
-0-cells (scalars) of its argument.
+Recall from <A HREF="07.htm">Chapter 07</A> the built-in rank conjunction <TT>"</TT>. 
+For any verb <TT>u</TT>, the expression <TT>u"0</TT> is a verb which applies <TT>u</TT> to the 
+0-cells (scalars) of its argument. 
 <p>
-Now suppose we aim to define an adverb <TT>A</TT>,
+Now suppose we aim to define an adverb <TT>A</TT>, 
 to generate a verb according to the scheme: for any verb <TT>u</TT>
 <PRE>
 <TT>         u A   is to be     u " 0</TT>
 </PRE>
-Adverb <TT>A</TT> is defined explicitly like this:
+Adverb <TT>A</TT> is defined explicitly like this: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -85,23 +85,23 @@ Adverb <TT>A</TT> is defined explicitly like this:
 +-+-+</TT></TD>
 </TABLE>
 <p>
-In the definition <TT>(A =: 1 : 'u " 0')</TT>
+In the definition <TT>(A =: 1 : 'u " 0')</TT> 
 the left argument of the colon is <TT>1</TT>, meaning
-"adverb".
+"adverb". 
 <p>
-The right argument is the string <TT>'u " 0'</TT>.
-This string has the form of a tacit verb,
-where <TT>u</TT> stands for whatever verb will be supplied as argument to the
-adverb <TT>A</TT>.
+The right argument is the string <TT>'u " 0'</TT>. 
+This string has the form of a tacit verb, 
+where <TT>u</TT> stands for whatever verb will be supplied as argument to the 
+adverb <TT>A</TT>. 
 In the explicit definition of an adverb, the argument-variable is always <TT>u</TT>.
 <p>
 <p>
-Adverbs are so called because, in English grammar,
+Adverbs are so called because, in English grammar, 
 adverbs modify verbs.  In J,  by contrast,
-adverbs and conjunctions in general can take nouns
+adverbs and conjunctions in general can take nouns 
 or verbs as arguments. In the following example,
 adverb <TT>W</TT> is to generate a verb
-according to the scheme: for integer <TT>u</TT>
+according to the scheme: for integer <TT>u</TT> 
 <PRE>
 <TT>        u W    is to be   < " u</TT>
 </PRE>
@@ -127,9 +127,9 @@ The definition of <TT>W</TT> is shown by:
 +---+</TT></TD>
 </TABLE>
 <p>
-For another example of an adverb,
+For another example of an adverb, 
 recall the dyad <TT>#</TT> where <TT>x # y</TT>
-selects items from <TT>y</TT> according to the
+selects items from <TT>y</TT> according to the 
 bitstring <TT>x</TT>.
 <p>
 <TABLE class=jtable>
@@ -141,7 +141,7 @@ bitstring <TT>x</TT>.
 <TD><TT>1 2 3</TT></TD>
 </TABLE>
 <p>
-To select items greater than 0, we can apply
+To select items greater than 0, we can apply 
 the test-verb <TT>(>&amp;0)</TT>
 <p>
 <TABLE class=jtable>
@@ -155,7 +155,7 @@ the test-verb <TT>(>&amp;0)</TT>
 <TD><TT>1 2 3</TT></TD>
 </TABLE>
 <p>
-A tacit verb to select items greater than <TT>0</TT>
+A tacit verb to select items greater than <TT>0</TT> 
 can be written as a fork <TT>f</TT>:
 <p>
 <TABLE class=jtable>
@@ -168,13 +168,13 @@ can be written as a fork <TT>f</TT>:
 </TABLE>
 <p>
 This fork can be generalised into an adverb, <TT>B</TT>
-say,
-to generate a verb to select items according
-to whatever verb is supplied in place of the test <TT>>&amp;0</TT>.
+say, 
+to generate a verb to select items according 
+to whatever verb is supplied in place of the test <TT>>&amp;0</TT>.  
 <PRE>
 <TT>   B =: 1 : 'u # ]'</TT>
 </PRE>
-If we supply <TT>>&amp;1</TT> as a test-verb:
+If we supply <TT>>&amp;1</TT> as a test-verb:  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -187,15 +187,15 @@ If we supply <TT>>&amp;1</TT> as a test-verb:
 <TD><TT>2 3</TT></TD>
 </TABLE>
 <p>
-We see that the body of <TT>B</TT> is the
+We see that the body of <TT>B</TT> is the 
 fork to be generated, with <TT>u</TT> standing
 for the argument-verb to be supplied.
 Conjunctions, taking two arguments, are defined with <TT>(2 : '...')</TT>.
 The left argument is <TT>u</TT> and the right is <TT>v</TT>
 <p>
-For example, consider a conjunction <TT>THEN</TT>, to apply one verb and then
+For example, consider a conjunction <TT>THEN</TT>, to apply one verb and then 
 apply
-another to the result, that is, a composition.
+another to the result, that is, a composition. 
 The scheme we want is:
 <PRE>
 <TT>           u THEN v     is to be v @: u</TT>
@@ -215,8 +215,8 @@ and the definition of <TT>THEN</TT> is:
 +-----+</TT></TD>
 </TABLE>
 <p>
-For another example, consider
-counting (with <TT>#</TT>) those items of a list which are
+For another example, consider 
+counting (with <TT>#</TT>) those items of a list which are 
 greater than 0. A verb to do this might be:
 <p>
 <TABLE class=jtable>
@@ -252,23 +252,23 @@ and the definition of <TT>C</TT> is straightforwardly:
 </TABLE>
 <p>
 <H3>13.1.1  Multiline Bodies</H3>
-The right argument of colon we may call the body of the definition of our
-operator.
+The right argument of colon we may call the body of the definition of our 
+operator. 
 In the examples so far, the body was a string,  a schematic tacit verb,
-for example <TT>'v .@: u'</TT> .
-This is the verb to be delivered by  our operator.
+for example <TT>'v .@: u'</TT> .  
+This is the verb to be delivered by  our operator.  
 More generally, the body can be several lines. The idea is that,
-when the operator is applied to its argument,
+when the operator is applied to its argument, 
 the whole body is executed. That is, each line is
-evaluated in turn and the result delivered is
-the value of the last line evaluated. This is exactly analogous to
-explicit verbs,
-except that here the result is a value of type "function"  rather than of
+evaluated in turn and the result delivered is 
+the value of the last line evaluated. This is exactly analogous to 
+explicit verbs, 
+except that here the result is a value of type "function"  rather than of 
 type  "array".
 <p>
-Here is an example of a multi-line body,
-the previous example done in two steps.
-To apply <TT>u</TT> to items selected by <TT>v</TT>, a scheme
+Here is an example of a multi-line body, 
+the previous example done in two steps. 
+To apply <TT>u</TT> to items selected by <TT>v</TT>, a scheme 
 for conjunction <TT>D</TT> could be written:
 <PRE>
 <TT>         u D v  is to be  (u @: select) where select is v # ] </TT>
@@ -293,10 +293,10 @@ Again counting items greater than 0, we have
 <TD><TT>3</TT></TD>
 </TABLE>
 <p>
-The first line of <TT>D</TT> computes an inner function <TT>select</TT> from the right
-argument.
-The second line composes <TT>select</TT> with the left
-argument, and this is the result-verb delivered
+The first line of <TT>D</TT> computes an inner function <TT>select</TT> from the right 
+argument. 
+The second line composes <TT>select</TT> with the left 
+argument, and this is the result-verb delivered 
 by <TT>D</TT>.
 <p>
 Now this definition has an undesirable feature:
@@ -307,15 +307,15 @@ However, we can see, by looking at the
 value of the verb <TT>f</TT> above,
 that <TT>select</TT> must be available when we apply
 <TT>f</TT>. If <TT>select</TT> is local to
-<TT>D</TT>, it will not be available when needed.
+<TT>D</TT>, it will not be available when needed. 
 <p>
-We can in effect make <TT>select</TT> local
+We can in effect make <TT>select</TT> local 
 by using the "Fix" adverb  <TT>(f.)</TT> (letter-f dot.)
 The effect
 of applying "Fix" to a verb
 is to produce an equivalent verb
-in which names are replaced
-by
+in which names are replaced 
+by 
 by their corresponding definitions.
 That is, "Fix" resolves a tacit verb into its
 primitives. For example:
@@ -357,11 +357,11 @@ Now a verb to count greater-than-0 items can be written:
 <TD><TT>3</TT></TD>
 </TABLE>
 <p>
-We see that <TT>g</TT>, unlike <TT>f</TT>, has no local names.
+We see that <TT>g</TT>, unlike <TT>f</TT>, has no local names. 
 <H2>13.2  New Definitions from Old</H2>
-Suppose we aim to develope a function which,
+Suppose we aim to develope a function which, 
 given a list of numbers,
-replaces each number by the mean of its
+replaces each number by the mean of its 
 two neighbours in the list, the previous and the next.
 For the first or last, we assume a neighbour is zero.
 <p>
@@ -391,17 +391,17 @@ so for a list of numbers <TT>N</TT> we might see :
 </TABLE>
 <p>
 Now suppose we also want another smoothing function which
-rotates the data rather than shifting in zero.
+rotates the data rather than shifting in zero. 
 (The data might be, say,  samples of a repeated waveform.)
 <p>
 The only change needed from <TT>smoo</TT> is that the shift verb
-<TT>sh</TT> must become a rotate verb, that is,  (<TT>|.</TT>).
+<TT>sh</TT> must become a rotate verb, that is,  (<TT>|.</TT>). 
 <p>
-If the definition of <TT>smoo</TT> were large and complicated
+If the definition of <TT>smoo</TT> were large and complicated 
 we might prefer to avoid entering it again.  Instead,
-we could re-evaluate the definition we already have,
+we could re-evaluate the definition we already have, 
 in an environment in which the name <TT>sh</TT> means "rotate".
-This environment can be conveniently provided by
+This environment can be conveniently provided by 
  a little adverb, <TT>SMOO</TT> say,
  with <TT>|.</TT> (rotate) for its argument:
 <PRE>
@@ -428,8 +428,8 @@ so the rotating variant of <TT>smoo</TT> is given by
 </TABLE>
 <p>
 This example shows using an adverb to generalise an expression
- (<TT>smoo</TT>) to a function In summary, since <TT>smoo</TT> is defined in terms of <TT>sh</TT>,
-we have generalised it to a function taking <TT>sh</TT>
+ (<TT>smoo</TT>) to a function In summary, since <TT>smoo</TT> is defined in terms of <TT>sh</TT>, 
+we have generalised it to a function taking <TT>sh</TT> 
 as argument.
 <A NAME="03"></A>
 <H2>13.3  Operators Generating Explicit Verbs</H2>
@@ -446,7 +446,7 @@ Let me show you the messy way first, so that the merits of the neat way
 can be appreciated.
 <p>
 The messy way:  we can write <TT>H</TT> in the same style as the previous examples.
-That is, the body of the definition computes a value
+That is, the body of the definition computes a value 
 which is delivered when the operator is applied  to arguments.
 In this case the value is to be of the form <TT>3 : string</TT>
 where <TT>string</TT> must be built from the arguments. For example:
@@ -476,12 +476,12 @@ The conjunction <TT>H</TT> is pretty ugly but the value of the generated functio
 <TT>)</TT>
 <TT>   </TT>
 </PRE>
-Now we come to the neat way to define this conjunction.
-So far we have seen
+Now we come to the neat way to define this conjunction.  
+So far we have seen 
 operators where the body is executed to deliver the result.
 Let us say they are operators of the first kind. Now we look at operators of
-the second kind, where the body of the operator is
-not executed but instead serves as a template for
+the second kind, where the body of the operator is 
+not executed but instead serves as a template for 
 the verb to be generated. For example:
 <PRE>
 <TT>   K =: 2 : 0</TT>
@@ -493,7 +493,7 @@ the verb to be generated. For example:
 Clearly the definition of <TT>K</TT> is neater than the definition
 of <TT>H</TT> but nevertheless they are equivalent.  Notice that the body of <TT>K</TT>
 contains both the argument-variables <TT>u</TT> and <TT>v</TT> for the operator, and also
-the argument-variable <TT>y</TT> of the generated verb. It is this combination
+the argument-variable <TT>y</TT> of the generated verb. It is this combination 
 of argument variables which determines that the operator is of the second kind.
 <PRE>
 <TT>   bar =: + K *:</TT>
@@ -502,7 +502,7 @@ of argument variables which determines that the operator is of the second kind.
 <TT>30</TT>
 <TT>   </TT>
 </PRE>
-The generated verb <TT>bar</TT> is
+The generated verb <TT>bar</TT> is 
 equivalent to <TT>foo</TT> but it is displayed differently.
 <PRE>
 <TT>   bar</TT>
@@ -514,9 +514,9 @@ equivalent to <TT>foo</TT> but it is displayed differently.
 </PRE>
 Now we look in more detail at examples of operators of the second kind.
 <H3>13.3.1  Adverb Generating Monad</H3>
-Consider the following explicit monadic verb, <TT>e</TT>.
+Consider the following explicit monadic verb, <TT>e</TT>. 
 It selects items greater than 0, by
-applying the test-verb <TT>>&amp;0</TT>.
+applying the test-verb <TT>>&amp;0</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -530,8 +530,8 @@ applying the test-verb <TT>>&amp;0</TT>.
 </TABLE>
 <p>
 We can generalise <TT>e</TT> to form an adverb, <TT>F</TT> say,
-which selects items according to a supplied
-test-verb. The scheme we want is: for any verb <TT>u</TT>:
+which selects items according to a supplied 
+test-verb. The scheme we want is: for any verb <TT>u</TT>: 
 <PRE>
 <TT>         u F   is to be    3 : '(u y) # y'</TT>
 </PRE>
@@ -551,13 +551,13 @@ Now the verb <TT>>&amp;1 F</TT> will select items greater than 1:
 </TABLE>
 <p>
 In the body of <TT>F</TT>
-the variable <TT>u</TT> stands for a verb to be
+the variable <TT>u</TT> stands for a verb to be 
 supplied as argument to adverb <TT>F</TT>.
 If this argument is say <TT>>&amp;1</TT>, then
 <TT>y</TT> stands for an argument to the generated
 explicit verb <TT>3 : '(>&amp;1 y) # y'</TT>.
 <p>
-That is, our method of defining
+That is, our method of defining 
 the generated verb is to write out the body
 of an explicit definition, with <TT>u</TT>
 at places where a supplied verb is to be substituted.
@@ -569,7 +569,7 @@ Suppose we want an adverb <TT>W</TT>, say, with the scheme: for any verb <TT>u</
 </PRE>
 Recall from <TT><A HREF="12.htm">Chapter 12</A></TT> that there is another way to write an explicit dyad.
 Rather than beginning with <TT>4 : </TT> we can begin with <TT>3 : </TT>
-and write a multi-line body in which a solo colon
+and write a multi-line body in which a solo colon 
 separates monadic and dyadic cases. Here we have no monadic case,
 so the scheme above can be equivalently written as:
 <PRE>
@@ -611,7 +611,7 @@ The scheme is:
 <PRE>
 <TT>           u T   is to be 4 : ' x (u " 0 0) " 0 1  y' </TT>
 </PRE>
-that is,
+that is, 
 <PRE>
 <TT>           u T   is to be 3 : 0</TT>
 </PRE>
@@ -645,13 +645,13 @@ so we see:
 </PRE>
 <H3>13.3.3  Conjunction Generating Explicit Monad</H3>
 A conjunction takes two arguments,
-called <TT>u</TT> and <TT>v</TT>.
+called <TT>u</TT> and <TT>v</TT>. 
 <p>
 As before, we specify the generated verb
 by writing out the body of an explicit verb. Here
 <TT>y</TT> stands for the argument of the generated verb
-and <TT>u</TT> and <TT>v</TT> stand for argument-verbs
-to be supplied to the conjunction.
+and <TT>u</TT> and <TT>v</TT> stand for argument-verbs 
+to be supplied to the conjunction. 
 In this example the body is multi-line. As before,
 <TT>u</TT> will be applied to items selected by <TT>v</TT>
 <PRE>
@@ -660,7 +660,7 @@ In this example the body is multi-line. As before,
 <TT>u selected</TT>
 <TT>)</TT>
 </PRE>
-Now a verb to count greater-than-zero items
+Now a verb to count greater-than-zero items 
 can be written as <TT># G (>&amp;0)</TT>:
 <p>
 <TABLE class=jtable>
@@ -673,12 +673,12 @@ can be written as <TT># G (>&amp;0)</TT>:
 </TABLE>
 <p>
 <H3>13.3.4  Generating a Explicit Dyad</H3>
-Suppose we want a conjunction <TT>H</TT> such that, schematically, for verbs
+Suppose we want a conjunction <TT>H</TT> such that, schematically, for verbs 
 <TT>u</TT> and <TT>v</TT>
 <PRE>
 <TT>         u H v    is to be    4 : '(u x) + (v y)'</TT>
 </PRE>
-or equivalently, as we saw above:
+or equivalently, as we saw above: 
 <PRE>
 <TT>         u H v    is to be    3 : 0</TT>
 </PRE>
@@ -711,46 +711,46 @@ We see:
 </TABLE>
 <p>
 <H3>13.3.5  Alternative Names for Argument-Variables</H3>
-For the sake of completeness, it should be mentioned that
-arguments to operators may be named <TT>m</TT> and <TT>n</TT> rather than <TT>u</TT> and <TT>v</TT>,
-to constrain arguments to be nouns, that is,
-to cause verbs to be signalled as errors.
+For the sake of completeness, it should be mentioned that 
+arguments to operators may be named <TT>m</TT> and <TT>n</TT> rather than <TT>u</TT> and <TT>v</TT>, 
+to constrain arguments to be nouns, that is, 
+to cause verbs to be signalled as errors. 
 <p>
-Furthermore, for historical reasons, if the only argument variables are
-<TT>x</TT> or <TT>y</TT> or both, we get an operator of the first kind.
+Furthermore, for historical reasons, if the only argument variables are 
+<TT>x</TT> or <TT>y</TT> or both, we get an operator of the first kind. 
 That is, in the absence of <TT>u</TT> or <TT>v</TT>
-or <TT>m</TT> or <TT>n</TT> then <TT>x</TT> and <TT>y</TT> are equivalent to
-<TT>u</TT> and <TT>v</TT>.
+or <TT>m</TT> or <TT>n</TT> then <TT>x</TT> and <TT>y</TT> are equivalent to 
+<TT>u</TT> and <TT>v</TT>. 
 <p>
 These alternative names will not be further considered.
 <H3>13.3.6  Review</H3>
-So far, we have seen that for operators
+So far, we have seen that for operators 
 introduced with
-<TT>1 : body </TT> or <TT>2 : body</TT>, there are two kinds of definition.
+<TT>1 : body </TT> or <TT>2 : body</TT>, there are two kinds of definition. 
 <p>
 <UL>
-<LI>With operators of the first kind,
-the body is executed (that, is evaluated) to compute the value
+<LI>With operators of the first kind, 
+the body is executed (that, is evaluated) to compute the value 
 of the result.  The result can be of any type.
 The argument-variables
-occurring in the body are <TT>u</TT> or <TT>v</TT> or both.
+occurring in the body are <TT>u</TT> or <TT>v</TT> or both. 
 <p>
 <LI>With operators of the second kind, the result is always an explicit function.
 The body of the operator is not executed, but rather becomes
-the body of the generated function.
- Here <TT>x</TT> and <TT>y</TT> are arguments to the generated function
-in the usual way,
+the body of the generated function. 
+ Here <TT>x</TT> and <TT>y</TT> are arguments to the generated function 
+in the usual way, 
  and <TT>u</TT> or <TT>v</TT> in this body are placeholders which receive the values ofarguments to the operator.
 </UL>
-The J system recognises which kind is intended by
-determining which of the argument-variables <TT>u v x y</TT>
-occur in the the body.
-If we
+The J system recognises which kind is intended by 
+determining which of the argument-variables <TT>u v x y</TT> 
+occur in the the body. 
+If we 
 If we have BOTH (<TT>u</TT> or <TT>v</TT>) AND (<TT>x</TT> or <TT>y</TT>) then
-the operator is of the second kind.  Otherwise it is of the first kind.
+the operator is of the second kind.  Otherwise it is of the first kind. 
 <p>
 <H3>13.3.7  Executing the Body (Or Not)</H3>
-We said above that, for an operator of the first kind,
+We said above that, for an operator of the first kind, 
 the body is executed (or evaluated) when arguments are supplied.
 This can be demonstrated.
 <p>
@@ -758,7 +758,7 @@ First, here is a utility verb which displays its argument on-screen.
 <PRE>
 <TT>   display =: (1 !: 2) &amp; 2</TT>
 </PRE>
-Now insert <TT>display 'hello'</TT> into an operator of the first kind:
+Now insert <TT>display 'hello'</TT> into an operator of the first kind: 
 <PRE>
 <TT>     R =: 2 : 0</TT>
 <TT>display 'hello'</TT>
@@ -774,9 +774,9 @@ When <TT>R</TT> is applied to its argument, the body is demonstrably executed:
 <TT>   f 1 0 2 0 3</TT>
 <TT>3</TT>
 </PRE>
-By contrast, for an
+By contrast, for an 
 operator of the second kind, when arguments are supplied, the body is not executed, but rather
-becomes the body of the result function (after substituting the arguments). We can demonstrate  this by inserting <TT>display 'hello'</TT> into the body of the operator,
+becomes the body of the result function (after substituting the arguments). We can demonstrate  this by inserting <TT>display 'hello'</TT> into the body of the operator, 
 and observing that it becomes part of the result-function.
 <PRE>
 <TT>   S =: 2 : 0</TT>
@@ -785,7 +785,7 @@ and observing that it becomes part of the result-function.
 <TT>u selected</TT>
 <TT>)</TT>
 </PRE>
-we see that the body of <TT>S</TT> is NOT executed when <TT>S</TT> is applied
+we see that the body of <TT>S</TT> is NOT executed when <TT>S</TT> is applied 
 to its argument,  but it IS executed when the generated verb <TT>g</TT> is applied.
 <PRE>
 <TT>   g =: # S (>&amp;0)</TT>
@@ -803,7 +803,7 @@ Here is an example.
 <p>
 A fixed point of a function <TT>f</TT> is a value <TT>p</TT>
 such that <TT>(f p) = p</TT>. If we take
-<TT>f</TT> to be
+<TT>f</TT> to be 
 <PRE>
 <TT>   f =: 3 : '2.8 * y * (1-y)'</TT>
 </PRE>
@@ -813,9 +813,9 @@ then we see that <TT>0.642857</TT> is a fixed-point of <TT>f</TT>
 <TT>0.642857</TT>
 </PRE>
 Not every function has a fixed point, but if there is one
-we may be able to find it. We can iterate the function until there is no change
+we may be able to find it. We can iterate the function until there is no change 
 (with <TT>^: _</TT>  - see <TT><A HREF="10.htm">Chapter 10</A></TT>), choosing a suitable starting value.
-A crude fixed-point-finder can be written as an
+A crude fixed-point-finder can be written as an 
 adverb <TT>FPF</TT> which takes the given function as argument,
 with <TT>0.5</TT> for a starting value.
 <p>
@@ -842,7 +842,7 @@ Sometimes a smoother presentation might be:
 <PRE>
 <TT>               mean =: sum % #  where sum =: +/</TT>
 </PRE>
-provided we had available a suitable definition for <TT>where</TT>.
+provided we had available a suitable definition for <TT>where</TT>. 
 How about this?
 <PRE>
 <TT>   where =: 2 : 'u'</TT>
@@ -862,7 +862,7 @@ with results as expected:
 <TD><TT>2.5</TT></TD>
 </TABLE>
 <p>
-The right argument of <TT>where</TT> can be a verb or noun:
+The right argument of <TT>where</TT> can be a verb or noun: 
 <PRE>
 <TT>    (z+1) * (z-1)     where z =: 7</TT>
 <TT>48</TT>
@@ -870,18 +870,18 @@ The right argument of <TT>where</TT> can be a verb or noun:
 </PRE>
 <TT>where</TT> is a conjunction which ignores its right argument,
 but evaluating the right argument makes it available
-to the left through the assignment.
-Note that the assignments to <TT>sum</TT> and <TT>z</TT> above
+to the left through the assignment.  
+Note that the assignments to <TT>sum</TT> and <TT>z</TT> above 
 are regular global assignments, so <TT>where</TT>
-does not localize <TT>sum</TT> or <TT>z</TT>.
+does not localize <TT>sum</TT> or <TT>z</TT>. 
 <A NAME="06"></A>
 <H2>13.6  Operators Generating Operators</H2>
 Here is an example of an adverb generating an adverb.
 <p>
 First note that (as covered in <A HREF="15.htm">Chapter 15</A>)
-if we supply one argument to
-a conjunction we get an adverb.
-The expression <TT>(@: *:)</TT> is an adverb which means
+if we supply one argument to 
+a conjunction we get an adverb. 
+The expression <TT>(@: *:)</TT> is an adverb which means 
 "composed with square". To illustrate:
 <p>
 <TABLE class=jtable>
@@ -920,21 +920,21 @@ delivers as a result adverb <TT>L</TT>:
 </TABLE>
 <p>
 This is the end of Chapter 13.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="14.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 19 Mar 2013<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="14.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 19 Mar 2013<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="14.htm">&gt;&gt;</a>&nbsp;
 <a href="12.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -947,5 +947,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

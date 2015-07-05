@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 32: Trees</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 32: Trees</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="91.htm">&gt;&gt;</a>&nbsp;
 <a href="31.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,16 +39,15 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 32: Trees</H1>
 <A NAME="01"></A>
 <H2>32.1  Introduction</H2>
 Data structures consisting of boxes within boxes may be called trees.
 J provides several special functions in support of computations with trees.
-<p>
 <p>
 Here is an example of a tree:
 <PRE>
@@ -84,13 +83,13 @@ by a combination of indexing and unboxing.
 <TT>   ] c =: > 1 { b</TT>
 <TT>mat</TT>
 </PRE>
-but there is a built-in verb, "Fetch" (dyadic <TT>{::</TT>) , for this purpose.
+but there is a built-in verb, "Fetch" (dyadic <TT>{::</TT>) , for this purpose. 
 Its left argument is a sequence of indexes (called a path):
 <PRE>
 <TT>   (2;1;1) {:: T</TT>
 <TT>mat</TT>
 </PRE>
-Further examples:
+Further examples: 
 <PRE>
 <TT>   2 {:: T</TT>
 <TT>+--+---------+</TT>
@@ -107,7 +106,7 @@ Further examples:
 </PRE>
 <H2>32.3  The Domain of Fetch</H2>
 The right argument of <TT>{::</TT> must be a vector, or higher rank, and not a scalar,
-or else an error results. (Recall that a single box is a scalar).
+or else an error results. (Recall that a single box is a scalar). 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -119,9 +118,9 @@ or else an error results. (Recall that a single box is a scalar).
 </TABLE>
 <p>
 Let us say that a full-length path is a path which fetches
-the data content from a leaf.
+the data content from a leaf. 
 <p>
-Along a full-length path, every index must select a scalar, a box, or else
+Along a full-length path, every index must select a scalar, a box, or else 
 an error results. In other words, we must have a single path.
 <p>
 <TABLE class=jtable>
@@ -140,15 +139,15 @@ an error results. In other words, we must have a single path.
 </TABLE>
 <p>
 The data fetched from a leaf is the result of opening
-the last box selected along the path. This data can, as we saw above,
+the last box selected along the path. This data can, as we saw above, 
 be an array, a list say.
 <PRE>
 <TT>   (2;1;1) {:: T</TT>
 <TT>mat</TT>
 <TT>   </TT>
 </PRE>
-If this data is an indexable array, then a further index can be
-appended to a full-length path, giving an over-length path, to fetch a
+If this data is an indexable array, then a further index can be 
+appended to a full-length path, giving an over-length path, to fetch a 
 further single scalar.  The next example shows fetching <TT>'m'</TT> from <TT>'mat'</TT>.
 <PRE>
 <TT>   (2;1;1;0) {:: T</TT>
@@ -178,8 +177,8 @@ Monadic <TT>{::</TT> is called "Map". It shows all the paths to the leaves.
 The verb <TT>L.</TT> ("LevelOf") reports the length of the longest path
 in a tree,  that is, the maximum length
 of a path to fetch the
-unboxed data-content of a leaf. In the book "A Programming Language"
-Kenneth Iverson uses the term "height" for the length of the longest path
+unboxed data-content of a leaf. In the book "A Programming Language" 
+Kenneth Iverson uses the term "height" for the length of the longest path 
 of a tree.
 <p>
 The length of a path is the number of indexing-and-unboxing steps needed.
@@ -200,7 +199,7 @@ It is evident that it takes at most 3 steps to fetch any data-content from <TT>T
 <TD><TT>3</TT></TD>
 </TABLE>
 <p>
-One step is needed to fetch the content of the leaf of a tree consisting only of
+One step is needed to fetch the content of the leaf of a tree consisting only of 
 a single leaf, for example <TT>,<6 </TT>.  The step is <TT>> @: (0&amp;{)</TT>
 <p>
 <TABLE class=jtable>
@@ -229,11 +228,51 @@ and it evidently needs no steps to fetch the content of <TT>'hello'</TT>
 <TD><TT>hello</TT></TD>
 </TABLE>
 <p>
-<H2>32.6  Levels and the L: Conjunction</H2>
+Here we see that the LevelOf a tree can be computed from its Map  
+that is, that L. T, say, can be found from {:: T
+<PRE>
+<TT>   {:: T                NB. Map giving the paths to leaves</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>|+-+|+-+|+-----+-----------------+|</TT>
+<TT>||0|||1|||+-+-+|+-------+-------+||</TT>
+<TT>|+-+|+-+|||2|0|||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||+-+-+|||2|1|0|||2|1|1||||</TT>
+<TT>|   |   ||     ||+-+-+-+|+-+-+-+|||</TT>
+<TT>|   |   ||     |+-------+-------+||</TT>
+<TT>|   |   |+-----+-----------------+|</TT>
+<TT>+---+---+-------------------------+</TT>
+<TT>   </TT>
+<TT>   # S: 1 {:: T         NB. the length of each path</TT>
+<TT>1 1 2 3 3</TT>
+<TT>   </TT>
+<TT>   >. / # S: 1 {:: T    NB. the maximum of the lengths</TT>
+<TT>3</TT>
+<TT>   </TT>
+<TT>   L. T                 NB.  the LevelOf T </TT>
+<TT>3</TT>
+<TT>   </TT>
+<TT>   </TT>
+<TT>    </TT>
+<TT>    </TT>
+</PRE>
+<H2>32.6  Levels</H2>
 <A NAME="07"></A>
-A box with no inner box (a leaf) is said to be at level 0.
+Consider  the way the text of a book is organized.
+<UL>
+<LI> a book is a sequence of chapters.  Different books may have different numbers of chapters.
+<LI> a chapter is a sequence of paragraphs. Different chapters may have different number of paragraphs.
+<LI> a paragraph is a sequence of sentences. Different paragraphs may have different numbers of sentences
+<LI> a sentence is a sequence of words. Different sentences may have different numbers of words.
+</UL> 
 <p>
-Here is another tree:
+We say that chapters, paragraphs, sentences and words are different levels in the organization.  The organizing principles are evident : 
+<OL>
+<LI> there are a small number of levels.  
+<LI> the number of levels is fixed in advance.
+<LI> the path to every leaf is of the same length.  
+</OL>
+J provides several built-in functions which are particularly useful in handling trees organized into fixed levels in this way..
+Here is an example of such a tree: 
 <PRE>
 <TT>   ] D =: (<'one'; 'two'), (<  'three' ; 'four')</TT>
 <TT>+---------+------------+</TT>
@@ -243,6 +282,8 @@ Here is another tree:
 <TT>+---------+------------+</TT>
 <TT>   </TT>
 </PRE>
+A box with no inner box (a leaf) is said to be at level 0.
+<p>
 We can apply a given function to the values inside the leaves, that is, at level 0,
 with the aid of the <TT>L:</TT> conjunction (called "Level At").
 <p>
@@ -274,7 +315,7 @@ and at level 2:
 <TT>+------------+---------+</TT>
 </PRE>
 We see that we can apply a function at each of the levels 0 1 2 .
-The level at which the function is applied can also be specified
+The level at which the function is applied can also be specified 
 as a negative number:
 <PRE>
 <TT>   |. L: _2 D   </TT>
@@ -313,7 +354,7 @@ which is like <TT>L:</TT> in applying a function at a level, but unlike
 <TT>eerht</TT>
 <TT>ruof </TT>
 </PRE>
-The result above is a list (a "flat list") of 4 items,
+The result above is a list (a "flat list") of 4 items, 
 each item being a string.
 <PRE>
 <TT>   |. S: 1 D</TT>
@@ -334,9 +375,9 @@ The result above is a list of 2 items, each item being a list of 2 boxes.
 </PRE>
 The result above is a list of 2 items, each item being a box.
 <H2>32.8  Trees with Varying Path-lengths</H2>
-In the example tree <TT>D</TT> above all the path-lengths to a leaf
+In the example tree <TT>D</TT> above all the path-lengths to leaves 
 are the same length. However, in general path-lengths may vary.
-For the example tree <TT>T</TT>,
+For the example tree <TT>T</TT>, 
 <PRE>
 <TT>   T</TT>
 <TT>+-------+---+--------------+</TT>
@@ -347,8 +388,8 @@ For the example tree <TT>T</TT>,
 <TT>|       |   |+--+---------+|</TT>
 <TT>+-------+---+--------------+</TT>
 </PRE>
-the paths are shown by <TT>{:: T</TT> and the lengths of the paths
-are given by
+the paths are shown by <TT>{:: T</TT> and the lengths of the paths 
+are given by 
 <PRE>
 <TT>   (# S: 1) {:: T </TT>
 <TT>1 1 2 3 3</TT>
@@ -377,15 +418,15 @@ some but not all of the level-0 leaves reappear at level 1.
 <TT>+-------+---+--------------+</TT>
 <TT>   </TT>
 </PRE>
-The explanation is that at level 1 the given verb is applied to
-<UL>
-  <LI> those nodes strictly at level 1, that is, those for which <TT>1=L. node</TT> AND
+The explanation is that at level 1 the given verb is applied to 
+<UL> 
+  <LI> those nodes strictly at level 1, that is, those for which <TT>1=L. node</TT> AND  
 <p>
-  <LI> those nodes strictly at level 0 not already accounted for
+  <LI> those nodes strictly at level 0 not already accounted for 
        by being contained within a level 1 node.
 </UL>
 <p>
-Similarly, if we reverse the contents of the level-2 nodes we see:
+Similarly, if we reverse the contents of the level-2 nodes we see: 
 <PRE>
 <TT>   |. L: 2 T</TT>
 <TT>+-------+---+--------------+</TT>
@@ -399,7 +440,7 @@ Similarly, if we reverse the contents of the level-2 nodes we see:
 </PRE>
 In this example some of the results of reverse are
 strings, and some are lists of boxes.  They are of different types.
-These results of different types cannot simply be assembled without
+These results of different types cannot simply be assembled without 
 more ado into a flat list as would be attempted by S:
 <p>
 Hence <TT>u S: 1</TT> may fail unless the verb u itself provides uniform results
@@ -418,7 +459,7 @@ at every node. Compare these two examples:
 +-------+---+--+---------+</TT></TD>
 </TABLE>
 <p>
-The Level conjunction <TT>L:</TT> walks the tree in the same way,
+The Level conjunction <TT>L:</TT> walks the tree in the same way, 
 that is, it hits the same nodes for reversing,
 <p>
 <PRE>
@@ -433,7 +474,7 @@ that is, it hits the same nodes for reversing,
 </PRE>
 However, Level does not try to build a flat list of results,
 rather puts each individual result back into its position in the tree.
-Hence where Spread will fail because it tries to build a flat list,
+Hence where Spread will fail because it tries to build a flat list, 
 Level will succeed.
 <p>
 <TABLE class=jtable>
@@ -451,48 +492,275 @@ Level will succeed.
 +-------+---+--------------+</TT></TD>
 </TABLE>
 <p>
-<H2>32.9  L. Revisited</H2>
-Here we show that the LevelOf a tree can be computed from its Map
-that is, that L. T, say, can be found from {:: T
+<H2>32.9  Transforming Trees</H2>
+Next we look at transformations between trees, relations and arrays.
+The motivation for these transforms is that, by turning structure 
+into data, some operations become more straightforward.  For example
+adding or removing branches (grafting or pruning) becomes easier.
+<p>
+Throughout this section it will be assumed that 
+the trees in question 
+ have the property of a fixed number of levels, 
+ and the same path-length to every leaf.
+<p>
+Here is a tree for a starting point. 
 <PRE>
-<TT>   {:: T                NB. Map giving the paths to leaves</TT>
-<TT>+---+---+-------------------------+</TT>
-<TT>|+-+|+-+|+-----+-----------------+|</TT>
-<TT>||0|||1|||+-+-+|+-------+-------+||</TT>
-<TT>|+-+|+-+|||2|0|||+-+-+-+|+-+-+-+|||</TT>
-<TT>|   |   ||+-+-+|||2|1|0|||2|1|1||||</TT>
-<TT>|   |   ||     ||+-+-+-+|+-+-+-+|||</TT>
-<TT>|   |   ||     |+-------+-------+||</TT>
-<TT>|   |   |+-----+-----------------+|</TT>
-<TT>+---+---+-------------------------+</TT>
+<TT>   p1 =: (< 'aa' ;'bb' ; 'cc'), (< 'dd' ; 'ee' )</TT>
+<TT>   p2 =: (,< ( 'ff' ; 'gg'))</TT>
+<TT>   ] T  =: (< p1) , (< p2)          NB. a tree</TT>
+<TT>+--------------------+---------+</TT>
+<TT>|+----------+-------+|+-------+|</TT>
+<TT>||+--+--+--+|+--+--+|||+--+--+||</TT>
+<TT>|||aa|bb|cc|||dd|ee|||||ff|gg|||</TT>
+<TT>||+--+--+--+|+--+--+|||+--+--+||</TT>
+<TT>|+----------+-------+|+-------+|</TT>
+<TT>+--------------------+---------+</TT>
 <TT>   </TT>
-<TT>   # S: 1 {:: T         NB. the length of each path</TT>
-<TT>1 1 2 3 3</TT>
+</PRE>
+<H3>32.9.1  Relation from Tree</H3>
+Here is a function to make a relation from a tree. It combines the index-matrix,
+ that is the set of all paths to leaves, 
+with the data values of corresponding leaves: 
+<PRE>
+<TT>   rfromt =: 3 : 0</TT>
+<TT>    P =. indmat y        NB. index-matrix </TT>
+<TT>    V =. dava   y        NB. the value of each word</TT>
+<TT>    (<"1 P) (, "0 0) V   NB. relation</TT>
+<TT>)</TT>
 <TT>   </TT>
-<TT>   >. / # S: 1 {:: T    NB. the maximum of the lengths</TT>
-<TT>3</TT>
+<TT>   indmat =: 3 : 0          NB. index-matrix of given tree</TT>
+<TT>  (; @: >) S: 1 ({:: y)</TT>
+<TT>)</TT>
 <TT>   </TT>
-<TT>   L. T                 NB.  the LevelOf T </TT>
-<TT>3</TT>
+<TT>   dava =: < S: 0            NB. data-values from leaves</TT>
+<TT>   </TT>
+</PRE>
+We see that each row relates the path to a leaf
+and the  data content of that leaf.
+<PRE>
+<TT>   T</TT>
+<TT>+--------------------+---------+</TT>
+<TT>|+----------+-------+|+-------+|</TT>
+<TT>||+--+--+--+|+--+--+|||+--+--+||</TT>
+<TT>|||aa|bb|cc|||dd|ee|||||ff|gg|||</TT>
+<TT>||+--+--+--+|+--+--+|||+--+--+||</TT>
+<TT>|+----------+-------+|+-------+|</TT>
+<TT>+--------------------+---------+</TT>
+<TT>   ] R =: rfromt T</TT>
+<TT>+-----+--+</TT>
+<TT>|0 0 0|aa|</TT>
+<TT>+-----+--+</TT>
+<TT>|0 0 1|bb|</TT>
+<TT>+-----+--+</TT>
+<TT>|0 0 2|cc|</TT>
+<TT>+-----+--+</TT>
+<TT>|0 1 0|dd|</TT>
+<TT>+-----+--+</TT>
+<TT>|0 1 1|ee|</TT>
+<TT>+-----+--+</TT>
+<TT>|1 0 0|ff|</TT>
+<TT>+-----+--+</TT>
+<TT>|1 0 1|gg|</TT>
+<TT>+-----+--+</TT>
+<TT>   </TT>
+<TT>   </TT>
+</PRE>
+<H3>32.9.2  Tree from Relation</H3>
+A function to make a tree from a relation:
+<PRE>
+<TT>   tfromr =: 3 : 0</TT>
+<TT>    while. (1 < # >{. {. y) do. y =. step y end.</TT>
+<TT>    1 { "1 y</TT>
+<TT>)</TT>
+</PRE>
+where 
+<PRE>
+<TT>   step =: 3 : 0        NB. one step of tree-from-relation</TT>
+<TT>    k =. rkeys y</TT>
+<TT>    v =. k < /. (1 { "1 y)</TT>
+<TT>    (~.k)  ,. v</TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   rkeys =: (}: &amp;. >) @: ({. " 1)   NB. reduced-length keys</TT>
+<TT>   </TT>
+</PRE>
+Each step of the process reduces the path-lengths by 1:
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>R</TT></TD>
+<TD><TT>step R</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+-----+--+<BR>
+|0 0 0|aa|<BR>
++-----+--+<BR>
+|0 0 1|bb|<BR>
++-----+--+<BR>
+|0 0 2|cc|<BR>
++-----+--+<BR>
+|0 1 0|dd|<BR>
++-----+--+<BR>
+|0 1 1|ee|<BR>
++-----+--+<BR>
+|1 0 0|ff|<BR>
++-----+--+<BR>
+|1 0 1|gg|<BR>
++-----+--+</TT></TD>
+<TD><TT>+---+----------+<BR>
+|0 0|+--+--+--+|<BR>
+|&nbsp;&nbsp;&nbsp;||aa|bb|cc||<BR>
+|&nbsp;&nbsp;&nbsp;|+--+--+--+|<BR>
++---+----------+<BR>
+|0 1|+--+--+&nbsp;&nbsp;&nbsp;|<BR>
+|&nbsp;&nbsp;&nbsp;||dd|ee|&nbsp;&nbsp;&nbsp;|<BR>
+|&nbsp;&nbsp;&nbsp;|+--+--+&nbsp;&nbsp;&nbsp;|<BR>
++---+----------+<BR>
+|1 0|+--+--+&nbsp;&nbsp;&nbsp;|<BR>
+|&nbsp;&nbsp;&nbsp;||ff|gg|&nbsp;&nbsp;&nbsp;|<BR>
+|&nbsp;&nbsp;&nbsp;|+--+--+&nbsp;&nbsp;&nbsp;|<BR>
++---+----------+</TT></TD>
+</TABLE>
+<p>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>step step R</TT></TD>
+<TD><TT>tfromr R</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+-+--------------------+<BR>
+|0|+----------+-------+|<BR>
+| ||+--+--+--+|+--+--+||<BR>
+| |||aa|bb|cc|||dd|ee|||<BR>
+| ||+--+--+--+|+--+--+||<BR>
+| |+----------+-------+|<BR>
++-+--------------------+<BR>
+|1|+-------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>
+| ||+--+--+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>
+| |||ff|gg||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>
+| ||+--+--+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>
+| |+-------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<BR>
++-+--------------------+</TT></TD>
+<TD><TT>+--------------------+---------+<BR>
+|+----------+-------+|+-------+|<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|||aa|bb|cc|||dd|ee|||||ff|gg|||<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|+----------+-------+|+-------+|<BR>
++--------------------+---------+</TT></TD>
+</TABLE>
+<p>
+<PRE>
+<TT>   T -: tfromr R</TT>
+<TT>1</TT>
+<TT>   </TT>
+<TT>    </TT>
+</PRE>
+<H3>32.9.3  Array from Tree  and Tree from Array</H3>
+Here is a verb to construct an array from a tree.
+It is assumed that the result is to be an array of boxes,
+and so empty boxes may be needed for paddding.
+<PRE>
+<TT>   afromt =: 3 : 0           NB. array from tree</TT>
+<TT>    a =. indmat y  </TT>
+<TT>    b =. 1+ >./ a         NB. dimensions of array</TT>
+<TT>    c =. b $ a:           NB. recipient array</TT>
+<TT>    d =. dava T</TT>
+<TT>    e =. < @: ( ;/) "1 a  NB. indices</TT>
+<TT>    d e } c</TT>
+<TT>)</TT>
+<TT>   </TT>
+</PRE>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>T</TT></TD>
+<TD><TT> A =: afromt T</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+--------------------+---------+<BR>
+|+----------+-------+|+-------+|<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|||aa|bb|cc|||dd|ee|||||ff|gg|||<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|+----------+-------+|+-------+|<BR>
++--------------------+---------+</TT></TD>
+<TD><TT>+--+--+--+<BR>
+|aa|bb|cc|<BR>
++--+--+--+<BR>
+|dd|ee|&nbsp;&nbsp;|<BR>
++--+--+--+<BR>
+<BR>
++--+--+--+<BR>
+|ff|gg|&nbsp;&nbsp;|<BR>
++--+--+--+<BR>
+|&nbsp;&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;|<BR>
++--+--+--+</TT></TD>
+</TABLE>
+<p>
+The converse function is to build a tree from an array, 
+assuming that all empty boxes are padding to be discarded.
+First we convert the given array to its 
+indexmatrix-value relation
+and then convert the relation to a tree with <TT>tfromr</TT>.
+<PRE>
+<TT>   tfroma =: 3 : 0               NB. tree from array</TT>
+<TT>    b =. , y                  NB. units of data content </TT>
+<TT>    c =. (#: i. @ (*/)) $ y   NB. index-matrix</TT>
+<TT>    d =. -. b -:"0 a:</TT>
+<TT>    e =. (<"1 c) ,. b         NB. a relation </TT>
+<TT>    f =. d # e                NB. discarding empty boxes</TT>
+<TT>    tfromr f</TT>
+<TT>)</TT>
+</PRE>
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT>A</TT></TD>
+<TD><TT>Z =: tfroma A</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>+--+--+--+<BR>
+|aa|bb|cc|<BR>
++--+--+--+<BR>
+|dd|ee|&nbsp;&nbsp;|<BR>
++--+--+--+<BR>
+<BR>
++--+--+--+<BR>
+|ff|gg|&nbsp;&nbsp;|<BR>
++--+--+--+<BR>
+|&nbsp;&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;|<BR>
++--+--+--+</TT></TD>
+<TD><TT>+--------------------+---------+<BR>
+|+----------+-------+|+-------+|<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|||aa|bb|cc|||dd|ee|||||ff|gg|||<BR>
+||+--+--+--+|+--+--+|||+--+--+||<BR>
+|+----------+-------+|+-------+|<BR>
++--------------------+---------+</TT></TD>
+</TABLE>
+<p>
+Checking for correctness:
+<PRE>
+<TT>   Z -: T</TT>
+<TT>1</TT>
+<TT>   </TT>
 <TT>   </TT>
 <TT>   </TT>
 </PRE>
 This is the end of Chapter 32.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="91.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 31 July 2013<BR>
-Copyright &copy; Roger Stokes 2013.
- This material may be freely reproduced,
-provided that acknowledgement is made.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="33.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 802 beta. 
+ This chapter last updated 25 Aug 2014<BR> 
+Copyright &copy; Roger Stokes 2014. 
+ This material may be freely reproduced, 
+provided that acknowledgement is made. 
+</FONT> 
  <!--bottom jump start--><hr><a href="91.htm">&gt;&gt;</a>&nbsp;
 <a href="31.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -505,5 +773,6 @@ provided that acknowledgement is made.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

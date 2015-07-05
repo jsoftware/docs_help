@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 17: Patterns of Application</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 17: Patterns of Application</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="18.htm">&gt;&gt;</a>&nbsp;
 <a href="16.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,20 +39,20 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 17: Patterns of Application</H1>
-In this chapter we look at applying a function
-to an array in various
-patterns made up of selected elements of the array.
+In this chapter we look at applying a function 
+to an array in various 
+patterns made up of selected elements of the array.  
 <A NAME="01"></A>
 <H2>17.1  Scanning</H2>
 <H3>17.1.1  Prefix Scanning</H3>
-In the expression <TT>(f \ y)</TT>  the result is
-produced by applying verb <TT>f</TT> to
-successively longer leading sections ("prefixes") of <TT>y</TT>.
+In the expression <TT>(f \ y)</TT>  the result is 
+produced by applying verb <TT>f</TT> to 
+successively longer leading sections ("prefixes") of <TT>y</TT>. 
 <p>
 Choosing <TT>f</TT> as the box verb (<TT>&lt;</TT>) gives easily visible results.
 <p>
@@ -72,18 +72,18 @@ Cumulative sums of a numeric vector can be produced:
 <TT>   +/ \ 0 1 2 3</TT>
 <TT>0 1 3 6</TT>
 </PRE>
-Various effects can be produced by scanning bit-vectors.
-The following example shows "cumulative OR", which turns on all bits after the
-first 1-bit.
+Various effects can be produced by scanning bit-vectors.  
+The following example shows "cumulative OR", which turns on all bits after the 
+first 1-bit. 
 <PRE>
 <TT>   +./\ 0 1 0 1 0</TT>
 <TT>0 1 1 1 1</TT>
 </PRE>
 <A NAME="02"></A>
 <H3>17.1.2  Infix Scanning</H3>
-In the expression <TT>(x f \ y)</TT> the verb <TT>f</TT> is applied to successive sections
-("infixes") of <TT>y</TT>,
-each of length <TT>x</TT>.
+In the expression <TT>(x f \ y)</TT> the verb <TT>f</TT> is applied to successive sections 
+("infixes") of <TT>y</TT>, 
+each of length <TT>x</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -96,7 +96,7 @@ each of length <TT>x</TT>.
 +---+---+----+</TT></TD>
 </TABLE>
 <p>
-If <TT>x</TT> is negative, then the sections are non-overlapping,
+If <TT>x</TT> is negative, then the sections are non-overlapping, 
 in which case the last section may not be full-length.
 For example:
 <p>
@@ -146,7 +146,7 @@ and applying to each section a verb "second-minus-first", that is, <TT>({: - {.)
 <p>
 <A NAME="03"></A>
 <H3>17.1.3  Suffix Scanning </H3>
-In the expression <TT>(f \. y )</TT> the result is produced by applying <TT>f</TT>  to successively shorter trailing  sections ("suffixes") of  y .
+In the expression <TT>(f \. y )</TT> the result is produced by applying <TT>f</TT>  to successively shorter trailing  sections ("suffixes") of  y . 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -160,8 +160,8 @@ In the expression <TT>(f \. y )</TT> the result is produced by applying <TT>f</T
 </TABLE>
 <p>
 <H3>17.1.4  Outfix</H3>
-In the expression <TT>(x f \. y)</TT>  the verb <TT>f</TT>  is applied to the whole of <TT>y</TT> with successive sections
-removed, each removed section being of length <TT>x</TT>. If <TT>x</TT> is negative, then the removed
+In the expression <TT>(x f \. y)</TT>  the verb <TT>f</TT>  is applied to the whole of <TT>y</TT> with successive sections 
+removed, each removed section being of length <TT>x</TT>. If <TT>x</TT> is negative, then the removed 
 sections are non-overlapping, in which case the last removed section may not be full-length.
 <p>
 <TABLE class=jtable>
@@ -202,13 +202,13 @@ cba</TT></TD>
 </TABLE>
 <p>
 <H3>17.2.2  Blocking</H3>
-Given an array, we can pick out a smaller subarray inside it,
+Given an array, we can pick out a smaller subarray inside it, 
  and apply a verb to just the subarray.
 <p>
 The subarray is specified by a two-row table. In the first row is
 the index of the cell which will become the first of the subarray. In the second row is the shape of the subarray.
 <p>
-For example, to specify a subarray starting at row <TT>1</TT> column <TT>1</TT> of the original array,
+For example, to specify a subarray starting at row <TT>1</TT> column <TT>1</TT> of the original array, 
 and of shape <TT>2 2</TT>, we write:
 <PRE>
 <TT>   spec =: 1 1 ,: 2 2</TT>
@@ -231,7 +231,7 @@ ghi</TT></TD>
 hi</TT></TD>
 </TABLE>
 <p>
-The general scheme is that for a verb <TT>u</TT>, the expression <TT>(x u ;. 0 y)</TT> applies verb <TT>u</TT>
+The general scheme is that for a verb <TT>u</TT>, the expression <TT>(x u ;. 0 y)</TT> applies verb <TT>u</TT> 
 to a subarray of <TT>y</TT> as specified by <TT>x</TT>.
 In the specifier <TT>x</TT>, a negative value in the shape (the second row) will cause
 reversal of the elements of <TT>M</TT> along the corresponding axis. For example:
@@ -256,21 +256,21 @@ ef</TT></TD>
 <p>
 <A NAME="05"></A>
 <H3>17.2.3  Fretting</H3>
-Suppose that we are interested in dividing a line of text into separate
+Suppose that we are interested in dividing a line of text into separate 
 words. Here is an example of a line of text:
 <PRE>
 <TT>   y =: 'what can be said'</TT>
 </PRE>
-For the moment, suppose we regard a word as being terminated by a space.
+For the moment, suppose we regard a word as being terminated by a space. 
 (There are other possibilities, which we will come to.) Immediately we see that
 in <TT>y</TT> above, the last word <TT>'said'</TT> is not followed by a space, so the first thing to do
 is to add a space at the end:
 <PRE>
 <TT>   y =: y , ' '</TT>
 </PRE>
-Now if <TT>u</TT> is a verb, and <TT>y</TT> ends with a space,
+Now if <TT>u</TT> is a verb, and <TT>y</TT> ends with a space, 
 the expression <TT>(u ;. _2 y)</TT> will apply verb <TT>u</TT> separately
-to each space-terminated word in <TT>y</TT>. For example we can identify the words in <TT>y</TT> by applying <TT>&lt;</TT>, the box function:
+to each space-terminated word in <TT>y</TT>. For example we can identify the words in <TT>y</TT> by applying <TT>&lt;</TT>, the box function: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -294,29 +294,29 @@ We can count the letters in each word by applying the <TT>#</TT> verb:
 <TD><TT>4 3 2 4</TT></TD>
 </TABLE>
 <p>
- The meaning of <TT>_2</TT> for the right argument of <TT>;.</TT>
+ The meaning of <TT>_2</TT> for the right argument of <TT>;.</TT> 
 is that the words are to be terminated by occurrences of the last character in <TT>y</TT> (the space), and furthermore
-that the words do not include the spaces.
+that the words do not include the spaces.  
 <p>
 More generally, we say that a list may be divided into
-"intervals" marked by the occurrence of "frets".  The
+"intervals" marked by the occurrence of "frets".  The 
 right argument <TT>(n)</TT> of <TT>;.</TT> specifies how we choose to define intervals and frets as follows.
  There are four cases.
 <p>
-<TABLE CELLPADDING=10 BORDER=1>
-<TR> <TD> <TT>  n = 1 </TT></TD>
-     <TD>Each interval begins with a fret.
+<TABLE CELLPADDING=10 BORDER=1> 
+<TR> <TD> <TT>  n = 1 </TT></TD> 
+     <TD>Each interval begins with a fret. 
           The first item of <TT>y</TT> is taken to be a fret, <BR>
-          as are any other items of
+          as are any other items of 
           <TT>y</TT> equal to the first. <BR>Intervals include frets.  </TD> </TR>
-<TR> <TD> <TT>  n = _1  </TT> </TD>
+<TR> <TD> <TT>  n = _1  </TT> </TD> 
      <TD> As for <TT>n = 1 </TT> except that intervals exclude frets. </TD></TR>
-<TR> <TD> <TT>  n = 2  </TT> </TD>
-     <TD>  Each interval ends with a fret.
+<TR> <TD> <TT>  n = 2  </TT> </TD> 
+     <TD>  Each interval ends with a fret. 
            The last item of <TT>y</TT> is taken to be a fret, <BR>
           as are any other items of <TT>y</TT> equal to the last. <BR>
            Intervals include frets. </TD> </TR>
-<TR> <TD> <TT>  n = _2  </TT> </TD>
+<TR> <TD> <TT>  n = _2  </TT> </TD> 
      <TD> As for <TT>n = 2 </TT>, except that intervals exclude frets. </TD> </TR>
 </TABLE>
 <p>
@@ -371,9 +371,9 @@ We enter a table row by row following <TT>0 : 0</TT>
 </TABLE>
 <p>
 The idea now is to cut <TT>T</TT> into lines. Each line is a character-string representing
-a J expression (for example the characters <TT>'1 2 3'</TT>).
-Such character-strings can be evaluated by applying the verb <TT>".</TT>
-(double-quote dot, "Do" or "Execute"). The result is, for each line, a list of 3 numbers.
+a J expression (for example the characters <TT>'1 2 3'</TT>). 
+Such character-strings can be evaluated by applying the verb <TT>".</TT> 
+(double-quote dot, "Do" or "Execute"). The result is, for each line, a list of 3 numbers. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -386,7 +386,7 @@ Such character-strings can be evaluated by applying the verb <TT>".</TT>
 <TD><TT>3 3</TT></TD>
 </TABLE>
 <p>
-The verb <TT>(". ;. _2)</TT> was introduced as
+The verb <TT>(". ;. _2)</TT> was introduced as 
 the utility-function <TT>ArrayMaker</TT> in Chapter 2.
 <H3>17.2.4  Punctuation</H3>
 For processing text it would be useful to regard words as terminated by spaces or by various punctuation-marks.
@@ -408,7 +408,7 @@ Given some text we can compute a bit-vector which is true at the location of a f
 Here we make use of the built-in verb <TT>e.</TT> ("Member"). The expression <TT>x e. y</TT> evaluates to true if
 <TT>x</TT> is a member of the list <TT>y</TT>.
 <p>
-Now the bitvector <TT>b</TT> can be used to specify the frets for cutting text <TT>t</TT> into words:
+Now the bitvector <TT>b</TT> can be used to specify the frets for cutting text <TT>t</TT> into words: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -423,14 +423,14 @@ Now the bitvector <TT>b</TT> can be used to specify the frets for cutting text <
 +---+---+---+</TT></TD>
 </TABLE>
 <p>
-For another example, consider cutting a numeric vector into intervals such that each is in ascending sequence,
+For another example, consider cutting a numeric vector into intervals such that each is in ascending sequence, 
 that is, an item less than the previous must start a new interval.   Suppose our data is:
 <PRE>
 <TT>   data =: 3 1 4 1 5 9</TT>
 </PRE>
-Then a bitvector can be computed by scanning infixes of length 2,
-applying <TT>>/</TT> to each pair of items.
-Where we get <TT>1</TT>, the second item of the pair is the beginning of a new interval.
+Then a bitvector can be computed by scanning infixes of length 2, 
+applying <TT>>/</TT> to each pair of items. 
+Where we get <TT>1</TT>, the second item of the pair is the beginning of a new interval. 
 We make sure the first item of all is 1.
 <PRE>
 <TT>     bv =: 1 , 2 >/ \ data </TT>
@@ -453,8 +453,8 @@ We make sure the first item of all is 1.
 <A NAME="06"></A>
 <H3>17.2.5  Word Formation</H3>
 There is a built-in function <TT>;:</TT> (semicolon colon, called "Word Formation").
-It analyses a string as a J expression, according to the rules of
-the J language,
+It analyses a string as a J expression, according to the rules of 
+the J language, 
 to yield a boxed list of strings, the separate constituents of the J expression.
 <p>
 For example:
@@ -473,7 +473,7 @@ For example:
 <A NAME="07"></A>
 <H3>17.2.6  Lines in Files</H3>
 Let us begin by creating a file, to serve in the examples
-which follow.
+which follow. 
 (See <A HREF="26.htm">Chapter 26</A> for details of file-handling functions).
 <PRE>
 <TT>   text =: 0 : 0</TT>
@@ -506,31 +506,31 @@ will be our fret.  Here is an example.
 There are two things to be aware of when
 cutting files of text into lines.
 <p>
-Firstly, in some systems lines in a file
+Firstly, in some systems lines in a file 
 are terminated
 by a single line-feed character (<TT>LF</TT>).
-In other systems each line may be terminated
+In other systems each line may be terminated 
 by the pair of characters carriage-return (<TT>CR</TT>)
 followed by line-feed (<TT>LF</TT>).
 <p>
 J follows the convention of the single <TT>LF</TT> regardless
 of the system on which J is running.
 However, we should be prepared for
-<TT>CR</TT> characters to be present in input data.
+<TT>CR</TT> characters to be present in input data. 
 To get rid of <TT>CR</TT> characters from <TT>string</TT>,
-we can reduce it with the bitvector
+we can reduce it with the bitvector 
 <TT>(string notequal CR)</TT>, where <TT>notequal</TT> is the built-in verb
 <TT>~:</TT>, thus:
 <PRE>
 <TT>   string =: (string ~: CR) # string</TT>
 <TT>   </TT>
 </PRE>
-Secondly, depending on how the file of text
+Secondly, depending on how the file of text 
 was produced,
 we may not be able to guarantee that its last line
-is actually terminated.
+is actually terminated.  
 Thus we should be prepared
-to supply the fret character (<TT>LF</TT>) ourselves
+to supply the fret character (<TT>LF</TT>) ourselves 
 if necessary, by appending <TT>LF</TT> to the string.
 <p>
 A small function to tidy up a string, by supplying
@@ -549,14 +549,14 @@ a fret and removing <TT>CR</TT> characters, can be written as:
 </PRE>
 <A NAME="08"></A>
 <H3>17.2.7  Tiling</H3>
-In the expression <TT>(x u ;. 3 y)</TT> the verb <TT>u</TT> is applied separately to each of a collection of subarrays
-extracted from <TT>y</TT>.  These subarrays may be called tiles. The size and arrangement of the tiles are
+In the expression <TT>(x u ;. 3 y)</TT> the verb <TT>u</TT> is applied separately to each of a collection of subarrays 
+extracted from <TT>y</TT>.  These subarrays may be called tiles. The size and arrangement of the tiles are 
 defined by the value of <TT>x</TT>. Here is an example. Suppose that <TT>y</TT> is
 <PRE>
 <TT>   y =: 4 4 $ 'abcdefghijklmnop'</TT>
 </PRE>
 and our tiles are to be of shape <TT>2 2</TT>, each offset by 2 along each axis from its neighbour.
-That is, the offset is to be <TT>2 2</TT>.
+That is, the offset is to be <TT>2 2</TT>. 
 We specify the tiling with a table: the first row is the offset, the second the shape'
 <PRE>
 <TT>   spec =: > 2 2 ; 2 2  NB.  offset, shape</TT>
@@ -585,8 +585,8 @@ mnop</TT></TD>
 </TABLE>
 <p>
 The specified tiling may leave incomplete
-pieces ("shards") at the edges. Shards can be included or excluded
-by giving a right argument to "Cut" of <TT>3</TT>
+pieces ("shards") at the edges. Shards can be included or excluded 
+by giving a right argument to "Cut" of <TT>3</TT> 
 or <TT>_3</TT> .
 <PRE>
 <TT>   sp =: > 3 3 ; 3 3</TT>
@@ -621,21 +621,21 @@ mnop</TT></TD>
 </TABLE>
 <p>
 This is the end of Chapter 17.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="18.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="18.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 29 Jul 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="18.htm">&gt;&gt;</a>&nbsp;
 <a href="16.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -648,5 +648,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

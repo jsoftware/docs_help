@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 16: Rearrangements</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 16: Rearrangements</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="17.htm">&gt;&gt;</a>&nbsp;
 <a href="15.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,18 +39,18 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 16: Rearrangements</H1>
-This chapter covers rearranging the items of
-arrays: permuting, sorting,
+This chapter covers rearranging the items of 
+arrays: permuting, sorting, 
 transposing, reversing, rotating and shifting.
 <A NAME="01"></A>
 <H2>16.1  Permutations</H2>
-A permutation of a vector is another vector which has all the items of the first but
-not necessarily in the same order.
+A permutation of a vector is another vector which has all the items of the first but 
+not necessarily in the same order. 
 For example, <TT>z</TT> is a permutation of <TT>y</TT> where:
 <p>
 <TABLE class=jtable>
@@ -62,15 +62,15 @@ For example, <TT>z</TT> is a permutation of <TT>y</TT> where:
 <TD><TT>ecdba</TT></TD>
 </TABLE>
 <p>
-The index vector <TT>4 2 3 1 0</TT> is itself a permutation of the indices <TT>0 1 2 3 4</TT>,
-that is, <TT>i. 5</TT>, and
+The index vector <TT>4 2 3 1 0</TT> is itself a permutation of the indices <TT>0 1 2 3 4</TT>, 
+that is, <TT>i. 5</TT>, and 
 hence is said to be a permutation vector of order 5.
 <p>
-Notice the effect of this permutation: the first and last items are interchanged and
+Notice the effect of this permutation: the first and last items are interchanged and 
 the middle three rotate
-position amongst themselves. Hence this permutation can be described as a
+position amongst themselves. Hence this permutation can be described as a 
 combination of cycling two items
-and cycling three items. After 6 (= 2 * 3) applications of this permutation we return to the original vector.
+and cycling three items. After 6 (= 2 * 3) applications of this permutation we return to the original vector. 
 <PRE>
 <TT>   p =: 4 2 3 1 0 &amp; {</TT>
 </PRE>
@@ -88,7 +88,7 @@ and cycling three items. After 6 (= 2 * 3) applications of this permutation we r
 <TD><TT>abcde</TT></TD>
 </TABLE>
 <p>
-The permutation <TT>4 2 3 1 0</TT> can be represented as a cycle of 2 and a cycle of 3.
+The permutation <TT>4 2 3 1 0</TT> can be represented as a cycle of 2 and a cycle of 3. 
 The verb to compute this cyclic representation is monadic <TT>C.</TT> .
 <PRE>
 <TT>   C. 4 2 3 1 0</TT>
@@ -96,10 +96,10 @@ The verb to compute this cyclic representation is monadic <TT>C.</TT> .
 <TT>|3 1 2|4 0|</TT>
 <TT>+-----+---+</TT>
 </PRE>
-Thus we have two representations of a
-permutation: <TT>(4 2 3 1 0)</TT> is called a direct representation
+Thus we have two representations of a 
+permutation: <TT>(4 2 3 1 0)</TT> is called a direct representation 
 and <TT>(3 1 2 ; 4 0)</TT>
-is called a cyclic representation.
+is called a cyclic representation. 
 Monadic <TT>C.</TT> can accept either form and will produce the other form:
 <p>
 <TABLE class=jtable>
@@ -169,15 +169,15 @@ If the left argument is boxed, then each box in turn is applied as a cycle:
 <TD><TT>ecdba</TT></TD>
 </TABLE>
 <p>
-If <TT>a</TT> is an abbreviated permutation vector (of order <TT>n</TT>) then the full-length equivalent of <TT>a</TT>
-is given by <TT>(a U n)</TT> where <TT>U</TT> is the utility function:
+If <TT>a</TT> is an abbreviated permutation vector (of order <TT>n</TT>) then the full-length equivalent of <TT>a</TT> 
+is given by <TT>(a U n)</TT> where <TT>U</TT> is the utility function: 
 <PRE>
 <TT>   U =: 4 : 0</TT>
 <TT>z =: y | x</TT>
 <TT>((i. y) -. z), z</TT>
 <TT>)</TT>
 </PRE>
-For example, suppose the abbreviated
+For example, suppose the abbreviated 
 permutation <TT>a</TT> is <TT>(1 3)</TT>
 then we see:
 <p>
@@ -198,7 +198,7 @@ then we see:
 <p>
 <H3>16.1.2  Inverse Permutation</H3>
 If <TT>f</TT> is a full-length permutation vector, then the inverse permutation is given by
-<TT>(/: f)</TT>. (We will look at the verb <TT>/:</TT> in
+<TT>(/: f)</TT>. (We will look at the verb <TT>/:</TT> in 
 the next section.)
 <p>
 <TABLE class=jtable>
@@ -217,9 +217,9 @@ the next section.)
 </TABLE>
 <p>
 <H3>16.1.3  Atomic Representations of Permutations.</H3>
-If <TT>y</TT> is a vector of length <TT>n</TT>, then there are altogether <TT>! n</TT> different permutations of <TT>y</TT>.
+If <TT>y</TT> is a vector of length <TT>n</TT>, then there are altogether <TT>! n</TT> different permutations of <TT>y</TT>. 
  A table of all
-permutations of order <TT>n</TT> can be generated by the expression <TT>(tap n)</TT> where tap is a utility verb defined by:
+permutations of order <TT>n</TT> can be generated by the expression <TT>(tap n)</TT> where tap is a utility verb defined by: 
 <PRE>
 <TT>   tap =: i. @ ! A. i.</TT>
 <TT>   tap 3</TT>
@@ -232,9 +232,9 @@ permutations of order <TT>n</TT> can be generated by the expression <TT>(tap n)<
 </PRE>
 It can be seen that these permutations are in a well-defined order, and so any permutation of order
 <TT>n</TT> can be identified simply by its index in the table <TT>(tap n)</TT>.  This index is called the atomic
-representation of the permutation.  The monadic verb <TT>A.</TT> computes the atomic representation.
-For example,
-given an order-3 permutation, e.g. <TT>2 1 0</TT>,  then <TT>A. 2 1 0</TT> yields the index in the table <TT>(tap 3)</TT>.
+representation of the permutation.  The monadic verb <TT>A.</TT> computes the atomic representation. 
+For example, 
+given an order-3 permutation, e.g. <TT>2 1 0</TT>,  then <TT>A. 2 1 0</TT> yields the index in the table <TT>(tap 3)</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -262,13 +262,13 @@ through
 all the permutations of something
 (say to search for anagrams of a word)
 might take a very long time.
-Hence it might be desirable to
+Hence it might be desirable to 
 run through them say 100 at a time.
 <p>
 Here is a verb which finds a limited number of
-permutations.
+permutations. 
 The argument is a boxed list: a vector
-to be permuted, followed by a starting permutation-number
+to be permuted, followed by a starting permutation-number 
 (that is, atomic index) followed by
 a count of the permutions to be found.
 <PRE>
@@ -300,7 +300,7 @@ acbed</TT></TD>
 <H2>16.2  Sorting</H2>
 There is a built-in monad, <TT>/:</TT> (slash colon,
 called "Grade Up").  For a list
-<TT>L</TT>, the expression <TT>(/: L)</TT> gives
+<TT>L</TT>, the expression <TT>(/: L)</TT> gives 
 a set of indices into <TT>L</TT>, and these indices
 are a permutation-vector.
 <p>
@@ -330,7 +330,7 @@ yields the items of <TT>L</TT> in order.
 </TABLE>
 <p>
 For sorting into descending order,
-the monad <TT>\:</TT>(backslash colon, called
+the monad <TT>\:</TT>(backslash colon, called 
 "Grade Down") can be used.
 <p>
 <TABLE class=jtable>
@@ -379,13 +379,13 @@ Here is an example of a table with 3 rows:
 <TT>'CPE';'Bach'  ;  1714</TT>
 <TT>)</TT>
 </PRE>
-Suppose we aim to sort the rows
+Suppose we aim to sort the rows 
 of the table into order of date-of-birth
 shown in column 2 (the third column).
 We say that column 2 contains the keys on which
 the table is to be sorted.
 <p>
-We extract the keys with the verb
+We extract the keys with the verb 
 <TT>2&amp;{"1</TT>, generate the permutation vector
 with <TT>/:</TT> applied to the keys,
  and then permute the table.
@@ -418,7 +418,7 @@ with <TT>/:</TT> applied to the keys,
 <A NAME="05"></A>
 <A NAME="06"></A>
 The expression <TT>(/: keys { T)</TT>
-can be abbreviated as <TT>(T /: keys)</TT>, using the dyadic case
+can be abbreviated as <TT>(T /: keys)</TT>, using the dyadic case 
 of <TT>/:</TT>, (called "Sort")
 <p>
 <TABLE class=jtable>
@@ -444,8 +444,8 @@ of <TT>/:</TT>, (called "Sort")
 <p>
 The dyadic case of <TT>\:</TT> is similar: it is also called "Sort".
 <p>
-Suppose now we need to sort on two columns,
-say by last name, and then by initials.
+Suppose now we need to sort on two columns, 
+say by last name, and then by initials. 
 The keys are column 1 then column 0.
 <p>
 <TABLE class=jtable>
@@ -470,23 +470,23 @@ The keys are column 1 then column 0.
 </TABLE>
 <p>
 These examples show that the keys can be
-a table,
+a table, 
 and the <TT>/:</TT> verb yields the permutation-vector
 which puts the rows of the table into order.
-In such a case,
+In such a case, 
 the first column of the table is the most significant,
 then the second column, and so on.
 <A NAME="07"></A>
 <H3>16.2.1  Predefined Collating Sequences</H3>
 Characters are sorted into "alphabetical order", numbers into
-"numerical order" and boxes into a well-defined order.
+"numerical order" and boxes into a well-defined order. 
 The order for sorting all possible keys
  of a given type is called a collating sequence (for keys of that type).
 We have three predefined collating sequences.
-The collating sequence for characters is the ASCII character set.
+The collating sequence for characters is the ASCII character set. 
 The built-in J noun <TT>a.</TT> gives the value
 of all 256 characters in "alphabetical" order. Note that upper-case letters come before lower-case
-letters.
+letters. 
 <PRE>
 <TT>   65 66 67 97 98 99 { a.</TT>
 <TT>ABCabc</TT>
@@ -503,9 +503,9 @@ With numerical arguments, complex numbers are ordered by the real part then the 
 </TABLE>
 <p>
 With boxed arrays, the ordering is by the contents of
-each box.
-The precedence is firstly by
-type, with
+each box. 
+The precedence is firstly by 
+type, with 
 numerical arrays preceding empty arrays preceding
 character arrays preceding boxed arrays:
 <p>
@@ -527,7 +527,7 @@ character arrays preceding boxed arrays:
 </TABLE>
 <p>
 Within arrays of the same type, low-rank precedes
-high-rank.
+high-rank. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -542,11 +542,11 @@ high-rank.
 +-+---+-+</TT></TD>
 </TABLE>
 <p>
-Within arrays of the same type and rank, in effect the arrays are
+Within arrays of the same type and rank, in effect the arrays are 
 ravelled, and then compared
 element by element. In this case, <TT>1 2</TT> takes precedence
-over <TT>1 3</TT> (because <TT>2 < 3</TT>), and <TT>3 3</TT> takes precedence over
-<TT>3 3 3</TT> (because <TT>3 3</TT> is shorter than <TT>3 3 3</TT>).  If the two arrays are
+over <TT>1 3</TT> (because <TT>2 < 3</TT>), and <TT>3 3</TT> takes precedence over 
+<TT>3 3 3</TT> (because <TT>3 3</TT> is shorter than <TT>3 3 3</TT>).  If the two arrays are 
 the same, then the earlier takes precedence (that is, their
 original order is not disturbed).
 <PRE>
@@ -597,12 +597,12 @@ The keys are computed from the data.
 By choosing how to compute the keys,
 we can choose a collating sequence.
 <p>
-For example, suppose a
+For example, suppose a 
 list of numbers is to be sorted into
 ascending order of absolute value.
 A suitable key-computing
-function would then be
-the "Magnitude" function, <TT>|</TT>.
+function would then be 
+the "Magnitude" function, <TT>|</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -631,7 +631,7 @@ be<BR>
 cf</TT></TD>
 </TABLE>
 <p>
-More generally, <TT>|:</TT> will reverse the order of the axes of a n-dimensional array.
+More generally, <TT>|:</TT> will reverse the order of the axes of a n-dimensional array. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -650,11 +650,11 @@ bf<BR>
 dh</TT></TD>
 </TABLE>
 <p>
-Dyadic transpose will permute the axes according to the (full or abbreviated)
+Dyadic transpose will permute the axes according to the (full or abbreviated) 
 permutation-vector
- given as left argument. For a 3-dimensional array,
- there are 6 possible permutations,
- with the first being the identity-permutation
+ given as left argument. For a 3-dimensional array, 
+ there are 6 possible permutations, 
+ with the first being the identity-permutation 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -709,9 +709,9 @@ bf<BR>
 dh</TT></TD>
 </TABLE>
 <p>
-A boxed abbreviated argument can be given.
+A boxed abbreviated argument can be given.  
 Two or more boxed axis-numbers are
-run together to form a single axis.
+run together to form a single axis.  
 With two dimensions, this is equivalent to taking the diagonal.
 <p>
 <TABLE class=jtable>
@@ -728,7 +728,7 @@ With two dimensions, this is equivalent to taking the diagonal.
 <A NAME="09"></A>
 <H2>16.4  Reversing,  Rotating and Shifting</H2>
 <H3>16.4.1  Reversing</H3>
-Monadic <TT>|</TT>. will reverse the order of the items of its argument.
+Monadic <TT>|</TT>. will reverse the order of the items of its argument. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -745,7 +745,7 @@ def</TT></TD>
 abc</TT></TD>
 </TABLE>
 <p>
-Notice that "reversing the items" means reversing along the first
+Notice that "reversing the items" means reversing along the first 
  axis. Reversal along other axes can be achieved with the
 rank conjunction <TT>(")</TT>.
 <p>
@@ -821,8 +821,8 @@ cd</TT></TD>
 <p>
 <A NAME="11"></A>
 <H3>16.4.3  Shifting</H3>
-The items which would be brought around by
-cyclic rotation can instead be replaced with
+The items which would be brought around by 
+cyclic rotation can instead be replaced with 
 a fill-item.
 A shifting verb is written <TT>(|. !. f)</TT> where <TT>f</TT> is the fill-item.
 <PRE>
@@ -845,21 +845,21 @@ A shifting verb is written <TT>(|. !. f)</TT> where <TT>f</TT> is the fill-item.
 </TABLE>
 <p>
 This is the end of Chapter 16
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="17.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 15 Dec 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="17.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 15 Dec 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="17.htm">&gt;&gt;</a>&nbsp;
 <a href="15.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -872,5 +872,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

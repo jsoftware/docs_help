@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 31: Performance</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 31: Performance</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="32.htm">&gt;&gt;</a>&nbsp;
 <a href="30.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,21 +39,21 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 31: Performance</H1>
-This chapter is concerned with performance, that is, the time
+This chapter is concerned with performance, that is, the time 
 taken to perform a computation, and how to improve it.
 <p>
-There is one golden rule for achieving good performance in a J program.
+There is one golden rule for achieving good performance in a J program. 
 The rule is to try to apply verbs to as much
-data as possible at any one time.
-In other words, try to give to a verb
-arguments which are not scalars but vectors or, in general, arrays,
-so as to take maximum advantage
+data as possible at any one time.    
+In other words, try to give to a verb 
+arguments which are not scalars but vectors or, in general, arrays, 
+so as to take maximum advantage 
 of the fact that the built-in functions can take array arguments.
 <p>
 The rest of this chapter consists mostly of harping on this single point.
@@ -64,23 +64,37 @@ There is a built-in verb <TT>6!:2</TT> . It takes as argument an expression (as 
 and returns the time (in seconds) to execute the expression.
 For example, given :
 <PRE>
-<TT>   mat =: ? 20 20 $ 100x  NB. a random matrix</TT>
+<TT>   mat =: ? 256 256 $ 256  NB. a random matrix</TT>
 </PRE>
 The time in seconds to invert the matrix is given by:
 <PRE>
 <TT>   6!:2 '%. mat'</TT>
-<TT>1.92122</TT>
+<TT>0.075273</TT>
 </PRE>
 If we time the same expression again, we see:
 <PRE>
 <TT>   6!:2 '%. mat'</TT>
-<TT>1.82563</TT>
+<TT>0.0734835</TT>
 </PRE>
-Evidently there is some uncertainty in this measurement.
-Averaging over several measurements is offered by the
-dyadic case of <TT>6!:2</TT> .
+Evidently there is some uncertainty in this measurement.  
+Averaging over several measurements is offered by the 
+dyadic case of <TT>6!:2</TT> . 
 However, for present purposes we will use monadic <TT>6!:2</TT> to give a rough and ready
 but adequate measurement.
+<p>
+If we intend to compare times for several expressions, it will be convenient 
+to introduce a little utility function:
+<PRE>
+<TT>   compare =: (; (6!:2)) @: > "0       NB. compare timings</TT>
+<TT>   </TT>
+<TT>   compare '+/ i. 1000' ; '*/ i. 1000'</TT>
+<TT>+----------+----------+</TT>
+<TT>|+/ i. 1000|2.14228e_5|</TT>
+<TT>+----------+----------+</TT>
+<TT>|*/ i. 1000|8.44842e_6|</TT>
+<TT>+----------+----------+</TT>
+<TT>   </TT>
+</PRE>
 <A NAME="03"></A>
 <H2>31.2  The Performance Monitor</H2>
 As well as <TT>6!:2</TT>, there is another useful instrument for measuring execution times, called the Performance Monitor.
@@ -94,22 +108,22 @@ Here is an example with a main program and an auxiliary function.
 <TT>   main =: 3 : 0</TT>
 <TT>    m =. ? 10 10 $ 100x   NB. random matrix</TT>
 <TT>    u =. =/ ~ i. 10       NB. unit matrix</TT>
-<TT>    t =. matinv m         NB. inverted </TT>
+<TT>    t =. aux m            NB. inverted </TT>
 <TT>    p =. m +/ . * t</TT>
 <TT>    'OK'</TT>
 <TT>)</TT>
 <TT>    </TT>
-<TT>   matinv =: 3 : 0</TT>
-<TT>  assert. 2 = # $ y        NB. check y is square </TT>
-<TT>  assert. =/ $ y  </TT>
-<TT>  %. y</TT>
+<TT>   aux =: 3 : 0</TT>
+<TT>    assert. 2 = # $ y        NB. check y is square </TT>
+<TT>    assert. =/ $ y  </TT>
+<TT>    %. y</TT>
 <TT>)  </TT>
 </PRE>
-We start the monitor:
+We start the monitor: 
 <PRE>
 <TT>   load 'jpm'</TT>
 <TT>   start_jpm_ ''</TT>
-<TT>357142</TT>
+<TT>178570</TT>
 </PRE>
 and then enter the expression to be analyzed
 <PRE>
@@ -123,44 +137,44 @@ To view the reports available: firstly , the main function:
 <TT>+--------+--------+---+-----------------+</TT>
 <TT>|all     |here    |rep|main             |</TT>
 <TT>+--------+--------+---+-----------------+</TT>
-<TT>|0.000007|0.000007|1  |monad            |</TT>
-<TT>|0.000132|0.000132|1  |[0] m=.?10 10$100|</TT>
-<TT>|0.000019|0.000019|1  |[1] u=.=/~i.10   |</TT>
-<TT>|0.082856|0.000010|1  |[2] t=.matinv m  |</TT>
-<TT>|0.123787|0.123787|1  |[3] p=.m+/ .*t   |</TT>
-<TT>|0.000034|0.000034|1  |[4] 'OK'         |</TT>
-<TT>|0.206836|0.123989|1  |total monad      |</TT>
+<TT>|0.000004|0.000004|1  |monad            |</TT>
+<TT>|0.000079|0.000079|1  |[0] m=.?10 10$100|</TT>
+<TT>|0.000011|0.000011|1  |[1] u=.=/~i.10   |</TT>
+<TT>|0.042640|0.000005|1  |[2] t=.aux m     |</TT>
+<TT>|0.062151|0.062151|1  |[3] p=.m+/ .*t   |</TT>
+<TT>|0.000015|0.000015|1  |[4] 'OK'         |</TT>
+<TT>|0.104900|0.062265|1  |total monad      |</TT>
 <TT>+--------+--------+---+-----------------+</TT>
 <TT>   </TT>
 </PRE>
-and we may wish to look at the auxiliary function:
+and we may wish to look at the auxiliary function: 
 <PRE>
-<TT>   showdetail_jpm_ 'matinv'</TT>
+<TT>   showdetail_jpm_ 'aux'</TT>
 <TT> Time (seconds)</TT>
 <TT>+--------+--------+---+-----------------+</TT>
-<TT>|all     |here    |rep|matinv           |</TT>
+<TT>|all     |here    |rep|aux              |</TT>
 <TT>+--------+--------+---+-----------------+</TT>
-<TT>|0.000006|0.000006|1  |monad            |</TT>
-<TT>|0.000008|0.000008|1  |[0] assert. 2=#$y|</TT>
-<TT>|0.000039|0.000039|1  |[1] assert. =/$y |</TT>
-<TT>|0.082794|0.082794|1  |[2] %.y          |</TT>
-<TT>|0.082846|0.082846|1  |total monad      |</TT>
+<TT>|0.000004|0.000004|1  |monad            |</TT>
+<TT>|0.000004|0.000004|1  |[0] assert. 2=#$y|</TT>
+<TT>|0.000010|0.000010|1  |[1] assert. =/$y |</TT>
+<TT>|0.042617|0.042617|1  |[2] %.y          |</TT>
+<TT>|0.042635|0.042635|1  |total monad      |</TT>
 <TT>+--------+--------+---+-----------------+</TT>
 </PRE>
 Evidently, <TT>main</TT> spends most of its time executing lines <TT>2</TT> and <TT>3</TT> .
  Notice that the time under
  "all"  of line <TT>2</TT> is near enough equal to the time for line <TT>2</TT> "here",
- (that is, in <TT>main</TT> ) plus the time for "total" of <TT>matinv</TT>
+ (that is, in <TT>main</TT> ) plus the time for "total" of <TT>aux</TT>
 <A NAME="04"></A>
 <H2>31.3   The Golden Rule:  Example 1</H2>
-Here is an example of a function which is clearly intended to
+Here is an example of a function which is clearly intended to 
 take a scalar argument.
 <PRE>
 <TT>   collatz =: 3 : 'if. odd y do. 1 + 3 * y else. halve y end.'</TT>
 <TT>       odd =: 2 &amp; | </TT>
 <TT>       halve  =: -:</TT>
 </PRE>
-With a vector agument it gives the wrong results
+With a vector agument it gives the wrong results 
 <PRE>
 <TT>   collatz 2 3 4 5 6 7 8 9</TT>
 <TT>1 1.5 2 2.5 3 3.5 4 4.5</TT>
@@ -173,26 +187,43 @@ So we need to specify the rank to force the argument to be scalar
 This is an opportunity for the Golden Rule, so here is a version
 designed for a vector argument:
 <PRE>
-<TT>   veco =: 3 : '(c*1+3*y) + (halve y) * (1-c =. odd y)'</TT>
+<TT>   veco =: 3 : 0</TT>
+<TT>    c =. odd y</TT>
+<TT>    (c * 1+3*y) + (1 - c) * (halve y)</TT>
+<TT>)</TT>
+<TT>   	</TT>
 </PRE>
 The results are the same:
 <PRE>
-<TT>   data =: 1 + i. 10000</TT>
+<TT>   data =: 1 + i. 1e5</TT>
 <TT>   </TT>
 <TT>   (collatz"0 data) -: (veco data)</TT>
 <TT>1</TT>
+</PRE>
+Here is a variation. 
+The adverb <TT> } </TT> is applied to the bit-vector <TT>odd y</TT> to generate a verb, 
+and the monadic case of this verb meshes together the first and second items of its argument.
+<PRE>
+<TT>   meco =: 3 : 0</TT>
+<TT>    c =. odd y</TT>
+<TT>    (c }) (halve y) ,: (1+3*y) </TT>
+<TT>)</TT>
+<TT>   </TT>
+<TT>   (meco data) -: veco data</TT>
+<TT>1</TT>
 <TT>   </TT>
 </PRE>
-but the vector version is about a hundred times faster:
+The  vector versions are faster:
 <PRE>
-<TT>   t1 =: 6!:2 e1 =: 'collatz"0 data '</TT>
-<TT>   t2 =: 6!:2 e2 =: 'veco data '</TT>
-<TT>   2 2 $ e1 ; t1; e2;t2</TT>
-<TT>+---------------+-----------+</TT>
-<TT>|collatz"0 data |0.0647517  |</TT>
-<TT>+---------------+-----------+</TT>
-<TT>|veco data      |0.000656927|</TT>
-<TT>+---------------+-----------+</TT>
+<TT>   compare 'collatz"0 data '  ;  'veco data ' ; 'meco data'</TT>
+<TT>+---------------+----------+</TT>
+<TT>|collatz"0 data |0.315611  |</TT>
+<TT>+---------------+----------+</TT>
+<TT>|veco data      |0.0280563 |</TT>
+<TT>+---------------+----------+</TT>
+<TT>|meco data      |0.00665947|</TT>
+<TT>+---------------+----------+</TT>
+<TT>   </TT>
 <TT>   </TT>
 </PRE>
 <A NAME="05"></A>
@@ -203,7 +234,7 @@ There is a version in J at Rosetta Code, reproduced here:
 <TT>   pad=: 0,0,~0,.0,.~]</TT>
 <TT>   life=: (_3 _3 (+/ e. 3+0,4&amp;{)@,;._3 ])@pad</TT>
 </PRE>
-To provide a starting pattern, here is a function <TT>rp</TT> which generates an r-pentomino
+To provide a starting pattern, here is a function <TT>rp</TT> which generates an r-pentomino 
 in a y-by-y boolean matrix.
 <PRE>
 <TT>   rp =: 3 : '4 4 |.  1 (0 1; 0 2; 1 0; 1 1; 2 1) } (y,y) $ 0'</TT>
@@ -256,19 +287,17 @@ However, the shifting method is faster:
 <PRE>
 <TT>   G =: rp 200   NB. a 200-by-200 grid </TT>
 <TT>   </TT>
-<TT>   t3 =: 6!:2 e3 =: 'r3 =: life ^: 100 G' NB. 100 iterations, Rosetta</TT>
-<TT>   </TT>
-<TT>   t4 =: 6!:2 e4 =: 'r4 =: evol ^: 100 G' NB. and shifting method  </TT>
-<TT>   </TT>
-<TT>   2 2 $ e3;t3;e4;t4</TT>
-<TT>+-------------------+---------+</TT>
-<TT>|r3 =: life ^: 100 G|14.7024  |</TT>
-<TT>+-------------------+---------+</TT>
-<TT>|r4 =: evol ^: 100 G|0.0960126|</TT>
-<TT>+-------------------+---------+</TT>
+<TT>   e3 =: 'r3 =: life ^: 100 G NB. 100 iterations, Rosetta'</TT>
+<TT>   e4 =: 'r4 =: evol ^: 100 G NB. 100 iterations, shifting'  </TT>
+<TT>   compare e3;e4</TT>
+<TT>+------------------------------------------------+-------+</TT>
+<TT>|r3 =: life ^: 100 G NB. 100 iterations, Rosetta |9.66706|</TT>
+<TT>+------------------------------------------------+-------+</TT>
+<TT>|r4 =: evol ^: 100 G NB. 100 iterations, shifting|0.24398|</TT>
+<TT>+------------------------------------------------+-------+</TT>
 <TT>    </TT>
 </PRE>
-Checking for correctness again:
+Checking for correctness again: 
 <PRE>
 <TT>   r3 -: r4  </TT>
 <TT>1</TT>
@@ -277,29 +306,29 @@ Checking for correctness again:
 <H2>31.5  Golden Rule Example 3:   Join of Relations</H2>
 <H3>31.5.1  Preliminaries</H3>
 Recall from <TT><A HREF="18.htm">Chapter 18</A></TT> the author-title and title-subject relations.
-We will need test-data in the form of these relations in various sizes.
+We will need test-data in the form of these relations in various sizes. 
 It is useful to define a verb to generate test-data from random integers.
-(Integers are adequate as substitutes for symbols
-for present purposes.)
+(Integers are adequate as substitutes for symbols 
+for present purposes.) 
 The argument <TT>y</TT> is the number of different titles required.
 <PRE>
 <TT>   maketestdata =: 3 : 0 </TT>
-<TT>    T  =. i. y                               NB. titles domain</TT>
-<TT>    A  =. i. <. 4 * y % 5                    NB. authors domain</TT>
-<TT>    S  =. i. <. y % 2                        NB. subjects domain</TT>
-<TT>    AT =. (? (#T) $ # A) ,. (? (#T) $ #T)    NB. AT relation</TT>
-<TT>    TS =. (? (#T) $ # T) ,. (? (#T) $ #S)    NB. TS relation</TT>
+<TT>    T  =. i. y                                     NB. titles domain</TT>
+<TT>    A  =. i. <. 4 * y % 5                          NB. authors domain</TT>
+<TT>    S  =. i. <. y % 2                              NB. subjects domain</TT>
+<TT>    AT =. (?. (#T) $ # A) ,. (?. (#T) $ #T)        NB. AT relation</TT>
+<TT>    TS =. (?. (#T) $  _1+# T) ,. (?. (#T) $ #S)    NB. TS relation</TT>
 <TT>    AT;TS</TT>
 <TT>)</TT>
 <TT>   </TT>
 <TT>   </TT>
-<TT>   'AT1 TS1' =: maketestdata 8        NB. small   test-data</TT>
-<TT>   'AT2 TS2' =: maketestdata 1000     NB. medium</TT>
-<TT>   'AT3 TS3' =: maketestdata 10000    NB. large</TT>
+<TT>   'AT1 TS1' =: maketestdata 12        NB. small   test-data</TT>
+<TT>   'AT2 TS2' =: maketestdata 1000      NB. medium</TT>
+<TT>   'AT3 TS3' =: maketestdata 10000     NB. large</TT>
 </PRE>
 <H3>31.5.2  First Method</H3>
-Recall also from <TT><A HREF="18.htm">Chapter 18</A></TT> a verb for the join of relations,
-which we will take as a starting-point
+Recall also from <TT><A HREF="18.htm">Chapter 18</A></TT> a verb for the join of relations, 
+which we will take as a starting-point 
 for further comparisons.
 We can call this the "first method".
 <PRE>
@@ -319,35 +348,46 @@ We can call this the "first method".
 <TD><TT>TS1</TT></TD>
 <TD><TT>AT1 first TS1</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>3 4<BR>
-1 6<BR>
-0 1<BR>
-5 5<BR>
-2 1<BR>
-2 1<BR>
-5 4<BR>
-2 7</TT></TD>
-<TD><TT>4 2<BR>
-5 0<BR>
-5 0<BR>
-2 3<BR>
-2 2<BR>
-5 1<BR>
-6 2<BR>
-2 1</TT></TD>
-<TD><TT>3 2<BR>
-1 2<BR>
-5 0<BR>
-5 1<BR>
+<TD><TT>0&nbsp;&nbsp;6<BR>
+2&nbsp;&nbsp;8<BR>
+1&nbsp;&nbsp;4<BR>
+3&nbsp;&nbsp;6<BR>
+2&nbsp;&nbsp;5<BR>
+1&nbsp;&nbsp;4<BR>
+4 10<BR>
+1&nbsp;&nbsp;4<BR>
+8&nbsp;&nbsp;8<BR>
+7&nbsp;&nbsp;7<BR>
+3&nbsp;&nbsp;9<BR>
+5&nbsp;&nbsp;8</TT></TD>
+<TD><TT> 0 0<BR>
+ 3 2<BR>
+ 7 4<BR>
+ 0 0<BR>
+ 0 5<BR>
+ 4 4<BR>
+ 1 4<BR>
+10 4<BR>
+ 8 2<BR>
+ 4 1<BR>
+ 1 3<BR>
+ 5 2</TT></TD>
+<TD><TT>2 2<BR>
+1 4<BR>
+1 1<BR>
+4 4<BR>
+8 2<BR>
+7 4<BR>
 5 2</TT></TD>
 </TABLE>
 <p>
+This shows that, for example, if author 5 wrote title 8, 
+and title 8 is about subject 2, then author 5 wrote about subject 2.
 <H3>31.5.3  Second Method: Boolean Matrix</H3>
 Here is another method. It computes a boolean
 matrix of equality on the titles.  Row i column j is true
-where the title in <TT>i{AT</TT> equals the title in <TT>j{TS</TT> .
-The authors and titles are recovered by
-by converting the boolean matrix to sparse representation,
+where the title in <TT>i{AT</TT> equals the title in <TT>j{TS</TT> . 
+The authors and titles are recovered by converting the boolean matrix to sparse representation, 
 then taking its index-matrix.
 <PRE>
 <TT>   second =: 4 : 0</TT>
@@ -360,9 +400,9 @@ then taking its index-matrix.
 <TT>    (i { a),. (j { s)</TT>
 <TT>)</TT>
 </PRE>
-Now to check the second method for correctness, that is,
+Now to check the second method for correctness, that is, 
 giving the same results
-as the first.  We don't care about ordering, and we don't care about
+as the first.  We don't care about ordering, and we don't care about 
 repetitions, so
 let us say that two relations are the same
 iff their sorted nubs match.
@@ -384,9 +424,9 @@ Now for some times
 <TT>+------+----------+--------+</TT>
 <TT>|      |1000      |10000   |</TT>
 <TT>+------+----------+--------+</TT>
-<TT>|first |0.070905  |5.9352  |</TT>
+<TT>|first |0.0356744 |7.916   |</TT>
 <TT>+------+----------+--------+</TT>
-<TT>|second|0.00358509|0.398459|</TT>
+<TT>|second|0.00337303|0.321806|</TT>
 <TT>+------+----------+--------+</TT>
 <TT>   </TT>
 </PRE>
@@ -397,7 +437,7 @@ We can use the performance monitor to see where the time goes.
 <PRE>
 <TT>   require 'jpm'</TT>
 <TT>   start_jpm_ ''</TT>
-<TT>357142</TT>
+<TT>178570</TT>
 <TT>   z =: AT3 second TS3</TT>
 <TT>   showdetail_jpm_ 'second'     NB. display measurements</TT>
 <TT> Time (seconds)</TT>
@@ -405,27 +445,27 @@ We can use the performance monitor to see where the time goes.
 <TT>|all     |here    |rep|second          |</TT>
 <TT>+--------+--------+---+----------------+</TT>
 <TT>|0.000007|0.000007|1  |dyad            |</TT>
-<TT>|0.000211|0.000211|1  |[0] 'a t'=.|:x  |</TT>
-<TT>|0.000215|0.000215|1  |[1] 'tt s'=.|:y |</TT>
-<TT>|0.242814|0.242814|1  |[2] bm=.t=/tt   |</TT>
-<TT>|0.139426|0.139426|1  |[3] sm=.$.bm    |</TT>
-<TT>|0.000013|0.000013|1  |[4] im=:4$.sm   |</TT>
-<TT>|0.000187|0.000187|1  |[5] 'i j'=.|:im |</TT>
-<TT>|0.009809|0.009809|1  |[6] (i{a),.(j{s)|</TT>
-<TT>|0.392682|0.392682|1  |total dyad      |</TT>
+<TT>|0.000329|0.000329|1  |[0] 'a t'=.|:x  |</TT>
+<TT>|0.000208|0.000208|1  |[1] 'tt s'=.|:y |</TT>
+<TT>|0.177003|0.177003|1  |[2] bm=.t=/tt   |</TT>
+<TT>|0.131638|0.131638|1  |[3] sm=.$.bm    |</TT>
+<TT>|0.000009|0.000009|1  |[4] im=:4$.sm   |</TT>
+<TT>|0.000160|0.000160|1  |[5] 'i j'=.|:im |</TT>
+<TT>|0.017383|0.017383|1  |[6] (i{a),.(j{s)|</TT>
+<TT>|0.326736|0.326736|1  |total dyad      |</TT>
 <TT>+--------+--------+---+----------------+</TT>
 <TT>   </TT>
 </PRE>
 Evidently much of the time went into computing the boolean matrix at line <TT>2</TT>.
 Can we do better than this?
 <H3>31.5.4  Third method: boolean matrix with recursive splitting</H3>
-Here is an attempt to avoid the quadratic time.
+Here is an attempt to avoid the quadratic time.  
 If the argument is smaller than a certain size,
-we use the second method above (which is quadratic, but
-not so bad for smaller arguments).
+we use the second method above (which is quadratic, but 
+not so bad for smaller arguments). 
 <p>
-If the argument is larger than a certain size, we split it into
-two smaller parts, so that there are no titles shared between the two.
+If the argument is larger than a certain size, we split it into 
+two smaller parts, so that there are no titles shared between the two. 
 Then the method is applied recursively to the parts.
 <p>
 By experimenting, the "certain size" appears to be about 256
@@ -465,7 +505,7 @@ Check correctness :
 <TT>1</TT>
 <TT>   </TT>
 </PRE>
-And timings. Experiment on my computer shows the second method
+And timings. Experiment on my computer shows the second method 
 will run out of space where the third method will succeed.
 <PRE>
 <TT>   'AT4 TS4' =: maketestdata  30000</TT>
@@ -483,9 +523,9 @@ will run out of space where the third method will succeed.
 <TT>+------+----------+---------+---------+-----------+</TT>
 <TT>|      |1000      |10000    |30000    |100000     |</TT>
 <TT>+------+----------+---------+---------+-----------+</TT>
-<TT>|second|0.00358509|0.398459 |3.59096  |limit error|</TT>
+<TT>|second|0.00337303|0.321806 |3.05887  |limit error|</TT>
 <TT>+------+----------+---------+---------+-----------+</TT>
-<TT>|third |0.00167228|0.0199273|0.0624012|0.232973   |</TT>
+<TT>|third |0.00134601|0.0173196|0.0553821|0.192562   |</TT>
 <TT>+------+----------+---------+---------+-----------+</TT>
 <TT>   </TT>
 </PRE>
@@ -494,48 +534,53 @@ considerably more complex.
 <A NAME="07"></A>
 <H2>31.6  Golden Rule Example 4: Mandelbrot Set</H2>
 The Mandelbrot Set is a fractal image needing much computation to
-produce. In writing the following, I have found to be helpful
-both
-<A href="http://en.wikipedia.org/wiki/Mandelbrot_set">the Wikipedia article </A>
-and
-<A href="http://rosettacode.org/wiki/Mandelbrot_set#J"> the Rosetta Code treatment </A>
-for the Mandelbrot Set in J:
+produce. In writing the following, I have found to be helpful 
+this  
+<A href="http://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia article </A> .
 <p>
-Computation of the image requires, for every pixel in the image, iteration of a single scalar function until a condition is satisfied.
-Different pixels will require different numbers of iterations.  The final result is the array of counts of iterations for each pixel.
-Hence it may appear
+<p>
+Computation of the image requires, for every pixel in the image, iteration of a single scalar function until a condition is satisfied. 
+Different pixels will require different numbers of iterations.  The final result is the array of counts of iterations for each pixel.  
+Hence it may appear 
 that the Mandelbrot Set is an inescapably scalar computation.  It is not, as the following is meant to show. The Golden Rule applies.
 <p>
-<H3>31.6.1  Scalar Versions</H3>
+<H3>31.6.1  Scalar Version</H3>
 The construction of an image begins with choosing a grid of points on the complex plane,
-one for each pixel in the image. Here is a verb  for conveniently constructing the grid.
+one for each pixel in the image. Here is a verb  for conveniently constructing the grid.    
 <PRE>
-<TT>   makegrid =: 3 : 0</TT>
-<TT>    'LL UR delta' =. y</TT>
-<TT>    'xmin ymin' =. +. LL</TT>
-<TT>    'xmax ymax' =. +. UR</TT>
-<TT>    xn =. <. (xmax-xmin) % delta</TT>
-<TT>    yn =. <. (ymax-ymin) % delta</TT>
-<TT>    (|.(ymin + delta * i. yn))  (j. ~/) (xmin + delta * i. xn)</TT>
+<TT>   makegrid =: 4 : 0</TT>
+<TT>'m n' =. x </TT>
+<TT>'px py qx qy ' =. , +. y</TT>
+<TT>(|. py + (i.m) * ((qy-py) % m-1)) (j.~ /) (px + (i.n) * ((qx-px) % n-1)) </TT>
 <TT>)</TT>
 <TT>   </TT>
 </PRE>
-The arguments are the complex numbers for
-lower-left and upper-right corners of the image, and a value for the spacing of the points.
+The left argument specifies the grid as m-by-n pixels.
+The right argument specifies the positions of lower-left and upper-right corners 
+of the image as points in the complex plane. 
+<p>
 To demonstrate with a tiny grid:
 <PRE>
-<TT>   makegrid _2j1 4j4 1.0</TT>
-<TT>_2j3 _1j3 0j3 1j3 2j3 3j3</TT>
-<TT>_2j2 _1j2 0j2 1j2 2j2 3j2</TT>
-<TT>_2j1 _1j1 0j1 1j1 2j1 3j1</TT>
+<TT>   3 4 makegrid 0j0 3j4</TT>
+<TT>0j4 1j4 2j4 3j4</TT>
+<TT>0j2 1j2 2j2 3j2</TT>
+<TT>  0   1   2   3</TT>
+<TT>   </TT>
+</PRE>
+For a Mandelbrot image, this is more suitable: 
+<PRE>
+<TT>   GRID =:  400 700 makegrid _2.5j_1 1j1</TT>
 <TT>    </TT>
 </PRE>
-For an image, a list of arguments more suitable for present purposes is shown by :
-<PRE>
-<TT>   GRID =:  makegrid _2.5j_1 1j1 0.005</TT>
-</PRE>
+Here, the right argument is chosen to be <TT>_2.5j_1 1j1</TT>
+ because it is known that the 
+whole of the Mandelbrot image is contained within this region of the complex plane.
+Notice that this region is a rectangle with sides in the ration 4 : 7. 
+The left argument, m-by-n pixels, is chosen to be 
+in the same ratio. 
+<p>
 The image is computed by applying a Mandelbrot function to each pixel in the grid.
-Here is a suitable Mandelbrot function. It follows the design outlined in the Wikipedia article,
+Here is a suitable Mandelbrot function. It follows the design outlined in the Wikipedia article, 
 <PRE>
 <TT>   mfn1 =: 3 : 0  </TT>
 <TT>    NB.        y is one pixel-position</TT>
@@ -549,72 +594,33 @@ Here is a suitable Mandelbrot function. It follows the design outlined in the Wi
 <TT>)</TT>
 <TT>   </TT>
 </PRE>
-We need to choose a value for <TT>MAXITER</TT>, the maximum number of iterations.
+We need to choose a value for <TT>MAXITER</TT>, the maximum number of iterations. 
 The higher the maximum, the more complex the resulting image.
-For present purposes let us choose a maximum of 64 iterations,
+For present purposes let us choose a maximum of 64 iterations, 
 which will give a recognisable image.
 <PRE>
 <TT>   MAXITER =: 64                NB. maximum number of iterations</TT>
 <TT>   </TT>
-<TT>   image1 =: mfn1 " 0 GRID</TT>
+<TT>   image1 =: mfn1 " 0  GRID</TT>
 </PRE>
 The result <TT>image1</TT> is a matrix of integers, which can be mapped to colors and then
 displayed on-screen with:
 <PRE>
-<TT>   require '~addons/graphics/viewmat/viewmat.ijs'</TT>
-<TT>   viewmat image1</TT>
-<TT>0</TT>
+<TT>require '~addons/graphics/viewmat/viewmat.ijs' </TT>
+<TT></TT>
 </PRE>
-to produce an image appear looking something like this:
+<PRE>
+<TT>viewmat image1</TT>
+<TT></TT>
+</PRE>
+to produce an image looking something like this:
 <p>
-<IMG SRC="31image1.png" WIDTH=350 HEIGHT=200>
-<p>The time to compute the image:
-<PRE>
-<TT>   e1 ; t1 =: 6!:2 e1 =: 'image1 =: mfn1 " 0 GRID NB. Wikipedia scalar'</TT>
-<TT>+--------------------------------------------+-------+</TT>
-<TT>|image1 =: mfn1 " 0 GRID NB. Wikipedia scalar|43.3338|</TT>
-<TT>+--------------------------------------------+-------+</TT>
-<TT>   </TT>
-</PRE>
-The <TT>mfn1</TT> function above was designed to show
- the algorithm
-for the scalar one-pixel-at-at-a-time method.
-Regarding its performance, here is some evidence that its performance
-is reasonable, that is, comparable to the published Rosetta Code
-version.
-<p>
-The verb <TT>mfn2</TT> is adapted from the
-verb <TT>mcf</TT> of the Rosetta Code treatment. It differs only by replacing a numerical
-constant by the parameter MAXITER.
-<PRE>
-<TT>   mfn2 =: (<: 2:)@|@(] ((*:@] + [)^:((<: 2:)@|@])^: MAXITER ) 0:) </TT>
-<TT>   </TT>
-</PRE>
-We see that times for <TT>mfn1</TT> and <TT>mfn2</TT> are not very different:
-<PRE>
-<TT>   t2 =: 6!:2 e2 =: 'image2 =: mfn2 "0 GRID NB. Rosetta '</TT>
-<TT>   2 2 $ e1; t1; e2; t2</TT>
-<TT>+--------------------------------------------+-------+</TT>
-<TT>|image1 =: mfn1 " 0 GRID NB. Wikipedia scalar|43.3338|</TT>
-<TT>+--------------------------------------------+-------+</TT>
-<TT>|image2 =: mfn2 "0 GRID NB. Rosetta          |39.9882|</TT>
-<TT>+--------------------------------------------+-------+</TT>
-<TT>   </TT>
-</PRE>
-and the image from the Rosetta code is recognisably similar
-to that from the Wikipedia design,
-<PRE>
-<TT>   viewmat image2 </TT>
-<TT>0</TT>
-<TT>   </TT>
-</PRE>
-<IMG SRC="31image2.png" WIDTH=350  HEIGHT=200>
-<p>
+<IMG SRC="31image1.bmp" WIDTH=350 HEIGHT=200><p> 
 <H3>31.6.2  Planar Version</H3>
-Now we look at a version which computes all pixels at once.
-Here is a first attempt.  It is is a straightforward developement of <TT>mfn1</TT>
-but here all the computations for every pixel are allowed to
-run for the maximumum number of iterations.
+Now we look at a version which computes all pixels at once.  
+Here is a first attempt.  It is is a straightforward development of <TT>mfn1</TT>
+but here all the computations for every pixel are allowed to 
+run for the maximumum number of iterations. 
 <PRE>
 <TT>   mfn3  =: 3 : 0           NB. y is entire grid</TT>
 <TT>    N =. ($ y) $ 0</TT>
@@ -625,15 +631,12 @@ run for the maximumum number of iterations.
 <TT>    end.</TT>
 <TT>    1 + N</TT>
 <TT>)</TT>
-<TT>   </TT>
-<TT>   </TT>
-<TT>   </TT>
 </PRE>
-For small values of <TT>MAXITER</TT>, this is OK.
-A quick demonstration, firstly of correctness:
+For small values of <TT>MAXITER</TT>, this is OK. 
+A quick demonstration, firstly of correctness: 
 it produces the same result as <TT>mfn1</TT>.
 <PRE>
-<TT>   MAXITER =: 12</TT>
+<TT>   MAXITER =: 9</TT>
 <TT>   </TT>
 <TT>   (mfn1 " 0 GRID) -: (mfn3 " 2 GRID)</TT>
 <TT>1</TT>
@@ -641,61 +644,60 @@ it produces the same result as <TT>mfn1</TT>.
 </PRE>
 And it's faster:
 <PRE>
-<TT>   t1a =: 6!:2 e1a =: 'mfn1 " 0 GRID  NB. Wikip. with MAXITER=12' </TT>
-<TT>   t3a =: 6!:2 e3a =: 'mfn3 " 2 GRID  NB. Planar with MAXITER=12'</TT>
-<TT>   2 2 $  e1a ; t1a; e3a; t3a</TT>
-<TT>+-----------------------------------------+--------+</TT>
-<TT>|mfn1 " 0 GRID  NB. Wikip. with MAXITER=12|17.299  |</TT>
-<TT>+-----------------------------------------+--------+</TT>
-<TT>|mfn3 " 2 GRID  NB. Planar with MAXITER=12|0.695912|</TT>
-<TT>+-----------------------------------------+--------+</TT>
+<TT>   e3a =: 'mfn1 " 0 GRID  NB. Wikip. with MAXITER=9' </TT>
+<TT>   e3b =: 'mfn3 " 2 GRID  NB. Planar with MAXITER=9' </TT>
+<TT>   compare e3a;e3b</TT>
+<TT>+----------------------------------------+--------+</TT>
+<TT>|mfn1 " 0 GRID  NB. Wikip. with MAXITER=9|6.06934 |</TT>
+<TT>+----------------------------------------+--------+</TT>
+<TT>|mfn3 " 2 GRID  NB. Planar with MAXITER=9|0.168251|</TT>
+<TT>+----------------------------------------+--------+</TT>
 <TT>   </TT>
 </PRE>
 Unfortunately there is a problem with any larger values of <TT>MAXITER</TT>.
-The repeated squaring of the complex numbers in <TT>v</TT>  will ultimately produce,
+The repeated squaring of the complex numbers in <TT>v</TT>  will ultimately produce, 
 not infinity, but a "NaN Error", caused by subtracting infinities.
 Observe:
 <PRE>
-<TT>   (*: ^: 10) 1j3  NB. this is OK</TT>
-<TT>__j__</TT>
+<TT>   (*: ^: 9) 1j3  NB. this is OK</TT>
+<TT>1.96052e255j_9.80593e255</TT>
 <TT>   </TT>
 <TT>   (*: ^: 30) 1j3  NB. but this is not</TT>
 <TT>|NaN error</TT>
 <TT>|       (*:^:30)1j3</TT>
-<TT>|[-587] c:\users\homer\14\js\31.ijs</TT>
-<TT>    </TT>
-<TT>   </TT>
-<TT>   MAXITER =: 64</TT>
+<TT>|[-589] c:\users\homer\X15\temp.ijs</TT>
 <TT>   </TT>
 </PRE>
-Here is an attempt to avoid the NaN errors. One cycle in every 10,
+Here is an attempt to avoid the NaN errors. One cycle in every 8,
 those values in <TT>v</TT> which have "escaped", (that is,  no longer contribute to
-the final result <TT>N</TT>)   are reset to small values to prevent them increasing without limit.
+the final result <TT>N</TT>)  are reset to small values to prevent them increasing without limit.
 <PRE>
 <TT>   mfn4 =: 3 : 0</TT>
 <TT>    N =. ($ y) $ 0</TT>
 <TT>    v =. 0j0</TT>
 <TT>    for_k.  i. MAXITER - 1  do.  </TT>
-<TT>        if. 0 = 10 | k do. </TT>
-<TT>            e =. 2 < | v	             </TT>
-<TT>            v =. (v * 1-e) + (1.5j1.5 * e )</TT>
-<TT>        end.</TT>
-<TT>    v =. y + *: v</TT>
-<TT>    N =. N + 2 > | v</TT>
+<TT>        v =. y + *: v</TT>
+<TT>        N =. N + 2 > | v</TT>
+<TT>        if. 0 = 8 | k do. </TT>
+<TT>            e =. N < k	             </TT>
+<TT>            v =. e } v ,: 1.5j1.5 </TT>
+<TT>        end.	</TT>
 <TT>    end.</TT>
 <TT>    N+1</TT>
 <TT>)</TT>
 <TT>   </TT>
 </PRE>
-In spite of the burden of resetting,
-the timing looks about 8 times faster than the scalar method:
+In spite of the burden of resetting, 
+the timing looks about 10 times faster than the scalar method:
 <PRE>
-<TT>   t4 =: 6!:2 e4 =: 'image4 =: mfn4 " 2 GRID NB. Planar, resetting'</TT>
-<TT>   2 2 $  e1; t1 ;  e4;t4</TT>
+<TT>   MAXITER =: 64</TT>
+<TT>   e1 =: 'image1 =: mfn1 " 0 GRID NB. Scalar'</TT>
+<TT>   e4 =: 'image4 =: mfn4 " 2 GRID NB. Planar, resetting'</TT>
+<TT>   compare e1 ; e4</TT>
 <TT>+---------------------------------------------+-------+</TT>
-<TT>|image1 =: mfn1 " 0 GRID NB. Wikipedia scalar |43.3338|</TT>
+<TT>|image1 =: mfn1 " 0 GRID NB. Scalar           |17.6847|</TT>
 <TT>+---------------------------------------------+-------+</TT>
-<TT>|image4 =: mfn4 " 2 GRID NB. Planar, resetting|5.48124|</TT>
+<TT>|image4 =: mfn4 " 2 GRID NB. Planar, resetting|1.50849|</TT>
 <TT>+---------------------------------------------+-------+</TT>
 <TT>   </TT>
 </PRE>
@@ -705,73 +707,28 @@ and we check the result is correct:
 <TT>1</TT>
 <TT>   </TT>
 </PRE>
-Some further improvement is possible.  The idea is to avoid computing the magnitudes of
-complex numbers because this involves computing square roots. Instead
-of requiring the magnitude to be less than 2, we will require the square of the magnitude
-to be less than 4.  To do this complex numbers will be represented as a pair of reals.
-The resetting business is simplified.
-<PRE>
-<TT>   mfn5 =: 3 : 0</TT>
-<TT>    'r0 i0' =. ((2 0 1 &amp; |:) @: +. ) y    NB. real and imag planes of y</TT>
-<TT>    assert. y -: r0 j. i0</TT>
-<TT>    N =. 0</TT>
-<TT>    a =. r0</TT>
-<TT>    b =. i0</TT>
-<TT>    for_i. i. MAXITER-1 do.</TT>
-<TT>        p =. *: a</TT>
-<TT>        q =. *: b</TT>
-<TT>        r =. p+q                 NB. square of magnitudes</TT>
-<TT>        N =. N + r < 4           </TT>
-<TT>        b =. (i0 + +: a*b)   <. 100</TT>
-<TT>        a =. (r0 + p - q)    <. 100      </TT>
-<TT>    end.</TT>
-<TT>    N+1</TT>
-<TT>)</TT>
-</PRE>
-Timing is improved:
-<PRE>
-<TT>   t5 =: 6!:2 e5 =: 'image5 =: mfn5 " 2 GRID NB. no square roots'	</TT>
-<TT>   3 2 $  e1;t1; e4;t4; e5;t5</TT>
-<TT>+---------------------------------------------+-------+</TT>
-<TT>|image1 =: mfn1 " 0 GRID NB. Wikipedia scalar |43.3338|</TT>
-<TT>+---------------------------------------------+-------+</TT>
-<TT>|image4 =: mfn4 " 2 GRID NB. Planar, resetting|5.48124|</TT>
-<TT>+---------------------------------------------+-------+</TT>
-<TT>|image5 =: mfn5 " 2 GRID NB. no square roots  |3.3594 |</TT>
-<TT>+---------------------------------------------+-------+</TT>
-<TT>   </TT>
-</PRE>
-and the result is correct
-<PRE>
-<TT>   image5 -: image1</TT>
-<TT>1</TT>
-<TT>       </TT>
-<TT>   </TT>
-</PRE>
 <H2>31.7   The Special Code of Appendix B of the Dictionary</H2>
-In <A href="../dictionary/special.htm">
+In <A href="http://www.jsoftware.com/help/dictionary/special.htm">
 Appendix B of the J Dictionary </A> there are listed about 80
 different expressions which are given special treatment by the
 interpreter to improve performance.  Many more expressions are listed in the
-<A href="../release/contents.htm"> Release Notes</A>
+<A href="http://www.jsoftware.com/help/release/contents.htm"> Release Notes</A>
 <p>
-An example is <TT>+/</TT> . Notice that the
-speedup only occurs when <TT>+/</TT> itself (as opposed to something equivalent) is recognised.
+An example is <TT>+/</TT> . Notice that the 
+speedup only occurs when <TT>+/</TT> itself (as opposed to something equivalent) is recognised. 
 <PRE>
 <TT>   data =: ? 1e6 $ 1e6  NB. a million random integers</TT>
 <TT>   </TT>
 <TT>   plus =: +</TT>
 <TT>   </TT>
 <TT>   </TT>
-<TT>   t20 =: 6!:2 e20 =: 'plus / data'</TT>
-<TT>   t21 =: 6!:2 e21 =: '+/ data'</TT>
+<TT>   compare 'plus / data' ; '+/ data'</TT>
+<TT>+-----------+----------+</TT>
+<TT>|plus / data|0.220362  |</TT>
+<TT>+-----------+----------+</TT>
+<TT>|+/ data    |0.00157533|</TT>
+<TT>+-----------+----------+</TT>
 <TT>   </TT>
-<TT>   2 2 $ e20 ; t20; e21; t21</TT>
-<TT>+-----------+----------+</TT>
-<TT>|plus / data|0.534446  |</TT>
-<TT>+-----------+----------+</TT>
-<TT>|+/ data    |0.00183724|</TT>
-<TT>+-----------+----------+</TT>
 <TT>   </TT>
 </PRE>
 The special expressions can be unmasked with the <TT>f.</TT>
@@ -780,35 +737,33 @@ functions.
 <PRE>
 <TT>   foo =: plus /</TT>
 <TT>   </TT>
-<TT>   t22 =: 6!:2 e22 =: 'foo data'</TT>
-<TT>   t23 =: 6!:2 e23 =: 'foo f. data' </TT>
+<TT>   compare 'foo data'; 'foo f. data' </TT>
+<TT>+-----------+----------+</TT>
+<TT>|foo data   |0.221123  |</TT>
+<TT>+-----------+----------+</TT>
+<TT>|foo f. data|0.00160007|</TT>
+<TT>+-----------+----------+</TT>
 <TT>   </TT>
-<TT>   2 2 $ e22 ; t22; e23; t23</TT>
-<TT>+-----------+----------+</TT>
-<TT>|foo data   |0.525956  |</TT>
-<TT>+-----------+----------+</TT>
-<TT>|foo f. data|0.00188502|</TT>
-<TT>+-----------+----------+</TT>
 </PRE>
 The recommendation here is NOT that the programmer should look for opportunities to use these special cases. The recommendation is
 ONLY to allow the interpreter to find them, by giving, where appropriate, a final little polish to tacit definitions with <TT>f.</TT> .
 <p>
 This brings us to the end of Chapter 31
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="32.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 03 Jul 2013<BR>
-Copyright &copy; Roger Stokes 2013.
- This material may be freely reproduced,
-provided that acknowledgement is made.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="32.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 802 beta. 
+ This chapter last updated 21 Jun 2015<BR> 
+Copyright &copy; Roger Stokes 2014. 
+ This material may be freely reproduced, 
+provided that acknowledgement is made. 
+</FONT> 
  <!--bottom jump start--><hr><a href="32.htm">&gt;&gt;</a>&nbsp;
 <a href="30.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -821,5 +776,6 @@ provided that acknowledgement is made.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

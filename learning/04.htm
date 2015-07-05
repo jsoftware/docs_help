@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 4: Scripts and Explicit Functions</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 4: Scripts and Explicit Functions</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="05.htm">&gt;&gt;</a>&nbsp;
 <a href="03.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,16 +39,16 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 4: Scripts and Explicit Functions</H1>
-What is called a "script" is a sequence of lines of J
+What is called a "script" is a sequence of lines of J 
 where the whole sequence can be replayed on demand to perform
-a computation.
-The themes of this chapter are scripts, functions defined by scripts,
+a computation.   
+The themes of this chapter are scripts, functions defined by scripts, 
 and scripts in files.
 <A NAME="02"></A>
 <H2>4.1  Text</H2>
@@ -65,7 +65,7 @@ are typed following it, down to the line beginning with the solo right-
 parenthesis.
 <p>
 The value of <TT>txt</TT> is these two lines, in a single character string.
-The string contains line-feed (<TT>LF</TT>) characters,
+The string contains line-feed (<TT>LF</TT>) characters, 
 which cause <TT>txt</TT> to be displayed as several lines.
 <TT>txt</TT> has a certain length, it is rank 1, that is, just a list, and it
  contains 2 line-feed characters.
@@ -91,9 +91,9 @@ Let us say that <TT>txt</TT> is a "text" variable, that is,
 a character string with zero or more line-feed characters.
 <A NAME="03"></A>
 <H2>4.2  Scripts for Procedures</H2>
-Here we look at computations described as step-by-step procedures to be
+Here we look at computations described as step-by-step procedures to be 
 followed.
-For a very simple example, the Fahrenheit-to-Celsius conversion can be
+For a very simple example, the Fahrenheit-to-Celsius conversion can be 
 described in two steps.
 Given some temperature <TT>T</TT> say in degrees Fahrenheit:
 <PRE>
@@ -103,15 +103,15 @@ then the first step is subtracting 32. Call the result <TT>t</TT>, say
 <PRE>
 <TT>   t =: T - 32</TT>
 </PRE>
-The second step is multiplying <TT>t</TT> by <TT>5%9</TT> to give the temperature in
+The second step is multiplying <TT>t</TT> by <TT>5%9</TT> to give the temperature in 
 degrees Celsius.
 <PRE>
 <TT>   t * 5 % 9</TT>
 <TT>100</TT>
 </PRE>
 Suppose we intend to perform this computation several times with different
- values of <TT>T</TT>.
-We could record this two-line procedure
+ values of <TT>T</TT>. 
+We could record this two-line procedure 
 as a script which can be replayed on demand.  The script
 consists of the lines of J stored in a text variable, thus:
 <PRE>
@@ -120,27 +120,27 @@ consists of the lines of J stored in a text variable, thus:
 <TT>t * 5 % 9</TT>
 <TT>)</TT>
 </PRE>
-Scripts like this can be executed with the built-in J verb given
+Scripts like this can be executed with the built-in J verb given 
 by the expression <TT>0 !: 1</TT> which we can call, say, <TT>do</TT>.
 <PRE>
 <TT>   do =: 0 !: 1</TT>
 </PRE>
-Here the expression <TT>0 !: 1</TT> can be understood as the verb produced
-by giving a left argument of <TT>0</TT> and a right argument of <TT>1</TT> to the
+Here the expression <TT>0 !: 1</TT> can be understood as the verb produced 
+by giving a left argument of <TT>0</TT> and a right argument of <TT>1</TT> to the 
 conjunction <TT>!:</TT> (exclamation colon, called the "Foreign Conjunction" ).
-<TT>!:</TT> offers a set of utility functions or system services which are
-organised into groups of verbs.  For more details, see the Dictionary
- <A HREF="../dictionary/xmain.htm">
-here </A> .
+<TT>!:</TT> offers a set of utility functions or system services which are 
+organised into groups of verbs.  For more details, see the Dictionary 
+ <A HREF="http://www.jsoftware.com/help/dictionary/xmain.htm"> 
+here </A> . 
 <p>
 In this example the
-left argument of <TT>0</TT> specifies the script-executing group, and the right
-argument of <TT>1</TT> picks out a particular member of that group, namely a verb
-to execute the script to the end regardless of errors,
-and displaying the execution on screen.
+left argument of <TT>0</TT> specifies the script-executing group, and the right 
+argument of <TT>1</TT> picks out a particular member of that group, namely a verb 
+to execute the script to the end regardless of errors, 
+and displaying the execution on screen.  
 <p>
-If we now enter <TT>do script</TT>
-we should now see the lines on the screen just as though they had been
+If we now enter <TT>do script</TT> 
+we should now see the lines on the screen just as though they had been 
 typed in from the keyboard:
 <PRE>
 <TT>   do script </TT>
@@ -178,19 +178,19 @@ Here is an example, the Fahrenheit-to-Celsius conversion as a verb.
 <p>
 The main features of this definition are:
 <H3>4.3.1  Heading</H3>
-The function is introduced with the expression <TT>3 : 0</TT> which means: "a
+The function is introduced with the expression <TT>3 : 0</TT> which means: "a 
 verb as follows".
 (By contrast, recall that <TT>0 : 0</TT> means "a character string as follows").
 <p>
-The colon in <TT>3 : 0</TT> is a conjunction. Its left argument (<TT>3</TT>) means
+The colon in <TT>3 : 0</TT> is a conjunction. Its left argument (<TT>3</TT>) means 
 "verb". Its right argument (<TT>0</TT>)
-means "lines following".
+means "lines following". 
 For more details, see <A HREF="12.htm">Chapter 12</A>.  A function introduced in this way
 is called "explicitly-defined", or just "explicit".
 <H3>4.3.2  Meaning</H3>
 The expression <TT>Celsius 32 212</TT> applies the verb <TT>Celsius</TT>
-to the argument <TT>32 212</TT>,
-by carrying out a computation which can be described, or modelled, like
+to the argument <TT>32 212</TT>, 
+by carrying out a computation which can be described, or modelled, like 
 this:
 <PRE>
 <TT>   y =: 32 212</TT>
@@ -198,11 +198,11 @@ this:
 <TT>   t * 5 % 9</TT>
 <TT>0 100</TT>
 </PRE>
-Notice that, after the first line,
+Notice that, after the first line, 
 the computation proceeds according to the script.
 <H3>4.3.3  Argument Variable(s)</H3>
-The value of the argument (<TT>32 212</TT>) is supplied to the script as a
-variable named <TT>y</TT> .
+The value of the argument (<TT>32 212</TT>) is supplied to the script as a 
+variable named <TT>y</TT> . 
 This "argument variable" is named <TT>y</TT> in a monadic function. (In a
  dyadic function, as we shall see below,
 the left argument is named <TT>x</TT> and the right is <TT>y</TT>)
@@ -216,10 +216,10 @@ Here is our definition of <TT>Celsius</TT> repeated:
 <TT>)</TT>
 </PRE>
 We see it contains an assignment to a variable <TT>t</TT>.
-This variable is used only during the execution of <TT>Celsius</TT>.
+This variable is used only during the execution of <TT>Celsius</TT>. 
 Unfortunately this assignment to <TT>t</TT> interferes with the value of any other
 variable also called <TT>t</TT>, defined outside <TT>Celsius</TT>, which we happen to be
- using at the time.
+ using at the time. 
 To demonstrate:
 <PRE>
 <TT>   t =: 'hello' </TT>
@@ -233,12 +233,12 @@ To demonstrate:
 We see that the variable <TT>t</TT> with original value (<TT>'hello'</TT>) has been
  changed in executing <TT>Celsius</TT>.
 To avoid this undesirable effect, we declare that <TT>t</TT> inside <TT>Celsius</TT> is
- to be a strictly private affair,
+ to be a strictly private affair, 
 distinct from any other variable called <TT>t</TT>.
 <p>
 For this purpose there is a special form of assignment,  with the symbol
  <TT>=.</TT> (equal dot).
-Our revised definition becomes:
+Our revised definition becomes: 
 <PRE>
 <TT>   Celsius =: 3 : 0</TT>
 <TT>t =. y - 32</TT>
@@ -246,11 +246,11 @@ Our revised definition becomes:
 <TT>)</TT>
 </PRE>
 and we say that <TT>t</TT> in <TT>Celsius</TT> is a local variable, or that <TT>t</TT> is local
- to <TT>Celsius</TT>.
+ to <TT>Celsius</TT>. 
 By contrast, a variable defined outside
 a function is said to be global.
 Now we can demonstrate that in <TT>Celsius</TT> assignment to local variable <TT>t</TT>
- does not affect
+ does not affect 
 any global variable <TT>t</TT>
 <PRE>
 <TT>   t =: 'hello'</TT>
@@ -262,7 +262,7 @@ any global variable <TT>t</TT>
 <TT>hello</TT>
 </PRE>
 The argument-variable <TT>y</TT> is also a local variable. Hence the evaluation
- of
+ of 
 <TT>(Celsius 32 212)</TT> is more accurately modelled by the computation:
 <PRE>
 <TT>   y =. 32 212</TT>
@@ -271,9 +271,9 @@ The argument-variable <TT>y</TT> is also a local variable. Hence the evaluation
 <TT>0 100</TT>
 </PRE>
 <H3>4.3.5  Dyadic Verbs</H3>
-<TT>Celsius</TT> is a monadic verb, introduced with <TT>3 : 0</TT> and defined in terms
-of the single argument <TT>y</TT>.  By contrast, a dyadic verb
-is introduced with <TT>4 : 0</TT>. The left and right arguments
+<TT>Celsius</TT> is a monadic verb, introduced with <TT>3 : 0</TT> and defined in terms 
+of the single argument <TT>y</TT>.  By contrast, a dyadic verb 
+is introduced with <TT>4 : 0</TT>. The left and right arguments 
 are always named <TT>x</TT> and <TT>y</TT> respectively
 Here is an example. The "positive difference" of two numbers is the larger
  minus the smaller.
@@ -295,9 +295,9 @@ Here is an example. The "positive difference" of two numbers is the larger
 </TABLE>
 <p>
 <H3>4.3.6  One-Liners</H3>
-A one-line script can be written as a character string, and given as the
+A one-line script can be written as a character string, and given as the 
 right argument
-of the colon conjunction.
+of the colon conjunction. 
 <PRE>
 <TT>   PosDiff =: 4 : '(x >. y) - (x <. y)'</TT>
 <TT>   4 PosDiff 3</TT>
@@ -305,17 +305,17 @@ of the colon conjunction.
 </PRE>
 <A NAME="06"></A>
 <H3>4.3.7  Control Structures</H3>
-In the examples we have seen so far of functions defined by scripts,
-execution begins with the expression on the first line,
-proceeds to the next line,  and so on to  the last.
+In the examples we have seen so far of functions defined by scripts, 
+execution begins with the expression on the first line, 
+proceeds to the next line,  and so on to  the last. 
 <p>
 This straight-through path is not the only path possible.
 A choice can be made as to which expression to execute next.
 <p>
 For an example, here is a function to compute a volume from given length,
- width and height. Suppose the function is to check that
-its argument is given correctly as a list of 3 items (length, width and height).
-If so, a volume is computed. If not,  the result is to be the character-string
+ width and height. Suppose the function is to check that 
+its argument is given correctly as a list of 3 items (length, width and height). 
+If so, a volume is computed. If not,  the result is to be the character-string 
 <TT>'ERROR'</TT>.
 <PRE>
 <TT>   volume =: 3 : 0</TT>
@@ -340,15 +340,15 @@ Everything from <TT>if.</TT> to <TT>end.</TT> together forms what is called a "c
 Within it <TT>if.</TT> <TT>do.</TT> <TT>else.</TT> and <TT>end.</TT> are called "control words".
 See <A HREF="12.htm">Chapter 12</A> for more on control structures.
 <H2>4.4  Tacit and Explicit Compared</H2>
-We have now seen two different styles of function definition.
+We have now seen two different styles of function definition.  
 The explicit style, introduced in this chapter, is so called because it
 explicitly mentions variables standing for arguments. Thus in <TT>volume</TT>
  above,
 the variable <TT>y</TT> is an explicit mention of an argument.
 <p>
-By contrast, the style we looked at in the previous chapter is called
+By contrast, the style we looked at in the previous chapter is called 
  "tacit", because there is no
-mention of variables standing for arguments.
+mention of variables standing for arguments. 
 For example, compare explicit and tacit
 definitions of the positive-difference function:
 <PRE>
@@ -357,23 +357,23 @@ definitions of the positive-difference function:
 <TT>   tpd =: >. - <.</TT>
 </PRE>
 Many functions defined in the tacit style
-can also be defined explicitly, and vice versa.
+can also be defined explicitly, and vice versa.  
 Which style is preferable depends on what seems most natural,  in
-the light of however we conceive the function to be defined.
+the light of however we conceive the function to be defined. 
 The choice lies between
-breaking down the problem into, on the one hand, a scripted sequence of
- steps or,  on the other hand,
+breaking down the problem into, on the one hand, a scripted sequence of 
+ steps or,  on the other hand, 
 a collection of smaller functions.
 <p>
-The tacit style allows a compact definition.  For this reason, tacit
+The tacit style allows a compact definition.  For this reason, tacit 
 functions lend themselves well to systematic analysis and transformation.
-Indeed, the J system can, for a broad class of tacit functions,
+Indeed, the J system can, for a broad class of tacit functions, 
 automatically compute such transformations as inverses
-and derivatives.
+and derivatives. 
 <A NAME="07"></A>
 <H2>4.5  Functions as Values</H2>
-A function is a value, and a value can be displayed by entering an
-expression.  An expression can be
+A function is a value, and a value can be displayed by entering an 
+expression.  An expression can be 
 as simple as a name.  Here are some values of tacit and explicit functions:
 <PRE>
 <TT>   - &amp; 32</TT>
@@ -393,13 +393,13 @@ as simple as a name.  Here are some values of tacit and explicit functions:
 <TT>+-+-+-----------+</TT>
 </PRE>
 <A NAME="08"></A>
-The value of each function is here represented as a
-boxed structure. This is the default, but we can choose
-from several other possibilities:  see <A HREF="27.htm">Chapter 27</A>.  For now I
+The value of each function is here represented as a 
+boxed structure. This is the default, but we can choose 
+from several other possibilities:  see <A HREF="27.htm">Chapter 27</A>.  For now I 
 will mention only the
-"linear representation",
-which shows a function as a sequence of characters which could be
-typed in again to produce the function.  We can switch the session to
+"linear representation", 
+which shows a function as a sequence of characters which could be 
+typed in again to produce the function.  We can switch the session to 
 to show functions in the linear representation by entering:
 <PRE>
 <TT>   (9!:3) 5</TT>
@@ -410,19 +410,19 @@ and we see for example:
 <TT>   epd</TT>
 <TT>4 : '(x >. y) - (x <. y)'</TT>
 </PRE>
-In the following chapters, values of functions will often be shown
+In the following chapters, values of functions will often be shown 
 in this linear representation.
 <A NAME="09"></A>
 <H2>4.6  Script Files</H2>
 We have seen scripts (lines of J) used for definitions of single variables:
  text variables
-or functions.
+or functions. 
  By contrast, a file holding lines of J as text can store many definitions.
-Such a file is called a script file, and its usefulness is that
+Such a file is called a script file, and its usefulness is that 
 all its definitions together can be executed by reading the file.
 <p>
-Here is an example.
-Using a text-editor of your choice, create a file on your computer,
+Here is an example. 
+Using a text-editor of your choice, create a file on your computer, 
 containing 2 lines of text like the following.
 <PRE>
 <TT>                 squareroot =: %:</TT>
@@ -430,18 +430,18 @@ containing 2 lines of text like the following.
 <PRE>
 <TT>                 z =: 1 , (2+2) , (4+5)</TT>
 </PRE>
-A J script file has a filename ending with <TT>.ijs</TT> by convention,
-so suppose the file is created (in Windows) with the full pathname
+A J script file has a filename ending with <TT>.ijs</TT> by convention, 
+so suppose the file is created (in Windows) with the full pathname 
  <TT>c:\temp\myscript.ijs</TT> for example.
 <p>
 Then in the J session it will be convenient
-to identify the file by defining a variable <TT>F</TT> say
+to identify the file by defining a variable <TT>F</TT> say 
 to hold this filename as a string.
 <PRE>
 <TT>   F =: 'c:\temp\myscript.ijs'   </TT>
 <TT>   </TT>
 </PRE>
-Having created this 2-line script file,
+Having created this 2-line script file, 
 we can execute it by typing at the keyboard:
 <PRE>
 <TT>       0!:1 < F</TT>
@@ -452,7 +452,7 @@ and we should now see the lines on the screen just as though they had been
 <TT>   squareroot =: %:</TT>
 <TT>   z =: 1 ,(2+2), (4+5)</TT>
 </PRE>
-We can now compute with the definitions we have just loaded in from the
+We can now compute with the definitions we have just loaded in from the 
 file:
 <PRE>
 <TT>   z</TT>
@@ -465,40 +465,40 @@ The activities in a J session will be typically a mixture of editing script
  files,
 loading or reloading the definitions from script files, and initiating
  computations
-at the keyboard.
+at the keyboard.  
 What carries over from one session to another is only the script files.
-The state, or memory,  of the J system itself
-disappears at the end of the session, along with all the definitions
+The state, or memory,  of the J system itself 
+disappears at the end of the session, along with all the definitions 
 entered during the session.
-Hence it is a good idea to ensure, before ending a J session, that any
+Hence it is a good idea to ensure, before ending a J session, that any 
 script file is up to date, that is,
 it contains all the definitions you wish to preserve.
 <p>
-At the beginning of a session the J system will automatically load a
+At the beginning of a session the J system will automatically load a 
 designated script file,
-called the "profile". (See <A HREF="26.htm">Chapter 26</A> for more details).
-The profile can be edited, and is a good place to record any definitions
-of your own
+called the "profile". (See <A HREF="26.htm">Chapter 26</A> for more details). 
+The profile can be edited, and is a good place to record any definitions 
+of your own 
 which you find generally useful.
 We have now come to the end of Chapter 4 and of Part 1.
 The following chapters will treat, in more
 depth and detail, the themes we have
 touched upon in Part 1.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="05.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="05.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 29 Jul 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="05.htm">&gt;&gt;</a>&nbsp;
 <a href="03.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -511,5 +511,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

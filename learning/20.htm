@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 20: Scalar Numerical Functions</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 20: Scalar Numerical Functions</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="21.htm">&gt;&gt;</a>&nbsp;
 <a href="19.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,16 +39,16 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 20: Scalar Numerical Functions</H1>
-In this chapter we look at built-in scalar functions
-for computing numbers from numbers.
+In this chapter we look at built-in scalar functions 
+for computing numbers from numbers. 
 This chapter is a straight catalog
-of functions, with links to the sections
+of functions, with links to the sections 
 as follows:
 <p>
 <TABLE CELLPADDING=5>
@@ -92,7 +92,7 @@ as follows:
 <TD> <A HREF="#resi"> Residue </A> </TD>
 <TD> <A HREF="#root"> Root </A> </TD>
 </TR>
-<TR>
+<TR> 
 <TD> <A HREF="#mult"> Signum </A> </TD>
 <TD> <A HREF="#sin">  sin </A> </TD>
 <TD> <A HREF="#asin"> sin<sup>-1</sup></A> </TD>
@@ -188,7 +188,7 @@ Monadic <TT>>:</TT> is called "Increment". It adds <TT>1</TT> to its argument.
 <TD><TT>3j3</TT></TD>
 </TABLE>
 <p>
-Monadic <TT><:</TT> is called "Decrement".
+Monadic <TT><:</TT> is called "Decrement". 
 It subtracts <TT>1</TT> from its argument.
 <p>
 <TABLE class=jtable>
@@ -223,7 +223,7 @@ Dyadic <TT>*</TT> is multiplication.
 </TABLE>
 <p>
 Monadic <TT>*</TT> is called "Signum". For a real number <TT>y</TT>,
-the value of <TT>(* y)</TT> is <TT>_1</TT> or <TT>0</TT> or <TT>1</TT>
+the value of <TT>(* y)</TT> is <TT>_1</TT> or <TT>0</TT> or <TT>1</TT> 
 as <TT>y</TT> is negative, zero or positive.
 <p>
 <TABLE class=jtable>
@@ -237,9 +237,9 @@ as <TT>y</TT> is negative, zero or positive.
 <TD><TT>1</TT></TD>
 </TABLE>
 <p>
-More generally, <TT>y</TT> may be real or complex,
+More generally, <TT>y</TT> may be real or complex, 
 and the signum is equivalent to <TT>y % | y</TT>.
-Hence the signum of a complex number has magnitude 1
+Hence the signum of a complex number has magnitude 1 
 and the same angle as the argument.
 <p>
 <TABLE class=jtable>
@@ -275,7 +275,7 @@ Dyadic <TT>%</TT> is division.
 <TD><TT>12r5</TT></TD>
 </TABLE>
 <p>
-<TT>1 % 0</TT> is "infinity" but  <TT>0 % 0</TT> is <TT>0</TT>
+<TT>1 % 0</TT> is "infinity" but  <TT>0 % 0</TT> is <TT>0</TT>          
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -333,8 +333,8 @@ Monadic <TT>-:</TT> is the  "halve" verb:
 <H2>20.7  Floor and Ceiling <A NAME="floo"> </A><A NAME="ceil"></A></H2>
 Monadic <TT><.</TT> (left-angle-bracket dot) is called "Floor".
 For real <TT>y</TT> the floor of <TT>y</TT> is <TT>y</TT>
-rounded downwards to an integer, that is,
-the largest integer  not exceeding <TT>y</TT>.
+rounded downwards to an integer, that is, 
+the largest integer  not exceeding <TT>y</TT>.  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -385,7 +385,7 @@ because <TT>3j3</TT> does not satisfy the condition.
 <p>
 Monadic <TT>>.</TT> is called "Ceiling". For real <TT>y</TT>
 the ceiling
-of <TT>y</TT> is <TT>y</TT> rounded upwards to an integer,
+of <TT>y</TT> is <TT>y</TT> rounded upwards to an integer, 
 that is, the smallest integer greater than or
 equal to <TT>y</TT>. For example:
 <p>
@@ -446,12 +446,12 @@ means <TT>(e^y)</TT> where <TT>e</TT> is Euler's constant, <TT>2.71828...</TT>
 <p>
 Euler's equation, supposedly engraved
 on his tombstone is:
- e <sup> i &pi;</sup> +1 = 0
+ e <sup> i &pi;</sup> +1 = 0 
 <PRE>
 <TT>   (^ 0j1p1) + 1</TT>
 <TT>0j1.22465e_16</TT>
 </PRE>
-The example of <TT>^ 3r2</TT> above shows that rationals are in the domain of <TT> ^ </TT>,
+The example of <TT>^ 3r2</TT> above shows that rationals are in the domain of <TT> ^ </TT>, 
 but the result is real, not rational.  A rational argument is in effect first converted
 to real.
 <A NAME="18"></A>
@@ -543,8 +543,8 @@ Monadic <TT>^.</TT> is the "natural logarithm" function.
 <TD><TT>_0.405465</TT></TD>
 </TABLE>
 <p>
-The example of <TT> ^. 2r3 </TT> above shows that rationals are in the domain of <TT> ^. </TT>
-but the result is real, not rational.
+The example of <TT> ^. 2r3 </TT> above shows that rationals are in the domain of <TT> ^. </TT> 
+but the result is real, not rational. 
 A rational argument is in effect first converted to real.
 <A NAME="23"></A>
 <A NAME="24"></A>
@@ -592,7 +592,7 @@ the magnitude of <TT>y</TT> is the absolute value:
 </TABLE>
 <p>
 More generally, <TT>y</TT> may be real or complex,
-and the magnitude is equivalent to <TT>(%: y * + y)</TT>.
+and the magnitude is equivalent to <TT>(%: y * + y)</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -607,7 +607,7 @@ and the magnitude is equivalent to <TT>(%: y * + y)</TT>.
 <TD><TT>5</TT></TD>
 </TABLE>
 <p>
-The dyadic verb <TT>|</TT> is called "Residue".
+The dyadic verb <TT>|</TT> is called "Residue". 
 the remainder when <TT>y</TT> is divided by <TT>x</TT>
 is given by <TT>(x | y)</TT>.
 <p>
@@ -670,7 +670,7 @@ Reals and rationals are in the domain of <TT>+.</TT>.
 <TD><TT>3r7</TT></TD>
 </TABLE>
 <p>
-Complex numbers are also in the domain of <TT>+.</TT>.
+Complex numbers are also in the domain of <TT>+.</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -717,13 +717,13 @@ Monadic <TT>o.</TT> is called "Pi Times"; it multiplies its argument by
 <TD><TT>6.28319j9.42478</TT></TD>
 </TABLE>
 <p>
-The example of <TT> o. 1r6 </TT> above shows that rationals are in the domain of <TT> sin </TT>
-but the result is real, not rational.
+The example of <TT> o. 1r6 </TT> above shows that rationals are in the domain of <TT> sin </TT> 
+but the result is real, not rational. 
 A rational argument is in effect first converted to real.
 <p>
-A result with arbitrary precision can be produced by giving an argument of an extended integer
-to the verb <TT> <. @ o. </TT> for which there is
-<A  href="../dictionary/special.htm">
+A result with arbitrary precision can be be produced by giving an argument of an extended integer
+to the verb <TT> <. @ o. </TT> for which there is 
+<A  href="http://www.jsoftware.com/help/dictionary/special.htm"> 
 special code in the J interpreter </A>
 <PRE>
 <TT>   ] z =: (<. &amp; o.) 10^40x</TT>
@@ -736,7 +736,7 @@ special code in the J interpreter </A>
 <A NAME="31"></A>
 <A NAME="32"></A>
 <H2>20.17  Trigonometric and Other Functions</H2>
-If <TT>y</TT> is an angle in radians,
+If <TT>y</TT> is an angle in radians, 
 then the sine of <TT>y</TT> is given by the expression <TT>1 o. y</TT>.
 The sine of (&pi; over 6) is 0.5
 <p>
@@ -749,11 +749,11 @@ The sine of (&pi; over 6) is 0.5
 <TD><TT>0.5</TT></TD>
 </TABLE>
 <p>
-The general scheme for dyadic <TT>o.</TT> is that <TT>(k o. y)</TT> means:
+The general scheme for dyadic <TT>o.</TT> is that <TT>(k o. y)</TT> means: 
 apply to <TT>y</TT> a function selected by <TT>k</TT>.
 Here <TT>y</TT> is an angle in radians.
 <p>
-Giving conventional names to the available
+Giving conventional names to the available 
 functions, we have:
 <PRE>
 <TT>   sin   =:  1 &amp; o.  NB. <A name="sin"> sine</A></TT>
@@ -788,8 +788,8 @@ functions, we have:
 <TD><TT>0.247404</TT></TD>
 </TABLE>
 <p>
-The example of <TT> sin 1r4 </TT> above shows that rationals are in the domain of <TT> sin </TT>
-but the result is real, not rational.
+The example of <TT> sin 1r4 </TT> above shows that rationals are in the domain of <TT> sin </TT> 
+but the result is real, not rational. 
 A rational argument is in effect first converted to real.
 <A NAME="33"></A>
 <H2>20.18  Pythagorean Functions<A name="pyth"></A></H2>
@@ -873,21 +873,21 @@ For example:
 </TABLE>
 <p>
 This is the end of chapter 20
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="21.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 05 Oct 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="21.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 05 Oct 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="21.htm">&gt;&gt;</a>&nbsp;
 <a href="19.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -900,5 +900,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

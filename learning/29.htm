@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 29: Error Handling</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 29: Error Handling</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="30.htm">&gt;&gt;</a>&nbsp;
 <a href="28.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,12 +39,12 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 29: Error Handling</H1>
-The plan for this chapter is to look at some of the J facilities for finding and
+The plan for this chapter is to look at some of the J facilities for finding and 
 dealing with programming errors. It is beyond the scope of this chapter
 to consider debugging strategies, but (in my view) the use of assertions
 is much to be recommended. We look at:
@@ -56,8 +56,8 @@ is much to be recommended. We look at:
 </UL>
 <A NAME="01"></A>
 <H2>29.1  Assertions</H2>
-A program can be made self-checking
-to some degree.
+A program can be made self-checking 
+to some degree.  
 Here is an example of a verb which computes the price of an area of carpet,
 given a list of three numbers: price per unit area, length and width.
 <PRE>
@@ -69,11 +69,11 @@ given a list of three numbers: price per unit area, length and width.
 <TT>24</TT>
 </PRE>
 Assume for the sake of example that the computation <TT>*/y</TT> is large and problematic,
-and we want some assurance that the result is correct. We can at least check
+and we want some assurance that the result is correct. We can at least check 
 that the result is reasonable; we expect the price of a carpet
-to lie between, say, $10 and $10,000.
+to lie between, say, $10 and $10,000. 
 <p>
-We can redefine <TT>carpet</TT>, asserting that the result <TT>p</TT> must be
+We can redefine <TT>carpet</TT>, asserting that the result <TT>p</TT> must be 
 between 10 and 10000:
 <PRE>
 <TT>   carpet =: 3 : 0</TT>
@@ -84,12 +84,12 @@ between 10 and 10000:
 <TT>)</TT>
 </PRE>
 If an assertion is evaluated as true (or "all true")
-there is no other effect, and the computation proceeds.
+there is no other effect, and the computation proceeds. 
 <PRE>
 <TT>   carpet 2 3 4</TT>
 <TT>24</TT>
 </PRE>
-If an assertion is evaluated as false, the computation is terminated
+If an assertion is evaluated as false, the computation is terminated 
 and an indication given:
 <PRE>
 <TT>   carpet 0 3 4</TT>
@@ -97,22 +97,22 @@ and an indication given:
 <TT>|   p>:10</TT>
 </PRE>
 Assertions can only be made inside
-explicit definitions, because <TT>assert.</TT> is a "control word", that is,
-an element of syntax, not a function.
+explicit definitions, because <TT>assert.</TT> is a "control word", that is, 
+an element of syntax, not a function. 
 <p>
-It always a matter for judgement as to where an assertion can usefully be placed,
-and what can usefully be asserted.
-Assertions are best kept as simple as possible, since
-it is highly undesirable to make an error in an assertion itself.
+It always a matter for judgement as to where an assertion can usefully be placed, 
+and what can usefully be asserted. 
+Assertions are best kept as simple as possible, since 
+it is highly undesirable to make an error in an assertion itself.  
 <p>
 It is often useful to make assertions which check the correctness
 of arguments of functions.
 For example, we could assert that, for <TT>carpet</TT> the argument <TT>y</TT>
-must be a list of 3 strictly positive numbers.
+must be a list of 3 strictly positive numbers. 
 <p>
 The order of assertions may be important. For example,
  we should check that we have numbers
-before checking the values of those numbers. The type of a noun is given by <TT>3!:0</TT>;
+before checking the values of those numbers. The type of a noun is given by <TT>3!:0</TT>; 
 here we want integers (type=4) or reals (type=8).
 <PRE>
 <TT>   carpet =: 3 : 0</TT>
@@ -139,19 +139,19 @@ here we want integers (type=4) or reals (type=8).
 <TT>   </TT>
 </PRE>
 <H3>29.1.1  Assertions and the Tacit Style</H3>
-Assertions are good for correctness.
-The tacit style is good for crispness and clarity.
+Assertions are good for correctness. 
+The tacit style is good for crispness and clarity. 
 <p>
 The two are not readily combined, however.
 Evidently the natural place for an assertion is
 as a line in an explicit definition. By contrast, a tacit definition offers no
 place for an assertion.
 <p>
-What would it take to add assertions to a set of purely tacit
+What would it take to add assertions to a set of purely tacit 
 definitions?  Just to be able to make
 assertions about the arguments of functions
-would be a lot better than nothing.
-Here is a possibility.
+would be a lot better than nothing. 
+Here is a possibility. 
 <p>
 Suppose we have an example of a purely tacit definition,
 <PRE>
@@ -162,9 +162,9 @@ it must satisfy the predicate:
 <PRE>
 <TT>   is_number =: 4 8 16 128 e. ~ (3 !: 0)</TT>
 </PRE>
-Now our aim is to redefine <TT>sq</TT>,
-while making use of the previous definition of <TT>sq</TT>.
-Convenient for this purpose is a conjunction <TT>ASSERTING</TT>,
+Now our aim is to redefine <TT>sq</TT>, 
+while making use of the previous definition of <TT>sq</TT>. 
+Convenient for this purpose is a conjunction <TT>ASSERTING</TT>, 
 which is defined below.
 <p>
 We can write
@@ -203,8 +203,8 @@ note that ASSERTING as here defined is good only for monadic verbs.
 <H3>29.1.2  Enabling and Disabling Assertions</H3>
 When we are confident of correctness, we can consider removing assertions
 from a program, particularly if performance is an issue. Another possibility
-is to leave the assertions in place, but to disable them. In this case, asserted
-expressions are not evaluated, and assertions always succeed.
+is to leave the assertions in place, but to disable them. In this case, asserted 
+expressions are not evaluated, and assertions always succeed. 
 There is a built-in function
 <TT>9!:35</TT> to enable or disable assertions.
 For example:
@@ -219,17 +219,17 @@ For example:
 <TT>|   *./y>0</TT>
 <TT>    </TT>
 </PRE>
-The built-in function <TT>9!:34</TT> tests whether assertions are enabled.
+The built-in function <TT>9!:34</TT> tests whether assertions are enabled. 
 Currently they are:
 <PRE>
 <TT>   9!:34 ''   NB. check that assertions are enabled</TT>
 <TT>1</TT>
 </PRE>
 <H2>29.2  Continuing after Failure</H2>
-There are several ways to continue after a failure.
+There are several ways to continue after a failure. 
 <A NAME="02"></A>
 <H3>29.2.1  Nonstop Script</H3>
-In testing a program, it may be useful to write a script for a series
+In testing a program, it may be useful to write a script for a series 
 of tests.  Here is an example of a test-script.
 <PRE>
 <TT>   (0 : 0) (1!:2) <'test.ijs'   NB. create test-script</TT>
@@ -242,7 +242,7 @@ of tests.  Here is an example of a test-script.
 <TT>)</TT>
 </PRE>
 A test may give the wrong result, or it may fail altogether,
-that is, it may be terminated by the system.  We can
+that is, it may be terminated by the system.  We can 
  force the script to continue even though a test fails, by executing the script
 with the built-in verb <TT>0!:10</TT> or <TT>0!:11</TT>
 <PRE>
@@ -260,7 +260,7 @@ with the built-in verb <TT>0!:10</TT> or <TT>0!:11</TT>
 </PRE>
 <A NAME="03"></A>
 <H3>29.2.2  Try and Catch Control Structure</H3>
-Here is an example of a verb which translates English words to French
+Here is an example of a verb which translates English words to French 
 using word-lists.
 <PRE>
 <TT>   English =: 'one'; 'two';  'three'</TT>
@@ -279,7 +279,7 @@ A word not in the list will produce an error.
 <TD><TT>error</TT></TD>
 </TABLE>
 <p>
-This error can be handled with the <TT>try. catch. end.</TT> control structure. (<A HREF="12.htm">Chapter 12</A>
+This error can be handled with the <TT>try. catch. end.</TT> control structure. (<A HREF="12.htm">Chapter 12</A> 
 introduces control structures)
 <PRE>
 <TT>   EF =: 3 : 'try. ef y catch. ''don''''t know'' end.'</TT>
@@ -302,7 +302,7 @@ The scheme is that
 means: execute block B1. If and only if B1 fails, execute block B2.
 <A NAME="04"></A>
 <H3>29.2.3  Adverse Conjunction</H3>
-A tacit version of the last example can be written with the "Adverse" conjunction
+A tacit version of the last example can be written with the "Adverse" conjunction 
  <TT>::</TT> (colon colon).
 <PRE>
 <TT>   TEF =: ef :: ('don''t know' " _)</TT>
@@ -327,7 +327,7 @@ means: evaluate <TT>f y</TT>.  If and only if <TT>f y</TT> fails, evaluate <TT>g
 <A NAME="05"></A>
 <H2>29.3  Suspended Execution</H2>
 Suppose we have, as an example of program to be
- debugged, a verb <TT>main</TT> which uses a supporting verb <TT>plus</TT>
+ debugged, a verb <TT>main</TT> which uses a supporting verb <TT>plus</TT> 
 <PRE>
 <TT>   main  =: 3 : 0</TT>
 <TT>k =. 'hello'</TT>
@@ -338,23 +338,23 @@ Suppose we have, as an example of program to be
 <TT>   plus =: +</TT>
 </PRE>
 Clearly there is an error in <TT>main</TT>: the string <TT>k</TT> is inconsistent with the numeric argument
-expected by <TT>plus</TT>.
+expected by <TT>plus</TT>. 
 <p>
 If we  type, for example,  <TT>main 1</TT> at the keyboard,
-then when the error is detected the program terminates,  an error-report is
+then when the error is detected the program terminates,  an error-report is 
 displayed and the user is prompted for input from the keyboard.
 <PRE>
 <TT>   main 1</TT>
 <TT>|domain error: plus</TT>
 <TT>|   z=.y     plus k</TT>
 </PRE>
-To gather more information about the cause of the error, we can arrange that the
-program can be suspended rather than terminated when control returns to the keyboard.
+To gather more information about the cause of the error, we can arrange that the 
+program can be suspended rather than terminated when control returns to the keyboard. 
 To enable suspension we use the command <TT>(13!:0) 1</TT> before running <TT>main</TT> again.
 <PRE>
 <TT>   (13!:0) 1</TT>
 </PRE>
-Now when <TT>main</TT> is re-run, we see
+Now when <TT>main</TT> is re-run, we see 
 a slightly different error message
 <PRE>
 <TT>   main 1</TT>
@@ -362,7 +362,7 @@ a slightly different error message
 <TT>|plus[:0]</TT>
 <TT></TT>
 </PRE>
-At this point execution is
+At this point execution is 
 suspended. In the suspended state,
 expressions can be typed in and evaluated.
 Notice that the prompt is
@@ -396,7 +396,7 @@ The stack is a table, with a row for
 each function currently executing.
 We see that <TT>plus</TT> is the function
 in which the error was detected, and <TT>plus</TT>
-is called from <TT>main</TT>.
+is called from <TT>main</TT>. 
 <p>
 The stack has 9 columns, of which
 we selected only 5 for display (columns 0 2 6 7 8).
@@ -426,25 +426,25 @@ Values of arguments.  <TT>plus</TT> was
  Names and values of local variables. <TT>plus</TT> being a
    tacit verb has no local variables, while
    <TT>main</TT> has <TT>k</TT> and also <TT>y</TT>, since
-   arguments of explicit functions are regarded as local variables.
+   arguments of explicit functions are regarded as local variables. 
 </TD></TR>
 <TR><TD>8</TD><TD>
  An asterisk, or a blank. <TT>plus</TT> is asterisked to show
    it is the function
    in which suspension was caused.
-   Normally this the top function on
-   the stack, (but not necessarily,
+   Normally this the top function on 
+   the stack, (but not necessarily, 
    as we will see below). </TD></TR>
 </TABLE>
 <p>
 <p>
 While in the suspended state we can
 inspect any global variables, by entering
-the names in the usual way. In this simple example
-there are none.
+the names in the usual way. In this simple example 
+there are none. 
 <p>
-Finally, we can terminate the suspended
-execution, and escape from the
+Finally, we can terminate the suspended 
+execution, and escape from the 
 suspended state,
 by entering the expression:
 <PRE>
@@ -454,28 +454,28 @@ by entering the expression:
 <H2>29.4  Programmed Error Handling</H2>
 By default, when suspension is enabled,
 and an error is encountered,
-the program suspends and awaits
+the program suspends and awaits 
 input from the keyboard.
 <p>
-We can arrange that instead of
+We can arrange that instead of 
 taking input from the keyboard,
 when an error is encountered,
 our own error-handling routine is automatically
 entered.
 <p>
-Suppose we decide to handle errors by doing
+Suppose we decide to handle errors by doing 
 the following:
 <p>
 <UL>
-<LI> display the error message generated by
+<LI> display the error message generated by 
      the system </LI>
 <LI> display (selected columns of) the stack </LI>
 <LI> cut short the execution of the
      the suspended function, and cause it to
      return the value <TT>'error'</TT> instead of
      whatever it was intended to return. </LI>
-<LI> resume executing the program.
-     (This may or may not
+<LI> resume executing the program. 
+     (This may or may not  
      result in a cascade of further errors.)</LI>
 </UL>
 <p>
@@ -487,12 +487,12 @@ Here is a verb to perform this sequence of actions:
 <TT>13!:6 'error'                       NB. resume returning 'error'</TT>
 <TT>)</TT>
 </PRE>
-The next step is to declare this verb
+The next step is to declare this verb 
 as the error-handler.  To do this we set
 an appropriate value for what is called
 the "latent expression". The latent
-expression is represented by a string which, if non-null,
-is executed automatically whenever
+expression is represented by a string which, if non-null, 
+is executed automatically whenever 
 the system is about to enter the suspended state.
 The latent expression can be queried and set
 with <TT>13!:14</TT> and <TT>13!:15</TT>.
@@ -501,9 +501,9 @@ What is the current value of the latent expression?
 <TT>   13!:14 ''</TT>
 <TT></TT>
 </PRE>
-A null string. We set the latent expression to
+A null string. We set the latent expression to 
 be a string, representing an expression meaning
-"execute the verb <TT>handler</TT>".
+"execute the verb <TT>handler</TT>". 
 <PRE>
 <TT>   13!:15 'handler 0'</TT>
 </PRE>
@@ -544,21 +544,21 @@ The display <TT>result is error</TT> demonstrates that <TT>plus</TT>
 returned the value (<TT>'error'</TT>) supplied by <TT>handler</TT>.
 <p>
 This is the end of Chapter 29.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="30.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 14 Oct 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="30.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 14 Oct 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="30.htm">&gt;&gt;</a>&nbsp;
 <a href="28.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -571,5 +571,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

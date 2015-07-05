@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 18: Sets, Classes and Relations</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 18: Sets, Classes and Relations</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="19.htm">&gt;&gt;</a>&nbsp;
 <a href="17.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,27 +39,27 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 18: Sets, Classes and Relations</H1>
-In this chapter we look at more of the built-in functions of J.
+In this chapter we look at more of the built-in functions of J.  
 The connecting theme
-is, somewhat loosely, working with set, classes and relations.
+is, somewhat loosely, working with set, classes and relations.  
 <p>
-Suppose that, for some list, for the purpose at hand,
+Suppose that, for some list, for the purpose at hand, 
 the order of the items is irrelevant and the presence of duplicate items
- is irrelevant.
-Then we can regard the list as (representing) a finite set.
+ is irrelevant. 
+Then we can regard the list as (representing) a finite set. 
 In the abstract, the set <TT>3 1 2 1</TT>  is considered to be the same set as
- <TT>1 2 3</TT>.
+ <TT>1 2 3</TT>. 
 <p>
-The word "class" we will use in the sense in which, for example,
+The word "class" we will use in the sense in which, for example,  
 each integer in a list belongs either to
 the odd class or to the even class.
 <p>
-By "relation" is meant
+By "relation" is meant 
 a table of two or more columns,
 expressing a relationship between a value in one column
 and the corresponding value in another.
@@ -68,9 +68,9 @@ A relation with two columns, for example, is a set of pairs.
 <H2>18.1  Sets</H2>
 <A NAME="02"></A>
 <H3>18.1.1  Membership</H3>
-There is a  built-in verb <TT>e.</TT> (lowercase e dot, called "Member").
+There is a  built-in verb <TT>e.</TT> (lowercase e dot, called "Member"). 
 The expresssion <TT>x e. y</TT> tests whether
-<TT>x</TT> matches any item of <TT>y</TT>, that is, whether x is a member of the
+<TT>x</TT> matches any item of <TT>y</TT>, that is, whether x is a member of the 
 list <TT>y</TT>.
 For example:
 <p>
@@ -87,7 +87,7 @@ For example:
 <TD><TT>1 0</TT></TD>
 </TABLE>
 <p>
-Evidently the order of items in <TT>y</TT> is irrelevant and so is the presence
+Evidently the order of items in <TT>y</TT> is irrelevant and so is the presence 
 of duplicates in <TT>y</TT>.
 <p>
 <TABLE class=jtable>
@@ -119,7 +119,7 @@ ab</TT></TD>
 <p>
 <A NAME="03"></A>
 <H3>18.1.2  Less</H3>
-There is a built-in verb <TT>-.</TT> (minus dot, called "Less").
+There is a built-in verb <TT>-.</TT> (minus dot, called "Less"). 
 The expression <TT>x -. y</TT> produces a list of the items of
 <TT>x</TT> except those which are members of <TT>y</TT>.
 <p>
@@ -140,7 +140,7 @@ Evidently the order of items in <TT>y</TT> is irrelevant and so is the presence 
 <H3>18.1.3  Nub</H3>
 There is a  built-in verb <TT>~.</TT> (tilde dot, called "Nub"). The expression
  <TT>~. y</TT> produces
-a list of the items of <TT>y</TT> without duplicates.
+a list of the items of <TT>y</TT> without duplicates.  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -170,8 +170,8 @@ ef</TT></TD>
 </TABLE>
 <p>
 <H3>18.1.4  Nub Sieve</H3>
-The verb "nub sieve" <TT>(~:)</TT> gives a
-boolean vector which is true only at
+The verb "nub sieve" <TT>(~:)</TT> gives a 
+boolean vector which is true only at 
 the nub.
 <p>
 <TABLE class=jtable>
@@ -188,12 +188,12 @@ the nub.
 </TABLE>
 <p>
 <H3>18.1.5  Functions for Sets</H3>
-The customary functions on sets, such as set-union,
-set-intersection or set-equality, are easily defined
+The customary functions on sets, such as set-union, 
+set-intersection or set-equality, are easily defined 
 using the built-in functions available.  For example
 two sets are equal
-if all members of one are members of the other,
-and vice versa.
+if all members of one are members of the other, 
+and vice versa.  
 <PRE>
 <TT>   seteq =: *./ @: (e. , e.~)</TT>
 </PRE>
@@ -209,16 +209,16 @@ and vice versa.
 <p>
 <A NAME="05"></A>
 <H2>18.2  The Table Adverb</H2>
-Recall that the adverb <TT>/</TT> generates a verb; for example <TT>+/</TT> is a verb
-which sums lists.
-More precisely, it is the monadic case of <TT>+/</TT> which sums lists.
-The dyadic case of <TT>+/</TT> generates a table:
+Recall that the adverb <TT>/</TT> generates a verb; for example <TT>+/</TT> is a verb 
+which sums lists. 
+More precisely, it is the monadic case of <TT>+/</TT> which sums lists. 
+The dyadic case of <TT>+/</TT> generates a table. For example: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
-<TD><TT>x =: 0 1 2</TT></TD>
-<TD><TT>y =: 3 4 5 6</TT></TD>
-<TD><TT>z =: x +/ y</TT></TD>
+<TD><TT>X =: 0 1 2</TT></TD>
+<TD><TT>Y =: 3 4 5 6</TT></TD>
+<TD><TT>Z =: X +/ Y</TT></TD>
 <TR VALIGN=TOP>
 <TD><TT>0 1 2</TT></TD>
 <TD><TT>3 4 5 6</TT></TD>
@@ -227,44 +227,197 @@ The dyadic case of <TT>+/</TT> generates a table:
 5 6 7 8</TT></TD>
 </TABLE>
 <p>
-The general scheme is that if we have
-<PRE>
-<TT>             z =:  x f/ y</TT>
-</PRE>
-then <TT>z</TT> is a table such that the value at row <TT>i</TT> column <TT>j</TT>
-is given by applying <TT>f</TT> dyadically
-to the pair of arguments <TT>i{x</TT>
- and <TT>j{y</TT>. That is,
-<TT>z</TT> contains all possible pairings
-of an item of <TT>x</TT> with an item of <TT>y</TT>.
+We see from this example that the verb <TT> + </TT> is applied to all possible 
+combinations of an item of the left argument <TT>X</TT> with an item of the
+right argument <TT>Y</TT>.
+<p>
 Here is another example:
+<PRE>
+<TT>   'abc' =/ 'face'</TT>
+<TT>0 1 0 0</TT>
+<TT>0 0 0 0</TT>
+<TT>0 0 1 0</TT>
+</PRE>
+The result shows, in the first row,
+the value of <TT>'a' = 'face'</TT>, in the second row
+the value of <TT>'b' = 'face'</TT>
+and so on.
+If we are aiming (as in the examples above) to apply the verb to all 
+ possible combinations of 
+items from the left and items from the right,
+then there is a condition which must be satisfied. 
+<p>
+The condition is this.  First, recall from <TT><A HREF="07.htm">Chapter 07</A></TT> that verbs have 
+three ranks, monadic, left and right, shown by the expression 
+<TT> verb b. 0</TT> .
+The left rank of the verb here must be the same as the rank of an item
+of the left argument, and the right rank of the verb must be the same
+as the rank of an item of the right argument.  This condition 
+can be checked by a little function , an adverb:
+<p>
+<PRE>
+<TT>   check =: 1 : 0</TT>
+<TT>:</TT>
+<TT>L =. 1 { u b. 0        NB. left  rank of verb u</TT>
+<TT>R =. 2 { u b. 0        NB. right rank of verb u </TT>
+<TT>assert. L = # $ 0 { x  [ 'check rank of item of x'</TT>
+<TT>assert. R = # $ 0 { y  [ 'check rank of item of y'</TT>
+<TT>1  NB. OK</TT>
+<TT>)</TT>
+<TT>   </TT>
+</PRE>
+The condition is indeed satisfied in the examples above, 
+because all the relevant ranks are zero:
+<PRE>
+<TT>   X  + check Y</TT>
+<TT>1</TT>
+<TT>   </TT>
+</PRE>
+Here now is an example where the condition is not satisfied.
+Suppose items of <TT>X</TT> and <TT>Y</TT> are scalars, and we aim to combine them by
+ forming  boxed pairs, for example with this verb:
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
-<TD><TT>x =: 'abc'</TT></TD>
-<TD><TT>y =: 'face'</TT></TD>
-<TD><TT>x =/ y</TT></TD>
+<TD><TT>fbp =: < @: , </TT></TD>
+<TD><TT>3 fbp 4</TT></TD>
 <TR VALIGN=TOP>
-<TD><TT>abc</TT></TD>
-<TD><TT>face</TT></TD>
-<TD><TT>0 1 0 0<BR>
-0 0 0 0<BR>
-0 0 1 0</TT></TD>
+<TD><TT><@:,</TT></TD>
+<TD><TT>+---+<BR>
+|3 4|<BR>
++---+</TT></TD>
 </TABLE>
 <p>
-The result shows, in the first row,
-the value of <TT>'a' = 'face'</TT>, in the second row
-the value of <TT>'b' ='face'</TT>
-and so on.
-<H2>18.3  Classes</H2>
+A first attempt:
+<p>
+<TABLE class=jtable>
+<TR  VALIGN=TOP>
+<TD><TT> X </TT></TD>
+<TD><TT> Y </TT></TD>
+<TD><TT> X fbp / Y</TT></TD>
+<TR VALIGN=TOP>
+<TD><TT>0 1 2</TT></TD>
+<TD><TT>3 4 5 6</TT></TD>
+<TD><TT>+-------------+<BR>
+|0 1 2 3 4 5 6|<BR>
++-------------+</TT></TD>
+</TABLE>
+<p>
+This not the result we want, because, given <TT>X</TT> and <TT>Y</TT>, the left and 
+right the ranks of <TT>fbp</TT> don't meet the 
+condition, that is,  they are not zero, 
+<PRE>
+<TT>   fbp b. 0</TT>
+<TT>_ _ _</TT>
+<TT>   </TT>
+</PRE>
+and so the check will fail.
+<PRE>
+<TT>   X fbp check Y</TT>
+<TT>|assertion failure</TT>
+<TT>|   L=#$0{x['check rank of item of x'</TT>
+<TT>   </TT>
+</PRE>
+The remedy is to specify the required ranks for the arguments of <TT> fbp </TT>.
+<PRE>
+<TT>   X fbp " 0 0 / Y</TT>
+<TT>+---+---+---+---+</TT>
+<TT>|0 3|0 4|0 5|0 6|</TT>
+<TT>+---+---+---+---+</TT>
+<TT>|1 3|1 4|1 5|1 6|</TT>
+<TT>+---+---+---+---+</TT>
+<TT>|2 3|2 4|2 5|2 6|</TT>
+<TT>+---+---+---+---+</TT>
+</PRE>
+In summary, the general scheme is that if we have
+<PRE>
+<TT>             z =:  x f/ y</TT>
+</PRE>
+and <TT>f</TT> satisfies the rank condition (<TT>check</TT> above) , then 
+<TT>z</TT> is a table such that 
+<PRE>
+<TT>           (< i;j){z    =    (i{x) f (j{y)</TT>
+</PRE>
+That is,
+<TT>z</TT> contains all possible pairings 
+of an item of <TT>x</TT> with an item of <TT>y</TT>.
+<H2>18.3  Table Decorations</H2>
+Since we have been considering tables, it might be useful here to 
+offer one or two cookbook examples of labelling the 
+ rows and columns of a table. 
+<p>
+Firstly, suppose the data is a table of numbers:
+<PRE>
+<TT>   ] data =: 3 3 $ i. 9</TT>
+<TT>0 1 2</TT>
+<TT>3 4 5</TT>
+<TT>6 7 8</TT>
+<TT>   </TT>
+</PRE>
+and that we aim to format the data with this function, 
+which will give columns 8 digits wide:
+<PRE>
+<TT>   format =: 8j4 &amp; ":</TT>
+<TT>   </TT>
+</PRE>
+suppose that the labels required are: 
+<PRE>
+<TT>   rowlabels =: 'first'; 'second' ; 'third'</TT>
+<TT>   collabels =: 'small'; 'medium' ; 'large'</TT>
+<TT>   </TT>
+</PRE>
+If we now compute these three values
+<PRE>
+<TT>   D =: < format data</TT>
+<TT>   R =: < > rowlabels</TT>
+<TT>   C =: < ; (_8 &amp; {. ) (&amp;. >) collabels   </TT>
+<TT>   </TT>
+</PRE>
+(In the expression for <TT>C</TT> above, the value of<TT>_8</TT> is for right-justifying the labels
+in a column-width of 8)
+<p>
+Now we can show the data with row-labels:
+<PRE>
+<TT>   R,D</TT>
+<TT>+------+------------------------+</TT>
+<TT>|first |  0.0000  1.0000  2.0000|</TT>
+<TT>|second|  3.0000  4.0000  5.0000|</TT>
+<TT>|third |  6.0000  7.0000  8.0000|</TT>
+<TT>+------+------------------------+</TT>
+</PRE>
+or with column-labels:
+<PRE>
+<TT>   C ,: D</TT>
+<TT>+------------------------+</TT>
+<TT>|   small  medium   large|</TT>
+<TT>+------------------------+</TT>
+<TT>|  0.0000  1.0000  2.0000|</TT>
+<TT>|  3.0000  4.0000  5.0000|</TT>
+<TT>|  6.0000  7.0000  8.0000|</TT>
+<TT>+------------------------+</TT>
+<TT>   </TT>
+</PRE>
+or both
+<PRE>
+<TT>    2 2 $ a: , C , R ,D</TT>
+<TT>+------+------------------------+</TT>
+<TT>|      |   small  medium   large|</TT>
+<TT>+------+------------------------+</TT>
+<TT>|first |  0.0000  1.0000  2.0000|</TT>
+<TT>|second|  3.0000  4.0000  5.0000|</TT>
+<TT>|third |  6.0000  7.0000  8.0000|</TT>
+<TT>+------+------------------------+</TT>
+<TT>   </TT>
+</PRE>
+<H2>18.4  Classes</H2>
 <A NAME="06"></A>
-<H3>18.3.1  Self-Classify</H3>
+<H3>18.4.1  Self-Classify</H3>
 Consider the problem of finding the counts
 of letters occurring in a string (the
 frequency-distribution of letters).
 Here is one approach.
 <p>
-We form a table testing each letter for equality
+We form a table testing each letter for equality 
 with the nub.
 <p>
 <TABLE class=jtable>
@@ -280,9 +433,9 @@ with the nub.
 0 0 0 1</TT></TD>
 </TABLE>
 <p>
-The expression <TT>((nub y) = / y)</TT> can be abbreviated as <TT>(= y)</TT>.
-The monadic case of the built-in verb <TT>=</TT> is called
-"Self-classify").
+The expression <TT>((nub y) = / y)</TT> can be abbreviated as <TT>(= y)</TT>. 
+The monadic case of the built-in verb <TT>=</TT> is called 
+"Self-classify"). 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -337,10 +490,10 @@ nub:
 +-+-+</TT></TD>
 </TABLE>
 <p>
-<H3>18.3.2  Classification Schemes</H3>
-Gardeners classify soil-types as acid, neutral or
+<H3>18.4.2  Classification Schemes</H3>
+Gardeners classify soil-types as acid, neutral or 
 alkaline, depending on the pH value. Suppose
-that a pH less than 6 is classed as acid,
+that a pH less than 6 is classed as acid,  
 6 to 7 is neutral, and more than 7 as alkaline.
 Here now is a verb to classify a pH value,
 returning <TT>A</TT> for acid, <TT>N</TT> for neutral and <TT>L</TT> for alkaline (or limy).
@@ -357,14 +510,14 @@ returning <TT>A</TT> for acid, <TT>N</TT> for neutral and <TT>L</TT> for alkalin
 <TD><TT>AANNLL</TT></TD>
 </TABLE>
 <p>
-The <TT>classify</TT> function we can regard as defining a
-classification scheme.
+The <TT>classify</TT> function we can regard as defining a 
+classification scheme. 
 The letters <TT>ANL</TT>, which are in effect
 names of classes, are called the keys of the scheme.
 <A NAME="07"></A>
-<H3>18.3.3  The Key Adverb</H3>
+<H3>18.4.3  The Key Adverb</H3>
 Given some data (a list, say), we can classify each item
-to produce a list of corresponding keys.
+to produce a list of corresponding keys. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -375,8 +528,8 @@ to produce a list of corresponding keys.
 <TD><TT>NANAL</TT></TD>
 </TABLE>
 <p>
-We can select and group together all the data in,
-say, class <TT>A</TT> (all the data with key <TT>A</TT>):
+We can select and group together all the data in, 
+say, class <TT>A</TT> (all the data with key <TT>A</TT>): 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -391,10 +544,10 @@ say, class <TT>A</TT> (all the data with key <TT>A</TT>):
 <TD><TT>5 4</TT></TD>
 </TABLE>
 <p>
-Now suppose we wish to count the items in each class.
+Now suppose we wish to count the items in each class. 
 That is, we aim to apply the monadic verb <TT>#</TT> separately
-to each group of items all of the same key.
- To do this we can use the built-in adverb <TT>/.</TT> (slash dot, called "Key").
+to each group of items all of the same key. 
+ To do this we can use the built-in adverb <TT>/.</TT> (slash dot, called "Key"). 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -423,9 +576,9 @@ we could exhibit the members, by applying the box verb <TT><</TT>.
 +---+---+-+</TT></TD>
 </TABLE>
 <p>
-The verb we apply can discover for itself the class of
-each separate argument,
-by classifying the first member:
+The verb we apply can discover for itself the class of 
+each separate argument, 
+by classifying the first member: 
 Here the verb <TT>u</TT>
 produces a boxed list: the key and count:
 <PRE>
@@ -453,7 +606,7 @@ produces a boxed list: the key and count:
 The general scheme for the "Key" adverb is as follows.
 In the expression <TT>x u /. y</TT>, we take <TT>y</TT> to be a list,
 and <TT>x</TT> is a list of keys of corresponding items of <TT>y</TT> according
-to some classification scheme,
+to some classification scheme, 
 and <TT>u</TT> is the verb to be applied separately to each class.
 The scheme is:
 <PRE>
@@ -488,8 +641,8 @@ To illustrate:
 </TABLE>
 <p>
 We see that each row of <TT>=x</TT> selects items from <TT>y</TT>,
-and <TT>u</TT> is applied to this selection.
-<H3>18.3.4  Letter-Counts Revisited</H3>
+and <TT>u</TT> is applied to this selection. 
+<H3>18.4.4  Letter-Counts Revisited</H3>
 Recall the example of finding the counts of letters in a string.
 <p>
 <TABLE class=jtable>
@@ -518,12 +671,12 @@ Recall the example of finding the counts of letters in a string.
 </TABLE>
 <p>
 Here is a variation. We note that
-we have in effect a classification scheme where
+we have in effect a classification scheme where 
 we have as many different classes as different letters: each letter
 is (the key of) its own class. Thus we can write an
-expression of the form <TT>y u /. y</TT>.
+expression of the form <TT>y u /. y</TT>. 
 <p>
-The applied verb <TT>u</TT> will see, each time, a list of letters, all the same.
+The applied verb <TT>u</TT> will see, each time, a list of letters, all the same. 
 It counts them, with <TT>#</TT>,
  and takes the first, with <TT>{.</TT>,  to be a label for the class.
 <PRE>
@@ -556,17 +709,17 @@ It counts them, with <TT>#</TT>,
 </TABLE>
 <p>
 <A NAME="08"></A>
-<H2>18.4  Relations</H2>
+<H2>18.5  Relations</H2>
 Suppose there are a number of publications,
-such as:
+such as: 
 <UL>
 <LI>"Pigs"  by Smith, on the subject of pigs</LI>
 <LI>"Pets"  by Brown, on cats and dogs </LI>
 <LI>"Dogs"  by Smith and James, on dogs </LI>
 </UL>
 <p>
-and we aim to catalog such publications.
- A suitable data structure for such a catalog might be a table
+and we aim to catalog such publications. 
+ A suitable data structure for such a catalog might be a table  
 relating authors to titles and another
  table relating
 titles to subjects. For example:
@@ -594,7 +747,7 @@ titles to subjects. For example:
  </TD>
 </TR>
 </TABLE>
-Such tables we may call "relations".
+Such tables we may call "relations". 
 The order of the rows is not significant.
 Here,for the sake of simplicity, we will stick to
 relations with two columns.
@@ -639,7 +792,7 @@ and the titles-subjects relation is:
 <TT>   </TT>
 </PRE>
 <A NAME="09"></A>
-<H3>18.4.1  Join of Relations</H3>
+<H3>18.5.1  Join of Relations</H3>
 From the authors-titles relation <TT>AT</TT> and the titles-subjects
 relation <TT>TS</TT> we can compute an authors-subjects relation
  showing which author has written a title on which subject.
@@ -666,7 +819,7 @@ as tables of symbols rather than boxed strings.
 Finally we look at some performance comparisons.
 <p>
 A method is as follows.
-We consider all possible pairs consisting of a row
+We consider all possible pairs consisting of a row 
 <TT>at</TT> from table <TT>AT</TT> and a row <TT>ts</TT> from table <TT>TS</TT>.
 Each pair <TT>at,ts</TT> is of the form:
 <PRE>
@@ -674,18 +827,18 @@ Each pair <TT>at,ts</TT> is of the form:
 </PRE>
 If title matches title, that is, item 1 matches item 2,
 then we extract author and subject, that is, items 0 and 3.
-Verbs for testing and extracting from <TT>at,ts</TT> pairs
+Verbs for testing and extracting from <TT>at,ts</TT> pairs  
 can be written as:
 <PRE>
 <TT>   test =: 1&amp;{ =  2&amp;{</TT>
 <TT>   extr =: 0 3 &amp; {</TT>
 </PRE>
-and these verbs can be plugged into a suitable
+and these verbs can be plugged into a suitable 
 conjunction to do the pairing. In writing this conjunction,
 we aim to avoid requiring the whole set of possible pairs
 to be present at the same time, since this set may be large.
 We also aim to avoid any duplicates in the result.
-Here is a first attempt.
+Here is a first attempt. 
 <PRE>
 <TT>   PAIR =: 2 : 0</TT>
 <TT>:</TT>
@@ -698,7 +851,7 @@ Here is a first attempt.
 <TT>~. z</TT>
 <TT>)</TT>
 </PRE>
-The join verb can now be written as:
+The join verb can now be written as: 
 <PRE>
 <TT>   join =: test PAIR extr</TT>
 </PRE>
@@ -744,9 +897,9 @@ and we see:
 The <TT>join</TT> verb as defined above is slow, because
 the <TT>test</TT> and <TT>extr</TT> verbs are applied to a single <TT>x,y</TT> pair at
 a time - they are scalar computations.  Performance will
-be better if we can give these verbs as much data as
+be better if we can give these verbs as much data as 
 possible to work on at one time. (This is a universal rule in J).
-Vector
+Vector 
 or array arguments are better.  Here is a revised
 vector-oriented version of <TT>PAIR</TT> and <TT>join</TT>, which still
 avoids building the entire set of pairs.
@@ -796,19 +949,19 @@ giving the same result as before:
 <p>
 Representing relations as tables of boxed strings,
 as above, is less than efficient.
-For a repeated value, the entire string is repeated.
+For a repeated value, the entire string is repeated. 
 Values are compared by comparing entire strings.
 <p>
 Now we look at another possibility. Rather than boxed strings,
 a relation can be represented by a table of
  symbols.
 <A NAME="10"></A>
-<H3>18.4.2   What are Symbols?</H3>
+<H3>18.5.2   What are Symbols?</H3>
 Symbols are for efficient computation with string data.
 Symbols are a distinct data-type, in the same way
 that characters, boxes and numbers are distinct data-types.
 A symbol is a scalar which identifies, or refers to,
-a string.
+a string. 
 <p>
 A symbol can be created by applying the built-in verb
 <TT>s:</TT> (lowercase s colon) to a boxed string.
@@ -823,7 +976,7 @@ this value in the usual way:
 </PRE>
 and see that the value is displayed
 as the original string preceded by a left-quote.
-Even though <TT>a</TT> looks like a string when displayed,
+Even though <TT>a</TT> looks like a string when displayed, 
 it is a scalar.
 <p>
 <TABLE class=jtable>
@@ -837,12 +990,12 @@ it is a scalar.
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-The original string is stored in a data-structure,
-maintained automatically by the J system, called the
+The original string is stored in a data-structure, 
+maintained automatically by the J system, called the 
 symbol-table.
-Strings are not duplicated within the symbol-table.
+Strings are not duplicated within the symbol-table. 
 Hence  if another symbol <TT>b</TT> is created from the same string as <TT>a</TT>,
-then <TT>b</TT> is equal to <TT>a</TT>.
+then <TT>b</TT> is equal to <TT>a</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -858,7 +1011,7 @@ then <TT>b</TT> is equal to <TT>a</TT>.
 Notice that the comparison is simple scalar equality, with
 no need to compare the original strings.
 <p>
-Our relations above can be converted to arrays of
+Our relations above can be converted to arrays of 
 symbols, and joined as before.
 <p>
 <TABLE class=jtable>
@@ -901,8 +1054,8 @@ tables  of symbols can be sorted:
 `Smith `Pigs</TT></TD>
 </TABLE>
 <p>
-<H3>18.4.3  Measurements Compared</H3>
-Here is a utility verb giving time in seconds
+<H3>18.5.3  Measurements Compared</H3>
+Here is a utility verb giving time in seconds 
 to evaluate an expression,
 averaged over say 4 executions.
 <PRE>
@@ -925,35 +1078,35 @@ There are 4 cases to compare:
 <TT>   t3 =: time 'AT  vjoin TS'   NB. vector method, boxed strings</TT>
 <TT>   t4 =: time 'sAT vjoin sTS'  NB. vector method, symbols</TT>
 </PRE>
-and we see:
+and we see: 
 <PRE>
 <TT>   3 3 $ ' '; 'strings'; 'symbols';'scalar';t1;t2; 'vector';t3;t4</TT>
 <TT>+------+--------+--------+</TT>
 <TT>|      |strings |symbols |</TT>
 <TT>+------+--------+--------+</TT>
-<TT>|scalar| 1.78752| 0.04552|</TT>
+<TT>|scalar| 1.06800| 0.02214|</TT>
 <TT>+------+--------+--------+</TT>
-<TT>|vector| 0.02507| 0.00199|</TT>
+<TT>|vector| 0.01449| 0.00124|</TT>
 <TT>+------+--------+--------+</TT>
 </PRE>
-In <TT><A HREF="31.htm">Chapter 31</A></TT> we will return to the topic of performance in computing join of
+In <TT><A HREF="31.htm">Chapter 31</A></TT> we will return to the topic of performance in computing join of 
 relations.
 <A NAME="11"></A>
-<H3>18.4.4  Saving and Restoring the Symbol Table</H3>
+<H3>18.5.4  Saving and Restoring the Symbol Table</H3>
 Suppose that <TT>data</TT> is an array of symbols.
 <PRE>
 <TT>   ] data =: s: 2 2 $ 'hello'; 'blah';'blah';'goodbye'</TT>
 <TT>`hello `blah   </TT>
 <TT>`blah  `goodbye</TT>
 </PRE>
-For a symbol in <TT>data</TT> its original string (<TT>'hello'</TT> for example) is stored
+For a symbol in <TT>data</TT> its original string (<TT>'hello'</TT> for example) is stored 
 only in the symbol table, not in <TT>data</TT> itself.  The original string is needed
 to display the value of the symbol.
 <p>
 Suppose that we write <TT>data</TT> to a file, aiming to
-read it back in a new session. At the beginning of a
+read it back in a new session. At the beginning of a 
 new session, the symbol table is empty.
-Thus we must save the symbol table from the earlier
+Thus we must save the symbol table from the earlier 
 session, and reinstate it at the beginning of the new session.
 <p>
 First, here are two utility functions to save a value to a file
@@ -967,20 +1120,20 @@ Save the data to a file named, say, <TT>data.xyz</TT>
 <PRE>
 <TT>   data save 'data.xyz'</TT>
 </PRE>
-The symbol table is not itself a variable,
-but the expression <TT>0 s: 10</TT> gives a value for it.
+The symbol table is not itself a variable, 
+but the expression <TT>0 s: 10</TT> gives a value for it. 
 We save this value to a file named, say, <TT>symtab.xyz</TT>
 <PRE>
 <TT>   (0 s: 10) save 'symtab.xyz'</TT>
 </PRE>
-Start a new J session. The symbol table is initially empty, so begin by
+Start a new J session. The symbol table is initially empty, so begin by 
 reinstating it from the file saved in the earlier session:
 <PRE>
 <TT>   10 s: (retr 'symtab.xyz')</TT>
 <TT>1</TT>
 <TT>   </TT>
 </PRE>
-Now, with the correct symbol table in place,
+Now, with the correct symbol table in place, 
 we can retrieve the array of symbols <TT>data</TT> from its file:
 <PRE>
 <TT>   DATA =: retr 'data.xyz'</TT>
@@ -992,21 +1145,21 @@ and we see that the symbols are correctly interpreted:
 <TT>`blah  `goodbye</TT>
 </PRE>
 This is the end of Chapter 18
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="19.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 15 Dec 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="19.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 802 beta. 
+ This chapter last updated 12 Sep 2014<BR> 
+Copyright &copy; Roger Stokes 2014. 
+ This material may be freely reproduced, 
+provided that acknowledgement is made. 
+</FONT> 
  <!--bottom jump start--><hr><a href="19.htm">&gt;&gt;</a>&nbsp;
 <a href="17.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -1019,5 +1172,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

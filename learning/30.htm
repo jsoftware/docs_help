@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 30: Sparse Arrays</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 30: Sparse Arrays</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="31.htm">&gt;&gt;</a>&nbsp;
 <a href="29.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,24 +39,24 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 30: Sparse Arrays</H1>
 <H2>30.1  Introduction</H2>
 The sparse array facility of J allows a large array
-to be stored in the computer in a moderate amount of
+to be stored in the computer in a moderate amount of 
 memory  if many of the array's elements
-are all the same.  In this case a value which occurs many times
-need be stored only once.
+are all the same.  In this case a value which occurs many times 
+need be stored only once. 
 <p>
-For an example, sparse representation might be considered for
+For an example, sparse representation might be considered for 
 a connection matrix describing a network. In this chapter
 we will look at the J machinery for handling sparse arrays.<P>
 <A NAME="01"></A>
 <A NAME="02"></A>
-Suppose that <TT>D</TT> is a matrix with most of its elements
+Suppose that <TT>D</TT> is a matrix with most of its elements 
 the same:
 <PRE>
 <TT>   ] D =: 2 3 4 (2 2; 3 6; 4 4) } 16 16 $ 0</TT>
@@ -79,11 +79,11 @@ the same:
 <TT>   </TT>
 </PRE>
 This array can be stored in a compact form, called a "sparse array",
-where only its non-zero elements occupy storage.
+where only its non-zero elements occupy storage. 
 An ordinary array which is not sparse may be called a "dense" array.
 <p>
 There is a built-in function, <TT>$.</TT> (dollar dot)
-to compute a sparse array from a dense.
+to compute a sparse array from a dense. 
 <PRE>
 <TT>   S =: $. D</TT>
 </PRE>
@@ -104,9 +104,9 @@ gives the same result on indexing:
 <p>
 <H2>30.2  Sparse Array is Compact</H2>
 Compared to matrix <TT>D</TT>, matrix <TT>S</TT> is economical in storage because the value
-which occurs many times in <TT>D</TT> is stored only once in <TT>S</TT>.
+which occurs many times in <TT>D</TT> is stored only once in <TT>S</TT>.  
 This value is known as the "sparse element" of <TT>S</TT>, or the "zero" element
-of <TT>S</TT>.
+of <TT>S</TT>. 
 It happens to be <TT>0</TT> in the case of <TT>S</TT>, but need not be <TT>0</TT> always.
 <p>
 We can measure the size of the storage occupied by an array
@@ -149,8 +149,8 @@ For a sparse array, the possible types reported by 3!:0 are
 </TABLE>
 If we display <TT>S</TT> in the usual way , we see,  not the familiar representation of a matrix,
 but instead
-a list of index-value pairs, one pair for each (in this example)
-non-zero element.
+a list of index-value pairs, one pair for each (in this example) 
+non-zero element.   
 <PRE>
 <TT>   S </TT>
 <TT>2 2 | 2</TT>
@@ -159,7 +159,7 @@ non-zero element.
 <TT>   </TT>
 </PRE>
 This display does not show that the sparse element of <TT>S</TT> is in fact integer zero.
-To show this, we can extract the sparse element with the verb <TT>3 &amp; $.</TT> .
+To show this, we can extract the sparse element with the verb <TT>3 &amp; $.</TT> .  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -188,7 +188,7 @@ we see that <TT>T</TT> is sparse, and the sparse element of <TT>T</TT> is not ze
 <TD><TT>5</TT></TD>
 </TABLE>
 <p>
-Another way to view a sparse array
+Another way to view a sparse array 
 is simply to convert it to dense with <TT>0 &amp; $.</TT>
 <PRE>
 <TT>   view =: 0 &amp; $.   </TT>
@@ -222,7 +222,7 @@ is simply to convert it to dense with <TT>0 &amp; $.</TT>
 </TABLE>
 <p>
 <H2>30.4  Computing with Sparse Arrays</H2>
-Computations with sparse arrays are pretty much the same as
+Computations with sparse arrays are pretty much the same as 
 with dense arrays, except that they tend to produce sparse arrays
 as results. We saw this with <TT>S+5</TT> above.  Here is another example.
 Summing over <TT>T</TT> produces a vector of column-sums which is sparse
@@ -241,11 +241,11 @@ of <TT>T</TT>
 <TT>    </TT>
 </PRE>
 At the time of writing, there are still some limitations on what
-can be done with sparse arrays compared with dense arrays.
+can be done with sparse arrays compared with dense arrays. 
 See the Dictionary under <TT>$.</TT> for more information.
 <H2>30.5  Constructing A Sparse Array</H2>
-At this point it will be helpful to define a few terms.
-First note that, according to context,
+At this point it will be helpful to define a few terms.  
+First note that, according to context,  
 the numerals <TT>0</TT> or <TT>1</TT> or <TT>0.0</TT> or <TT>1.0</TT>
 could be valid as boolean or integer or real.  However
 in the absence of any context the J system takes them all to be in fact
@@ -306,10 +306,10 @@ It will be useful to define some values of unambiguous type.
 </TABLE>
 <p>
 Returning now to sparse arrays, the recommended method of constructing them
-is to begin by making an empty array of
-the required shape and type, but with no actual data.
+is to begin by making an empty array of 
+the required shape and type, but with no actual data. 
 <p>
-An empty array is built by evaluating the expression
+An empty array is built by evaluating the expression 
 <PRE>
 <TT>        1 $. shape;axes;zero</TT>
 </PRE>
@@ -317,28 +317,28 @@ where
 <UL>
   <LI>
    <TT>shape</TT> specifies the dimensions
-   <LI> <TT>axes</TT> specifies which of those dimensions will be sparse,
+   <LI> <TT>axes</TT> specifies which of those dimensions will be sparse,  
                as a list of axis-numbers.  For example,
-			   with 2 dimensions both sparse the
+			   with 2 dimensions both sparse the 
 			   list would be <TT>0 1</TT>   <p>
-   So far, in the examples
-   of sparse arrays, all axes have been sparse but we will see below
+   So far, in the examples 
+   of sparse arrays, all axes have been sparse but we will see below 
    mixed sparse and dense axes.
-     <LI> <TT>zero</TT> specifies the value of the "zero" element,
-	 and hence the type of the array as a whole.
+     <LI> <TT>zero</TT> specifies the value of the "zero" element, 
+	 and hence the type of the array as a whole.  
 	 An unambiguous value is evidently needed.
-</UL>
+</UL>   
 <p>
-If <TT>zero</TT> is omitted the default is <TT>REALZERO</TT>.
+If <TT>zero</TT> is omitted the default is <TT>REALZERO</TT>. 
 If both <TT>axes</TT> and <TT>zero</TT> are omitted, the default is all axes sparse
 and <TT>REALZERO</TT>.
 <p>
-So to build a 6 by 6 matrix, sparse in all dimensions (that is, on axis 0 and axis 1),
+So to build a 6 by 6 matrix, sparse in all dimensions (that is, on axis 0 and axis 1), 
 of type integer with "zero" element of 0 we can write:
 <PRE>
 <TT>   U =: 1 $. 6 6 ; 0 1; INTEGERZERO </TT>
 </PRE>
-At this point, <TT>U</TT> is empty, that is, all "zero",
+At this point, <TT>U</TT> is empty, that is, all "zero", 
 so displays as nothing:
 <PRE>
 <TT>   U</TT>
@@ -348,7 +348,7 @@ Populate it by inserting a few non-zero elements into it
 <TT>   U =: 4 5 6 7 ( 0 0 ; 1 1; 2 2; 3 3) } U</TT>
 <TT>   </TT>
 </PRE>
-and check that <TT>U</TT> is what we expect by viewing it:
+and check that <TT>U</TT> is what we expect by viewing it: 
 <PRE>
 <TT>   view U</TT>
 <TT>4 0 0 0 0 0</TT>
@@ -415,7 +415,7 @@ but we see it is stored as three dense colums.
 As we noted above, if we display <TT>U</TT> itself, we see,  not the familiar representation of a matrix,
 but instead
 a list of index-value pairs, one pair for each non-zero
-element.
+element.   
 <PRE>
 <TT>   U</TT>
 <TT>0 0 | 4</TT>
@@ -423,7 +423,7 @@ element.
 <TT>2 2 | 6</TT>
 <TT>3 3 | 7</TT>
 </PRE>
-We can extract the index from each pair  to get what is
+We can extract the index from each pair  to get what is 
 called the index-matrix of <TT>U</TT>.  This is an ordinary dense array
 <PRE>
 <TT>   4 $. U</TT>
@@ -437,7 +437,7 @@ To extract the value from each pair
 <TT>    5 $. U</TT>
 <TT>4 5 6 7</TT>
 </PRE>
-As we noted above, <TT>0 &amp; $.</TT> will produce a dense array
+As we noted above, <TT>0 &amp; $.</TT> will produce a dense array 
 from a sparse:
 <PRE>
 <TT>   0 $. U</TT>
@@ -452,15 +452,15 @@ from a sparse:
 <TT>   </TT>
 </PRE>
 <H2>30.8  Sparse Array From Relation</H2>
-Next we look at representing data as a sparse array
+Next we look at representing data as a sparse array 
 as an alternative to representing data as a relation (that is,
- a table).
+ a table). 
 <p>
-The point is that the sparse array may be more convenient
+The point is that the sparse array may be more convenient 
 than the relation for some computations with the data.
 Thus we are interested in converting between sparse arrays and relations.
 <p>
-For example, suppose that  a given relation <TT>R</TT> represents
+For example, suppose that  a given relation <TT>R</TT> represents 
 sales of various commodities in various cities
 <PRE>
 <TT>   'Pa Qu Ro Sy' =: s: ' Paris Quebec Rome Sydney'</TT>
@@ -524,7 +524,7 @@ and the values from the third
 </PRE>
 Now we build an empty sparse array of dimensions <TT>#Fru</TT> by <TT>#Cit</TT> .
 By default the sparse axes will be 0 and 1 and the "zero" element will be <TT>REALZERO</TT> .
-The function <TT> 1&amp;$. </TT> produces the empty array.
+The function <TT> 1&amp;$. </TT> produces the empty array. 
 <PRE>
 <TT>   A =: (1 &amp; $.) (#Fru) , (#Cit)</TT>
 </PRE>
@@ -542,7 +542,7 @@ and check we have what we expect:
 <TT>88  0  0 110</TT>
 <TT>   </TT>
 </PRE>
-To display <TT>A</TT>  with labelling of rows and columns,
+To display <TT>A</TT>  with labelling of rows and columns, 
 the list of row-labels is <TT>Fru</TT> computed above,
 and the list  of column-labels is <TT>Cit</TT> :
 <PRE>
@@ -560,8 +560,8 @@ and the list  of column-labels is <TT>Cit</TT> :
 <TT>+---------+------+-------+-----+-------+</TT>
 <TT>   </TT>
 </PRE>
-Now we have finished producing the sparse array
-from the original relation, so we can can compute with our
+Now we have finished producing the sparse array 
+from the original relation, so we can can compute with our 
 data as an array.
 <p>
 For example, total value of sales for each city is given by:
@@ -580,7 +580,7 @@ This is sparse, so taking the usual view :
 <TT>   	</TT>
 </PRE>
 <H2>30.9  Relation from Sparse Array</H2>
-To complete the circle, we look next at how
+To complete the circle, we look next at how 
 to produce a relation from a sparse array,  <TT>A</TT> for example.
 <PRE>
 <TT>   A</TT>
@@ -606,9 +606,9 @@ and next the values.
 <TT>   ] VALS =: 5 $. A  </TT>
 <TT>99 50 10 19 88 110</TT>
 </PRE>
-The first column of the relation we produce by indexing
-the domain <TT>Fru</TT> which we computed above.
-The second column is produced similarly from <TT>Cit</TT>.
+The first column of the relation we produce by indexing 
+the domain <TT>Fru</TT> which we computed above.  
+The second column is produced similarly from <TT>Cit</TT>. 
 <PRE>
 <TT>   ] c0 =: (0 { |: INDS) { Fru</TT>
 <TT>`Apples `Apples `Bananas `Cherries `Damsons `Damsons</TT>
@@ -634,21 +634,21 @@ So finally we see that the relation recovered from the sparse array is
 <TT>+---------+-------+---+</TT>
 </PRE>
 This is the end of Chapter 30
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="31.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 21 Mar 2013<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="31.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 21 Mar 2013<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="31.htm">&gt;&gt;</a>&nbsp;
 <a href="29.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -661,5 +661,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

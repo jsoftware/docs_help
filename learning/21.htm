@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 21: Factors and Polynomials</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 21: Factors and Polynomials</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="22.htm">&gt;&gt;</a>&nbsp;
 <a href="20.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,10 +39,10 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 21: Factors and Polynomials</H1>
 In this chapter we look at the built-in functions:
 <UL>
@@ -72,8 +72,8 @@ computes the prime factors of a given number.
 <p>
 The number <TT>0</TT> is not in the domain
 of <TT>q:</TT> The number <TT>1</TT> is in the domain of <TT>q:</TT>,
-but is regarded as having no factors, that is,
-its list of factors is empty.
+but is regarded as having no factors, that is, 
+its list of factors is empty. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -86,7 +86,7 @@ its list of factors is empty.
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-For a large number (greater than about <TT>2^53</TT>), its value
+For a large number (greater than about <TT>2^53</TT>), its value 
 should be specified as an extended integer
 to ensure all its significant digits are supplied to <TT>q:</TT> ..
 <PRE>
@@ -96,9 +96,9 @@ to ensure all its significant digits are supplied to <TT>q:</TT> ..
 </PRE>
 <A NAME="02"></A>
 A prime number is the one and only
-member of its list of factors.
-Hence a test for primality
-can readily be written as the hook:
+member of its list of factors. 
+Hence a test for primality 
+can readily be written as the hook:  
 member-of-its-factors
 <p>
 <TABLE class=jtable>
@@ -116,7 +116,7 @@ member-of-its-factors
 <p>
 Any positive integer can be written
 as the product of powers of successive primes. Some of the powers will
-be zero. For example we have:
+be zero. For example we have: 
 <PRE>
 <TT>     9  =  (2^0) * (3^2) * (5^0)  * (7^0) </TT>
 <TT>1</TT>
@@ -169,7 +169,7 @@ For example <TT>(p: 17)</TT> is the 18th prime.
 <p>
 On my computer the largest
 prime which can be so generated is between <TT>p: 2^26</TT>
-and <TT>p: 2^27</TT>.
+and <TT>p: 2^27</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -223,7 +223,7 @@ can be written in J in the form <TT>+/ C * x ^ i. # C</TT>
 </TABLE>
 <p>
 The dyadic verb <TT>p.</TT> allows us to abbreviate
-this expression to <TT>C p. x</TT>,
+this expression to <TT>C p. x</TT>, 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -256,7 +256,7 @@ efficient to evaluate and (as we will see) easy to differentiate.
 <H3>21.2.2  Roots</H3>
 Given a list of coefficients <TT>C</TT>, we can compute
 the roots of the polynomial function <TT>C&amp;p.</TT> by applying
-monadic <TT>p.</TT> to <TT>C</TT>.
+monadic <TT>p.</TT> to <TT>C</TT>. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -291,12 +291,12 @@ each root in <TT>R</TT> gives zero.
 </TABLE>
 <p>
 The significance of the multiplier <TT>M</TT>
-is as follows. If we write <TT>r,s,t...</TT> for the
-list of roots <TT>R</TT>,
+is as follows. If we write <TT>r,s,t...</TT> for the 
+list of roots <TT>R</TT>,  
 <PRE>
 <TT>   'r s' =: R</TT>
 </PRE>
-then <TT>M</TT> is such that the polynomial <TT>C p. x</TT>
+then <TT>M</TT> is such that the polynomial <TT>C p. x</TT> 
 can be written equivalently  as
 <PRE>
 <TT>   M * (x-r)*(x-s)</TT>
@@ -330,8 +330,8 @@ can be a list of coefficents, with the scheme
 <PRE>
 <TT>          C p. x   is   +/ C * x ^ i. # C</TT>
 </PRE>
-The left argument of <TT>p.</TT> can also be
-of the form <TT>multiplier;list-of-roots</TT>.
+The left argument of <TT>p.</TT> can also be 
+of the form <TT>multiplier;list-of-roots</TT>. 
 In this way we can generate a polynomial
 function with specified roots. Suppose the roots are to be <TT>2 3</TT>
 <p>
@@ -348,8 +348,8 @@ The scheme is that
 <PRE>
 <TT>          (M;R) p. x   means   M * */ x - R </TT>
 </PRE>
-When <TT>M;R</TT> is <TT>p. C</TT> then we expect <TT>(M;R) p. x </TT> to be
-the same as <TT>C p. x</TT>
+When <TT>M;R</TT> is <TT>p. C</TT> then we expect <TT>(M;R) p. x </TT> to be 
+the same as <TT>C p. x</TT> 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -372,11 +372,11 @@ Where there are many zero coefficients in a polynomial,
 it may be more convenient to write functions in the
 "multinomial" form, that is, omitting terms
 with zero coefficents and instead specifying
-a list of coefficient-exponent pairs.
+a list of coefficient-exponent pairs. 
 Here is an example. With the polynomial <TT>_1 0 1 &amp; p.</TT>,
-the nonzero coefficents are the first and third, <TT>_1 1</TT>,
+the nonzero coefficents are the first and third, <TT>_1 1</TT>, 
  and the corresponding
-exponents are <TT>0 2</TT>. We form the pairs thus:
+exponents are <TT>0 2</TT>. We form the pairs thus: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -437,21 +437,21 @@ We see
 </TABLE>
 <p>
 This is the end of Chapter 21.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="22.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="22.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 29 Jul 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="22.htm">&gt;&gt;</a>&nbsp;
 <a href="20.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -464,5 +464,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

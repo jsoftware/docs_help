@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 5: Building Arrays</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 5: Building Arrays</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="06.htm">&gt;&gt;</a>&nbsp;
 <a href="04.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,12 +39,12 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 5: Building Arrays</H1>
-This chapter is about  building arrays.  First we look at building arrays from
+This chapter is about  building arrays.  First we look at building arrays from 
 lists, and then at joining arrays together in various ways to make larger arrays.
 <p>
 <p>
@@ -56,7 +56,7 @@ a list of numbers are the numbers. The items of a table are its rows.
 The items of a 3-dimensional array are its planes.
 <p>
 Recall also that <TT>x $ y</TT> produces an array of the items of the list <TT>y</TT>,
- with shape <TT>x</TT>, that is,
+ with shape <TT>x</TT>, that is, 
 with dimensions given by the list <TT>x</TT>. For example:
 <p>
 <TABLE class=jtable>
@@ -70,10 +70,10 @@ with dimensions given by the list <TT>x</TT>. For example:
 DEF</TT></TD>
 </TABLE>
 <p>
-If the list <TT>y</TT> contains fewer than the number of items needed, then
-<TT>y</TT> is re-used in cyclical fashion to make up the number of items needed.
-This means that
-an array can be built to show some simple patterning, such as all elements being the same, for example.
+If the list <TT>y</TT> contains fewer than the number of items needed, then 
+<TT>y</TT> is re-used in cyclical fashion to make up the number of items needed. 
+This means that 
+an array can be built to show some simple patterning, such as all elements being the same, for example. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -91,9 +91,9 @@ DAB</TT></TD>
 </TABLE>
 <p>
 <A NAME="02"></A>
-The "Shape" verb, dyadic <TT>$</TT>,
-has a companion verb, "ShapeOf" (monadic <TT>$</TT>), which yields the list-of-dimensions, that is, shape, of its argument.
-To illustrate:
+The "Shape" verb, dyadic <TT>$</TT>, 
+has a companion verb, "ShapeOf" (monadic <TT>$</TT>), which yields the list-of-dimensions, that is, shape, of its argument. 
+To illustrate: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -128,7 +128,7 @@ DEF</TT></TD>
 </TABLE>
 <p>
 <H3>5.1.2  Empty Arrays</H3>
-An array can be of length zero in any of its dimensions.
+An array can be of length zero in any of its dimensions. 
 A zero length, or empty, list can be built by writing <TT>0</TT> for its list of dimensions,
 and any value (doesn't matter what) for the value of the item(s).
 <p>
@@ -156,7 +156,7 @@ If <TT>E</TT> is empty, then it has no items, and so, after appending an item to
 <TD><TT>1</TT></TD>
 </TABLE>
 <p>
-Similarly, if <TT>ET</TT> is an empty table with no rows, and say, 3 columns, then
+Similarly, if <TT>ET</TT> is an empty table with no rows, and say, 3 columns, then  
 after adding a row, the result will have one row.
 <p>
 <TABLE class=jtable>
@@ -171,8 +171,8 @@ after adding a row, the result will have one row.
 </TABLE>
 <p>
 <H3>5.1.3  Building a Scalar</H3>
-Suppose we need to build a scalar.
-A scalar has no dimensions, that is, its dimension-list is empty.
+Suppose we need to build a scalar. 
+A scalar has no dimensions, that is, its dimension-list is empty.  
 We can give an empty list as the  left argument of <TT>$</TT> to make a scalar:
 <p>
 <TABLE class=jtable>
@@ -187,13 +187,13 @@ We can give an empty list as the  left argument of <TT>$</TT> to make a scalar:
 </TABLE>
 <p>
 <H3>5.1.4  Shape More Generally</H3>
-We said that <TT>(x $ y)</TT> produces an <TT>x</TT>-shaped array of the items of <TT>y</TT>.
-That is, in general the shape of <TT>(x$y)</TT> will be not just <TT>x</TT>,
+We said that <TT>(x $ y)</TT> produces an <TT>x</TT>-shaped array of the items of <TT>y</TT>. 
+That is, in general the shape of <TT>(x$y)</TT> will be not just <TT>x</TT>, 
 but rather <TT>x</TT> followed by the shape of an item of <TT>y</TT>.
 <p>
-If <TT>y</TT> is a table, then an item of <TT>y</TT> is a row, that is, a list.
-In the following example, the shape of an item of <TT>Y</TT>
-is the length of a row of <TT>Y</TT>, which is <TT>4</TT> .
+If <TT>y</TT> is a table, then an item of <TT>y</TT> is a row, that is, a list. 
+In the following example, the shape of an item of <TT>Y</TT> 
+is the length of a row of <TT>Y</TT>, which is <TT>4</TT> . 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -214,9 +214,9 @@ AAAA</TT></TD>
 The next sections look at building new arrays by joining together arrays we already have.
 <A NAME="03"></A>
 <H2>5.2  Appending, or Joining End-to-End</H2>
-Recall that any array can be regarded as a list of items,
-so that for example the items of a table are its rows.
-The verb , (comma) is called "Append".
+Recall that any array can be regarded as a list of items, 
+so that for example the items of a table are its rows.  
+The verb , (comma) is called "Append". 
 The expression <TT>(x,y)</TT> is a list of the items of <TT>x</TT> followed by the items of <TT>y</TT>.
 <PRE>
 <TT>   B =: 2 3 $ 'UVWXYZ'</TT>
@@ -246,16 +246,16 @@ UVW<BR>
 XYZ</TT></TD>
 </TABLE>
 <p>
-In the example of <TT>(A,B)</TT> above. the items of <TT>A</TT> are lists of length 3,
-and so are the items of <TT>B</TT>. Hence items of <TT>A</TT> are compatible with, that is,
-have the same rank and length as items of <TT>B</TT>.  What if they do not?
-In this case the "Append" verb will helpfully try to stretch one argument to fit the other,
-by bringing them to the same rank, padding to length, and replicating scalars as necessary.
+In the example of <TT>(A,B)</TT> above. the items of <TT>A</TT> are lists of length 3, 
+and so are the items of <TT>B</TT>. Hence items of <TT>A</TT> are compatible with, that is, 
+have the same rank and length as items of <TT>B</TT>.  What if they do not?  
+In this case the "Append" verb will helpfully try to stretch one argument to fit the other, 
+by bringing them to the same rank, padding to length, and replicating scalars as necessary. 
 This is shown the following examples.
 <H3>5.2.1  Bringing To Same Rank</H3>
-Suppose we want to append a row to a table.
+Suppose we want to append a row to a table. 
 For example, consider appending the 3-character list <TT>b</TT> (above) to the 2 by 3 table <TT>A</TT>
-(above) to form a new row.
+(above) to form a new row. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -271,11 +271,11 @@ DEF<BR>
 uvw</TT></TD>
 </TABLE>
 <p>
-Notice that we want the two items of <TT>A</TT> to be followed by the single item of <TT>b</TT>,
-but <TT>b</TT> is not a 1-item  affair.
+Notice that we want the two items of <TT>A</TT> to be followed by the single item of <TT>b</TT>, 
+but <TT>b</TT> is not a 1-item  affair.  
 We could do it by reshaping <TT>b</TT> into a 1 by 3 table, that is, by raising the rank of <TT>b</TT>.
 However, this is not necessary, because, as we see, the "Append" verb has automatically
- stretched the low-rank argument into a 1-item array, by supplying leading dimension(s) of 1 as necessary.
+ stretched the low-rank argument into a 1-item array, by supplying leading dimension(s) of 1 as necessary. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -300,8 +300,8 @@ DEF</TT></TD>
 </TABLE>
 <p>
 <H3>5.2.2  Padding To Length</H3>
-When the items of one argument are shorter than the items of the other, they will be padded out to length.
- Characters arrays are padded with the blank character, numerical arrays with zero.
+When the items of one argument are shorter than the items of the other, they will be padded out to length. 
+ Characters arrays are padded with the blank character, numerical arrays with zero. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -320,8 +320,8 @@ XY</TT></TD>
 </TABLE>
 <p>
 <H3>5.2.3  Replicating Scalars</H3>
-A scalar argument of "Append" is replicated as necessary to match the other argument.
- In the following example, notice how the scalar <TT>'*'</TT> is replicated, but the vector <TT>(1 $ '*')</TT> is padded.
+A scalar argument of "Append" is replicated as necessary to match the other argument.   
+ In the following example, notice how the scalar <TT>'*'</TT> is replicated, but the vector <TT>(1 $ '*')</TT> is padded. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -341,7 +341,7 @@ DEF<BR>
 <p>
 <A NAME="04"></A>
 <H2>5.3  Stitching, or Joining Side-to-Side</H2>
-The dyadic verb <TT>,.</TT> (comma dot) is called "Stitch".
+The dyadic verb <TT>,.</TT> (comma dot) is called "Stitch". 
 In the expression <TT>(x ,. y)</TT> each item of <TT>x</TT> has the corresponding item of <TT>y</TT> appended to produce an item of the result.
 <p>
 <TABLE class=jtable>
@@ -369,7 +369,7 @@ DEFXYZ</TT></TD>
 <A NAME="05"></A>
 <H2>5.4  Laminating, or Joining Face-to-Face</H2>
 The verb <TT>,:</TT> (comma colon) is called "Laminate".  The result of <TT>(x ,: y)</TT>
-is always an array with
+is always an array with 
 two items, of which the first is <TT>x</TT> and the second is <TT>y</TT>
 <p>
 <TABLE class=jtable>
@@ -384,7 +384,7 @@ two items, of which the first is <TT>x</TT> and the second is <TT>y</TT>
 uvw</TT></TD>
 </TABLE>
 <p>
-If <TT>x</TT> and <TT>y</TT> are tables, then we can imagine the result as one table laid on top of the other to
+If <TT>x</TT> and <TT>y</TT> are tables, then we can imagine the result as one table laid on top of the other to 
 form a 3-dimensional array, of length 2 along its first dimension.
 <p>
 <TABLE class=jtable>
@@ -423,9 +423,9 @@ The verb ; (semicolon) is called "Link".  It is  convenient for building lists o
 +-+--+----+</TT></TD>
 </TABLE>
 <p>
-Notice how the example of <TT>5;12;1995</TT> shows that <TT>(x;y)</TT> is not invariably
+Notice how the example of <TT>5;12;1995</TT> shows that <TT>(x;y)</TT> is not invariably 
 just <TT>(< x),(< y)</TT> .
-Since "Link" is intended for building lists of boxes, it recognises when its right argument is
+Since "Link" is intended for building lists of boxes, it recognises when its right argument is 
 already a list of boxes.  If we define a verb which does produce <TT>(< x),(< y)</TT>
 <PRE>
 <TT>   foo =: 4 : '(< x) , (< y)'</TT>
@@ -493,7 +493,7 @@ Monadic <TT>,</TT> is called "Ravel". It assembles elements of the argument into
 <p>
 <A NAME="10"></A>
 <H3>5.6.3  Ravelling Items</H3>
-Monadic <TT>,.</TT> is called "Ravel Items". It separately ravels each item of the argument to form a table.
+Monadic <TT>,.</TT> is called "Ravel Items". It separately ravels each item of the argument to form a table. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -509,7 +509,7 @@ Monadic <TT>,.</TT> is called "Ravel Items". It separately ravels each item of t
 6 7 8 9 10 11</TT></TD>
 </TABLE>
 <p>
-"Ravel Items" is useful for making a 1-column table out of a list.
+"Ravel Items" is useful for making a 1-column table out of a list. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -548,9 +548,9 @@ As we have seen, an array can be built with the <TT>$</TT> verb.
 <TT>3 4</TT>
 <TT>5 6</TT>
 </PRE>
-For small arrays, where the contents can be listed on a single line,
-there are alternatives to using <TT>$</TT>,
-which avoid the need to give the dimensions explicitly.
+For small arrays, where the contents can be listed on a single line, 
+there are alternatives to using <TT>$</TT>, 
+which avoid the need to give the dimensions explicitly. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -567,13 +567,13 @@ which avoid the need to give the dimensions explicitly.
 <p>
 <A NAME="13"></A>
 To build large tables, a convenient method is as follows.
-First, here is a "utility" verb
+First, here is a "utility" verb 
 (that is, a verb which is useful for present purposes,
 but we don't need to study its definition now.)
 <PRE>
 <TT>   ArrayMaker =: ". ;. _2</TT>
 </PRE>
-The purpose of <TT>ArrayMaker</TT> is to build a numeric table row by row from
+The purpose of <TT>ArrayMaker</TT> is to build a numeric table row by row from 
  the lines of a script.
 <PRE>
 <TT>   table =: ArrayMaker 0 : 0</TT>
@@ -617,21 +617,21 @@ Arrays of boxes can also be entered from a script in the same way:
 </TABLE>
 <p>
 We have reached the end of Chapter 5.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="06.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="06.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 29 Jul 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="06.htm">&gt;&gt;</a>&nbsp;
 <a href="04.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -644,5 +644,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

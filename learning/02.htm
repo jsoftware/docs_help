@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 2: Lists and Tables</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 2: Lists and Tables</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="03.htm">&gt;&gt;</a>&nbsp;
 <a href="01.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,14 +39,14 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <H1>Chapter 2: Lists and Tables</H1>
-Computations need data. So far we have seen data only as single numbers
+Computations need data. So far we have seen data only as single numbers 
 or lists of numbers.
-We can have other things by way of data, such as tables for example.
+We can have other things by way of data, such as tables for example. 
 Things like
 lists and tables are called "arrays".
 <A NAME="01"></A>
@@ -59,17 +59,17 @@ A table with, say, 2 rows and 3 columns can be built with the <TT>$</TT> functio
 <TT>5 6  7</TT>
 <TT>8 9 10</TT>
 </PRE>
-The scheme here is that the expression <TT>(x $ y)</TT> builds a table.
+The scheme here is that the expression <TT>(x $ y)</TT> builds a table. 
 The dimensions of the
-table are given by the list <TT>x</TT> which is of the form
+table are given by the list <TT>x</TT> which is of the form 
 number-of-rows followed by number-of-columns. The elements of the table
 are supplied by the list <TT>y</TT>.
 <p>
-Items from <TT>y</TT> are taken in order, so as to fill the first row, then the
+Items from <TT>y</TT> are taken in order, so as to fill the first row, then the 
 second,
 and so on. The list <TT>y</TT> must contain at least one item. If there are
-too few items in <TT>y</TT> to fill the whole table, then <TT>y</TT> is re-used from the
-beginning.
+too few items in <TT>y</TT> to fill the whole table, then <TT>y</TT> is re-used from the 
+beginning. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -85,7 +85,7 @@ beginning.
 The <TT>$</TT> function offers one way to build tables, but there
 are many more ways: see <A HREF="05.htm">Chapter 05</A>.
 <p>
-Functions can be applied to whole tables exactly as we saw earlier for
+Functions can be applied to whole tables exactly as we saw earlier for 
 lists:
 <p>
 <TABLE class=jtable>
@@ -117,20 +117,20 @@ One argument can be a table and one a list:
 <p>
 In this last example, evidently the items of the list <TT>0 1</TT> are
  automatically matched against
-the rows of the table,
-<TT>0</TT> matching the first row and <TT>1</TT> the second.
-Other patterns of matching the arguments against each other are also
-possible
+the rows of the table, 
+<TT>0</TT> matching the first row and <TT>1</TT> the second.  
+Other patterns of matching the arguments against each other are also 
+possible 
 - see <A HREF="07.htm">Chapter 07</A>.
 <A NAME="03"></A>
 <H2>2.2  Arrays</H2>
 A table is said to have two dimensions (namely, rows and columns)
-and in this sense a list can be said to have only one dimension.
+and in this sense a list can be said to have only one dimension.  
 <p>
-We can have table-like data objects with more than two dimensions.
+We can have table-like data objects with more than two dimensions. 
 The left argument
-of the <TT>$</TT> function can be a list of any number of dimensions.
-The word "array" is used as the general name for a data object
+of the <TT>$</TT> function can be a list of any number of dimensions. 
+The word "array" is used as the general name for a data object 
 with some number of dimensions. Here are some arrays with one,
 two and three dimensions:
 <p>
@@ -151,9 +151,9 @@ two and three dimensions:
 </TABLE>
 <p>
 The 3-dimensional array in the last example is said to have 2 planes,
-2 rows and 3 columns and the two planes are displayed one below the other.
+2 rows and 3 columns and the two planes are displayed one below the other. 
 <p>
-Recall that the monadic function <TT>#</TT> gives the length of a list.
+Recall that the monadic function <TT>#</TT> gives the length of a list. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -182,7 +182,7 @@ The monadic function <TT>$</TT> gives the list-of-dimensions of its argument:
 </TABLE>
 <p>
 Hence, if <TT>x</TT> is an array, the expression <TT>(# $ x)</TT> yields the
-length of the list-of-dimensions of <TT>x</TT>, that is, the dimension-count of
+length of the list-of-dimensions of <TT>x</TT>, that is, the dimension-count of 
 <TT>x</TT>, which is
 <TT>1</TT> for a list, <TT>2</TT> for a table and so on.
 <p>
@@ -204,27 +204,27 @@ length of the list-of-dimensions of <TT>x</TT>, that is, the dimension-count of
 <TD><TT>2</TT></TD>
 </TABLE>
 <p>
-If we take <TT>x</TT> to be a single number, then the expression <TT>(# $ x)</TT> gives
-zero.
+If we take <TT>x</TT> to be a single number, then the expression <TT>(# $ x)</TT> gives 
+zero. 
 <PRE>
 <TT>   # $ 17</TT>
 <TT>0</TT>
 </PRE>
-We interpret this to mean that, while a table has two dimensions, and a
-list has one,
-a single number has none, because its dimension-count is zero.
-A data object with a dimension-count of zero will be called a scalar.
-We said that "arrays" are data objects with some number of dimensions,
-and so scalars are also arrays, the number of dimensions being zero in
+We interpret this to mean that, while a table has two dimensions, and a 
+list has one, 
+a single number has none, because its dimension-count is zero. 
+A data object with a dimension-count of zero will be called a scalar.  
+We said that "arrays" are data objects with some number of dimensions, 
+and so scalars are also arrays, the number of dimensions being zero in 
 this case.
 <p>
-We saw that <TT>(# $ 17)</TT> is <TT>0</TT>. We can also conclude from this that, since
+We saw that <TT>(# $ 17)</TT> is <TT>0</TT>. We can also conclude from this that, since 
 a scalar has no dimensions,
-its list-of-dimensions (given here by <TT>$ 17</TT>) must be a zero-length, or
+its list-of-dimensions (given here by <TT>$ 17</TT>) must be a zero-length, or 
 empty, list.
-Now a list of length 2, say can be generated by an expression such as
+Now a list of length 2, say can be generated by an expression such as 
 <TT>2 $ 99</TT>
-and so an empty list, of length zero, can be generated by <TT>0 $ 99</TT>
+and so an empty list, of length zero, can be generated by <TT>0 $ 99</TT> 
 (or indeed, <TT>0 $</TT> any number)
 <p>
 The value of an empty list is displayed as nothing:
@@ -242,7 +242,7 @@ The value of an empty list is displayed as nothing:
 <p>
 Notice that a scalar, (<TT>17</TT> say), is not the same thing as a list of
  length one (e.g. <TT>1 $ 17</TT>), or a table with one row and one column
-(e.g. <TT>1 1 $ 17</TT>). The scalar has no dimensions, the list has one,
+(e.g. <TT>1 1 $ 17</TT>). The scalar has no dimensions, the list has one, 
 the table has two, but
 all three look the same when displayed on the screen:
 <PRE>
@@ -268,7 +268,7 @@ all three look the same when displayed on the screen:
 <TD><TT>2</TT></TD>
 </TABLE>
 <p>
-A table may have only one column, and yet still be a
+A table may have only one column, and yet still be a 
 2-dimensional table. Here <TT>t</TT> has 3 rows and 1 column.
 <p>
 <TABLE class=jtable>
@@ -287,18 +287,18 @@ A table may have only one column, and yet still be a
 <A NAME="05"></A>
 <A NAME="06"></A>
 <H2>2.3  Terminology: Rank and Shape</H2>
-The property we called "dimension-count" is in J called by the shorter
+The property we called "dimension-count" is in J called by the shorter 
 name of
 of "rank", so a single number is a said to be a rank-0 array,
-a list of numbers a rank-1 array and so on.  The list-of-dimensions of an
+a list of numbers a rank-1 array and so on.  The list-of-dimensions of an 
 array is called its "shape".
 <p>
-The mathematical terms "vector" and "matrix" correspond to what we have
-called
-"lists" and "tables" (of numbers).  An array with 3 or more dimensions (or,
+The mathematical terms "vector" and "matrix" correspond to what we have 
+called 
+"lists" and "tables" (of numbers).  An array with 3 or more dimensions (or, 
 as we now say, an array of rank 3 or higher) will be called a "report".
 <p>
-A summary of terms and functions for describing arrays is shown in the
+A summary of terms and functions for describing arrays is shown in the 
 following table.
 <PRE>
 <TT>+--------+--------+-----------+------+</TT>
@@ -321,27 +321,27 @@ following table.
 <TT>+--------+--------+-----------+------+</TT>
 <TT>   </TT>
 </PRE>
-This table above was in fact produced by a small J program,
-and is a genuine "table", of the kind we have just
+This table above was in fact produced by a small J program, 
+and is a genuine "table", of the kind we have just 
 been discussing. Its shape is <TT>6 4</TT>.
 However, it is evidently not just a table of
-numbers, since it contains words, list of numbers
-and so on.
+numbers, since it contains words, list of numbers 
+and so on. 
 We now look at arrays of things other than numbers.
 <A NAME="07"></A>
 <H2>2.4  Arrays of Characters</H2>
-Characters are letters of the alphabet, punctuation, numeric digits and so
+Characters are letters of the alphabet, punctuation, numeric digits and so 
 on. We can have
-arrays of characters just as we have arrays of numbers.
-A list of characters is entered between single quotes, but is displayed
-without the quotes.
+arrays of characters just as we have arrays of numbers. 
+A list of characters is entered between single quotes, but is displayed 
+without the quotes.  
 For example:
 <PRE>
 <TT>   title =: 'My Ten Years in a Quandary'</TT>
 <TT>   title</TT>
 <TT>My Ten Years in a Quandary</TT>
 </PRE>
-A list of characters is called a character-string, or just a string.  A
+A list of characters is called a character-string, or just a string.  A 
 single quote
 in a string is entered as two successive single quotes.
 <PRE>
@@ -361,14 +361,14 @@ quotes, and displays as nothing.
 </TABLE>
 <p>
 <H2>2.5  Some Functions for Arrays</H2>
-At this point it will be useful
-to look at some functions for dealing
+At this point it will be useful 
+to look at some functions for dealing 
 with arrays.
 J is very rich in such functions: here we look at a just a few.
 <A NAME="08"></A>
 <A NAME="09"></A>
 <H3>2.5.1  Joining</H3>
-The built-in function <TT>,</TT> (comma) is called "Append". It joins things
+The built-in function <TT>,</TT> (comma) is called "Append". It joins things 
 together to make lists.
 <p>
 <TABLE class=jtable>
@@ -399,7 +399,7 @@ The "Append" function joins lists or single items.
 <TD><TT>1 2 3 1 2 3</TT></TD>
 </TABLE>
 <p>
-The "Append" function can take two tables and join them together
+The "Append" function can take two tables and join them together 
 end-to-end to form a longer table:
 <p>
 <TABLE class=jtable>
@@ -424,11 +424,11 @@ For more information about "Append", see <A HREF="05.htm">Chapter 05</A>.
 <H3>2.5.2  Items</H3>
 The items of a list of numbers are the individual numbers, and
 we will say that the items of a table are its rows.
-The items of a 3-dimensional array are its planes.
+The items of a 3-dimensional array are its planes. 
 In general we will say that the items of an array are the things which
 appear in sequence along its first dimension. An array is the list of its items.
 <p>
-Recall the built-in verb <TT>#</TT> ("Tally") which gives the length of a list.
+Recall the built-in function <TT>#</TT> ("Tally") which gives the length of a list.
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -478,8 +478,8 @@ rat<BR>
 pig</TT></TD>
 </TABLE>
 <p>
-Now we can say that in general <TT>(x , y)</TT> is a list
-consisting of the
+Now we can say that in general <TT>(x , y)</TT> is a list 
+consisting of the 
 items of <TT>x</TT> followed by the items of <TT>y</TT>.
 <p>
 For another example of the usefulness of "items", recall the verb <TT>+/</TT> where <TT>+</TT>
@@ -494,7 +494,7 @@ is inserted between items  of a list.
 <TD><TT>6</TT></TD>
 </TABLE>
 <p>
-Now we can say that in general <TT>+/</TT> inserts <TT>+</TT> between items of an array.
+Now we can say that in general <TT>+/</TT> inserts <TT>+</TT> between items of an array. 
 In the next example the items are the rows:
 <p>
 <TABLE class=jtable>
@@ -514,9 +514,9 @@ In the next example the items are the rows:
 <A NAME="13"></A>
 <H3>2.5.3  Selecting</H3>
 Now we look at selecting items from a list.
-Positions in a list are numbered <TT>0, 1, 2</TT> and so on. The first item
+Positions in a list are numbered <TT>0, 1, 2</TT> and so on. The first item 
 occupies
-position <TT>0</TT>.
+position <TT>0</TT>. 
 To select an item by its position we use the function <TT>{</TT> (left brace, called "From") .
 <p>
 <TABLE class=jtable>
@@ -532,8 +532,8 @@ To select an item by its position we use the function <TT>{</TT> (left brace, ca
 <TD><TT>d</TT></TD>
 </TABLE>
 <p>
-A position-number is called an index.
- The <TT>{</TT>  function can take as left argument a single index or a list
+A position-number is called an index. 
+ The <TT>{</TT>  function can take as left argument a single index or a list 
 of indices:
 <p>
 <TABLE class=jtable>
@@ -585,7 +585,7 @@ With a list argument, <TT>i.</TT> generates an array:
 <TT>3 4 5</TT>
 </PRE>
 <A NAME="15"></A>
-There is a dyadic version of <TT>i.</TT>, called "Index Of".
+There is a dyadic version of <TT>i.</TT>, called "Index Of". 
 The expression <TT>(x i. y)</TT> finds the position, that is, index, of <TT>y</TT> in <TT>x</TT>.
 <PRE>
 <TT>   'park' i. 'k'</TT>
@@ -596,21 +596,21 @@ The index found is that of the first occurrence of <TT>y</TT> in <TT>x</TT>.
 <TT>   'parka' i. 'a'</TT>
 <TT>1</TT>
 </PRE>
-If <TT>y</TT> is not present in <TT>x</TT>, the index found is 1 greater than the last
+If <TT>y</TT> is not present in <TT>x</TT>, the index found is 1 greater than the last 
 possible position.
 <PRE>
 <TT>   'park' i. 'j'</TT>
 <TT>4</TT>
 </PRE>
 For more about the many variations of indexing,
-see <A HREF="06.htm">Chapter 06</A>.
+see <A HREF="06.htm">Chapter 06</A>.  
 <A NAME="16"></A>
 <A NAME="17"></A>
 <A NAME="18"></A>
 <H3>2.5.4  Equality and Matching</H3>
-Suppose we wish to determine whether two arrays are the same. There is a
-built-in verb <TT>-:</TT> (minus colon, called "Match").  It tests whether its two
-arguments have the same shapes
+Suppose we wish to determine whether two arrays are the same. There is a 
+built-in function <TT>-:</TT> (minus colon, called "Match").  It tests whether its two 
+arguments have the same shapes 
 and the same values for corresponding elements.
 <p>
 <TABLE class=jtable>
@@ -626,22 +626,22 @@ and the same values for corresponding elements.
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-Whatever the arguments, the result of Match is always a single <TT>0</TT> or <TT>1</TT>.
+Whatever the arguments, the result of Match is always a single <TT>0</TT> or <TT>1</TT>. 
 <p>
-Notice that an empty list of, say, characters is regarded as matching an
+Notice that an empty list of, say, characters is regarded as matching an 
 empty list of numbers:
 <PRE>
 <TT>   '' -: 0 $ 0</TT>
 <TT>1</TT>
 </PRE>
-because they have the same shapes,  and furthermore it is true that
+because they have the same shapes,  and furthermore it is true that 
 all corresponding elements have the same values, (because there are no such elements).
 <p>
-There is another verb,  <TT>=</TT> (called "Equal")  which tests its arguments
-for equality.
-<TT>=</TT> compares its
-arguments element by element and produces an array of
-booleans of the same shape as the arguments.
+There is another function,  <TT>=</TT> (called "Equal")  which tests its arguments
+for equality. 
+<TT>=</TT> compares its 
+arguments element by element and produces an array of 
+booleans of the same shape as the arguments. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -656,7 +656,7 @@ booleans of the same shape as the arguments.
 <p>
 Consequently, the two arguments of <TT>=</TT> must have the same shapes,
 (or at least, as in the example of <TT>Y=2</TT>, compatible shapes).
-Otherwise an error results.
+Otherwise an error results. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -674,7 +674,7 @@ Otherwise an error results.
 <A NAME="20"></A>
 <A NAME="21"></A>
 <H3>2.6.1  Linking</H3>
-There is a built-in function <TT>;</TT> (semicolon, called "Link"). It links
+There is a built-in function <TT>;</TT> (semicolon, called "Link"). It links 
 together its
 two arguments to form a list.  The two arguments can be of different kinds.
  For example
@@ -686,11 +686,11 @@ we can link together a character-string and a number.
 <TT>|The answer is|42|</TT>
 <TT>+-------------+--+</TT>
 </PRE>
-The result <TT>A</TT> is a list of length 2, and is said to be a list of boxes.
-Inside the first box of <TT>A</TT> is the string
-<TT>'The answer is'</TT>.
-Inside the second box is the number <TT>42</TT>.
-A box is shown on the screen by a rectangle drawn round the value
+The result <TT>A</TT> is a list of length 2, and is said to be a list of boxes. 
+Inside the first box of <TT>A</TT> is the string 
+<TT>'The answer is'</TT>.  
+Inside the second box is the number <TT>42</TT>. 
+A box is shown on the screen by a rectangle drawn round the value 
 contained in the box.
 <p>
 <TABLE class=jtable>
@@ -706,7 +706,7 @@ contained in the box.
 +-------------+</TT></TD>
 </TABLE>
 <p>
-A box is a scalar whatever kind of value is inside it.  Hence boxes can be
+A box is a scalar whatever kind of value is inside it.  Hence boxes can be 
 packed into
 regular arrays, just like numbers. Thus <TT>A</TT> is a list of scalars.
 <p>
@@ -729,8 +729,8 @@ regular arrays, just like numbers. Thus <TT>A</TT> is a list of scalars.
 <p>
 The main purpose of an array of boxes is to assemble into a single variable
  several values
-of possibly different kinds. For example, a variable which records
-details of a purchase
+of possibly different kinds. For example, a variable which records 
+details of a purchase 
 (date, amount, description) could be built as a list of boxes:
 <PRE>
 <TT>   P =: 18 12 1998  ;  1.99  ;  'baked beans'</TT>
@@ -739,11 +739,11 @@ details of a purchase
 <TT>|18 12 1998|1.99|baked beans|</TT>
 <TT>+----------+----+-----------+</TT>
 </PRE>
-Note the difference between "Link" and "Append". While "Link" joins values
-of possibly different
-kinds, "Append" always joins values of the same kind.  That is, the two
-arguments
-to "Append" must both be arrays of numbers, or both arrays of characters,
+Note the difference between "Link" and "Append". While "Link" joins values 
+of possibly different 
+kinds, "Append" always joins values of the same kind.  That is, the two 
+arguments 
+to "Append" must both be arrays of numbers, or both arrays of characters, 
 or both arrays of boxes.
 Otherwise an error is signalled.
 <p>
@@ -758,19 +758,19 @@ Otherwise an error is signalled.
 <TD><TT>error</TT></TD>
 </TABLE>
 <p>
-On occasion we may wish to combine a character-string with a number, for
+On occasion we may wish to combine a character-string with a number, for 
 example
-to present the result of a computation together with some description.
-We could "Link" the description and the number, as we saw above.
+to present the result of a computation together with some description. 
+We could "Link" the description and the number, as we saw above. 
 However a smoother presentation
-could be produced by converting the number to a string,
+could be produced by converting the number to a string, 
 and then Appending this string and the description, as characters.
 <p>
-Converting a number to a string can be done
-with the built-in "Format" function <TT>":</TT> (double-quote colon).
-In the following example  <TT>n</TT> is a single
+Converting a number to a string can be done 
+with the built-in "Format" function <TT>":</TT> (double-quote colon). 
+In the following example  <TT>n</TT> is a single 
 number, while <TT>s</TT>, the formatted value of <TT>n</TT>,
-is a string of characters of length 2.
+is a string of characters of length 2. 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -788,8 +788,8 @@ is a string of characters of length 2.
 For more about "Format", see <A HREF="19.htm">Chapter 19</A>.  Now we return
 to the subject of boxes.
 Because boxes are shown with rectangles drawn round them,
-they lend themselves to presentation of results on-screen in a simple
-table-like form.
+they lend themselves to presentation of results on-screen in a simple 
+table-like form. 
 <PRE>
 <TT>   p =: 4 1 $ 1 2 3 4</TT>
 <TT>   q =: 4 1 $ 3 0 1 1</TT>
@@ -817,8 +817,8 @@ A single boxed value can be created by applying <TT>&lt;</TT> to the value.
 <TT>|baked beans|</TT>
 <TT>+-----------+</TT>
 </PRE>
-Although a box may contain a number, it is not itself a number.
-To perform computations on a value in a box,
+Although a box may contain a number, it is not itself a number. 
+To perform computations on a value in a box, 
 the box must be, so to speak "opened" and the value taken out.
 The function <TT>></TT> (right-angle-bracket) is called "Open".
 <p>
@@ -833,14 +833,14 @@ The function <TT>></TT> (right-angle-bracket) is called "Open".
 <TD><TT>1 2 3</TT></TD>
 </TABLE>
 <p>
-It may be helpful to picture <TT>&lt;</TT> as a funnel.
+It may be helpful to picture <TT>&lt;</TT> as a funnel. 
 Flowing into the wide end we have data, and flowing out of the narrow end
 we have boxes which are scalars, that is, dimensionless or point-like.
-Conversely for <TT>></TT> .
-Since boxes are scalars, they can be strung together into lists of boxes
-with the
+Conversely for <TT>></TT> .  
+Since boxes are scalars, they can be strung together into lists of boxes 
+with the 
 comma function, but
-the semicolon function is often more convenient because it combines the
+the semicolon function is often more convenient because it combines the 
 stringing-together and the boxing:
 <p>
 <TABLE class=jtable>
@@ -857,27 +857,27 @@ stringing-together and the boxing:
 </TABLE>
 <p>
 <H2>2.7  Summary</H2>
-In conclusion, every data object in J is
+In conclusion, every data object in J is 
 an array, with zero, one or more dimensions.
 An array may be an array of numbers, or an array of
 characters, or an array of boxes (and there are further possibilities).
 <p>
 This brings us to the end of Chapter 2.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="03.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 29 Jul 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="03.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 25 Aug 2013<BR> 
+Copyright &copy; Roger Stokes 2013. 
+ This material may be freely reproduced, 
+provided that acknowledgement is made. 
+</FONT> 
  <!--bottom jump start--><hr><a href="03.htm">&gt;&gt;</a>&nbsp;
 <a href="01.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -890,5 +890,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 

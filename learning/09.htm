@@ -1,32 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
-  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
-  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">
-  <TITLE>   Ch 9: Trains of Verbs</TITLE>
-  <STYLE TYPE="text/css">
-    TT  {font-size: 12pt; COLOR: BLUE}
-    PRE {font-size: 12pt; COLOR: BLUE}
-
-    table.jtable {
-         border-width: thin;
-         border-spacing: 2px;
-         border-style: solid;
-         border-color: gray;
-         border-collapse: collapse;
-         background-color: white;
-     }
-     table.jtable td {
-         border-width: 1px;
-         padding: 10px;
-         border-style: solid;
-         border-color: gray;
-         background-color: white;
-     }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+       
+<HTML> 
+<HEAD> 
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8"> 
+  <META NAME="GENERATOR" CONTENT="OpenOffice.org 1.9.118  (Win32)">   
+  <TITLE>   Ch 9: Trains of Verbs</TITLE> 
+  <STYLE TYPE="text/css"> 
+    TT  {font-size: 12pt; COLOR: BLUE} 
+    PRE {font-size: 12pt; COLOR: BLUE} 
+                                    
+    table.jtable {                  
+         border-width: thin;        
+         border-spacing: 2px;       
+         border-style: solid;       
+         border-color: gray;        
+         border-collapse: collapse; 
+         background-color: white;   
+     }                              
+     table.jtable td {              
+         border-width: 1px;         
+         padding: 10px;             
+         border-style: solid;       
+         border-color: gray;        
+         background-color: white;   
+     }                              
   </STYLE>
 </HEAD>
-
+          
 <BODY BGCOLOR=WHITE><!--top jump start--><a href="10.htm">&gt;&gt;</a>&nbsp;
 <a href="08.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -39,15 +39,15 @@
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<hr><!--top jump end-->
-  <table border="0" cellpadding="5" cellspacing="0"  width="100%">
-  <tr> <td valign="top" width="17%"> <p> </td>
-   <td valign="top" width="83%">
+Learning J<hr><!--top jump end--> 
+  <table border="0" cellpadding="5" cellspacing="0"  width="100%"> 
+  <tr> <td valign="top" width="17%"> <p> </td> 
+   <td valign="top" width="83%"> 
  <A NAME="01"></A>
 <H1>Chapter 9: Trains of Verbs</H1>
-In this chapter we continue the topic of trains of verbs begun in <A HREF="03.htm">Chapter 03</A>.
-Recall that a train is an isolated sequence of functions, written one after the
-other, such as <TT>(+ * -)</TT>.
+In this chapter we continue the topic of trains of verbs begun in <A HREF="03.htm">Chapter 03</A>. 
+Recall that a train is an isolated sequence of functions, written one after the 
+other, such as <TT>(+ * -)</TT>. 
 <A NAME="02"></A>
 <A NAME="03"></A>
 <H2>9.1  Review: Monadic Hooks and Forks</H2>
@@ -99,7 +99,7 @@ For example: the mean of a list of numbers is the sum divided by the number-of-i
 Now we look at some further variations.
 <A NAME="04"></A>
 <H2>9.2  Dyadic Hooks</H2>
-3 hours and 15 minutes is 3.25 hours. A verb <TT>hr</TT>, such that <TT>(3 hr 15)</TT> is <TT>3.25</TT>,
+3 hours and 15 minutes is 3.25 hours. A verb <TT>hr</TT>, such that <TT>(3 hr 15)</TT> is <TT>3.25</TT>,  
 can be written as
 a hook. We want <TT>x hr y</TT> to be <TT>x + (y%60)</TT> and so the hook is:
 <PRE>
@@ -136,7 +136,7 @@ Here is a diagram for this scheme:
 <p>
 <IMG SRC="diag09.gif" ALT="diagram 09" WIDTH=363 HEIGHT=242>
 <H2>9.4  Review</H2>
-There are four basic schemes for trains of verbs.
+There are four basic schemes for trains of verbs. 
 <PRE>
 <TT>           (f g h) y    =    (f y) g (h y)       monadic fork </TT>
 </PRE>
@@ -150,21 +150,21 @@ There are four basic schemes for trains of verbs.
 <TT>         x (f g)   y    =       x  f (g y)       dyadic  hook</TT>
 </PRE>
 <H2>9.5  Longer Trains</H2>
-Now we begin to look at ways to broaden the class of
+Now we begin to look at ways to broaden the class of 
 functions which can be defined as trains.
-In general a train of any length can be analysed into hooks and forks.
+In general a train of any length can be analysed into hooks and forks.  
 For a train of 4 verbs, <TT>e f g h</TT>,  the scheme is that
 <PRE>
 <TT>                    e f g h    means   e (f g h)</TT>
 </PRE>
-that is, a 4-train <TT>(e f g h)</TT> is a hook, where the first verb is <TT>e</TT> and the
-second is the fork <TT>(f g h)</TT>.
-For example, Suppose that <TT>y</TT> is a list of numbers:
+that is, a 4-train <TT>(e f g h)</TT> is a hook, where the first verb is <TT>e</TT> and the 
+second is the fork <TT>(f g h)</TT>.  
+For example, Suppose that <TT>y</TT> is a list of numbers: 
 <PRE>
 <TT>   y =: 2 3 4</TT>
 </PRE>
-Then the "norm" of <TT>y</TT> is defined as <TT>(y - mean y)</TT>, where <TT>mean</TT> is defined above as
-<TT>(sum % #)</TT>.
+Then the "norm" of <TT>y</TT> is defined as <TT>(y - mean y)</TT>, where <TT>mean</TT> is defined above as 
+<TT>(sum % #)</TT>. 
 We see that the following expressions for the norm of <TT>y</TT> are all equivalent:
 <PRE>
 <TT>   y - mean y</TT>
@@ -180,14 +180,14 @@ We see that the following expressions for the norm of <TT>y</TT> are all equival
 <TT>_1 0 1</TT>
 </PRE>
 A certain amount of artistic judgement is called for with long trains. This last
-formulation as the 4-train <TT>(- sum % #)</TT> does not bring out as clearly as it might
-that the key idea is subtracting the mean.  The formulation <TT>( - mean)</TT> is clearer.
+formulation as the 4-train <TT>(- sum % #)</TT> does not bring out as clearly as it might 
+that the key idea is subtracting the mean.  The formulation <TT>( - mean)</TT> is clearer. 
 <p>
 For a train of 5 verbs <TT>d e f g h</TT> the scheme is:
 <PRE>
 <TT>                 d e f g h   means  d e (f g h)</TT>
 </PRE>
-That is, a 5-train <TT>(d e f g h)</TT> is a fork with first verb <TT>d</TT>, second verb <TT>e</TT> and
+That is, a 5-train <TT>(d e f g h)</TT> is a fork with first verb <TT>d</TT>, second verb <TT>e</TT> and 
 third verb the fork <TT>(f g h)</TT>
 For example, if we write a calendar date in the form day month year:
 <PRE>
@@ -226,8 +226,8 @@ the number of verbs is even or odd:
 <A NAME="09"></A>
 <A NAME="10"></A>
 <H2>9.6  Identity Functions</H2>
-There is a built-in verb, monadic <TT>[</TT> (left bracket, called "Same").
-It gives a result identical to its argument.
+There is a built-in verb, monadic <TT>[</TT> (left bracket, called "Same"). 
+It gives a result identical to its argument.  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -238,7 +238,7 @@ It gives a result identical to its argument.
 <TD><TT>a b c</TT></TD>
 </TABLE>
 <p>
-There is a dyadic case, and also a similar verb <TT> ] </TT>. Altogether we have these
+There is a dyadic case, and also a similar verb <TT> ] </TT>. Altogether we have these 
 schemes:
 <PRE>
 <TT>            [ y   means y </TT>
@@ -266,8 +266,8 @@ schemes:
 <TD><TT>3</TT></TD>
 </TABLE>
 <p>
-Monadic <TT>[</TT> and monadic <TT> ] </TT> are both called "Same".
-Dyadic <TT> [ </TT> is called "Left".
+Monadic <TT>[</TT> and monadic <TT> ] </TT> are both called "Same". 
+Dyadic <TT> [ </TT> is called "Left". 
 Dyadic <TT> ] </TT> is "Right".
 <p>
 The expression <TT>(+ % ])</TT> is a fork; for arguments <TT>x</TT> and <TT>y</TT>
@@ -275,7 +275,7 @@ it computes:
 <PRE>
 <TT>                 (x+y) % (x ] y)</TT>
 </PRE>
-that is,
+that is, 
 <PRE>
 <TT>                 (x+y) % y</TT>
 </PRE>
@@ -301,8 +301,8 @@ is not: it merely contains an assignment.
 <TT>       [ foo =: 42</TT>
 <TT>42</TT>
 </PRE>
-Yet another use for the <TT>[</TT> verb is to allow several assignments to be combined
-on one line.
+Yet another use for the <TT>[</TT> verb is to allow several assignments to be combined 
+on one line.  
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -313,11 +313,11 @@ on one line.
 <TD><TT>3 4 5</TT></TD>
 </TABLE>
 <p>
-Since <TT>[</TT> is a verb, its arguments must be nouns, (that is, not functions).
+Since <TT>[</TT> is a verb, its arguments must be nouns, (that is, not functions). 
 Hence the assignments combined with <TT>[</TT> must all evaluate to nouns.
 <H3>9.6.1  Example: Hook as Abbreviation</H3>
 The monadic hook <TT>(g h)</TT> is an abbreviation for
-the monadic fork <TT>([ g h)</TT>.
+the monadic fork <TT>([ g h)</TT>. 
 To demonstrate, suppose we have:
 <PRE>
 <TT>   g =: ,</TT>
@@ -341,11 +341,11 @@ Recall that the monadic hook has the general scheme
 <PRE>
 <TT>             (f g) y    =   y f (g y)</TT>
 </PRE>
-How can we write, as a train, a function with the scheme
+How can we write, as a train, a function with the scheme  
 <PRE>
 <TT>             (  ?   ) y  =   (f y) g y</TT>
 </PRE>
-There are two possibilities. One is the fork <TT>(f g ])</TT>:
+There are two possibilities. One is the fork <TT>(f g ])</TT>: 
 <PRE>
 <TT>   f =: *:</TT>
 <TT>   g =: ,</TT>
@@ -393,14 +393,14 @@ can be regarded as standing for left and right arguments.
 <A NAME="12"></A>
 <H2>9.7  The Capped Fork</H2>
 The class of functions which can be written as
-unbroken trains can be widened with the aid of
+unbroken trains can be widened with the aid of 
 the "Cap" verb <TT>[:</TT>  (leftbracket colon)
 <p>
 The scheme is: for verbs <TT>f</TT> and <TT>g</TT>, the fork:
 <PRE>
 <TT>             [: f g     means   f @: g</TT>
 </PRE>
-For example, with <TT>f</TT> and <TT>g</TT> as above, we have
+For example, with <TT>f</TT> and <TT>g</TT> as above, we have 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -415,10 +415,10 @@ For example, with <TT>f</TT> and <TT>g</TT> as above, we have
 <TD><TT>fgy</TT></TD>
 </TABLE>
 <p>
-Notice how the sequence of three verbs
+Notice how the sequence of three verbs 
 <TT>([: f g)</TT> looks like a fork,
-but with this "capped fork" it is the MONADIC
-case of the middle verb <TT>f</TT> which is applied.
+but with this "capped fork" it is the MONADIC 
+case of the middle verb <TT>f</TT> which is applied. 
 <p>
 The <TT>[:</TT> verb is  valid ONLY as the left-hand verb of a fork.
 It has no other purpose: as a verb it has an empty
@@ -429,7 +429,7 @@ Suppose for example that:
 <TT>   h =: 'h'&amp;,</TT>
 </PRE>
 then the expression <TT>(f , [: g h)</TT> is a 5-train
-which denotes a verb:
+which denotes a verb: 
 <PRE>
 <TT>   (f , [: g h) y        NB. a 5-train</TT>
 <TT>fyghy</TT>
@@ -449,8 +449,8 @@ which denotes a verb:
 <A NAME="13"></A>
 <H2>9.8  Constant Functions</H2>
 Here we continue looking at ways of broadening the class of functions that we can
-write as trains of verbs.
-There is a built-in verb <TT>0:</TT> (zero colon) which delivers a value of zero
+write as trains of verbs. 
+There is a built-in verb <TT>0:</TT> (zero colon) which delivers a value of zero 
 regardless of its argument. There is a monadic and a dyadic case:
 <p>
 <TABLE class=jtable>
@@ -466,7 +466,7 @@ regardless of its argument. There is a monadic and a dyadic case:
 <TD><TT>0</TT></TD>
 </TABLE>
 <p>
-As well as <TT>0:</TT> there are similar functions <TT>1:</TT> <TT>2:</TT> <TT>3:</TT> and so on up to <TT>9:</TT>
+As well as <TT>0:</TT> there are similar functions <TT>1:</TT> <TT>2:</TT> <TT>3:</TT> and so on up to <TT>9:</TT> 
 and also the negative values: <TT>_9:</TT> to <TT>_1:</TT>
 <p>
 <TABLE class=jtable>
@@ -478,12 +478,12 @@ and also the negative values: <TT>_9:</TT> to <TT>_1:</TT>
 <TD><TT>_3</TT></TD>
 </TABLE>
 <p>
-<TT>0:</TT> is said to be a constant function, because its result is constant.
+<TT>0:</TT> is said to be a constant function, because its result is constant. 
 Constant functions are useful because they can occur in trains at places where
-we want a constant but must write a verb, (because trains of verbs, naturally,
-contain only verbs).
+we want a constant but must write a verb, (because trains of verbs, naturally, 
+contain only verbs). 
 <p>
-For example, a verb to test whether its argument is
+For example, a verb to test whether its argument is 
 negative (less than zero) can be written as
 <TT>(< &amp; 0)</TT> but alternatively it can be written as a hook:
 <PRE>
@@ -506,8 +506,8 @@ negative (less than zero) can be written as
 <p>
 <A NAME="14"></A>
 <H2>9.9  Constant Functions with the Rank Conjunction</H2>
-The constant functions <TT>_9:</TT> to <TT>9:</TT> offer more choices for ways of defining trains.
-Neverthless they are limited to single-digit scalar constants.
+The constant functions <TT>_9:</TT> to <TT>9:</TT> offer more choices for ways of defining trains. 
+Neverthless they are limited to single-digit scalar constants. 
 We look now at at a more general way of writing constant functions.
 Suppose that <TT>k</TT> is the constant in question:
 <PRE>
@@ -527,8 +527,8 @@ An explicit verb written as <TT>(3 : 'k')</TT> will give a constant result of <T
 </TABLE>
 <p>
 Since the verb <TT>(3 : 'k')</TT> is explicit, its rank is infinite. To apply it
-separately to scalars then (as we saw in <A HREF="07.htm">Chapter 07</A>) we need
-to specify a rank <TT>R</TT> of <TT>0</TT>, with the aid of
+separately to scalars then (as we saw in <A HREF="07.htm">Chapter 07</A>) we need  
+to specify a rank <TT>R</TT> of <TT>0</TT>, with the aid of 
 the Rank conjunction <TT>"</TT> :
 <p>
 <TABLE class=jtable>
@@ -543,9 +543,9 @@ the Rank conjunction <TT>"</TT> :
 hello</TT></TD>
 </TABLE>
 <p>
-The expression <TT>((3 : 'k') " R)</TT> can
+The expression <TT>((3 : 'k') " R)</TT> can 
 be abbreviated as <TT>(k " R)</TT>, because <TT>"</TT> can take, as its left argument,
-a verb, as above, or a noun:
+a verb, as above, or a noun: 
 <p>
 <TABLE class=jtable>
 <TR  VALIGN=TOP>
@@ -566,7 +566,7 @@ Note that if <TT>k</TT> is a noun,
 then the verb <TT>(k"R)</TT> means: the constant value <TT>k</TT>
 produced for each rank-R cell of the argument. By contrast, if
 <TT>v</TT> is a verb, then the verb <TT>(v"R)</TT> means: the verb <TT>v</TT> applied
-to each rank-R cell of the argument.
+to each rank-R cell of the argument. 
 <p>
 The general scheme for constant functions with <TT>"</TT> is:
 <PRE>
@@ -583,7 +583,7 @@ is computed by subtracting <TT>32</TT> and multiplying by five-ninths.
 <TT>0 100</TT>
 <TT>   </TT>
 </PRE>
-Another way to define <TT>Celsius</TT> is as a fork - a train of three verbs.
+Another way to define <TT>Celsius</TT> is as a fork - a train of three verbs. 
 <PRE>
 <TT>   Celsius =: (5%9 "_ ) * (-&amp;32)</TT>
 <TT>   </TT>
@@ -591,8 +591,8 @@ Another way to define <TT>Celsius</TT> is as a fork - a train of three verbs.
 <TT>0 100</TT>
 <TT>   </TT>
 </PRE>
-Notice that the fork in <TT>Celsius</TT> above has its left verb as a constant
-function. Here we have a special case of
+Notice that the fork in <TT>Celsius</TT> above has its left verb as a constant 
+function. Here we have a special case of 
 a fork which can be abbreviated in the form (noun verb verb).
 <PRE>
 <TT>   Celsius =: (5%9) * (-&amp;32) </TT>
@@ -602,26 +602,26 @@ a fork which can be abbreviated in the form (noun verb verb).
 <TT>   </TT>
 </PRE>
 The general scheme (new in J6) for this abbreviation for a fork is:
-if <TT>n</TT> is a noun, <TT>u</TT> and <TT>v</TT> are verbs, then
+if <TT>n</TT> is a noun, <TT>u</TT> and <TT>v</TT> are verbs, then 
 <PRE>
 <TT>           n u v  means the fork  (n"_) u v</TT>
 </PRE>
 We have come to the end of of Chapter 9.
-  </tr> </table>
-<HR>
- <p ALIGN=CENTER>
- <A HREF="10.htm"> NEXT </A> <BR>
- <A HREF="contents.htm#toc"> Table of Contents </A> <BR>
-<A HREF="kwic.htm"> Index </A>
-<HR>
-<P ALIGN=CENTER>
-<FONT SIZE=-1>The examples in this chapter
-were executed using J version 701.
- This chapter last updated 13 Dec 2012<BR>
-Copyright &copy; Roger Stokes 2012.
- This material may be freely reproduced,
-provided that this copyright notice is also reproduced.
-</FONT>
+  </tr> </table> 
+<HR>  
+ <p ALIGN=CENTER> 
+ <A HREF="10.htm"> NEXT </A> <BR> 
+ <A HREF="contents.htm#toc"> Table of Contents </A> <BR> 
+<A HREF="kwic.htm"> Index </A> 
+<HR> 
+<P ALIGN=CENTER> 
+<FONT SIZE=-1>The examples in this chapter 
+were executed using J version 701. 
+ This chapter last updated 13 Dec 2012<BR> 
+Copyright &copy; Roger Stokes 2012. 
+ This material may be freely reproduced, 
+provided that this copyright notice is also reproduced. 
+</FONT> 
  <!--bottom jump start--><hr><a href="10.htm">&gt;&gt;</a>&nbsp;
 <a href="08.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
@@ -634,5 +634,6 @@ provided that this copyright notice is also reproduced.
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
-Learning J<!--bottom jump end--></BODY>
- </HTML>
+Learning J<!--bottom jump end--></BODY> 
+ </HTML> 
+ 
