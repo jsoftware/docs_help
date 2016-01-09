@@ -1,3 +1,4 @@
+lib_stdlib.htm#abspath
 lib_stdlib.htm#adverb
 lib_dll.htm#AND
 lib_android.htm#anddf
@@ -167,7 +168,7 @@ lib_dll.htm#ic
 lib_sysenv.htm#IF64
 lib_sysenv.htm#IFDEF
 lib_sysenv.htm#IFIOS
-lib_sysenv.htm#IFJCDROID
+lib_sysenv.htm#IFJA
 lib_sysenv.htm#IFJHS
 lib_sysenv.htm#IFQT
 lib_sysenv.htm#IFRASPI
