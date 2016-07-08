@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 J Help Files
 )
 
-VERSION=: '1.0.51'
+VERSION=: '1.0.52'
 
 FILES=: 0 : 0
 box.jpg
@@ -24,4 +24,4 @@ release/
 user/
 )
 
-RELEASE=: 'j804'
+RELEASE=: 'j804 j805'
