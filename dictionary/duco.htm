@@ -28,6 +28,7 @@ Dictionary<hr><!--top jump end-->
 <tr><td colspan=2>&nbsp;</td>           <td><i>wchar</i> (2-byte char, wide char) &mdash; a 16-bit value from 0 to 65535</td></tr>
 <tr><td>Encodings:</td><td>&nbsp;</td>  <td>ASCII &mdash; 0 to 127, a subset of U8</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td>U8 &mdash; Unicode code point value in multibyte encoding</td></tr>
+<tr><td colspan=2>&nbsp;</td>           <td>U16 &mdash; Unicode code point value in multi-wchar encoding</td></tr>
 </table>
 
 <p>Most<tt> u: </tt>dyads work with values, not encodings. 
@@ -103,9 +104,9 @@ and applies to several kinds of right arguments.<br><br>
 <td>pairs of chars are converted to wchars</td>
 </tr>
 
-<tr valign=top><td><tt>7</tt></td><td>char or<br>wchar</td><td> </td>
+<tr valign=top><td><tt>7</tt></td><td>char or<br>U16</td><td> </td>
 <td><table>
-<tr><td>U8</td>   <td>&nbsp;</td><td>converted to wchar</td></tr>
+<tr><td>U8</td>   <td>&nbsp;</td><td>converted to U16</td></tr>
 <tr><td>ASCII</td><td>&nbsp;</td><td>as is</td></tr>
 <tr><td valign=top>wchar</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise as is</td></tr>
 </table>
@@ -114,7 +115,7 @@ an empty right argument produces an empty char result
 
 <tr valign=top><td><tt>8</tt></td><td>U8</td><td> </td>
 <td><table>
-<tr><td>wchar</td><td>&nbsp;</td><td>converted to U8</td></tr>
+<tr><td>U16</td><td>&nbsp;</td><td>converted to U8</td></tr>
 <tr><td>char</td> <td>&nbsp;</td><td>as is</td></tr>
 </table>
 an empty right argument produces an empty char result
@@ -143,9 +144,9 @@ We the people
 131072                         NB. the unicode datatype numeric code is 131072
 
    u: 97 98 99 +/ 0 256 512 1024
-aaaa                           NB. 2-byte characters have the same
-bbbb                           NB. display as 1-byte characters
-cccc 
+ašɡѡ                           NB. 2-byte characters have the same
+bŢɢѢ                           NB. display as U8 characters
+cţɣѣ
 
    'a' = u: 97 + 0 256 512 1024
 1 0 0 0
