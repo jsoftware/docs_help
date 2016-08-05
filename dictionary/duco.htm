@@ -135,19 +135,20 @@ an empty right argument produces an empty char result
 <tr><td>ASCII</td><td>&nbsp;</td><td>as is</td></tr>
 <tr><td valign=top>U16</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise converted to U32</td></tr>
 <tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
-<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U32</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to literal4</td></tr>
 </table>
 an empty right argument produces an empty char result
 </td></tr>
 
 
-<tr valign=top><td><tt>10</tt></td><td><br>U32</td><td> </td>
+<tr valign=top><td><tt>10</tt></td><td><br>literal4</td><td> </td>
 <td><table>
 <tr><td>char</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
 <tr><td valign=top>wchar</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
 <tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
-<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U32</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to literal4</td></tr>
 </table>
+each char or wchar is promoted to literal4 independently, no U8 or U16 encoding assumed
 </td></tr>
 
 
