@@ -39,12 +39,12 @@ UTF-32 is the most convenient encoding for manipulating unicode
 <p>There are several related wiki pages, for example: 
 <a href="http://code.jsoftware.com/wiki/Guides/UnicodeGettingStarted">UnicodeGettingStarted</a>.</p>
 
-<h1>Operations on UTF-8, UTF-16 and UTF-32 data</h1>
+<h1>Operations on UTF-8 and UTF-16 data</h1>
 
-Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes are UTF-8 or wchars are UTF-16 or literal4 are UTF-32 unicode code points.
+Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes are UTF-8 or wchars are UTF-16 unicode code points.
 For example applying # on UTF-8 encoded byte literals gives the number of bytes but not unicode code points.
 Similarly applying # on UTF-16 encoded wchar gives the number of wchar but not unicode code points.
-Other verbs such as {. and dyad $ can produce invalid unicode sequences.
+Other verbs such as {. and dyad $ can produce invalid unicode sequences. Converting UTF-8 and UTF-16 to UTF-32 before processing can avoid those pitfalls.
 
 <h1>boxed display</h1>
 
