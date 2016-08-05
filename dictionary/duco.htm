@@ -26,9 +26,11 @@ Dictionary<hr><!--top jump end-->
 <table>
 <tr><td>J datatypes:</td><td>&nbsp;</td><td><i>char</i> (1-byte char) &mdash; an 8-bit value from 0 to 255</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td><i>wchar</i> (2-byte char, wide char) &mdash; a 16-bit value from 0 to 65535</td></tr>
+<tr><td colspan=2>&nbsp;</td>           <td><i>literal4</i> (4-byte char) &mdash; an unsigned 32-bit value</td></tr>
 <tr><td>Encodings:</td><td>&nbsp;</td>  <td>ASCII &mdash; 0 to 127, a subset of U8</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td>U8 &mdash; Unicode code point value in multibyte encoding</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td>U16 &mdash; Unicode code point value in multi-wchar encoding</td></tr>
+<tr><td colspan=2>&nbsp;</td>           <td>U32 &mdash; Each unicode code point is represented by exaclty one literal4 char</td></tr>
 </table>
 
 <p>Most<tt> u: </tt>dyads work with values, not encodings. 
@@ -81,23 +83,25 @@ and applies to several kinds of right arguments.<br><br>
 <td><table>
 <tr><td>char </td><td>&nbsp;</td><td>as is</td></tr>
 <tr><td>wchar</td><td>&nbsp;</td><td>high-order 8 bits discarded</td></tr>
+<tr><td>literal4</td><td>&nbsp;</td><td>high 3 bytes discarded</td></tr>
 </table></td></tr>
 
 <tr valign=top><td><tt>2</tt></td><td>wchar</td><td> </td>
 <td><table>
 <tr><td>char </td><td>&nbsp;</td><td>high-order 8 bits are 0</td></tr>
 <tr><td>wchar</td><td>&nbsp;</td><td>as is</td></tr>
+<tr><td>literal4</td><td>&nbsp;</td><td>high 2 bytes discarded</td></tr>
 </table></td></tr>
 
 <tr valign=top><td><tt>3</tt></td><td>integers</td><td> </td>
-<td>char or wchar</td></tr>
+<td>char,wchar or literal4</td></tr>
 
 <tr valign=top><td><tt>4</tt></td><td>wchar</td><td> </td>
 <td>integers in the range -65536 to 65535</td>
 </tr>
 
 <tr valign=top><td><tt>5</tt></td><td>char</td><td> </td>
-<td>wchar in the range 0 to 255</td>
+<td>wchar or literal4 in the range 0 to 255</td>
 </tr>
 
 <tr valign=top><td><tt>6</tt></td><td>wchar</td><td> </td>
@@ -109,6 +113,8 @@ and applies to several kinds of right arguments.<br><br>
 <tr><td>U8</td>   <td>&nbsp;</td><td>converted to U16</td></tr>
 <tr><td>ASCII</td><td>&nbsp;</td><td>as is</td></tr>
 <tr><td valign=top>wchar</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise as is</td></tr>
+<tr><td valign=top>U32</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise converted to U16</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U16</td></tr>
 </table>
 an empty right argument produces an empty char result
 </td></tr>
@@ -116,10 +122,35 @@ an empty right argument produces an empty char result
 <tr valign=top><td><tt>8</tt></td><td>U8</td><td> </td>
 <td><table>
 <tr><td>U16</td><td>&nbsp;</td><td>converted to U8</td></tr>
+<tr><td>U32</td><td>&nbsp;</td><td>converted to U8</td></tr>
 <tr><td>char</td> <td>&nbsp;</td><td>as is</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U8</td></tr>
 </table>
 an empty right argument produces an empty char result
 </td></tr>
+
+<tr valign=top><td><tt>9</tt></td><td>char or<br>U32</td><td> </td>
+<td><table>
+<tr><td>U8</td>   <td>&nbsp;</td><td>converted to U32</td></tr>
+<tr><td>ASCII</td><td>&nbsp;</td><td>as is</td></tr>
+<tr><td valign=top>U16</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise converted to U32</td></tr>
+<tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U32</td></tr>
+</table>
+an empty right argument produces an empty char result
+</td></tr>
+
+
+<tr valign=top><td><tt>10</tt></td><td><br>U32</td><td> </td>
+<td><table>
+<tr><td>char</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
+<tr><td valign=top>wchar</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
+<tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to U32</td></tr>
+</table>
+</td></tr>
+
+
 </table>
 
 

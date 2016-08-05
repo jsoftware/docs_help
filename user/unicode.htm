@@ -13,9 +13,9 @@
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
 User<hr><!--top jump end-->
-<h1>Unicode - UTF-8 and UTF-16</h1>
+<h1>Unicode - UTF-8, UTF-16 and UTF-32</h1>
 
-<p>Both UTF-8 and UTF-16 are supported. UTF-8 is multibyte encoding for 8 bit data that includes all unicode code points and maps 7 bit ASCII unchanged. J continues to use the literal data type of 8 bits. When literal data is displayed it is treated as UTF-8.</p>
+<p>UTF-8, UTF-16 and UTF-32 are supported. UTF-8 is multibyte encoding for 8 bit data that includes all unicode code points and maps 7 bit ASCII unchanged. J continues to use the literal data type of 8 bits. When literal data is displayed it is treated as UTF-8.</p>
 
 <p>In addition to support for UTF-8 there is UTF-16 which is based on wchar (16 bit literal data type).
 See <a href="../dictionary/duco.htm">u:</a> for details.
@@ -23,6 +23,12 @@ UTF-16 is a variable length encoding in which each unicode code point in the ran
 while each unicode code point in the range from U+10000 to U+10FFFF consists 2 wchars.
 UTF-16 is used in interfacing with some external libraries such as Windows API. Also when working
 with unicode data of code points below U+10000, UTF-16 is more convenient for manipulating unicode data when multibyte UTF-8 is awkward.</p>
+
+<p>UTF-32 based on literal4 (4-byte literal data type) is also support.
+See <a href="../dictionary/duco.htm">u:</a> for details.
+Unlike UTF-8 and UTF-16 encoding, UTF-32 is a fixed length encoding in which each unicode code point is represented by one literal4 character.
+UTF-32 is the most convenient encoding for manipulating unicode
+
 
 <p>Standard library defines: ucp, uucp, ucpcount, and utf8. Script
 ~addons/convert/misc/unicode.ijs defines additional utilities.</p>
@@ -33,9 +39,9 @@ with unicode data of code points below U+10000, UTF-16 is more convenient for ma
 <p>There are several related wiki pages, for example: 
 <a href="http://code.jsoftware.com/wiki/Guides/UnicodeGettingStarted">UnicodeGettingStarted</a>.</p>
 
-<h1>Operations on UTF-8 and UTF-16 data</h1>
+<h1>Operations on UTF-8, UTF-16 and UTF-32 data</h1>
 
-Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes in UTF-8 or wchars in UTF-16 as unicode code points.
+Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes are UTF-8 or wchars are UTF-16 or literal4 are UTF-32 unicode code points.
 For example applying # on UTF-8 encoded byte literals gives the number of bytes but not unicode code points.
 Similarly applying # on UTF-16 encoded wchar gives the number of wchar but not unicode code points.
 Other verbs such as {. and dyad $ can produce invalid unicode sequences.
@@ -72,7 +78,7 @@ not have aligned vertical bars.</p>
 <p>Windows console/powershell do not support UTF-8 (they use codepages) and will have problems
 with UTF-8.</p>
 
-<p><b>updated - July 2016 - J805</b></p>
+<p><b>updated - August 2016 - J805</b></p>
 <!--bottom jump start--><hr><a href="locked_scripts.htm">&gt;&gt;</a>&nbsp;
 <a href="boxdraw.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
