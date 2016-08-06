@@ -135,7 +135,7 @@ an empty right argument produces an empty char result
 <tr><td>ASCII</td><td>&nbsp;</td><td>as is</td></tr>
 <tr><td valign=top>U16</td><td>&nbsp;</td><td>if all values &lt;128, convert to ASCII, otherwise converted to U32</td></tr>
 <tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
-<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to literal4</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>converted to literal4</td></tr>
 </table>
 an empty right argument produces an empty char result
 </td></tr>
@@ -146,7 +146,7 @@ an empty right argument produces an empty char result
 <tr><td>char</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
 <tr><td valign=top>wchar</td><td>&nbsp;</td><td>promoted to literal4</td></tr>
 <tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
-<tr><td valign=top>integers</td><td>&nbsp;</td><td>the range 0 to 16b10ffff converted to literal4</td></tr>
+<tr><td valign=top>integers</td><td>&nbsp;</td><td>converted to literal4</td></tr>
 </table>
 each char or wchar is promoted to literal4 independently, no U8 or U16 encoding assumed
 </td></tr>
