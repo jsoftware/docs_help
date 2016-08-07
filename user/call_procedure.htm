@@ -49,7 +49,8 @@ A filename of 1 indicates procedure is a non-negative integer that is the index 
 <b>declaration</b> is a set of blank delimited codes describing result and parameter types:<br><br>
 
 <font face=courier>c&nbsp;&nbsp;</font>J character (1 byte)<br>
-<font face=courier>w&nbsp;&nbsp;</font>J unicode (2 byte) (see <font face=courier>u:</font>)<br>
+<font face=courier>w&nbsp;&nbsp;</font>J wchar (2 byte) (see <font face=courier>u:</font>)<br>
+<font face=courier>u&nbsp;&nbsp;</font>J literal4 (4 byte) (see <font face=courier>u:</font>)<br>
 <font face=courier>s&nbsp;&nbsp;</font>short integer (2 byte)<br>
 <font face=courier>i&nbsp;&nbsp;</font>integer (4 byte)<br>
 <font face=courier>l&nbsp;&nbsp;</font>long integer (8 byte)<br>
@@ -62,11 +63,11 @@ A filename of 1 indicates procedure is a non-negative integer that is the index 
 
 The first declaration type describes the result and the remaining ones describe the parameters in the <font face=courier>cd</font> right argument. Arguments are converted as required to conform with their declaration type.<br><br>
 
-The c w x d j types are native J types. In J32 (32 bit) the i type is the same as x and the l type is an error. In J64 (64bit) the l type is the same as x and the i type is handled similarly to s.<br><br>
+The c w u x d j types are native J types. In J32 (32 bit) the i type is the same as x and the l type is an error. In J64 (64bit) the l type is the same as x and the i type is handled similarly to s.<br><br>
 
-A scalar type (c w s i l x f d j) must have a scalar parameter of the right type. Scalar s i l values take a J integer and f values take a J float.<br><br>
+A scalar type (c w u s i l x f d j) must have a scalar parameter of the right type. Scalar s i l values take a J integer and f values take a J float.<br><br>
 
-The * type is a pointer to values. A * can be followed by c w s i l x f d or j to indicate the type of values. The DLL can read or write this memory.<br><br>
+The * type is a pointer to values. A * can be followed by c w u s i l x f d or j to indicate the type of values. The DLL can read or write this memory.<br><br>
 
 A pointer type parameter must be an array with rank &gt; 1 of the right type, or a scalar boxed scalar integer that is a memory address.<br><br>
 
