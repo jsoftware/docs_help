@@ -30,11 +30,12 @@ Dictionary<hr><!--top jump end-->
 <tr><td>Encodings:</td><td>&nbsp;</td>  <td>ASCII &mdash; 0 to 127, a subset of U8</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td>U8 &mdash; Unicode code point value in multibyte encoding</td></tr>
 <tr><td colspan=2>&nbsp;</td>           <td>U16 &mdash; Unicode code point value in multi-wchar encoding</td></tr>
-<tr><td colspan=2>&nbsp;</td>           <td>U32 &mdash; Each unicode code point is represented by exaclty one literal4 char</td></tr>
+<tr><td colspan=2>&nbsp;</td>           <td>U32 &mdash; Each unicode code point is represented by exactly one literal4 char</td></tr>
 </table>
 
-<p>Most<tt> u: </tt>dyads work with values, not encodings. 
-ASCII and U8 encoding are used in<tt> 7&u: </tt>and<tt> 8&u:</tt> .</p> 
+<p>All J primitives and most<tt> u: </tt>dyads work with values, not encodings, 
+the only exception is <tt> ": </tt> which convert wchar to literal4 to U8 encoded 1-byte char.
+ASCII, U8, U16 and U32 encodings are used in<tt> 7&u: </tt>,<tt> 8&u: </tt>and<tt> 9&u:</tt> .</p> 
 
 <table width=100% border=0><tr>
 <td valign=top width=49% bgcolor=#eeeeee>
@@ -47,7 +48,7 @@ The monad<tt> u: </tt>applies to several kinds of arguments:<br><br>
 </tr>
 
 <tr valign=top>
-<td>char &nbsp;&nbsp;</td>
+<td>char literal4&nbsp;&nbsp;</td>
 <td>same as<tt> 2&amp;u:</tt></td>
 </tr>
 
@@ -148,7 +149,7 @@ an empty right argument produces an empty char result
 <tr><td>literal4</td> <td>&nbsp;</td><td>as is</td></tr>
 <tr><td valign=top>integers</td><td>&nbsp;</td><td>converted to literal4</td></tr>
 </table>
-each char or wchar is promoted to literal4 independently, no U8 or U16 encoding assumed
+each char or wchar is promoted to literal4 character by character, no U8 or U16 encoding assumed
 </td></tr>
 
 
@@ -163,10 +164,10 @@ are inverse pairs.
 <br>&nbsp;</td>
 </tr></table><br>
 
-<!-- 2-byte characters can not be entered the keyboard. 
+<!-- 2-byte characters can not be entered the keyboard. -->
 The display of an array<tt> x </tt>of 2-byte characters is that 
-of<tt> 1 u: x</tt> ,<tt> </tt>that is, discarding the high-order byte 
-of each 2-byte character.<br><br> -->
+of<tt> 8 u:"1 x</tt> ,<tt> </tt>that is, converting to 1-byte 
+characters in utf-8 encoding.<br><br>
 
 Examples:<br>
 <pre>
@@ -174,6 +175,11 @@ Examples:<br>
 We the people
    3!:0 t
 131072                         NB. the wchar datatype numeric code is 131072
+
+   ] t=: 10 u: 'We the people' 
+We the people
+   3!:0 t
+262144                         NB. the literal4 datatype numeric code is 262144
 
    u: 97 98 99 +/ 0 256 512 1024
 ašɡѡ                           NB. 2-byte characters have the same
@@ -189,6 +195,15 @@ efgh                           NB. The 1-byte characters are <i>promoted</i>.
 wxyz
    3!:0 t
 131072
+
+   ] t=: t , 10 u: 'ABCD'
+abcd                           NB. The 2-byte characters are <i>promoted</i> to
+efgh                           NB. 4-byte characters.
+wxyz
+ABCD
+   3!:0 t
+262144
+
 
 </pre>
 
