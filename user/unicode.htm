@@ -17,10 +17,10 @@ User<hr><!--top jump end-->
 
 <p>UTF-8, UTF-16 and UTF-32 are supported. UTF-8 is multibyte encoding for 8 bit data that includes all unicode code points and maps 7 bit ASCII unchanged. J continues to use the literal data type of 8 bits. When literal data is displayed it is treated as UTF-8.</p>
 
-<p>In addition to support for UTF-8 there is UTF-16 which is based on wchar (16 bit literal data type).
+<p>In addition to support for UTF-8 there is UTF-16 which is based on literal2 (16 bit literal data type).
 See <a href="../dictionary/duco.htm">u:</a> for details.
-UTF-16 is a variable length encoding in which each unicode code point in the range from U+0000 to U+FFFF consists 1 wchar
-while each unicode code point in the range from U+10000 to U+10FFFF consists 2 wchars.
+UTF-16 is a variable length encoding in which each unicode code point in the range from U+0000 to U+FFFF consists 1 literal2
+while each unicode code point in the range from U+10000 to U+10FFFF consists 2 literal2s.
 UTF-16 is used in interfacing with some external libraries such as Windows API. Also when working
 with unicode data of code points below U+10000, UTF-16 is more convenient for manipulating unicode data when multibyte UTF-8 is awkward.</p>
 
@@ -41,9 +41,9 @@ UTF-32 is the most convenient encoding for manipulating unicode
 
 <h1>Operations on UTF-8 and UTF-16 data</h1>
 
-Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes are UTF-8 or wchars are UTF-16 unicode code points.
+Exception for the <a href="../dictionary/duco.htm">u:</a> verb, J Engine does not interpret bytes are UTF-8 or literal2s are UTF-16 unicode code points.
 For example applying # on UTF-8 encoded byte literals gives the number of bytes but not unicode code points.
-Similarly applying # on UTF-16 encoded wchar gives the number of wchar but not unicode code points.
+Similarly applying # on UTF-16 encoded literal2 gives the number of literal2 but not unicode code points.
 Other verbs such as {. and dyad $ can produce invalid unicode sequences. Converting UTF-8 and UTF-16 to UTF-32 before processing can avoid those pitfalls.
 
 <h1>boxed display</h1>

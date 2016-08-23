@@ -408,7 +408,7 @@ In the current implementation, a symbol<tt> y </tt>requires
 4 bytes for an index, 
 8 or more bytes in the hash table, 
 44 bytes in the table of symbols, 
-and<tt> len y </tt>bytes (times 2 or 4 if wchar or literal4) in the string table, 
+and<tt> len y </tt>bytes (times 2 or 4 if literal2 or literal4) in the string table, 
 where<tt> len=: #&amp;&gt;@(5&amp;s:) </tt>, the length of the symbol name.
 (A symbol requires a single 4-byte entry
 in the hash table, but for efficient hashing the system maintains
