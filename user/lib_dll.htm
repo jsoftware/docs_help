@@ -26,259 +26,460 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines utilities for calling DLLs and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 A
-</td><td>
+</td>
+<td>
 <a href="#AND">AND</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 C
-</td><td>
+</td>
+<td>
 <a href="#cd">cd</a>, <a href="#cdcb">cdcb</a>, <a href="#cder">cder</a>, <a href="#cderx">cderx</a>, <a href="#cdf">cdf</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 E
-</td><td>
+</td>
+<td>
 <a href="#endian">endian</a>, <a href="#Endian">Endian</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 F
-</td><td>
+</td>
+<td>
 <a href="#fc">fc</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 I
-</td><td>
+</td>
+<td>
 <a href="#ic">ic</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 J
-</td><td>
-<a href="#JB01">JB01</a>, <a href="#JBOXED">JBOXED</a>, <a href="#JCHAR">JCHAR</a>, <a href="#JCMPX">JCMPX</a>, <a href="#JFL">JFL</a>, <a href="#JINT">JINT</a>, <a href="#JPTR">JPTR</a>, <a href="#JSIZES">JSIZES</a>, <a href="#JSTR">JSTR</a>, <a href="#JTYPES">JTYPES</a>
-</td></tr>
-<tr><td class="key">
+</td>
+<td>
+<a href="#JB01">JB01</a>, <a href="#JBOXED">JBOXED</a>, <a href="#JCHAR">JCHAR</a>, <a href="#JCHAR2">JCHAR2</a>, <a href="#JCHAR4">JCHAR4</a>, <a href="#JCMPX">JCMPX</a>, <a href="#JFL">JFL</a>, <a href="#JINT">JINT</a>, <a href="#JPTR">JPTR</a>, <a href="#JSB">JSB</a>, <a href="#JSIZES">JSIZES</a>, <a href="#JSTR">JSTR</a>, <a href="#JSTR2">JSTR2</a>, <a href="#JSTR4">JSTR4</a>, <a href="#JTYPES">JTYPES</a>
+</td>
+</tr>
+<tr>
+<td class="key">
 M
-</td><td>
+</td>
+<td>
 <a href="#mema">mema</a>, <a href="#memf">memf</a>, <a href="#memr">memr</a>, <a href="#memw">memw</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 O
-</td><td>
+</td>
+<td>
 <a href="#OR">OR</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 S
-</td><td>
+</td>
+<td>
 <a href="#symdat">symdat</a>, <a href="#symget">symget</a>, <a href="#symset">symset</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 X
-</td><td>
+</td>
+<td>
 <a href="#XOR">XOR</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
-<hr><table class="rdef"><tr><td id="AND" class="rid">
+<hr>
+<table class="rdef">
+<tr>
+<td id="AND" class="rid">
 AND
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 bitwise AND (&amp;)
-</td></tr>
-<tr><td id="cd" class="rid">
+</td>
+</tr>
+<tr>
+<td id="cd" class="rid">
 cd
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 call DLL procedure
-</td></tr>
-<tr><td id="cdcb" class="rid">
+</td>
+</tr>
+<tr>
+<td id="cdcb" class="rid">
 cdcb
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 callback address
-</td></tr>
-<tr><td id="cder" class="rid">
+</td>
+</tr>
+<tr>
+<td id="cder" class="rid">
 cder
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 error information
-</td></tr>
-<tr><td id="cderx" class="rid">
+</td>
+</tr>
+<tr>
+<td id="cderx" class="rid">
 cderx
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 GetLastError information
-</td></tr>
-<tr><td id="cdf" class="rid">
+</td>
+</tr>
+<tr>
+<td id="cdf" class="rid">
 cdf
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 free DLLs
-</td></tr>
-<tr><td id="endian" class="rid">
+</td>
+</tr>
+<tr>
+<td id="endian" class="rid">
 endian
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 flip intel bytes (little endian)
-</td></tr>
-<tr><td id="Endian" class="rid">
+</td>
+</tr>
+<tr>
+<td id="Endian" class="rid">
 Endian
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 flip powerpc bytes (BIG Endian)
-</td></tr>
-<tr><td id="fc" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fc" class="rid">
 fc
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 float conversion
-</td></tr>
-<tr><td id="JB01" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JB01" class="rid">
 JB01
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 1
-</td></tr>
-<tr><td id="JBOXED" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JBOXED" class="rid">
 JBOXED
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 32
-</td></tr>
-<tr><td id="JCHAR" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JCHAR" class="rid">
 JCHAR
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 2
-</td></tr>
-<tr><td id="JCMPX" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JCHAR2" class="rid">
+JCHAR2
+</td>
+<td class="rtype">
+n
+</td>
+<td class="rdef">
+131072
+</td>
+</tr>
+<tr>
+<td id="JCHAR4" class="rid">
+JCHAR4
+</td>
+<td class="rtype">
+n
+</td>
+<td class="rdef">
+262144
+</td>
+</tr>
+<tr>
+<td id="JCMPX" class="rid">
 JCMPX
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 16
-</td></tr>
-<tr><td id="JFL" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JFL" class="rid">
 JFL
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 8
-</td></tr>
-<tr><td id="JINT" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JINT" class="rid">
 JINT
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 4
-</td></tr>
-<tr><td id="JPTR" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JPTR" class="rid">
 JPTR
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 JINT
-</td></tr>
-<tr><td id="JSIZES" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JSB" class="rid">
+JSB
+</td>
+<td class="rtype">
+n
+</td>
+<td class="rdef">
+65536
+</td>
+</tr>
+<tr>
+<td id="JSIZES" class="rid">
 JSIZES
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 size in bytes of corresponding JTYPES
-</td></tr>
-<tr><td id="JSTR" class="rid">
+</td>
+</tr>
+<tr>
+<td id="JSTR" class="rid">
 JSTR
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 _1,JCHAR
-</td></tr>
-<tr><td id="JTYPES" class="rid">
-JTYPES
-</td><td class="rtype">
+</td>
+</tr>
+<tr>
+<td id="JSTR2" class="rid">
+JSTR2
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
-JB01,JCHAR,JINT,JPTR,JFL,JCMPX,JBOXED
-</td></tr>
-<tr><td id="mema" class="rid">
+</td>
+<td class="rdef">
+_1,JCHAR2
+</td>
+</tr>
+<tr>
+<td id="JSTR4" class="rid">
+JSTR4
+</td>
+<td class="rtype">
+n
+</td>
+<td class="rdef">
+_1,JCHAR4
+</td>
+</tr>
+<tr>
+<td id="JTYPES" class="rid">
+JTYPES
+</td>
+<td class="rtype">
+n
+</td>
+<td class="rdef">
+JB01,JCHAR,JINT,JPTR,JFL,JCMPX,JBOXED,JSB,JCHAR2,JCHAR4
+</td>
+</tr>
+<tr>
+<td id="mema" class="rid">
 mema
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 memory allocate
-</td></tr>
-<tr><td id="memf" class="rid">
+</td>
+</tr>
+<tr>
+<td id="memf" class="rid">
 memf
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 memory free
-</td></tr>
-<tr><td id="memr" class="rid">
+</td>
+</tr>
+<tr>
+<td id="memr" class="rid">
 memr
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 memory read
-</td></tr>
-<tr><td id="memw" class="rid">
+</td>
+</tr>
+<tr>
+<td id="memw" class="rid">
 memw
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 memory write
-</td></tr>
-<tr><td id="OR" class="rid">
+</td>
+</tr>
+<tr>
+<td id="OR" class="rid">
 OR
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 bitwise OR (|)
-</td></tr>
-<tr><td id="symdat" class="rid">
+</td>
+</tr>
+<tr>
+<td id="symdat" class="rid">
 symdat
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 get address of data for name
-</td></tr>
-<tr><td id="symget" class="rid">
+</td>
+</tr>
+<tr>
+<td id="symget" class="rid">
 symget
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 get address of locale entry for name
-</td></tr>
-<tr><td id="symset" class="rid">
+</td>
+</tr>
+<tr>
+<td id="symset" class="rid">
 symset
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 set array as address
-</td></tr>
-<tr><td id="XOR" class="rid">
+</td>
+</tr>
+<tr>
+<td id="XOR" class="rid">
 XOR
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 bitwise XOR (^)
-</td></tr>
+</td>
+</tr>
 </table>
-
 <h2 id="ic" class="hdef">ic (verb)</h2>
 <p>Integer conversion e.g.</p>
-<p>   25185 25699 = _1 ic 'abcd'<br />   'abcd' = 1 ic _1 ic 'abcd'<br />   1684234849 1751606885 = _2 ic 'abcdefgh'<br />   'abcdefgh' = 2 ic _2 ic 'abcdefgh'</p>
+<p>   25185 25699 = _1 ic 'abcd'<br />
+   'abcd' = 1 ic _1 ic 'abcd'<br />
+   1684234849 1751606885 = _2 ic 'abcdefgh'<br />
+   'abcdefgh' = 2 ic _2 ic 'abcdefgh'</p>
 <!--bottom jump start--><hr><a href="lib_files.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_dir.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

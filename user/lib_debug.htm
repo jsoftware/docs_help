@@ -26,169 +26,261 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines debug utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 D
-</td><td>
+</td>
+<td>
 <a href="#dbctx">dbctx</a>, <a href="#dberm">dberm</a>, <a href="#dberr">dberr</a>, <a href="#dbg">dbg</a>, <a href="#dbhelp">dbhelp</a>, <a href="#dbjmp">dbjmp</a>, <a href="#dblocals">dblocals</a>, <a href="#dblxq">dblxq</a>, <a href="#dblxs">dblxs</a>, <a href="#dbnxt">dbnxt</a>, <a href="#dbq">dbq</a>, <a href="#dbr">dbr</a>, <a href="#dbret">dbret</a>, <a href="#dbrr">dbrr</a>, <a href="#dbrrx">dbrrx</a>, <a href="#dbrun">dbrun</a>, <a href="#dbs">dbs</a>, <a href="#dbsig">dbsig</a>, <a href="#dbsq">dbsq</a>, <a href="#dbss">dbss</a>, <a href="#dbst">dbst</a>, <a href="#dbstack">dbstack</a>, <a href="#dbstk">dbstk</a>, <a href="#dbstop">dbstop</a>, <a href="#dbstopme">dbstopme</a>, <a href="#dbstopnext">dbstopnext</a>, <a href="#dbstops">dbstops</a>, <a href="#dbtrace">dbtrace</a>, <a href="#dbview">dbview</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
-<hr><table class="rdef"><tr><td id="dberm" class="rid">
+<hr>
+<table class="rdef">
+<tr>
+<td id="dberm" class="rid">
 dberm
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 last error message
-</td></tr>
-<tr><td id="dberr" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dberr" class="rid">
 dberr
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 last error number
-</td></tr>
-<tr><td id="dbg" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbg" class="rid">
 dbg
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 turn debugging window on/off
-</td></tr>
-<tr><td id="dbhelp" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbhelp" class="rid">
 dbhelp
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 display help message
-</td></tr>
-<tr><td id="dbjmp" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbjmp" class="rid">
 dbjmp
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 jump to line number
-</td></tr>
-<tr><td id="dblxq" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dblxq" class="rid">
 dblxq
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 latent expression query
-</td></tr>
-<tr><td id="dblxs" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dblxs" class="rid">
 dblxs
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 latent expression set
-</td></tr>
-<tr><td id="dbnxt" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbnxt" class="rid">
 dbnxt
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 run next (skip line and run)
-</td></tr>
-<tr><td id="dbq" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbq" class="rid">
 dbq
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 queries suspension mode (set by dbr)
-</td></tr>
-<tr><td id="dbr" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbr" class="rid">
 dbr
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 reset, set suspension mode (0=disable, 1=enable)
-</td></tr>
-<tr><td id="dbret" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbret" class="rid">
 dbret
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 exit and return argument
-</td></tr>
-<tr><td id="dbrr" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbrr" class="rid">
 dbrr
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 re-run with specified arguments
-</td></tr>
-<tr><td id="dbrrx" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbrrx" class="rid">
 dbrrx
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 re-run with specified executed arguments
-</td></tr>
-<tr><td id="dbrun" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbrun" class="rid">
 dbrun
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 run again (from current stop)
-</td></tr>
-<tr><td id="dbs" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbs" class="rid">
 dbs
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 display stack
-</td></tr>
-<tr><td id="dbsig" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbsig" class="rid">
 dbsig
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 signal error
-</td></tr>
-<tr><td id="dbsq" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbsq" class="rid">
 dbsq
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 stop query
-</td></tr>
-<tr><td id="dbss" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbss" class="rid">
 dbss
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 stop set
-</td></tr>
-<tr><td id="dbst" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbst" class="rid">
 dbst
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 returns stack text
-</td></tr>
-<tr><td id="dbstk" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbstk" class="rid">
 dbstk
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 call stack
-</td></tr>
-<tr><td id="dbtrace" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbtrace" class="rid">
 dbtrace
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 trace control
-</td></tr>
-<tr><td id="dbview" class="rid">
+</td>
+</tr>
+<tr>
+<td id="dbview" class="rid">
 dbview
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 view stack
-</td></tr>
+</td>
+</tr>
 </table>
-
 <h2 id="dbctx" class="hdef">dbctx (verb)</h2>
 <p>Display context as character matrix</p>
 <p>y is ignored</p>

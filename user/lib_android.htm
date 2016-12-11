@@ -26,13 +26,16 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines android utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 A
-</td><td>
+</td>
+<td>
 <a href="#anddf">anddf</a>, <a href="#andunzip">andunzip</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
 <h2 id="anddf" class="hdef">anddf (verb)</h2>
 <p>Download a file via android's embedded http client overwriting target file.</p>
 <h3>Example</h3>
@@ -40,14 +43,25 @@ A
 <h3>Syntax</h3>
 <pre><code>x anddf y</code></pre>
 <p>returns:</p>
-<p>&gt;=0 success, number of bytes in file<br /> _1 unknown error<br /> _2 target file exists and is not writable<br /> _3 parent directory is not writable<br /> _5 malformed url<br /> _6 i/o exception during transport<br /> _99 web request returns invalid '0' status code<br />&lt;= <em>100 negation of unsuccessful http response code (!=200), ie. </em>404 &quot;Not Found&quot;</p>
+<p>&gt;=0 success, number of bytes in file<br />
+ _1 unknown error<br />
+ _2 target file exists and is not writable<br />
+ _3 parent directory is not writable<br />
+ _5 malformed url<br />
+ _6 i/o exception during transport<br />
+ _99 web request returns invalid '0' status code<br />
+&lt;= _100 negation of unsuccessful http response code (!=200), ie. _404 &quot;Not Found&quot;</p>
 <h2 id="andunzip" class="hdef">andunzip (verb)</h2>
 <p>Monadically, it unzips the file at y into the same directory.</p>
 <p>Optional x may specify an alternate output directory</p>
 <h3>Syntax</h3>
 <pre><code>andunzip y ; x andunzip y</code></pre>
 <p>returns:</p>
-<p> 0 success<br />_1 generic i/o error<br />_2 zipfile not found<br />_3 output directory not writable<br />_4 zip format exception</p>
+<p> 0 success<br />
+_1 generic i/o error<br />
+_2 zipfile not found<br />
+_3 output directory not writable<br />
+_4 zip format exception</p>
 <!--bottom jump start--><hr><a href="lib_break.htm">&gt;&gt;</a>&nbsp;
 <a href="library.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

@@ -26,91 +26,136 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines file utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <p>read verbs take a right argument of a filename, optionally linked with one or two numbers (as for 1!:11):</p>
-<p> 0 = start of read (may be negative)<br /> 1 = length of read (default rest of file)</p>
+<p> 0 = start of read (may be negative)<br />
+ 1 = length of read (default rest of file)</p>
 <p>write verbs return number of characters written.</p>
 <p>filenames may be open or boxed character or unicode strings</p>
 <p>string verbs write out text delimited with the host OS delimiter, and read in text delimited by LF.</p>
 <p>on error, the result is _1, e.g. for file not found/file read error/file write error</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 F
-</td><td>
+</td>
+<td>
 <a href="#fappend">fappend</a>, <a href="#fappends">fappends</a>, <a href="#fapplylines">fapplylines</a>, <a href="#fboxname">fboxname</a>, <a href="#fcopynew">fcopynew</a>, <a href="#fdir">fdir</a>, <a href="#ferase">ferase</a>, <a href="#fexist">fexist</a>, <a href="#fgets">fgets</a>, <a href="#fmakex">fmakex</a>, <a href="#fpathcreate">fpathcreate</a>, <a href="#fpathname">fpathname</a>, <a href="#fread">fread</a>, <a href="#freadblock">freadblock</a>, <a href="#freadr">freadr</a>, <a href="#freads">freads</a>, <a href="#frename">frename</a>, <a href="#freplace">freplace</a>, <a href="#fsize">fsize</a>, <a href="#fss">fss</a>, <a href="#fssrplc">fssrplc</a>, <a href="#fstamp">fstamp</a>, <a href="#ftype">ftype</a>, <a href="#fview">fview</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrite">fwrite</a>, <a href="#fwrites">fwrites</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
-<hr><table class="rdef"><tr><td id="fboxname" class="rid">
+<hr>
+<table class="rdef">
+<tr>
+<td id="fboxname" class="rid">
 fboxname
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 fix and box filename
-</td></tr>
-<tr><td id="fgets" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fgets" class="rid">
 fgets
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 convert text read from file to J string
-</td></tr>
-<tr><td id="fmakex" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fmakex" class="rid">
 fmakex
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 make file executable
-</td></tr>
-<tr><td id="fpathcreate" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fpathcreate" class="rid">
 fpathcreate
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 create a folder path, returning success
-</td></tr>
-<tr><td id="fpathname" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fpathname" class="rid">
 fpathname
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 split file name into path;name
-</td></tr>
-<tr><td id="fstamp" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fstamp" class="rid">
 fstamp
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 returns file timestamp
-</td></tr>
-<tr><td id="fview" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fview" class="rid">
 fview
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 view file (requires textview)
-</td></tr>
-<tr><td id="fwrite" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fwrite" class="rid">
 fwrite
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 write text to file
-</td></tr>
-<tr><td id="fwrite" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fwrite" class="rid">
 fwrite
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 write text to file if changed
-</td></tr>
-<tr><td id="fwrites" class="rid">
+</td>
+</tr>
+<tr>
+<td id="fwrites" class="rid">
 fwrites
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 write string to file
-</td></tr>
+</td>
+</tr>
 </table>
-
 <h2 id="fappend" class="hdef">fappend (verb)</h2>
 <p>Append text to file.</p>
 <p>The text is first ravelled. The file is created if necessary.</p>
@@ -130,7 +175,9 @@ write string to file
 <p>Copies files if changed.</p>
 <h3>Syntax</h3>
 <pre><code>tofile fcopynew fromfiles</code></pre>
-<p>returns: 0, size not changed<br />         1, size changed<br />        _1 failure</p>
+<p>returns: 0, size not changed<br />
+         1, size changed<br />
+        _1 failure</p>
 <h2 id="fdir" class="hdef">fdir (verb)</h2>
 <p>File directory.</p>
 <h3>Example</h3>
@@ -142,7 +189,8 @@ write string to file
 <p>Returns 1 if the file exists, otherwise 0.</p>
 <h2 id="fread" class="hdef">fread (verb)</h2>
 <p>Read file.</p>
-<p>y is filename {;start size}<br />optional x calls freads</p>
+<p>y is filename {;start size}<br />
+optional x calls freads</p>
 <h2 id="freadblock" class="hdef">freadblock (verb)</h2>
 <p>Read block of lines from file.</p>
 <p>Lines are terminated by LF.</p>
@@ -156,7 +204,10 @@ write string to file
 <p>the result is a matrix of records.</p>
 <h2 id="freads" class="hdef">freads (verb)</h2>
 <p>Read file as string.</p>
-<p>y is filename {;start size}<br />x is optional (b and m same as fread):<br />   = b read as boxed vector<br />   = m read as matrix</p>
+<p>y is filename {;start size}<br />
+x is optional (b and m same as fread):<br />
+   = b read as boxed vector<br />
+   = m read as matrix</p>
 <h2 id="frename" class="hdef">frename (verb)</h2>
 <p>Renames file.</p>
 <h3>Syntax</h3>
@@ -178,7 +229,9 @@ write string to file
 <pre><code>(old;new) fssrplc file</code></pre>
 <h2 id="ftype" class="hdef">ftype (verb)</h2>
 <p>Get file type, as:</p>
-<p>0 = not exist<br />1 = file<br />2 = directory</p>
+<p>0 = not exist<br />
+1 = file<br />
+2 = directory</p>
 <!--bottom jump start--><hr><a href="lib_jade.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_dll.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

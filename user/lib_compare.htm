@@ -26,18 +26,24 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines comparison utilities and is included in the J standard library. Definitions are loaded into the jcompare locale with cover functions in z.</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 C
-</td><td>
+</td>
+<td>
 <a href="#compare">compare</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 F
-</td><td>
+</td>
+<td>
 <a href="#fcompare">fcompare</a>, <a href="#fcompares">fcompares</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
 <h2 id="compare" class="hdef">compare (verb)</h2>
 <p>Compare character data.</p>
 <h3>Syntax</h3>
@@ -46,13 +52,18 @@ F
 <p>Result shows lines not matched, in form:</p>
 <pre><code>n [l] text</code></pre>
 <p>where:</p>
-<p>  n = 0=left argument, 1=right argument<br /> [l] = line number<br /> text = text on line</p>
+<p>  n = 0=left argument, 1=right argument<br />
+ [l] = line number<br />
+ text = text on line</p>
 <h2 id="fcompare" class="hdef">fcompare (verb)</h2>
 <p>Compare two text files.</p>
 <h3>Syntax</h3>
 <pre><code>opt fcompare files</code></pre>
 <p>where:</p>
-<p> opt is optional suffix<br /> files is 2 file names or prefixes, given<br /> either as character string cut on blanks<br /> or as 2-element boxed list</p>
+<p> opt is optional suffix<br />
+ files is 2 file names or prefixes, given<br />
+ either as character string cut on blanks<br />
+ or as 2-element boxed list</p>
 <h3>Example</h3>
 <pre><code>fcompare &#39;~mywork/myutil.ijs ~/jbak/mywork/myutil.ijs&#39;
 &#39;/myutil.ijs&#39; fcompare jpath &#39;~mywork&#39;;&#39;/jbak/mywork&#39;</code></pre>

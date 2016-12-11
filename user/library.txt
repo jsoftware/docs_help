@@ -183,11 +183,14 @@ lib_stdlib.htm#inverse
 lib_stdlib.htm#iospath
 lib_stdlib.htm#isatty
 lib_dates.htm#isotimestamp
+lib_stdlib.htm#isutf16
 lib_stdlib.htm#isutf8
 lib_stdlib.htm#items
 lib_dll.htm#JB01
 lib_dll.htm#JBOXED
 lib_dll.htm#JCHAR
+lib_dll.htm#JCHAR2
+lib_dll.htm#JCHAR4
 lib_dll.htm#JCMPX
 lib_sysenv.htm#jcwdpath
 lib_dll.htm#JFL
@@ -196,8 +199,11 @@ lib_strings.htm#joinstring
 lib_jade.htm#jpath
 lib_sysenv.htm#jpathsep
 lib_dll.htm#JPTR
+lib_dll.htm#JSB
 lib_dll.htm#JSIZES
 lib_dll.htm#JSTR
+lib_dll.htm#JSTR2
+lib_dll.htm#JSTR4
 lib_sysenv.htm#jsystemdefs
 lib_dll.htm#JTYPES
 lib_stdlib.htm#leaf

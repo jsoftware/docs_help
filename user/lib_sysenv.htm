@@ -26,171 +26,267 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines text system environment and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <h2>Definitions</h2>
-<table class="map"><tr><td class="key">
+<table class="map">
+<tr>
+<td class="key">
 F
-</td><td>
+</td>
+<td>
 <a href="#FHS">FHS</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 H
-</td><td>
+</td>
+<td>
 <a href="#hostpathsep">hostpathsep</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 I
-</td><td>
+</td>
+<td>
 <a href="#IF64">IF64</a>, <a href="#IFDEF">IFDEF</a>, <a href="#IFIOS">IFIOS</a>, <a href="#IFJA">IFJA</a>, <a href="#IFJHS">IFJHS</a>, <a href="#IFQT">IFQT</a>, <a href="#IFRASPI">IFRASPI</a>, <a href="#IFUNIX">IFUNIX</a>, <a href="#IFWIN">IFWIN</a>, <a href="#IFWINCE">IFWINCE</a>, <a href="#IFWINE">IFWINE</a>, <a href="#IFWOW64">IFWOW64</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 J
-</td><td>
+</td>
+<td>
 <a href="#jcwdpath">jcwdpath</a>, <a href="#jpathsep">jpathsep</a>, <a href="#jsystemdefs">jsystemdefs</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 U
-</td><td>
+</td>
+<td>
 <a href="#UNAME">UNAME</a>
-</td></tr>
-<tr><td class="key">
+</td>
+</tr>
+<tr>
+<td class="key">
 W
-</td><td>
+</td>
+<td>
 <a href="#winpathsep">winpathsep</a>
-</td></tr>
+</td>
+</tr>
 </table>
-
-<hr><table class="rdef"><tr><td id="FHS" class="rid">
+<hr>
+<table class="rdef">
+<tr>
+<td id="FHS" class="rid">
 FHS
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 filesystem hierarchy: 0=not used 1=linux and installed under /usr/...
-</td></tr>
-<tr><td id="hostpathsep" class="rid">
+</td>
+</tr>
+<tr>
+<td id="hostpathsep" class="rid">
 hostpathsep
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 converts path name to use host path separator
-</td></tr>
-<tr><td id="IF64" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IF64" class="rid">
 IF64
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if a 64 bit J system
-</td></tr>
-<tr><td id="IFDEF" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFDEF" class="rid">
 IFDEF
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if DEFxxx exists
-</td></tr>
-<tr><td id="IFIOS" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFIOS" class="rid">
 IFIOS
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if iOS (iPhone/iPad)
-</td></tr>
-<tr><td id="IFJA" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFJA" class="rid">
 IFJA
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if J Android
-</td></tr>
-<tr><td id="IFJHS" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFJHS" class="rid">
 IFJHS
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if jhs libraries loaded
-</td></tr>
-<tr><td id="IFQT" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFQT" class="rid">
 IFQT
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if Qt libraries loaded
-</td></tr>
-<tr><td id="IFRASPI" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFRASPI" class="rid">
 IFRASPI
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if Raspberry Pi
-</td></tr>
-<tr><td id="IFUNIX" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFUNIX" class="rid">
 IFUNIX
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if UNIX
-</td></tr>
-<tr><td id="IFWIN" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFWIN" class="rid">
 IFWIN
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if Windows (2000 and up)
-</td></tr>
-<tr><td id="IFWINCE" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFWINCE" class="rid">
 IFWINCE
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if Windows CE
-</td></tr>
-<tr><td id="IFWINE" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFWINE" class="rid">
 IFWINE
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if Wine (Wine Is Not an Emulator)
-</td></tr>
-<tr><td id="IFWOW64" class="rid">
+</td>
+</tr>
+<tr>
+<td id="IFWOW64" class="rid">
 IFWOW64
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 if running J32 on a 64 bit o/s
-</td></tr>
-<tr><td id="jcwdpath" class="rid">
+</td>
+</tr>
+<tr>
+<td id="jcwdpath" class="rid">
 jcwdpath
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 adds path to J current working directory
-</td></tr>
-<tr><td id="jpathsep" class="rid">
+</td>
+</tr>
+<tr>
+<td id="jpathsep" class="rid">
 jpathsep
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 converts path name to use / separator
-</td></tr>
-<tr><td id="jsystemdefs" class="rid">
+</td>
+</tr>
+<tr>
+<td id="jsystemdefs" class="rid">
 jsystemdefs
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 loads appropriate netdefs or hostdefs
-</td></tr>
-<tr><td id="UNAME" class="rid">
+</td>
+</tr>
+<tr>
+<td id="UNAME" class="rid">
 UNAME
-</td><td class="rtype">
+</td>
+<td class="rtype">
 n
-</td><td class="rdef">
+</td>
+<td class="rdef">
 name of UNIX o/s
-</td></tr>
-<tr><td id="winpathsep" class="rid">
+</td>
+</tr>
+<tr>
+<td id="winpathsep" class="rid">
 winpathsep
-</td><td class="rtype">
+</td>
+<td class="rtype">
 v
-</td><td class="rdef">
+</td>
+<td class="rdef">
 converts path name to use  separator
-</td></tr>
+</td>
+</tr>
 </table>
 <!--bottom jump start--><hr><a href="lib_text.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_strings.htm">&lt;&lt;</a>&nbsp;
