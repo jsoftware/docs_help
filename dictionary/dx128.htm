@@ -27,7 +27,7 @@ Dictionary<hr><!--top jump end-->
 <TD>
 <B>QR</B>.  Produces the QR decomposition of a complex matrix<tt> y </tt>
 (in the domain of matrix inverse<tt> %.</tt>),<tt> </tt>
-an Hermitian matrix and a square upper triangular matrix, 
+an Hermitian matrix and a square upper triangular matrix,
 individually boxed.
 
 <pre>
@@ -49,7 +49,7 @@ individually boxed.
 0 0 0 1
    A -: Q mp R
 1
-</pre>
+</pre><br>
 </TD></TR>
 
 <TR><TD valign=top><a name="1"></a><tt>128!:1 y</tt></td>
@@ -57,7 +57,7 @@ individually boxed.
 </td></tr>
 
 <TR><TD valign=top><a name="2"></a><tt>x 128!:2 y</tt></td>
-<TD><B>Apply</B>.<tt> x 128!:2 y </tt>applies the verb in 
+<TD><B>Apply</B>.<tt> x 128!:2 y </tt>applies the verb in
 string<tt> x </tt>to<tt> y</tt> .<tt> </tt>
 For example:
 <pre>
@@ -82,11 +82,11 @@ For example:
 |   '@'    128!:2 i.2 5
 </pre>
 The ranks of<tt> 128!:2 </tt>are<tt> 1 _ </tt>,<tt> </tt>
-that is, apply the lists in the left argument to 
+that is, apply the lists in the left argument to
 the right argument <i>in toto</i>.<br><br></td></tr>
 
 <TR><TD valign=top><a name="3"></a><tt>[x] 128!:3 y</tt></td>
-<TD><B>CRC</B>. A CRC polynomial is a boolean list or an integer.  
+<TD><B>CRC</B>. A CRC polynomial is a boolean list or an integer.
 The following CRC polynomials<tt> p </tt>and<tt> q </tt>are equivalent:</p>
 
 <pre>
@@ -108,11 +108,11 @@ The following CRC polynomials<tt> p </tt>and<tt> q </tt>are equivalent:</p>
 <p><tt> x 128!:3 y </tt>computes the CRC encoding of string<tt> y </tt>
 according to<tt> x</tt> ,<tt> </tt>which
 may be<tt> p </tt>or<tt> p;i</tt> ,<tt> </tt>where<tt> p </tt>
-is a CRC polynomial and<tt> i </tt>is the initial CRC value.  
+is a CRC polynomial and<tt> i </tt>is the initial CRC value.
 If<tt> i </tt>is elided then<tt> _1 </tt>is used.<tt> 128!:3 y </tt>
 is equivalent to<tt> _306674912 (128!:3) y</tt> .</p>
 
-<p>The monad<tt> x&(128!:3) </tt>is supported by special code which 
+<p>The monad<tt> x&(128!:3) </tt>is supported by special code which
 pre-computes a look-up table of CRC values for each byte.</p>
 
 <p>Examples:</p>
@@ -122,7 +122,7 @@ pre-computes a look-up table of CRC values for each byte.</p>
 _873187034
    f 'assiduously avoid any and all asinine alliterations'
 1439575093
-</pre>
+</pre><br>
 </td></tr>
 
 <tr><td valign=top><a name="4"></a><tt>128!:4 y</tt></td>
@@ -131,7 +131,7 @@ _873187034
 
 <tr><td valign=top><a name="5"></a><tt>128!:5 y</tt></td>
 <td valign=top><p><b>Is NaN. </b>
-If<tt> z=: 128!:5 y</tt> ,<tt> </tt>then<tt> z </tt>has the same shape 
+If<tt> z=: 128!:5 y</tt> ,<tt> </tt>then<tt> z </tt>has the same shape
 as<tt> y </tt>and an atom of<tt> z </tt>
 is 1 if and only if the corresponding atom of<tt> y </tt>is<tt> _. </tt>(NaN)
 or contains<tt> _. </tt>.</p>
@@ -141,18 +141,18 @@ or contains<tt> _. </tt>.</p>
    (128!:5) 3.45 6 _. 7
 0 0 1 0
    (128!:5) t=. 2 2$1 2;3 4 5;(<<_. 7);_.
-0 0 
+0 0
 1 1
    (128!:5) < t
 1
    (128!:5) ;:'Cogito, ergo sum. _.'
 0 0 0 0 0
-</pre>
+</pre><br>
 
 </td></tr>
 
 <TR><TD valign=top><a name="3"></a><tt>[x] 128!:6 y</tt></td>
-<TD><B>SHA</B>. The Secure Hash Algorithms are a family of cryptographic hash functions. 
+<TD><B>SHA</B>. The Secure Hash Algorithms are a family of cryptographic hash functions.
 
 <p><tt> x 128!:6 y </tt>computes the SHA of string<tt> y </tt>
 according to<tt> x</tt>, results are hexadecimal strings.
