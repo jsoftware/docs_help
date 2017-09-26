@@ -150,6 +150,38 @@ or contains<tt> _. </tt>.</p>
 </pre>
 
 </td></tr>
+
+<TR><TD valign=top><a name="3"></a><tt>[x] 128!:6 y</tt></td>
+<TD><B>SHA</B>. The Secure Hash Algorithms are a family of cryptographic hash functions. 
+
+<p><tt> x 128!:6 y </tt>computes the SHA of string<tt> y </tt>
+according to<tt> x</tt>, results are hexadecimal strings.
+<pre>
+  1    SHA1
+  2    SHA224
+  3    SHA256
+  4    SHA384
+  5    SHA512
+  6    SHA3_224
+  7    SHA3_256
+  8    SHA3_384
+  9    SHA3_512
+</pre>
+_1 to _9 are the same as 1 to 9 but with results in binary strings.
+<br>
+<tt> 128!:6 y </tt> is equivalent to<tt> 1 (128!:6) y</tt> .</p>
+
+<p>Examples:</p>
+<pre>
+   128!:6 'abc'
+a9993e364706816aba3e25717850c26c9cd0d89d
+   1 (128!:6) 'abc'
+a9993e364706816aba3e25717850c26c9cd0d89d
+   a. i. _1 (128!:6) 'abc'
+169 153 62 54 71 6 129 106 186 62 37 113 120 80 194 108 156 208 216 157
+</pre>
+</td></tr>
+
 </table>
 
 <br>
