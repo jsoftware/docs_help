@@ -25,7 +25,7 @@ Phrases<hr><!--top jump end-->
   <TR><TD width=40%><tt>d0=: %@&gt;:@(] % 100&quot;_) #. |.@[</tt></TD>	<TD width=60%>Present value flows x at y%</TD></TR>
   <TR><TD><tt>d1=: &gt;:@(] % 100&quot;_) #. [</tt></TD>	<TD>Future value of flows x at interest rate y</TD></TR>
   <TR><TD><tt>d2=: ([: &gt;: [ % 100&quot;_) ^/ ]</tt></TD>	<TD>Amount of 1 at x% for y periods</TD></TR>
-  <TR><TD><tt>d3=: 13 : '|: y.%-.(&gt;:y.) ^/ -x.'</tt></TD>	<TD>Annuity coefficient: periods x at rate y</TD></TR>
+  <TR><TD><tt>d3=: 13 : '|: y%-.(&gt;:y) ^/ -x.'</tt></TD>	<TD>Annuity coefficient: periods x at rate y</TD></TR>
   <TR><TD><tt>d4=: [ d3 [: m5 ]</tt></TD>	<TD>Annuity coefficient: periods x at  y %</TD></TR>
   <TR><TD><tt>m5=: 0.01&amp;*</tt></TD>	<TD>Rate from percent</TD></TR>
   <TR><TD><tt>m6=: 100&amp;*</tt></TD>	<TD>Percent from rate</TD></TR>
@@ -35,7 +35,7 @@ Phrases<hr><!--top jump end-->
   <TR><TD><tt>m10=: (% {.) @ (|.@(+/\)@i.@&gt;:)</tt></TD>	<TD>Outstanding balances on rule of 78</TD></TR>
   <TR><TD><tt>m11=: }.%}: </tt></TD>	<TD>Rate of change from amounts</TD></TR>
   <TR><TD><tt>m12=: 2&amp;((%~)/\)</tt></TD>	<TD>Rate of change from amounts</TD></TR>
-  <TR><TD><tt>d13=:4 :'r*+/\y.%r=:*/\1,x.$~&lt;:#y.'</tt></TD> 	<TD>Accumulate deposits y at x</TD></TR>
+  <TR><TD><tt>d13=:4 :'r*+/\y%r=:*/\1,x.$~&lt;:#y'</tt></TD> 	<TD>Accumulate deposits y at x</TD></TR>
   <TR><TD><tt>d14=: [+2: -/\ [: &gt;./\ 0:,[: +/\ - </tt></TD>	<TD>Work done; x=capacity, y=demand</TD></TR>
 </TABLE>
 

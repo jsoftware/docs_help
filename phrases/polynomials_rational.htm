@@ -105,7 +105,7 @@ _126 _216 _300 _360 _378 _336
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR><TD width=40%><tt>m7=: p.</tt></TD> <TD width=60%>Transformation between roots and coefficients</TD> </TR>
   <TR><TD><tt>d8=: p.</tt></TD> <TD>Polynomial in terms of roots or coefficients</TD></TR>
-  <TR><TD><tt>c9=: FIT=: 2 :'x. %. ]^/(i.y.)&quot;_'</tt></TD> <TD><tt>f FIT d </tt>gives coeffs of pn fit of degree <tt>d-1</tt></TD></TR>
+  <TR><TD><tt>c9=: FIT=: 2 :'x %. ]^/(i.y)&quot;_'</tt></TD> <TD><tt>f FIT d </tt>gives coeffs of pn fit of degree <tt>d-1</tt></TD></TR>
 </TABLE>
 
 
@@ -118,7 +118,7 @@ _126 _216 _300 _360 _378 _336
    (x^n),(*/x+0*i.n)
 1296 1296
 
-   FIT=: 2 : 'x. %. ] ^/ (i.y.)&quot;_'
+   FIT=: 2 : 'x %. ] ^/ (i.y)&quot;_'
    (x ff n),(*/x+_1*i.n)
 360 360
 
@@ -182,11 +182,11 @@ that is,<tt> (c p. x)-:(fcFc fp x)</tt> :</P>
 
 <P>If<tt> f </tt>and<tt> g </tt>are polynomials, 
 then the function<tt> f % g </tt>is called a rational function. 
-The conjunction<tt> R=: 2 : 'x.&amp;p. % y.&amp;p.' </tt>
+The conjunction<tt> R=: 2 : 'x&amp;p. % y&amp;p.' </tt>
 produces a rational function defined by its coefficient arguments:
 
 <pre>
-   R=: 2 : 'x.&amp;p. % y.&amp;p.'
+   R=: 2 : 'x&amp;p. % y&amp;p.'
    c=: 1 4 6 4 1 [ d=: 1 2 1  x=: i.6
    c R d
 1 4 6 4 1&amp;p. % 1 2 1&amp;p.
@@ -210,8 +210,8 @@ produces a rational function defined by its coefficient arguments:
 0 1 1 2 3 5 8 13 21 34 Fibonacci numbers</pre>
 
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-  <TR><TD width=40%><tt>c19=: R=: 2 : 'x.&amp;p. % y.&amp;p.'</tt></TD> <TD width=60%>Rational conjunction</TD></TR>
-  <TR><TD><tt>c20=: TR=: 2 : '(x.&amp;p. % y.&amp;p.) t.'</tt></TD> <TD>Taylor series of rational function</TD></TR>
+  <TR><TD width=40%><tt>c19=: R=: 2 : 'x&amp;p. % y&amp;p.'</tt></TD> <TD width=60%>Rational conjunction</TD></TR>
+  <TR><TD><tt>c20=: TR=: 2 : '(x&amp;p. % y&amp;p.) t.'</tt></TD> <TD>Taylor series of rational function</TD></TR>
 </TABLE>
 
 

@@ -142,7 +142,7 @@ should be used to evaluate the different methods.</P>
   </TR><TR><TD><tt>v47=: {.;}.</tt></TD>	<TD>Split first from rest; split <tt>y</tt> at <tt>x</tt></TD>
   </TR><TR><TD><tt>d48=: i.~ ({.;}.@}.) ]</tt></TD>	<TD>Split <tt>y</tt> at first <tt>x</tt>, eliding first <tt>x</tt></TD>
   </TR><TR><TD><tt>m49=: }:;{:</tt></TD>	<TD>Split rest from last</TD>
-  </TR><TR><TD><tt>c50=: 2 : 'x.@{. , y.@}.'</tt></TD>	<TD><tt>f c50 g </tt>applies<tt> f </tt>to first item;<tt> g </tt>to others</TD></TR>
+  </TR><TR><TD><tt>c50=: 2 : 'x@{. , y@}.'</tt></TD>	<TD><tt>f c50 g </tt>applies<tt> f </tt>to first item;<tt> g </tt>to others</TD></TR>
   <TR><TD><tt>m51=: */~@i.</tt></TD>	<TD>Multiplication table of order <tt>y</tt></TD>
   </TR><TR><TD><tt>m52=: &gt;./~@i.</tt></TD>	<TD>Maximum table of order <tt>y</tt></TD>
   </TR><TR><TD><tt>m53=: ] ]\ ([: &lt;: +:) {. (- {. 1:)</tt></TD>	<TD>Counterdiagonal matrix of order <tt>y</tt></TD></TR>

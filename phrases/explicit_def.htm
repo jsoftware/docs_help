@@ -27,14 +27,14 @@ in the reading and writing of tacit expressions.
 For example: </P>
 
 <pre>
-   log=: 3 : '10 ^. y.'
+   log=: 3 : '10 ^. y'
    log 1 10 20 40 100
 0 1 1.30103 1.60206 2
 
    log			NB. Display of the definition of log
-3 : '10 ^. y.'
+3 : '10 ^. y'
 
-   log=: 13 : '10 ^. y.'
+   log=: 13 : '10 ^. y'
    log 1 10 20 40 100
 0 1 1.30103 1.60206 2
    log			NB. Display of the (tacit) definition of log
@@ -53,9 +53,9 @@ For example:</P>
 
 <pre>
    LOG=: 3 def
-10 ^. y.
+10 ^. y
 :
-x. ^. y.
+x ^. y
 )
 
  
@@ -65,7 +65,7 @@ x. ^. y.
 5
 
    rat=: 2 def
-x.&amp;p. % y.&amp;p.
+x&amp;p. % y&amp;p.
 )
 
    1 4 6 4 1 rat 1 2 1
@@ -93,12 +93,12 @@ three
 )
 
    fn=: 3 : 0&quot;1                 NB. Assign rank to an explicitly defined function
-&lt; +/ y.
+&lt; +/ y
 )
 
    x=: 3
    3 : 0 x	                NB. Execute unnamed explicit definition
-if. 2|y. do. 'odd' else. 'even' end.
+if. 2|y do. 'odd' else. 'even' end.
 )
 odd
  

@@ -54,7 +54,7 @@ For example, sinh and cosh are the odd and even parts of the exponential under n
 </TR><TR><TD><tt>m1=: Iseven=: -.@Isodd</tt></TD>	<TD>Test if y is an even integer</TD></TR>
 <tr><td><tt>m2=: Isperm=: -: /:@/:</tt></td> <td>Test if y is a permutation vector</td></tr>
   
-<TR><TD><tt>a3=: 1 : 'x. -: [: x. ?@!@# A. ]'</tt></TD>	<TD>Necessary condition  for symmetry of fn.</TD></TR>
+<TR><TD><tt>a3=: 1 : 'x -: [: x ?@!@# A. ]'</tt></TD>	<TD>Necessary condition  for symmetry of fn.</TD></TR>
 <TR><TD><tt>m4=: Isperm * _1:^&gt;/~ ~:/@,@:* &lt;/~@i.@#</tt></TD>	<TD>Classify argument as a permutation</TD></TR>
   <TR><TD><tt>m5=: L=: &gt;/~</tt></TD>	<TD>Left, centre, right limbs of the fork ...</TD>
   </TR><TR><TD><tt>m6=: C=: ~:/@,@:*</tt></TD>	<TD>... evaluated in<tt> m4</tt> ; see their use below ...</TD>

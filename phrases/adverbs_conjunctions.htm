@@ -57,7 +57,7 @@ various classes:</P>
 For example:</p></table>
 
 <pre>
-   split=: 2 : ',.@(x.@(y.&amp;{.) ; x.@(y.&amp;}.))'
+   split=: 2 : ',.@(x@(y&amp;{.) ; x@(y&amp;}.))'
    ]x=: i. 5 3
  0  1  2
  3  4  5
@@ -78,11 +78,11 @@ For example:</p></table>
 </pre>
 
 <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" align="center">
-  <TR><TD><tt>c15=: split=: 2 : ',.@(x.@(y.&amp;{.) ; x.@(y.&amp;}.))'</tt></TD>	<TD>split as defined above</TD>
+  <TR><TD><tt>c15=: split=: 2 : ',.@(x@(y&amp;{.) ; x@(y&amp;}.))'</tt></TD>	<TD>split as defined above</TD>
   </TR>
   <TR><TD width=40%><tt>d16=: by=: ' '&amp;;@,.@[,.]</tt></TD>	<TD width=60%>Verb for use in the<tt> table </tt>adverb below</TD>
   </TR><TR><TD><tt>d17=: over=: ({.;}.)@&quot;:@,</tt></TD><TD>Verb for use in the<tt> table </tt>adverb below</TD>	
-  </TR><TR><TD><tt>a18=: table=: 1 :'[ by ]over x./'</tt></TD>	<TD>Try <tt>1 2 3 * table 4 5 6 7</tt></TD>
+  </TR><TR><TD><tt>a18=: table=: 1 :'[ by ]over x/'</tt></TD>	<TD>Try <tt>1 2 3 * table 4 5 6 7</tt></TD>
   </TR>
 </TABLE>
 
@@ -104,7 +104,7 @@ For example:</p></table>
 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1
 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
 
-   C=: 1 : 'x.&amp;o.'              NB. Circle adverb
+   C=: 1 : 'x&amp;o.'              NB. Circle adverb
    1 C 0 1r4p1 1r3p1 1r2p1 1p1	NB. Sine function
 0 0.7071068 0.8660254 1 0
 
@@ -124,7 +124,7 @@ is defined by a pair of coefficients. Thus:
 
 <pre>
    a=: 1 4 6 4 1 [ b=: 1 2 1
-   RAT=: 2 : 'x.&amp;p. % y.&amp;p.'
+   RAT=: 2 : 'x&amp;p. % y&amp;p.'
    a RAT b
 1 4 6 4 1&amp;p. % 1 2 1&amp;p.
 
@@ -140,7 +140,7 @@ is defined by a pair of coefficients. Thus:
 <P>We may also remark that expressions such as 2 x<SUP>3</SUP> and 2 x<SUP>3</SUP>  + 4 x<SUP>2</SUP> are commonly used in elementary math to define functions rather than to indicate explicit computation: the x in the foregoing can be construed (and defined) as a conjunction such that 2 x 3 is the function <tt>2:*]^3:</tt> . Thus:</P></TD></TR></TABLE>
 
 <pre>
-   x=: 2 : 'x.&amp;* @ (^&amp;y.) &quot; 0'
+   x=: 2 : 'x&amp;* @ (^&amp;y) &quot; 0'
    2 x 3
 2&amp;*@(^&amp;3)&quot;0
 
@@ -164,7 +164,7 @@ in order to obtain their sums (and yet retain the behaviour for a single term),
 we redefine the conjunction x as follows:</P>
 
 <pre>
-   x=: 2 : '+/ @ (x.&amp;* @ (^&amp;y.)) &quot; 0'
+   x=: 2 : '+/ @ (x&amp;* @ (^&amp;y)) &quot; 0'
    2 3 5 x 1 2 4 y
 0 10 96 438 1336 3210
 
@@ -176,12 +176,12 @@ we redefine the conjunction x as follows:</P>
 </pre>
 
 <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-<TR><TD width=40%><tt>c19=: RAT=: 2 : 'x.&amp;p. % y.&amp;p.'</tt></TD><TD width=60%>Produces rational function</TD>
+<TR><TD width=40%><tt>c19=: RAT=: 2 : 'x&amp;p. % y&amp;p.'</tt></TD><TD width=60%>Produces rational function</TD>
 </TR>  
-<TR><TD><tt>c20=: x=: 2 : '+/ @ (x.&amp;* @ (^&amp;y.)) &quot; 0'</tt></TD><TD>Mimics notation of elementary math</TD>
+<TR><TD><tt>c20=: x=: 2 : '+/ @ (x&amp;* @ (^&amp;y)) &quot; 0'</tt></TD><TD>Mimics notation of elementary math</TD>
 </TR>
 
-<TR><TD><tt>c21=: bind=: 2 : 'x. @ (y.&quot;_)'</tt></TD>	<TD>Binds <tt>y</tt> to the monad <tt>x</tt></TD></TR>
+<TR><TD><tt>c21=: bind=: 2 : 'x @ (y&quot;_)'</tt></TD>	<TD>Binds <tt>y</tt> to the monad <tt>x</tt></TD></TR>
 </TABLE>
 
 

@@ -29,7 +29,7 @@ For example: </P></TD>
    x=: &gt;;:'That they hunted from hill'
    y=: &gt;;:'second time me to plain'
    b=: 0 1 1 0 0 1 0 0 1 1
-   mrg=: 1 : '/:@/:@(x.&quot;_) { ,'
+   mrg=: 1 : '/:@/:@(x&quot;_) { ,'
    x([ ; ] ; (,.b)&quot;_ ; b mrg)y
 +----------------------+
 |That  |second|0|That  |
@@ -78,7 +78,7 @@ azz1bzzzcd23z4z56789
 </pre>
 
 <TABLE ALIGN="center" BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-  <TR><TD width=40%><tt>a0=: mrg=: 1 : '/:@/:@(x.&quot;_) { ,'</tt></TD> <TD width=60%><tt>x b mrg y</tt> merges x and y</TD> 
+  <TR><TD width=40%><tt>a0=: mrg=: 1 : '/:@/:@(x&quot;_) { ,'</tt></TD> <TD width=60%><tt>x b mrg y</tt> merges x and y</TD> 
   </TR>
   <TR><TD><tt>m1=: MRG=: /:@/:@[ { ]</tt></TD> <TD><tt>b MRG x,y</tt> is equivalent to above</TD>
   </TR><TR><TD><tt>d2=: alt=: ,@,. </tt></TD><TD>Merge items from x and y alternately</TD>
