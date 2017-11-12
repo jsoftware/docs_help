@@ -16,12 +16,8 @@
 <a href="../index.htm">Help</a>&nbsp;
 User<hr><!--top jump end-->
 
-
-
-
 <TR valign="baseline"><TD><H1>ODBC error messages</h1>
 <TR><TD colspan="2"> 
-
 
 <P>
 The data driver verbs that open and close connections, and send SQL statements, all return a number. Typically, if the number is positive, it is a handle. If the number is 0, it means the operation completed successfully (but the function returns no handle). If the number is <code>_1</code>, it means there was some error. You can get more information about the errror using <code>dderr</code>. For example, try closing a non-existent statement handle:
