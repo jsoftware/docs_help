@@ -95,7 +95,7 @@ determined from<tt> x</tt> ,<tt> </tt>or from the current machine if<tt> x </tt>
     <tr><td><tt>e3</tt></td><td>&nbsp;</td><td>64 bits, reverse</td></tr>
    </table></td></tr>
 <tr><td>type</td><td>1 mword</td><td>as in<tt> 3!:0 </tt></td></tr>
-<tr><td>#elements</td><td>1 mword</td><td><tt>*/$y </tt>if dense;<tt> 1 </tt>if sparse</td></td></tr>
+<tr><td>#elements</td><td>1 mword</td><td><tt>*/$y </tt>if dense;<tt> 1 </tt>if sparse</td></tr>
 <tr><td>rank</td><td>1 mword</td><td><tt>#$y</tt></td></tr>
 <tr><td>shape</td><td>rank mwords</td><td><tt>$y</tt></td></tr>
 <tr><td>value</td><td>? mwords</td><td>the ravelled elements of<tt> y </tt></td></tr>
@@ -118,7 +118,6 @@ and in either byte order.
 If the first byte of the flag part (see<tt> 3!:1 </tt>above)
 is not one of<tt> e0 e1 e2 e3</tt> ,<tt> </tt>then 
 the conversion proceeds under the assmption that the data is pre-J6.01.
-</p>
 </td></tr>
 
 <tr><td>&nbsp;</td></tr>
@@ -170,7 +169,7 @@ e0000000
 
    dfh=: 16 #. '0123456789abcdef' i. ]  NB. decimal from hex
 
-   ((i.#t) e. 0,4 %~ dfh (5+i.5){t) <;.1 t
+   ((i.#t) e. 0,4 %~ dfh (5+i.5){t) &lt;;.1 t
 +--------+--------+--------+--------+--------+--------+
 |e0000000|e0000000|e0000000|e0000000|e0000000|e0000000|
 |00000020|00000002|00000002|00000002|00000002|00000002|

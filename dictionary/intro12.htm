@@ -122,31 +122,31 @@ table<tt> tri=: 3 2$ 3 4 6 5 7 2</tt><br><br>
 <td>Length of vector  (See <i>rank </i>in the dictionary
 or in <a href="intro20.htm">Section 20</a> of the Introduction)</td></tr>
 
-<td><tt>LR=:L&quot;1</tt></td>
+<tr><td><tt>LR=:L&quot;1</tt></td>
 <td>Length of rows in table</td></tr>
 
-<td><tt>disp=: ] - 1&amp;|.</tt></td>
+<tr><td><tt>disp=: ] - 1&amp;|.</tt></td>
 <td>Displacement between rows</td></tr>
 
-<td><tt>LS=: LR@disp</tt></td>
+<tr><td><tt>LS=: LR@disp</tt></td>
 <td>Lengths of sides of figure</td></tr>
 
-<td><tt>sp=: -:@(+/)@LS</tt></td>
+<tr><td><tt>sp=: -:@(+/)@LS</tt></td>
 <td>Semiperimeter (try<tt> sp tri</tt>)</td></tr>
 
-<td><tt>H=: %:@(*/)@(sp,sp-LS)</tt></td>
+<tr><td><tt>H=: %:@(*/)@(sp,sp-LS)</tt></td>
 <td>Heron's formula for area</td></tr>
 
-<td><tt>det=: -/ . *</tt></td>
+<tr><td><tt>det=: -/ . *</tt></td>
 <td>Determinant (See dictionary)</td></tr>
 
-<td><tt>SA=: det@(,.&amp;0.5)</tt></td>
+<tr><td><tt>SA=: det@(,.&amp;0.5)</tt></td>
 <td>Signed area.  Try<tt> SA@|.</tt></td></tr>
 
-<td><tt>sa=:det@(],.%@!@&lt;:@#)</tt></td>
+<tr><td><tt>sa=:det@(],.%@!@&lt;:@#)</tt></td>
 <td>General signed volume; try on the tetrahedron</td></tr>
 
-<td><tt>tet=:?4 3$9</tt></td>
+<tr><td><tt>tet=:?4 3$9</tt></td>
 <td>as well as on the triangle<tt> tri</tt> .</td></tr>
 
 </table></table>

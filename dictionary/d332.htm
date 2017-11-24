@@ -172,25 +172,26 @@ output code<tt> 1{e </tt>signifies one of the following:<br>
 
 <p><tt>ew(i,j,r,c)</tt> (&ldquo;emit word&rdquo;) signals index error if<tt> j </tt>
 is<tt> _1</tt> ,<tt> </tt>and accumulates to the result information on 
-the current word according to the function code<tt> f</tt> :
+the current word according to the function code<tt> f</tt> :</p>
 <table>
 <tr><td>&nbsp;</td><td>0</td><td>&nbsp;&nbsp;</td>
 <td><tt>&lt;y{~j+i.i-j </tt></td><td>&nbsp;&nbsp;</td><td>the word boxed</td></tr>
 <tr><td>&nbsp;</td><td>1</td><td>&nbsp;&nbsp;</td>
 <td><tt>y{~j+i.i-j </tt></td><td>&nbsp;&nbsp;</td><td>the word</td></tr>
 <tr><td>&nbsp;</td><td>2</td><td>&nbsp;&nbsp;</td>
-<td><tt>j,i-j </tt></td><td>&nbsp;&nbsp;</td><td>word index and length</td></tr></tr>
+<td><tt>j,i-j </tt></td><td>&nbsp;&nbsp;</td><td>word index and length</td></tr>
 <tr><td>&nbsp;</td><td>3</td><td>&nbsp;&nbsp;</td>
-<td><tt>c+q*r</tt></td><td>&nbsp;&nbsp;</td><td>state table index</td></tr></tr>
+<td><tt>c+q*r</tt></td><td>&nbsp;&nbsp;</td><td>state table index</td></tr>
 <tr><td>&nbsp;</td><td>4</td><td>&nbsp;&nbsp;</td>
-<td><tt>j,(i-j),c+q*r</tt></td><td>&nbsp;&nbsp;</td><td>both 2 and 3 above</td></tr></tr>
+<td><tt>j,(i-j),c+q*r</tt></td><td>&nbsp;&nbsp;</td><td>both 2 and 3 above</td></tr>
 <tr><td>&nbsp;</td><td>5</td><td>&nbsp;&nbsp;</td>
-<td><tt>i,j,r,c,s{~&lt;r,c</tt></td><td>&nbsp;&nbsp;</td><td>trace</td></tr></tr>
+<td><tt>i,j,r,c,s{~&lt;r,c</tt></td><td>&nbsp;&nbsp;</td><td>trace</td></tr>
 </table>
-<tt>ev(i,j,r,c)</tt> (&ldquo;emit vector&rdquo;) is similiar, but the
+
+<p><tt>ev(i,j,r,c)</tt> (&ldquo;emit vector&rdquo;) is similiar, but the
 current word and any intervening items are catenated  to the previous word
 if the previous emit was<tt> ev </tt>and the state at that
-time was<tt> r</tt> .</p>
+time was<tt> r</tt>.</p>
 
 <p>After the last atom of<tt> my </tt>has been processed,<tt> i </tt>
 is<tt> #y </tt>, and the end-of-input action, if any, is performed:

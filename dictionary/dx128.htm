@@ -86,7 +86,7 @@ that is, apply the lists in the left argument to
 the right argument <i>in toto</i>.<br><br></td></tr>
 
 <TR><TD valign=top><a name="3"></a><tt>[x] 128!:3 y</tt></td>
-<TD><B>CRC</B>. A CRC polynomial is a boolean list or an integer.
+<TD><p><B>CRC</B>. A CRC polynomial is a boolean list or an integer.
 The following CRC polynomials<tt> p </tt>and<tt> q </tt>are equivalent:</p>
 
 <pre>
@@ -112,7 +112,7 @@ is a CRC polynomial and<tt> i </tt>is the initial CRC value.
 If<tt> i </tt>is elided then<tt> _1 </tt>is used.<tt> 128!:3 y </tt>
 is equivalent to<tt> _306674912 (128!:3) y</tt> .</p>
 
-<p>The monad<tt> x&(128!:3) </tt>is supported by special code which
+<p>The monad<tt> x&amp;(128!:3) </tt>is supported by special code which
 pre-computes a look-up table of CRC values for each byte.</p>
 
 <p>Examples:</p>
@@ -140,10 +140,10 @@ or contains<tt> _. </tt>.</p>
 <pre>
    (128!:5) 3.45 6 _. 7
 0 0 1 0
-   (128!:5) t=. 2 2$1 2;3 4 5;(<<_. 7);_.
+   (128!:5) t=. 2 2$1 2;3 4 5;(&lt;&lt;_. 7);_.
 0 0
 1 1
-   (128!:5) < t
+   (128!:5) &lt; t
 1
    (128!:5) ;:'Cogito, ergo sum. _.'
 0 0 0 0 0
@@ -151,11 +151,11 @@ or contains<tt> _. </tt>.</p>
 
 </td></tr>
 
-<TR><TD valign=top><a name="3"></a><tt>[x] 128!:6 y</tt></td>
+<TR><TD valign=top><a name="6"></a><tt>[x] 128!:6 y</tt></td>
 <TD><B>SHA</B>. The Secure Hash Algorithms are a family of cryptographic hash functions.
 
 <p><tt> x 128!:6 y </tt>computes the SHA of string<tt> y </tt>
-according to<tt> x</tt>, results are hexadecimal strings.
+according to<tt> x</tt>, results are hexadecimal strings.</p>
 <pre>
   1    SHA1
   2    SHA224
@@ -167,7 +167,7 @@ according to<tt> x</tt>, results are hexadecimal strings.
   8    SHA3_384
   9    SHA3_512
 </pre>
-_1 to _9 are the same as 1 to 9 but with results in binary strings.
+<p>_1 to _9 are the same as 1 to 9 but with results in binary strings.
 <br>
 <tt> 128!:6 y </tt> is equivalent to<tt> 1 (128!:6) y</tt> .</p>
 

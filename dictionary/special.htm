@@ -161,7 +161,7 @@ see the <a href="../release/det.htm">J 4.05 release notes</a></td>
 <td>also<tt> ($,)&quot;r </tt>;<tt> </tt>also<tt> {, {., }., e., </tt>;<tt> </tt>
 avoids ravel;
 see the <a href="../release/hkravel.htm">J 4.06 release notes</a></td>
-</td></tr>
+</tr>
 
 <tr valign=top>
 <td><tt>x=.x,y</tt></td>
@@ -263,7 +263,7 @@ see the <a href="../release/odom.htm">J 4.05 release notes</a></td>
 </tr>
 
 <tr valign=top>
-<td><tt>x&(128!:3)</tt></td>
+<td><tt>x&amp;(128!:3)</tt></td>
 <td>monad</td>
 <td>special code to pre-compute look-up table of CRC values for each byte</td>
 </tr>
@@ -289,7 +289,7 @@ assembly code for integer arguments</td>
 <td>monad</td>
 <td>also<tt> ,. ; ,&amp;.&gt; ,.&amp;.&gt;</tt> ;<tt> </tt>linear time;
 see the <a href="../release/stitchsl.htm">J 4.05</a>
-and <a href="../release/cateachslash.htm">J 7.01</a> release notes</a></td>
+and <a href="../release/cateachslash.htm">J 7.01</a> release notes</td>
 </tr>
 
 <tr valign=top>
@@ -438,7 +438,7 @@ assembly code for integer arguments</td>
 special code for positive left arguments 
 and boolean, integer, or floating point right arguments;
 see the <a href="../release/infixfin.htm">J 5.03</a> and 
-<a href="../release/infixb.htm">J 6.02</a> release notes</a></td>
+<a href="../release/infixb.htm">J 6.02</a> release notes</td>
 </tr>
 
 <tr valign=top>
@@ -509,7 +509,6 @@ see the <a href="../release/bdot.htm">J 5.01 release notes</a></td>
 <td>dyad</td>
 <td>special code for atomic associative<tt> f</tt> ;<tt> </tt> 
 see the <a href="../release/outfix.htm">J 6.02 release notes</a></td>
-</td>
 </tr>
 
 <tr valign=top>
@@ -593,11 +592,10 @@ special code; see the <a href="../release/digits10.htm">J 6.01 release notes</a>
 <td>monad</td>
 <td>special code if<tt> f0</tt> , ... , <tt> fn </tt>are atomic; 
 see the <a href="../release/agenda.htm">J 5.02 release notes</a></td>
-</td>
-</tr>  
+</tr>
  
 <tr valign=top>
-<td><tt>x&(128!:3)</tt></td>
+<td><tt>x&amp;(128!:3)</tt></td>
 <td>monad</td>
 <td>special code to pre-compute look-up table of CRC values for each byte</td>
 </tr>
@@ -687,16 +685,16 @@ see the <a href="../release/compsc.htm">J 5.01</a>,
 
 <table>
 <tr><td><tt>f i. 0:</tt></td><td><tt>&nbsp; &nbsp;</tt></td>
- <td><tt>i.&0@:f</tt></td><td><tt>&nbsp; &nbsp;</tt></td>
+ <td><tt>i.&amp;0@:f</tt></td><td><tt>&nbsp; &nbsp;</tt></td>
  <td>first place where not<tt> x f y</tt></td></tr>
 <tr><td><tt>f i. 1:</tt></td><td>&nbsp;</td>
- <td><tt>i.&1@:f</tt></td><td>&nbsp;</td>
+ <td><tt>i.&amp;1@:f</tt></td><td>&nbsp;</td>
  <td>first place where<tt> x f y </tt></td></tr>
 <tr><td><tt>f i: 0:</tt></td><td>&nbsp;</td>
- <td><tt>i:&0@:f</tt></td><td>&nbsp;</td>
+ <td><tt>i:&amp;0@:f</tt></td><td>&nbsp;</td>
  <td>last place where not<tt> x f y </tt></td></tr>
 <tr><td><tt>f i: 1:</tt></td><td>&nbsp;</td>
- <td><tt>i:&1@:f</tt></td><td>&nbsp;</td>
+ <td><tt>i:&amp;1@:f</tt></td><td>&nbsp;</td>
  <td>last place where<tt> x f y </tt></td></tr>
 <tr><td><tt>[: + / f</tt></td><td>&nbsp;</td>
  <td><tt>+ /@:f</tt></td><td>&nbsp;</td>

@@ -26,9 +26,9 @@ See also<tt> <a href="dx009.htm#32">9!:32</a> </tt>
 and<tt> <a href="dx009.htm#32">9!:33</a></tt> .<br><br>
 
 <TABLE>
-<tr><td VALIGN=TOP WIDTH=120><a name="0"></a><tt><tt>6!:0 y </tt></td>
+<tr><td VALIGN=TOP WIDTH=120><a name="0"></a><tt>6!:0 y </tt></td>
 <td>
-<b>Current</b>.  The current time in the order year, month, day, hour, minute, second. 
+<b>Current</b>.  The current time in the order year, month, day, hour, minute, second.
 The argument may be an empty vector, producing a 6-element numeric list; or 
 a string of the letters<tt> Y M D h m s </tt>and other characters, producing a formatted string. 
 For example:
@@ -45,14 +45,14 @@ For example:
 </pre>
 </td></tr>
 
-<tr><td valign=top><a name="1"></a><tt><tt>6!:1 y </tt></td>
+<tr><td valign=top><a name="1"></a><tt>6!:1 y </tt></td>
 <td>
 <b>Session</b>.  Seconds since start of session
 </td></tr>
 
 <tr><td>&nbsp;</td></tr>
 
-<tr><td valign=top><a name="2"></a><tt><tt>[x] 6!:2 y </tt></td>
+<tr><td valign=top><a name="2"></a><tt>[x] 6!:2 y </tt></td>
 <td>
 <b>Execute</b>.  Seconds to execute sentence<tt> y </tt>
 (mean of<tt> x </tt>times with default once).  For example: <br>
@@ -69,14 +69,14 @@ For example:
 </pre>
 </td></tr>
 
-<tr><td valign=top><a name="3"></a><tt><tt>6!:3 y</tt></td>
+<tr><td valign=top><a name="3"></a><tt>6!:3 y</tt></td>
 <td>
 <b>Delay</b>.  Delay execution for<tt> y </tt>seconds.  For example,<tt> 6!:3 (2.5)</tt>
 </td></tr>
 
 <tr><td>&nbsp;</td></tr>
 
-<tr><td valign=top><a name="4"></a><tt><tt>6!:4 y</tt></td>
+<tr><td valign=top><a name="4"></a><tt>6!:4 y</tt></td>
 <td>
 <b>Parser Calls</b>.  The number of times the <a href="dicte.htm">J parser</a> 
 has been called since the start of the session.  
@@ -124,7 +124,7 @@ for each instance of<tt> 0+1 </tt>, and once for<tt> 6!:4 '' NB. 3</tt> .
 
 <tr><td>&nbsp;</td></tr>
 
-<tr><td valign=top><a name="8"></a><tt><tt>6!:8 y</tt></td>
+<tr><td valign=top><a name="8"></a><tt>6!:8 y</tt></td>
 <td><b>Query Clock Frequency</b>. Return the clock frequency, 
 the number of clock counter values per second.  (In Windows, the result
 of<tt> QueryPerformanceFrequency</tt>.)<tt> </tt> 
@@ -136,7 +136,7 @@ The argument<tt>  y </tt>is ignored.<br>
 </pre>
 </td></tr>
 
-<tr><td valign=top><a name="9"></a><tt><tt>6!:9 y</tt></td>
+<tr><td valign=top><a name="9"></a><tt>6!:9 y</tt></td>
 <td><b>Query Clock Counter</b>. Return the current clock counter 
 (elapsed time) value.  (In Windows, the result 
 of<tt> QueryPerformanceCounter</tt>.)<tt> </tt>  
@@ -159,7 +159,7 @@ The argument<tt> y </tt>is ignored.<br>
 </pre>
 </td></tr>
 
-<tr><td valign=top><a name="10"></a><tt><tt>[x] 6!:10 y</tt></td>
+<tr><td valign=top><a name="10"></a><tt>[x] 6!:10 y</tt></td>
 <td><b>Performance Monitor Data Area</b>. Literal (character) vector<tt> y </tt>
 is to hold the fixed-sized 
 records of &ldquo;packed&rdquo; performance monitor data; the old PM data 
@@ -182,7 +182,7 @@ The result is the number of records that will be held
 in<tt> y</tt>.
 <br><br>
 
-<tr><td valign=top><a name="11"></a><tt><tt>6!:11 y</tt></td>
+<tr><td valign=top><a name="11"></a><tt>6!:11 y</tt></td>
 <td><b>Unpack PM Data</b>. Unpack the PM data, resulting in a boxed vector 
 of data columns:<br><br>
 
@@ -208,7 +208,7 @@ more than once.
 
 <tr><td>&nbsp;</td></tr>
 
-<tr><td valign=top><a name="12"></a><tt><tt>6!:12 y</tt></td>
+<tr><td valign=top><a name="12"></a><tt>6!:12 y</tt></td>
 <td><b>Add y to the PM Counter</b>. PM data is recorded if the PM 
 counter is greater than 0 
 and a PM data area is extant.  (A non-empty PM data area 
@@ -218,7 +218,7 @@ The result is the value of the PM counter after the operation.<br>
 
 <tr><td>&nbsp;</td></tr>
 
-<tr><td valign=top><a name="13"></a><tt><tt>6!:13 y</tt></td>
+<tr><td valign=top><a name="13"></a><tt>6!:13 y</tt></td>
 <td><b>PM Statistics</b>.
 
 Produces a 6-element vector of the following information:<br><br>
