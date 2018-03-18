@@ -9,7 +9,6 @@
 <a href="../learning/contents.htm">LJ</a>&nbsp;
 <a href="../phrases/contents.htm">Phr</a>&nbsp;
 <a href="../dictionary/contents.htm">Dic</a>&nbsp;
-<a href="../release/contents.htm">Rel</a>&nbsp;
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;
@@ -18,13 +17,13 @@ Dictionary<hr><!--top jump end-->
 <br><font size=+2><b>Appendix B. Special Code</b></font><br><br>
 
 Many primitives contain special code for certain arguments
-to effect time and/or space savings not available to 
+to effect time and/or space savings not available to
 general arguments.
 Moreover, some phrases are <a name="recognized phrase"></a>&ldquo;recognized&rdquo;
-and are supported by special code.  
+and are supported by special code.
 For example, the dyad of the hook<tt> ($,) </tt>
 is exactly the reshape of APL (denoted by <i>&rho;</i>);
-its implementation avoids actually ravelling the right argument, 
+its implementation avoids actually ravelling the right argument,
 and in so doing saves both time and space:<br><br>
 
 <pre>
@@ -54,7 +53,7 @@ Instances of such special code are listed below:<br>
 <tr valign=top>
 <td><tt>=</tt></td>
 <td>dyad</td>
-<td><a name="word-parallel">word-parallel</a> operation 
+<td><a name="word-parallel">word-parallel</a> operation
 on Boolean arguments for the following verbs:<br>
 <tt>= &lt; &lt;. &lt;: &gt; &gt;. &gt;: +. +: * *. *: ^ ~: | !</tt></td>
 </tr>
@@ -75,7 +74,7 @@ see the <a href="../release/intdivrem.htm">J6.02 release notes</a></td>
 <tr valign=top>
 <td><tt>i.&lt;./</tt></td>
 <td>monad</td>
-<td>also<tt> i.&gt;./ </tt>and<tt> i:&lt;./ </tt>and<tt> i:&gt;./ </tt>; 
+<td>also<tt> i.&gt;./ </tt>and<tt> i:&lt;./ </tt>and<tt> i:&gt;./ </tt>;
 special code for integer and floating point lists;
 see the <a href="../release/idotmaxmin.htm">J 5.04 release notes</a></td>
 </tr>
@@ -83,8 +82,8 @@ see the <a href="../release/idotmaxmin.htm">J 5.04 release notes</a></td>
 <tr valign=top>
 <td><tt>+</tt></td>
 <td>dyad</td>
-<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows, 
-<a name="assembly code">assembly code</a> for integer arguments 
+<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows,
+<a name="assembly code">assembly code</a> for integer arguments
 for the vector-vector,
 vector-scalar, and scalar-vector cases</td>
 </tr>
@@ -92,7 +91,7 @@ vector-scalar, and scalar-vector cases</td>
 <tr valign=top>
 <td><tt>^</tt></td>
 <td>dyad</td>
-<td><tt>x^y </tt>works by repeated multiplication if<tt> x </tt>is real 
+<td><tt>x^y </tt>works by repeated multiplication if<tt> x </tt>is real
 and<tt> y </tt>is integral
 </tr>
 
@@ -140,17 +139,17 @@ see the <a href="../release/intdivrem.htm">J 6.02 release notes</a></td>
 <tr valign=top>
 <td><tt>+/ .*</tt></td>
 <td>dyad</td>
-<td>also<tt> +./ .* </tt>and<tt> ~:/ .*. </tt>;  
-special code in general;  
+<td>also<tt> +./ .* </tt>and<tt> ~:/ .*. </tt>;
+special code in general;
 special code for Boolean left or right arguments and for vector right arguments;
-see the <a href="../release/pdt504.htm">J 5.04</a> and 
+see the <a href="../release/pdt504.htm">J 5.04</a> and
 <a href="../release/pdt601.htm">J 6.01 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>-/ .*</tt></td>
 <td>monad</td>
-<td>special code in general; special code for square matrices; 
+<td>special code in general; special code for square matrices;
 special code for arrays of 2-by-2 matrices;
 see the <a href="../release/det.htm">J 4.05 release notes</a></td>
 </tr>
@@ -166,21 +165,21 @@ see the <a href="../release/hkravel.htm">J 4.06 release notes</a></td>
 <tr valign=top>
 <td><tt>x=.x,y</tt></td>
 <td>-</td>
-<td>also<tt> =: </tt>; in place; 
+<td>also<tt> =: </tt>; in place;
 see the <a href="../release/apip.htm">J 5.03 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>;@:(&lt;@u;.n)</tt></td>
 <td>dyad</td>
-<td>special code; 
+<td>special code;
 see the <a href="../release/cut503.htm">J 5.03 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>;@:{</tt></td>
 <td>dyad</td>
-<td>special code; 
+<td>special code;
 see the <a href="../release/razefrom.htm">J 5.03 release notes</a></td>
 </tr>
 
@@ -188,7 +187,7 @@ see the <a href="../release/razefrom.htm">J 5.03 release notes</a></td>
 <td><tt>[;.0</tt></td>
 <td>both</td>
 <td>also<tt> ]</tt> ;<tt> </tt>
-special code for vector or matrix right arguments; 
+special code for vector or matrix right arguments;
 see the <a href="../release/cut0.htm">J 5.01 release notes</a></td>
 </tr>
 
@@ -236,7 +235,7 @@ special code for matrix right arguments</td>
 <tr valign=top>
 <td><tt>;@:(&lt;@u;.n)</tt></td>
 <td>dyad</td>
-<td>special code; 
+<td>special code;
 see the <a href="../release/cut503.htm">J 5.03 release notes</a></td>
 </tr>
 
@@ -250,7 +249,7 @@ see the <a href="../release/cut503.htm">J 5.03 release notes</a></td>
 <td><tt>#:</tt></td>
 <td>dyad</td>
 <td>special code for<tt> (0,d)#:y </tt>where<tt> d </tt>is a positive
-power of 2 and<tt> y </tt>is integer; 
+power of 2 and<tt> y </tt>is integer;
 see the <a href="../release/intdivrem.htm">J 6.02 release notes</a></td>
 </tr>
 
@@ -258,7 +257,7 @@ see the <a href="../release/intdivrem.htm">J 6.02 release notes</a></td>
 <td><tt>#: i.@(*/)</tt></td>
 <td>monad</td>
 <td>also<tt> (#: i.&amp;(*/))</tt> ,<tt> </tt>etc.;<tt> </tt>
-special code for non-negative integer vectors; 
+special code for non-negative integer vectors;
 see the <a href="../release/odom.htm">J 4.05 release notes</a></td>
 </tr>
 
@@ -272,7 +271,7 @@ see the <a href="../release/odom.htm">J 4.05 release notes</a></td>
 <td><tt>=/&quot;r</tt></td>
 <td>monad</td>
 <td>also<tt> &lt; &lt;: &gt; &gt;: +. +: * *. *: ~:</tt> ;<tt> </tt>
-word-parallel operations on Boolean arguments; also special 
+word-parallel operations on Boolean arguments; also special
 code for insert over an axis of length 2;
 see the <a href="../release/insert.htm">J 5.03 release notes</a></td>
 </tr>
@@ -280,7 +279,7 @@ see the <a href="../release/insert.htm">J 5.03 release notes</a></td>
 <tr valign=top>
 <td><tt>+/</tt></td>
 <td>monad</td>
-<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows, 
+<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows,
 assembly code for integer arguments</td>
 </tr>
 
@@ -309,7 +308,7 @@ see the <a href="../release/slashcat.htm">J 4.05 release notes</a></td>
 <tr valign=top>
 <td><tt>f/@:g</tt></td>
 <td>dyad</td>
-<td>also<tt> [: f/ g </tt>; special code for 
+<td>also<tt> [: f/ g </tt>; special code for
 atomic<tt> f </tt>and<tt> g </tt>; further optimizations for<tt> +/@:g </tt>;
 see the <a href="../release/fslashg.htm">J 6.01 release notes</a></td>
 </tr>
@@ -324,7 +323,7 @@ see the <a href="../release/key503.htm">J 5.03 release notes</a></td>
 <tr valign=top>
 <td><tt>+//.</tt></td>
 <td>monad</td>
-<td>also<tt> +. *. = ~: &lt;. &lt;: &gt;. &gt;: 17 b.  22 b.  23 b. </tt>; 
+<td>also<tt> +. *. = ~: &lt;. &lt;: &gt;. &gt;: 17 b.  22 b.  23 b. </tt>;
 avoids building argument cells;
 see the <a href="../release/oblique.htm">J 6.01 release notes</a></td>
 </tr>
@@ -362,7 +361,7 @@ see the <a href="../release/meankey.htm">J 6.02 release notes</a></td>
 <tr valign=top>
 <td><tt>+//.@(*/)</tt></td>
 <td>dyad</td>
-<td>also<tt> ~://.@(*./) ~://.@(+./) +//.@(*./) +//.@(+./) (22 b.)//.@(17 b./) </tt>; 
+<td>also<tt> ~://.@(*./) ~://.@(+./) +//.@(*./) +//.@(+./) (22 b.)//.@(17 b./) </tt>;
 avoids building argument cells;
 see the <a href="../release/oblique.htm">J 6.01 release notes</a></td>
 </tr>
@@ -370,7 +369,7 @@ see the <a href="../release/oblique.htm">J 6.01 release notes</a></td>
 <tr valign=top>
 <td><tt>/:</tt></td>
 <td>both</td>
-<td>also<tt> \:</tt> ;<tt> </tt>special code for several data types; 
+<td>also<tt> \:</tt> ;<tt> </tt>special code for several data types;
 special code for arguments with 5 items or less;
 see the <a href="../release/grade.htm">J 4.05 release notes</a></td>
 </tr>
@@ -378,7 +377,7 @@ see the <a href="../release/grade.htm">J 4.05 release notes</a></td>
 <tr valign=top>
 <td><tt>/:</tt></td>
 <td>dyad</td>
-<td>special code when the left and right arguments are the same 
+<td>special code when the left and right arguments are the same
 boolean, literal, integer, or floating point vector;
 also for<tt> /:&quot;1 </tt>when the left and right
 arguments are the same boolean, literal, integer, or floating point arrays;
@@ -389,7 +388,7 @@ see the <a href="../release/sort.htm">J 5.01 release notes</a></td>
 <tr valign=top>
 <td><tt>/:~</tt></td>
 <td>monad</td>
-<td>special code for 
+<td>special code for
 boolean, literal, integer, or floating point vectors;
 also for<tt> /:~&quot;1 </tt>and<tt> /:&quot;1~ </tt>;
 also for<tt> \: </tt>;<tt> </tt>
@@ -399,14 +398,14 @@ see the <a href="../release/sort.htm">J 5.01 release notes</a></td>
 <tr valign=top>
 <td><tt>/:@/:</tt></td>
 <td>monad</td>
-<td>also<tt> /:@:/: </tt>and<tt> /:&amp;/: </tt>etc.; special code; 
+<td>also<tt> /:@:/: </tt>and<tt> /:&amp;/: </tt>etc.; special code;
 see the <a href="../release/ranking.htm">J 5.04 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>{/:</tt></td>
 <td>dyad</td>
-<td>also<tt> {/:~</tt> ;<tt> </tt>special code for scalar integer left argument and integer or floating point vector right argument; 
+<td>also<tt> {/:~</tt> ;<tt> </tt>special code for scalar integer left argument and integer or floating point vector right argument;
 see the <a href="../release/ordstat.htm">J 6.03 release notes</a></td>
 </tr>
 
@@ -420,31 +419,31 @@ see the <a href="../release/ordstat.htm">J 6.03 release notes</a></td>
 <tr valign=top>
 <td><tt>=/\</tt></td>
 <td>monad</td>
-<td>also<tt> +. *. ~:</tt> ;<tt> </tt> 
+<td>also<tt> +. *. ~:</tt> ;<tt> </tt>
 word-parallel operations on Boolean arguments</td>
 </tr>
 
 <tr valign=top>
 <td><tt>+/\</tt></td>
 <td>monad</td>
-<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows, 
+<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows,
 assembly code for integer arguments</td>
 </tr>
 
 <tr valign=top>
 <td><tt>+/\</tt></td>
 <td>dyad</td>
-<td>also<tt> &lt;. &gt;. +. *. = ~: &nbsp;m b. </tt>for atomic<tt> m e. 17 22 23 25 </tt>; 
-special code for positive left arguments 
+<td>also<tt> &lt;. &gt;. +. *. = ~: &nbsp;m b. </tt>for atomic<tt> m e. 17 22 23 25 </tt>;
+special code for positive left arguments
 and boolean, integer, or floating point right arguments;
-see the <a href="../release/infixfin.htm">J 5.03</a> and 
+see the <a href="../release/infixfin.htm">J 5.03</a> and
 <a href="../release/infixb.htm">J 6.02</a> release notes</td>
 </tr>
 
 <tr valign=top>
 <td><tt>[\</tt></td>
 <td>dyad</td>
-<td>also<tt> ] </tt>and<tt> ,</tt> ;<tt> </tt> 
+<td>also<tt> ] </tt>and<tt> ,</tt> ;<tt> </tt>
 see the <a href="../release/infixc.htm">J 5.01 release notes</a></td>
 </tr>
 
@@ -459,14 +458,14 @@ and <a href="../release/infix2a.htm">J 6.01 release notes</a></td>
 <tr valign=top>
 <td><tt>m b./\</tt></td>
 <td>monad</td>
-<td>special code for bitwise Boolean functions; 
+<td>special code for bitwise Boolean functions;
 see the <a href="../release/bdot.htm">J 5.01 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>(+/%#)\</tt></td>
 <td>dyad</td>
-<td>special code for positive left arguments and integer and floating point right arguments; 
+<td>special code for positive left arguments and integer and floating point right arguments;
 see the <a href="../release/infixavg.htm">J 5.03 release notes</a></td>
 </tr>
 
@@ -486,14 +485,14 @@ see the <a href="../release/infixavg.htm">J 5.03 release notes</a></td>
 <tr valign=top>
 <td><tt>=/\.</tt></td>
 <td>monad</td>
-<td>also<tt> &lt; &lt;: &gt; &gt;: +. +: *. *: ~:</tt> ;<tt> </tt> 
+<td>also<tt> &lt; &lt;: &gt; &gt;: +. +: *. *: ~:</tt> ;<tt> </tt>
 word-parallel operations on Boolean arguments</td>
 </tr>
 
 <tr valign=top>
 <td><tt>+/\.</tt></td>
 <td>monad</td>
-<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows, 
+<td>also<tt> * </tt>and<tt> -</tt> ;<tt> </tt>on Windows,
 assembly code for integer arguments</td>
 </tr>
 
@@ -507,7 +506,7 @@ see the <a href="../release/bdot.htm">J 5.01 release notes</a></td>
 <tr valign=top>
 <td><tt>f/\.</tt></td>
 <td>dyad</td>
-<td>special code for atomic associative<tt> f</tt> ;<tt> </tt> 
+<td>special code for atomic associative<tt> f</tt> ;<tt> </tt>
 see the <a href="../release/outfix.htm">J 6.02 release notes</a></td>
 </tr>
 
@@ -529,14 +528,14 @@ special code for indexing first two axes</td>
 <td><tt>p{~q i.]</tt></td>
 <td>monad</td>
 <td>also<tt> (q i.]) { p&quot;_&nbsp; </tt>and<tt> &nbsp;q&amp;i.{p&quot;_ </tt>;
-special code when<tt> p </tt>and<tt> q </tt>are literal lists; 
+special code when<tt> p </tt>and<tt> q </tt>are literal lists;
 see the <a href="../release/charmap.htm">J 6.02 release notes</a></td>
 </tr>
 
 <tr valign=top>
 <td><tt>{/:</tt></td>
 <td>dyad</td>
-<td>also<tt> {/:~</tt> ;<tt> </tt>special code for scalar integer left argument and integer or floating point vector right argument; 
+<td>also<tt> {/:~</tt> ;<tt> </tt>special code for scalar integer left argument and integer or floating point vector right argument;
 see the <a href="../release/ordstat.htm">J 6.03 release notes</a></td>
 </tr>
 
@@ -544,8 +543,8 @@ see the <a href="../release/ordstat.htm">J 6.03 release notes</a></td>
 <td><tt>a=: c}x,y,:z</tt></td>
 <td>-</td>
 <td>avoids catenation and lamination;
-<a name="in-place">in-place</a> if<tt> c </tt>is Boolean 
-and<tt> a </tt>is<tt> x </tt>or<tt> y</tt> ;<tt> </tt> 
+<a name="in-place">in-place</a> if<tt> c </tt>is Boolean
+and<tt> a </tt>is<tt> x </tt>or<tt> y</tt> ;<tt> </tt>
 see the <a href="../release/iamend.htm">J 4.05 release notes</a></td>
 </tr>
 
@@ -558,7 +557,7 @@ see the <a href="../release/iamend.htm">J 4.05 release notes</a></td>
 <tr valign=top>
 <td><tt>y=: y i}~ x</tt></td>
 <td>-</td>
-<td>in-place; 
+<td>in-place;
 see the <a href="../release/amipcommute.htm">J 6.03 release notes</a></td>
 </tr>
 
@@ -572,28 +571,28 @@ see the <a href="../release/amipcommute.htm">J 6.03 release notes</a></td>
 <tr><td valign=top>dyad only</td>     <td>&nbsp;</td><td><tt> = &gt; $ # { e. i. i: &nbsp;$, &nbsp;m b. &nbsp;-.@-: </tt></td></tr>
 </table>
 For<tt> (+/%#)&quot;r </tt>see the <a href="../release/meanrank.htm">J 6.02 release notes</a>.
-</td></tr>  
+</td></tr>
 
 <tr valign=top>
 <td><tt>^@o.</tt></td>
 <td>monad</td>
 <td>special code; see the <a href="../release/eulersp.htm">J 7.01 release notes</a>
-</td></tr>  
+</td></tr>
 
 <tr valign=top>
 <td><tt>&quot;.&quot;0@&quot;:</tt></td>
 <td>monad</td>
-<td>also<tt> @: </tt>or<tt> &amp; </tt>or<tt> &amp;: </tt>instead of<tt> @ </tt>; 
+<td>also<tt> @: </tt>or<tt> &amp; </tt>or<tt> &amp;: </tt>instead of<tt> @ </tt>;
 special code; see the <a href="../release/digits10.htm">J 6.01 release notes</a>
-</td></tr>  
+</td></tr>
 
 <tr valign=top>
 <td><tt>f0`...`fn@.v&quot;0</tt></td>
 <td>monad</td>
-<td>special code if<tt> f0</tt> , ... , <tt> fn </tt>are atomic; 
+<td>special code if<tt> f0</tt> , ... , <tt> fn </tt>are atomic;
 see the <a href="../release/agenda.htm">J 5.02 release notes</a></td>
 </tr>
- 
+
 <tr valign=top>
 <td><tt>x&amp;(128!:3)</tt></td>
 <td>monad</td>
@@ -637,7 +636,7 @@ see the <a href="../release/underai.htm">J 6.02 release notes</a></td>
 <tr valign=top>
 <td><tt>?@$</tt></td>
 <td>dyad</td>
-<td>also<tt> ?.</tt> ; also<tt> ?@# </tt> ; also<tt> [: ? $ </tt>;<tt> </tt>special code; 
+<td>also<tt> ?.</tt> ; also<tt> ?@# </tt> ; also<tt> [: ? $ </tt>;<tt> </tt>special code;
 see the <a href="../release/random.htm">J 5.03 release notes</a></td>
 </tr>
 
@@ -678,7 +677,7 @@ see the <a href="../release/idot.htm">J 4.05 release notes</a></td>
 <tr valign=top>
 <td><a name="compsc"></a><tt>f i.0:</tt></td>
 <td>dyad</td>
-<td>special code for the following functions; 
+<td>special code for the following functions;
 see the <a href="../release/compsc.htm">J 5.01</a>,
 <a href="../release/compsc1.htm">J 5.03</a>, and
 <a href="../release/edot504.htm">J 5.04 release notes</a>.
@@ -714,20 +713,20 @@ see the <a href="../release/compsc.htm">J 5.01</a>,
 <tr><td>&nbsp;</td><td valign=top>&#149;</td><td>&nbsp;</td>
  <td><tt>f </tt>is one of the verbs<tt> = ~: &lt; &lt;: &gt; &gt;: E. e. </tt></td></tr>
 <tr><td>&nbsp;</td><td valign=top>&#149;</td><td>&nbsp;</td>
- <td>Special code is available only for Boolean, integer, floating point, literal, 
+ <td>Special code is available only for Boolean, integer, floating point, literal,
  and symbol arguments</td></tr>
 <tr><td>&nbsp;</td><td valign=top>&#149;</td><td>&nbsp;</td>
  <td>Special code is used only for atoms and lists if<tt> f </tt>is not<tt> e. </tt></td></tr>
 <tr><td>&nbsp;</td><td valign=top>&#149;</td><td>&nbsp;</td>
- <td>If<tt> f </tt>is<tt> E.</tt> ,<tt> </tt>special code only 
+ <td>If<tt> f </tt>is<tt> E.</tt> ,<tt> </tt>special code only
    for<tt> &nbsp; E.i.1: &nbsp;+/@:E. &nbsp;+./@:E. &nbsp;I.@:E.</tt></td></tr>
 </table>
-</td></tr>  
+</td></tr>
 
 <tr valign=top>
 <td><tt>i.&lt;./</tt></td>
 <td>monad</td>
-<td>also<tt> i.&gt;./ </tt>and<tt> i:&lt;./ </tt>and<tt> i:&gt;./ </tt>; 
+<td>also<tt> i.&gt;./ </tt>and<tt> i:&lt;./ </tt>and<tt> i:&gt;./ </tt>;
 special code for integer and floating point lists;
 see the <a href="../release/idotmaxmin.htm">J 5.04 release notes</a></td>
 </tr>
@@ -743,7 +742,7 @@ see the <a href="../release/midot.htm">J 5.04 release notes</a></td>
 <td><tt>p {~ q i. ]</tt></td>
 <td>monad</td>
 <td>also <tt>(q i. ]) { p&quot;_ </tt>and<tt> q&amp;i. { p&quot;_ </tt>;
-special code when<tt> p </tt>and<tt> q </tt>are literal lists; 
+special code when<tt> p </tt>and<tt> q </tt>are literal lists;
 see the <a href="../release/charmap.htm">J 6.02 release notes</a></td>
 </tr>
 
@@ -775,7 +774,6 @@ see the <a href="../release/charmap.htm">J 6.02 release notes</a></td>
 <a href="../learning/contents.htm">LJ</a>&nbsp;
 <a href="../phrases/contents.htm">Phr</a>&nbsp;
 <a href="../dictionary/contents.htm">Dic</a>&nbsp;
-<a href="../release/contents.htm">Rel</a>&nbsp;
 <a href="../dictionary/vocabul.htm">Voc</a>&nbsp;
 <a href="../dictionary/xmain.htm">!:</a>&nbsp;
 <a href="../index.htm">Help</a>&nbsp;

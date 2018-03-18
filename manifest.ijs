@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 J Help Files
 )
 
-VERSION=: '1.0.71'
+VERSION=: '1.0.72'
 
 FILES=: 0 : 0
 box.jpg
@@ -19,7 +19,6 @@ learning/
 man/
 phrases/
 primer/
-release/
 user/
 )
 
