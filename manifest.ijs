@@ -23,3 +23,5 @@ user/
 )
 
 RELEASE=: 'j807'
+
+FOLDER=: 'docs/help'
