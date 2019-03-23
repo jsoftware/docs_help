@@ -387,7 +387,7 @@ echo
 v
 </td>
 <td class="rdef">
-write argument to session
+output to session
 </td>
 </tr>
 <tr>
@@ -991,8 +991,8 @@ integer 3
 <p>binds monadic verb to an argument creating a new verb that ignores its argument. e.g. fini=: sminfo bind 'finished...'</p>
 <h2 id="boxopen" class="hdef">boxopen (verb)</h2>
 <p>Box argument if open.</p>
-<p>e.g. if script=: 0!:0 @ boxopen, then either<br />
-  script 'work.ijs' or script &lt;'work.ijs'</p>
+<div style="white-space: pre-line;">e.g. if script=: 0!:0 @ boxopen, then either
+  script 'work.ijs' or script &lt;'work.ijs'</div>
 <p>See also <a href="#boxxopen">boxxopen</a>.</p>
 <p>Use <a href="#cutopen">cutopen</a> to allow multiple arguments.</p>
 <h2 id="boxxopen" class="hdef">boxxopen (verb)</h2>
@@ -1005,13 +1005,13 @@ integer 3
 <h2 id="cutopen" class="hdef">cutopen (verb)</h2>
 <p>Cut argument if open. This allows an open argument to be given where a boxed list is required.</p>
 <p>Most common situations are handled. it is similar to boxopen, except allowing multiple arguments in the character string.</p>
-<p>x is optional delimiters, default LF if in y, else blank<br />
-y is boxed or an open character array.</p>
-<p>if y is boxed it is returned unchanged, otherwise:<br />
-if y has rank 2 or more, the boxed major cells are returned<br />
-if y has rank 0 or 1, it is cut on delimiters in given in x, or<br />
-  if x not given, LF if in y else blank. Empty items are deleted.</p>
-<p>e.g. if script=: 0!:0 @ cutopen, then</p>
+<div style="white-space: pre-line;">x is optional delimiters, default LF if in y, else blank
+y is boxed or an open character array.</div>
+<div style="white-space: pre-line;">if y is boxed it is returned unchanged, otherwise:
+if y has rank 2 or more, the boxed major cells are returned
+if y has rank 0 or 1, it is cut on delimiters in given in x, or
+  if x not given, LF if in y else blank. Empty items are deleted.</div>
+<div style="white-space: pre-line;">e.g. if script=: 0!:0 @ cutopen, then</div>
 <pre><code>   script &#39;work.ijs util.ijs&#39;</code></pre>
 <h2 id="datatype" class="hdef">datatype (verb)</h2>
 <p>unicode/unicode4 are literal2/literal4 in J dictionary</p>
@@ -1019,27 +1019,27 @@ if y has rank 0 or 1, it is cut on delimiters in given in x, or<br />
 <p>form: boolean expand data</p>
 <h2 id="isatty" class="hdef">isatty (verb)</h2>
 <p>Test whether a file descriptor refers to a terminal</p>
-<p>FILE_TYPE_CHAR=: 2<br />
-STD_INPUT_HANDLE=: _10<br />
-STD_OUTPUT_HANDLE=: _11<br />
-STD_ERROR_HANDLE=: _12</p>
+<div style="white-space: pre-line;">FILE_TYPE_CHAR=: 2
+STD_INPUT_HANDLE=: _10
+STD_OUTPUT_HANDLE=: _11
+STD_ERROR_HANDLE=: _12</div>
 <h2 id="list" class="hdef">list (verb)</h2>
 <p>syntax: {width} list data accepts data as one of:</p>
-<p> boxed list<br />
- character vector, delimited by CR, LF or CRLF; or by ' '<br />
- character matrix</p>
+<div style="white-space: pre-line;"> boxed list
+ character vector, delimited by CR, LF or CRLF; or by ' '
+ character matrix</div>
 <p>formats in given width, default screenwidth</p>
 <h2 id="nl" class="hdef">nl (verb)</h2>
 <p>Selective namelist.</p>
 <h3>Syntax</h3>
 <pre><code>[mp] nl sel</code></pre>
-<p> sel: one or more integer name classes, or a name list.<br />
-       if empty use: 0 1 2 3.<br />
- mp: optional matching pattern. If mp contains '*', list names<br />
-       containing mp, otherwise list names starting mp. If mp<br />
-       contains '~', list names that do not match.</p>
-<p>e.g. 'f' nl 3 - list verbs that begin with 'f'<br />
-     '*com nl '' - list names containing 'com'</p>
+<div style="white-space: pre-line;"> sel: one or more integer name classes, or a name list.
+       if empty use: 0 1 2 3.
+ mp: optional matching pattern. If mp contains '*', list names
+       containing mp, otherwise list names starting mp. If mp
+       contains '~', list names that do not match.</div>
+<div style="white-space: pre-line;">e.g. 'f' nl 3 - list verbs that begin with 'f'
+     '*com nl '' - list names containing 'com'</div>
 <h2 id="Note" class="hdef">Note (verb)</h2>
 <p><em>Monadic form:</em></p>
 <p>This enables multi line comments without repeated NB.-and requires a right parenthesis in the first column of a line to close. The right argument may be empty, numeric, text, or any noun. Reads and displays the comment text but always returns an empty character string so the comment is not duplicated on screen.</p>
@@ -1094,8 +1094,8 @@ STD_ERROR_HANDLE=: _12</p>
 <p>Counts number of literal2 in a string when converted to UTF-16</p>
 <p>A unicode codepoint has one or two literal2, this gives the number of literal2, not unicode codepoint</p>
 <h2 id="usleep" class="hdef">usleep (verb)</h2>
-<p>linux max value around 33 minutes<br />
-windows minimum resolution in milliseconds.</p>
+<div style="white-space: pre-line;">linux max value around 33 minutes
+windows minimum resolution in milliseconds.</div>
 <h2 id="utf8" class="hdef">utf8 (verb)</h2>
 <p>Convert string to literal with UTF-8 encoding</p>
 <p>Inverse of <a href="#ucp">ucp</a>.</p>

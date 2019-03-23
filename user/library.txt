@@ -166,6 +166,7 @@ lib_stdlib.htm#hfd
 lib_sysenv.htm#hostpathsep
 lib_dll.htm#ic
 lib_sysenv.htm#IF64
+lib_sysenv.htm#IFBE
 lib_sysenv.htm#IFDEF
 lib_sysenv.htm#IFIOS
 lib_sysenv.htm#IFJA
@@ -195,6 +196,7 @@ lib_dll.htm#JCMPX
 lib_sysenv.htm#jcwdpath
 lib_dll.htm#JFL
 lib_dll.htm#JINT
+lib_sysenv.htm#JLIB
 lib_strings.htm#joinstring
 lib_jade.htm#jpath
 lib_sysenv.htm#jpathsep
@@ -216,6 +218,7 @@ lib_jade.htm#loadd
 lib_dll.htm#mema
 lib_dll.htm#memf
 lib_dll.htm#memr
+lib_dll.htm#memu
 lib_dll.htm#memw
 lib_stdlib.htm#monad
 lib_stdlib.htm#nameclass
@@ -279,6 +282,7 @@ lib_stdlib.htm#type
 lib_stdlib.htm#ucp
 lib_stdlib.htm#ucpcount
 lib_sysenv.htm#UNAME
+lib_strings.htm#undquote
 lib_unxlib.htm#UNXLIB
 lib_unxlib.htm#unxlib
 lib_stdlib.htm#usleep

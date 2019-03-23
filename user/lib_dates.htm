@@ -95,8 +95,8 @@ format time stamps as: 23 May 1998 16:06:39
 <pre><code>[opt] calendar year [months]</code></pre>
 <p>right argument is one or more numbers: year, months If no months are given, it defaults to all months.</p>
 <p>optional left argument is startday of week,</p>
-<p>0=sunday (default)<br />
-1=monday</p>
+<div style="white-space: pre-line;">0=sunday (default)
+1=monday</div>
 <h3>Example</h3>
 <pre><code>   calendar 2014 3 4
 ┌─────────────────────┬─────────────────────┐
@@ -113,13 +113,13 @@ format time stamps as: 23 May 1998 16:06:39
 <p>Get date from character string. Useful for input forms with date entry fields.</p>
 <h3>Syntax</h3>
 <pre><code>[opt] getdate string</code></pre>
-<p>date forms permitted:<br />
-   1986 5 23<br />
-   May 23 1986<br />
-   23 May 1986</p>
-<p>optional x:<br />
- 0 = days first - default (23 5 1986)<br />
- 1 = months first (5 23 1986)</p>
+<div style="white-space: pre-line;">date forms permitted:
+   1986 5 23
+   May 23 1986
+   23 May 1986</div>
+<div style="white-space: pre-line;">optional x:
+ 0 = days first - default (23 5 1986)
+ 1 = months first (5 23 1986)</div>
 <p>Other characters allowed: ,-/:</p>
 <p>If not given, century defaults to current</p>
 <p>Only first 3 characters of month are tested.</p>
@@ -136,11 +136,11 @@ format time stamps as: 23 May 1998 16:06:39
 <h2 id="todate" class="hdef">todate (verb)</h2>
 <p>Converts day numbers to dates, converse <a href="#todayno">todayno</a></p>
 <p>This conversion is exact and provides a means of performing exact date arithmetic.</p>
-<p>y = day numbers<br />
-x = optional:<br />
-  0 - result in form <yyyy mm dd> (default)<br />
-  1 - result in form <yyyymmdd><br />
-  2 - result in form <yyyy mm dd hh MM ss></p>
+<div style="white-space: pre-line;">y = day numbers
+x = optional:
+  0 - result in form <yyyy mm dd> (default)
+  1 - result in form <yyyymmdd>
+  2 - result in form <yyyy mm dd hh MM ss></div>
 <h3>Example</h3>
 <pre><code>   todate 72460
 1998 5 23
@@ -152,11 +152,11 @@ x = optional:<br />
 1992 3  1</code></pre>
 <h2 id="todayno" class="hdef">todayno (verb)</h2>
 <p>Converts dates to day numbers, converse <a href="#todate">todate</a></p>
-<p>y = dates</p>
-<p>x = optional:<br />
-  0 - dates in form YYYY MM DD (default)<br />
-  1 - dates in form YYYYMMDD<br />
-  2 - dates in form YYYY MM DD HH MM SS</p>
+<div style="white-space: pre-line;">y = dates</div>
+<div style="white-space: pre-line;">x = optional:
+  0 - dates in form YYYY MM DD (default)
+  1 - dates in form YYYYMMDD
+  2 - dates in form YYYY MM DD HH MM SS</div>
 <p>0 = todayno 1800 1 1, or earlier</p>
 <h3>Example</h3>
 <pre><code>   todayno 1998 5 23
@@ -165,8 +165,8 @@ x = optional:<br />
 <p>Return differences between pairs of dates.</p>
 <h3>Syntax</h3>
 <pre><code>end tsdiff begin</code></pre>
-<p> end, begin are vectors or matrices in form YYYY MM DD<br />
- end dates should be later than begin dates</p>
+<div style="white-space: pre-line;"> end, begin are vectors or matrices in form YYYY MM DD
+ end dates should be later than begin dates</div>
 <p>method is to subtract dates on a calendar basis to determine integral number of months plus the exact number of days remaining. This is converted to payment periods, where # days remaining are calculated as: (# days)%365</p>
 <h3>Example</h3>
 <pre><code>   1994 10 1 tsdiff 1986 5 23
@@ -175,8 +175,8 @@ x = optional:<br />
 <p>Timestamp representation as a single number.</p>
 <h3>Syntax</h3>
 <p>[opt] timerep times</p>
-<p> opt=0 convert timestamps to numbers (default)<br />
-     1 convert numbers to timestamps</p>
+<div style="white-space: pre-line;"> opt=0 convert timestamps to numbers (default)
+     1 convert numbers to timestamps</div>
 <p>timestamps are in 6!:0 format, or matrix of same.</p>
 <h3>Example</h3>
 <pre><code>   tsrep 1800 1 1 0 0 0
@@ -189,9 +189,9 @@ x = optional:<br />
 <p>Validate dates.</p>
 <h3>Syntax</h3>
 <p>valdate dates</p>
-<p>dates is 3-element vector<br />
-      or 3-column matrix<br />
-      in form YYYY MM DD</p>
+<div style="white-space: pre-line;">dates is 3-element vector
+      or 3-column matrix
+      in form YYYY MM DD</div>
 <p>returns 1 if valid</p>
 <h2 id="weekday" class="hdef">weekday (verb)</h2>
 <p>Returns weekday from date, 0=Sunday ... 6=Saturday. Arguments as for <a href="#todayno">todayno</a></p>
