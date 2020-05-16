@@ -1,0 +1,205 @@
+[[lib_files.htm|&gt;&gt;]]  [[lib_dir.htm|&lt;&lt;]]  User
+
+
+-----
+
+<div id="header">
+
+
+
+</div>
+This script defines utilities for calling DLLs and is included in the J standard library. Definitions are loaded into the z locale.
+
+== Definitions ==
+
+{|
+| A
+| [[#AND|AND]]
+|-
+| C
+| [[#cd|cd]], [[#cdcb|cdcb]], [[#cder|cder]], [[#cderx|cderx]], [[#cdf|cdf]]
+|-
+| E
+| [[#endian|endian]], [[#Endian|Endian]]
+|-
+| F
+| [[#fc|fc]]
+|-
+| I
+| [[#ic|ic]]
+|-
+| J
+| [[#JB01|JB01]], [[#JBOXED|JBOXED]], [[#JCHAR|JCHAR]], [[#JCHAR2|JCHAR2]], [[#JCHAR4|JCHAR4]], [[#JCMPX|JCMPX]], [[#JFL|JFL]], [[#JINT|JINT]], [[#JPTR|JPTR]], [[#JSB|JSB]], [[#JSIZES|JSIZES]], [[#JSTR|JSTR]], [[#JSTR2|JSTR2]], [[#JSTR4|JSTR4]], [[#JTYPES|JTYPES]]
+|-
+| M
+| [[#mema|mema]], [[#memf|memf]], [[#memr|memr]], [[#memu|memu]], [[#memw|memw]]
+|-
+| O
+| [[#OR|OR]]
+|-
+| S
+| [[#symdat|symdat]], [[#symget|symget]], [[#symset|symset]], [[#SZI|SZI]]
+|-
+| X
+| [[#XOR|XOR]]
+|}
+
+
+-----
+
+{|
+| AND
+| v
+| bitwise AND (&amp;)
+|-
+| cd
+| v
+| call DLL procedure
+|-
+| cdcb
+| v
+| callback address
+|-
+| cder
+| v
+| error information
+|-
+| cderx
+| v
+| GetLastError information
+|-
+| cdf
+| v
+| free DLLs
+|-
+| endian
+| v
+| flip intel bytes (little endian)
+|-
+| Endian
+| v
+| flip powerpc bytes (BIG Endian)
+|-
+| fc
+| v
+| float conversion
+|-
+| JB01
+| n
+| 1
+|-
+| JBOXED
+| n
+| 32
+|-
+| JCHAR
+| n
+| 2
+|-
+| JCHAR2
+| n
+| 131072
+|-
+| JCHAR4
+| n
+| 262144
+|-
+| JCMPX
+| n
+| 16
+|-
+| JFL
+| n
+| 8
+|-
+| JINT
+| n
+| 4
+|-
+| JPTR
+| n
+| JINT
+|-
+| JSB
+| n
+| 65536
+|-
+| JSIZES
+| n
+| size in bytes of corresponding JTYPES
+|-
+| JSTR
+| n
+| _1,JCHAR
+|-
+| JSTR2
+| n
+| _1,JCHAR2
+|-
+| JSTR4
+| n
+| _1,JCHAR4
+|-
+| JTYPES
+| n
+| JB01,JCHAR,JINT,JPTR,JFL,JCMPX,JBOXED,JSB,JCHAR2,JCHAR4
+|-
+| mema
+| v
+| memory allocate
+|-
+| memf
+| v
+| memory free
+|-
+| memr
+| v
+| memory read
+|-
+| memu
+| v
+| forcecopy
+|-
+| memw
+| v
+| memory write
+|-
+| OR
+| v
+| bitwise OR (|)
+|-
+| symdat
+| v
+| get address of data for name
+|-
+| symget
+| v
+| get address of locale entry for name
+|-
+| symset
+| v
+| set array as address
+|-
+| SZI
+| n
+| size in bytes of integer
+|-
+| XOR
+| v
+| bitwise XOR (^)
+|}
+
+== ic (verb) ==
+
+Integer conversion e.g.
+
+<div style="white-space: pre-line;">
+
+   25185 25699 = _1 ic 'abcd'    'abcd' = 1 ic _1 ic 'abcd'    1684234849 1751606885 = _2 ic 'abcdefgh'    'abcdefgh' = 2 ic _2 ic 'abcdefgh'
+
+</div>
+
+-----
+
+[[lib_files.htm|&gt;&gt;]]  [[lib_dir.htm|&lt;&lt;]]  User
+

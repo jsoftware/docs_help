@@ -9,6 +9,8 @@ lib_stdlib.htm#bind
 lib_stdlib.htm#boxopen
 lib_stdlib.htm#boxxopen
 lib_break.htm#break
+lib_break.htm#breakclean
+lib_break.htm#breakhelp
 lib_stdlib.htm#bx
 lib_dates.htm#calendar
 lib_dll.htm#cd
@@ -257,6 +259,7 @@ lib_strings.htm#stringreplace
 lib_dll.htm#symdat
 lib_dll.htm#symget
 lib_dll.htm#symset
+lib_dll.htm#SZI
 lib_stdlib.htm#TAB
 lib_stdlib.htm#table
 lib_stdlib.htm#take
