@@ -42,25 +42,25 @@ A
 <h3>Syntax</h3>
 <pre><code>x anddf y</code></pre>
 <p>returns:</p>
-<div style="white-space: pre-line;">&gt;=0 success, number of bytes in file
- _1 unknown error
- _2 target file exists and is not writable
- _3 parent directory is not writable
- _5 malformed url
- _6 i/o exception during transport
- _99 web request returns invalid '0' status code
-&lt;= _100 negation of unsuccessful http response code (!=200), ie. _404 &quot;Not Found&quot;</div>
+<p>&gt;=0 success, number of bytes in file<br />
+ _1 unknown error<br />
+ _2 target file exists and is not writable<br />
+ _3 parent directory is not writable<br />
+ _5 malformed url<br />
+ _6 i/o exception during transport<br />
+ _99 web request returns invalid '0' status code<br />
+&lt;= _100 negation of unsuccessful http response code (!=200), ie. _404 &quot;Not Found&quot;</p>
 <h2 id="andunzip" class="hdef">andunzip (verb)</h2>
 <p>Monadically, it unzips the file at y into the same directory.</p>
 <p>Optional x may specify an alternate output directory</p>
 <h3>Syntax</h3>
 <pre><code>andunzip y ; x andunzip y</code></pre>
 <p>returns:</p>
-<div style="white-space: pre-line;"> 0 success
-_1 generic i/o error
-_2 zipfile not found
-_3 output directory not writable
-_4 zip format exception</div>
+<p> 0 success<br />
+_1 generic i/o error<br />
+_2 zipfile not found<br />
+_3 output directory not writable<br />
+_4 zip format exception</p>
 <!--bottom jump start--><hr><a href="lib_break.htm">&gt;&gt;</a>&nbsp;
 <a href="library.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

@@ -25,8 +25,8 @@ User<hr><!--top jump end-->
 </div>
 <p>This script defines file utilities and is included in the J standard library. Definitions are loaded into the z locale.</p>
 <p>read verbs take a right argument of a filename, optionally linked with one or two numbers (as for 1!:11):</p>
-<div style="white-space: pre-line;"> 0 = start of read (may be negative)
- 1 = length of read (default rest of file)</div>
+<p> 0 = start of read (may be negative)<br />
+ 1 = length of read (default rest of file)</p>
 <p>write verbs return number of characters written.</p>
 <p>filenames may be open or boxed character or unicode strings</p>
 <p>string verbs write out text delimited with the host OS delimiter, and read in text delimited by LF.</p>
@@ -174,9 +174,9 @@ write string to file
 <p>Copies files if changed.</p>
 <h3>Syntax</h3>
 <pre><code>tofile fcopynew fromfiles</code></pre>
-<div style="white-space: pre-line;">returns: 0, size not changed
-         1, size changed
-        _1 failure</div>
+<p>returns: 0, size not changed<br />
+         1, size changed<br />
+        _1 failure</p>
 <h2 id="fdir" class="hdef">fdir (verb)</h2>
 <p>File directory.</p>
 <h3>Example</h3>
@@ -188,8 +188,8 @@ write string to file
 <p>Returns 1 if the file exists, otherwise 0.</p>
 <h2 id="fread" class="hdef">fread (verb)</h2>
 <p>Read file.</p>
-<div style="white-space: pre-line;">y is filename {;start size}
-optional x calls freads</div>
+<p>y is filename {;start size}<br />
+optional x calls freads</p>
 <h2 id="freadblock" class="hdef">freadblock (verb)</h2>
 <p>Read block of lines from file.</p>
 <p>Lines are terminated by LF.</p>
@@ -203,10 +203,10 @@ optional x calls freads</div>
 <p>the result is a matrix of records.</p>
 <h2 id="freads" class="hdef">freads (verb)</h2>
 <p>Read file as string.</p>
-<div style="white-space: pre-line;">y is filename {;start size}
-x is optional (b and m same as fread):
-   = b read as boxed vector
-   = m read as matrix</div>
+<p>y is filename {;start size}<br />
+x is optional (b and m same as fread):<br />
+   = b read as boxed vector<br />
+   = m read as matrix</p>
 <h2 id="frename" class="hdef">frename (verb)</h2>
 <p>Renames file.</p>
 <h3>Syntax</h3>
@@ -228,9 +228,9 @@ x is optional (b and m same as fread):
 <pre><code>(old;new) fssrplc file</code></pre>
 <h2 id="ftype" class="hdef">ftype (verb)</h2>
 <p>Get file type, as:</p>
-<div style="white-space: pre-line;">0 = not exist
-1 = file
-2 = directory</div>
+<p>0 = not exist<br />
+1 = file<br />
+2 = directory</p>
 <!--bottom jump start--><hr><a href="lib_jade.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_dll.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;

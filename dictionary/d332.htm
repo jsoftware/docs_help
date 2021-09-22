@@ -35,7 +35,7 @@ Thus:</p>
 <pre>
 mj=: 256$0                     NB. X other
 mj=: 1 (9,a.i.' ')}mj          NB. S space and tab
-mj=: 2 ((a.i.'Aa')+/i.26)}mj   NB. A A-Z a-z excluding N B
+mj=: 2 (,(a.i.'Aa')+/i.26)}mj  NB. A A-Z a-z excluding N B
 mj=: 3 (a.i.'N')}mj            NB. N the letter N
 mj=: 4 (a.i.'B')}mj            NB. B the letter B
 mj=: 5 (a.i.'0123456789_')}mj  NB. 9 digits and _
@@ -43,7 +43,7 @@ mj=: 6 (a.i.'.')}mj            NB. D .
 mj=: 7 (a.i.':')}mj            NB. C :
 mj=: 8 (a.i.'''')}mj           NB. Q quote
 
-sj=: _2]\&quot;1 }.&quot;.;._2 (0 : 0) 
+sj=: _2]\&quot;1 }.&quot;.;._2 (0 : 0)
 ' X    S    A    N    B    9    D    C    Q ']0
  1 1  0 0  2 1  3 1  2 1  6 1  1 1  1 1  7 1  NB. 0 space
  1 2  0 3  2 2  3 2  2 2  6 2  1 0  1 0  7 2  NB. 1 other
@@ -95,7 +95,7 @@ sj=: _2]\&quot;1 }.&quot;.;._2 (0 : 0)
 24 22 2 2 2 0
 25 22 2 1 0 3
 26 _1 0 5 6 1
-   
+
 </pre>
 <br>&nbsp;</td>
 
@@ -103,17 +103,17 @@ sj=: _2]\&quot;1 }.&quot;.;._2 (0 : 0)
 
 <td valign=top width=49% bgcolor=#eeeeee>
 <p><tt>x;:y </tt>implements a sequential machine
-(finite state machine, finite state 
+(finite state machine, finite state
 automaton).<tt> x </tt>is the specification
-of a machine, including the state transition table, 
-and<tt> y </tt>is the input.  
-A sequential machine solves the problem 
+of a machine, including the state transition table,
+and<tt> y </tt>is the input.
+A sequential machine solves the problem
 of recognizing the &ldquo;words&rdquo; in the input.
 The machine starts in some initial state
 and processes the input one item at a time;
 given the current state and input item,
 the new state and output are determined
-by the state transition table.  The machine 
+by the state transition table.  The machine
 then proceeds to process the next input item.
 In detail:</p>
 
@@ -124,38 +124,38 @@ may be elided.</p>
 <p><tt>f </tt>is a function code, an integer between 0 and 5.  (Explained below.)</p>
 
 <p><tt>m </tt>is a list of the input mapping; each box of<tt> m </tt>
-contains the items of<tt> y </tt>that are mapped to the same index.  
-That is, the mapped input 
+contains the items of<tt> y </tt>that are mapped to the same index.
+That is, the mapped input
 is<tt> my=.&nbsp;(y&nbsp;i.~;m)&nbsp;{&nbsp;(#m),~(#&amp;&gt;m)#i.#m</tt> .<tt> </tt>
 If<tt> y </tt> is a string (a list of literals),<tt> m </tt>may also be
-a list of non-negative integers corresponding to each atom of the 
-alphabet<tt> a.</tt> ,<tt> </tt>and the mapped input 
+a list of non-negative integers corresponding to each atom of the
+alphabet<tt> a.</tt> ,<tt> </tt>and the mapped input
 is<tt> my=.(a.i.y){m</tt> .<tt> </tt>
-Finally, if<tt> m </tt>is the empty list or is elided (and<tt> y </tt>is a 
+Finally, if<tt> m </tt>is the empty list or is elided (and<tt> y </tt>is a
 numeric list), then the mapped input<tt> my </tt>
 is just<tt> y </tt> itself.</p>
 
-<p><tt> s </tt>is a 3-dimensional, 2-column array of non-negative integers 
+<p><tt> s </tt>is a 3-dimensional, 2-column array of non-negative integers
 of the state transition and output table. It has shape<tt> p,q,2 </tt>
 where<tt> p </tt>bounds the states and<tt> q </tt>bounds the mapped inputs.
 That is,<tt> p&gt;0{&quot;1&nbsp;s</tt> ,<tt> </tt>and<tt> q&gt;#m </tt>if<tt> m </tt>is
 a list of boxes or<tt> q&gt;m </tt>if<tt> m </tt>is a list of integers.</p>
 
-<p><tt>ijrd </tt>is an integer parameter list with up to 4 
-elements.<tt> i </tt>is the initial iteration counter and index 
+<p><tt>ijrd </tt>is an integer parameter list with up to 4
+elements.<tt> i </tt>is the initial iteration counter and index
 into the input<tt> y</tt> ,<tt> r </tt>is the initial state,<tt> j </tt>
-is the initial index of the current word, and<tt> d </tt>is 
+is the initial index of the current word, and<tt> d </tt>is
 an end-of-input action parameter (see below).
 It is required that<tt> (0&lt;:i)*.i&lt;#y </tt>
 and<tt> (_1=j)+.(0&lt;:j)*.j&lt;i</tt> .<tt> </tt>
-If<tt> ijrd </tt>is elided, then the defaults 
+If<tt> ijrd </tt>is elided, then the defaults
 are<tt> 0&nbsp;_1&nbsp;0&nbsp;_1</tt> .</p>
 
 <p><tt>x;:y </tt>iterates over the atoms of<tt> my</tt>,<tt> </tt>
 the mapped input.<tt> r </tt>is the current state and<tt> j </tt>
 is the beginning index of a word; initially,<tt> r </tt>is<tt> 0 </tt>
 and<tt> j </tt>is<tt> _1 </tt>(or as specified by<tt> ijr</tt>).
-At iteration<tt> i</tt> ,<tt> </tt>the current mapped input 
+At iteration<tt> i</tt> ,<tt> </tt>the current mapped input
 is<tt> c=.i{my </tt>and the relevant state
 table entry is<tt> e=.s{~&lt;r,c </tt>(a 2-element integer list).  The new state is<tt> 0{e</tt> ,<tt> </tt>and the
 output code<tt> 1{e </tt>signifies one of the following:<br>
@@ -170,7 +170,7 @@ output code<tt> 1{e </tt>signifies one of the following:<br>
 </p>
 
 <p><tt>ew(i,j,r,c)</tt> (&ldquo;emit word&rdquo;) signals index error if<tt> j </tt>
-is<tt> _1</tt> ,<tt> </tt>and accumulates to the result information on 
+is<tt> _1</tt> ,<tt> </tt>and accumulates to the result information on
 the current word according to the function code<tt> f</tt> :</p>
 <table>
 <tr><td>&nbsp;</td><td>0</td><td>&nbsp;&nbsp;</td>
@@ -240,25 +240,25 @@ and lengths, and:</p>
 +----+----+---+-+-----+--------+-+
 
    &gt; ;: p,q
-When    
-eras    
-die     
-,       
-their   
+When
+eras
+die
+,
+their
 legacies
-/       
-are     
-left    
-to      
-strange 
-police 
+/
+are
+left
+to
+strange
+police
 
    |.&amp;.;: p
 / legacies their , die eras When
 </pre>
 
 <p>The following examples of the dyad<tt> ;: </tt>
-separate quotes from non-quotes.  The quote character 
+separate quotes from non-quotes.  The quote character
 is mapped to 1 and other characters
 are mapped to 0; column 0 of the state table is for
 &ldquo;other&rdquo; (non-quotes) and column 1 is for the quote.
@@ -313,7 +313,7 @@ are mapped to 0; column 0 of the state table is for
    (f -: g) y
 1
 </pre>
-<p>A similar machine can be used to extract only the quoted strings.  
+<p>A similar machine can be used to extract only the quoted strings.
 To prevent an unmatched quote from being recognized as the start of a quoted string,
 the<tt> ijrd </tt>field can be used to treat the end-of-string as
 a non-quote character:</p>

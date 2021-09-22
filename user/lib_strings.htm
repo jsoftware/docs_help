@@ -98,14 +98,6 @@ T
 <a href="#takeafter">takeafter</a>, <a href="#taketo">taketo</a>
 </td>
 </tr>
-<tr>
-<td class="key">
-U
-</td>
-<td>
-<a href="#undquote">undquote</a>
-</td>
-</tr>
 </table>
 <hr>
 <table class="rdef">
@@ -288,12 +280,12 @@ take to x in y
 <p>Chop delimited string to list of boxed strings.</p>
 <h3>Syntax</h3>
 <pre><code>[fd[;sd0[,sd1]]] chopstring string</code></pre>
-<div style="white-space: pre-line;">returns: list of boxed literals
- y is: delimited string
- x is: a literal or 1 or 2-item boxed list of optional delimiters.
-     0{:: single literal field delimiter (fd). Defaults to ' '
- (1;0){:: (start) string delimiter (sd0). Defaults to &quot;
- (1;1){:: end string delimiter (sd1). Defaults to &quot;</div>
+<p>returns: list of boxed literals<br />
+ y is: delimited string<br />
+ x is: a literal or 1 or 2-item boxed list of optional delimiters.<br />
+     0{:: single literal field delimiter (fd). Defaults to ' '<br />
+ (1;0){:: (start) string delimiter (sd0). Defaults to &quot;<br />
+ (1;1){:: end string delimiter (sd1). Defaults to &quot;</p>
 <p>Consecutive field delimiters indicate empty field. Field delimiters may occur within a field if the field is enclosed by string delimiters.</p>
 <h3>Example</h3>
 <pre><code>   (&#39;|&#39;;&#39;&lt;&gt;&#39;) chopstring &#39;&lt;hello|world&gt;|4|84.3&#39;
@@ -304,10 +296,10 @@ take to x in y
 <p>This builds verbs to cut strings at given text and apply verbs to the pieces.</p>
 <h3>Syntax</h3>
 <pre><code>string (verb cuts n) text</code></pre>
-<div style="white-space: pre-line;"> n=_1 up to but not including string
- n= 1 up to and including string
- n=_2 after but not including string
- n= 2 after and including string</div>
+<p> n=_1 up to but not including string<br />
+ n= 1 up to and including string<br />
+ n=_2 after but not including string<br />
+ n= 2 after and including string</p>
 <h2 id="dltbs" class="hdef">dltbs (verb)</h2>
 <p>Delete multiple leading and trailing blanks. Text is delimited by characters in x with default LF</p>
 <h3>Example</h3>
@@ -352,11 +344,6 @@ hallowed</code></pre>
 
     (&#39;ba&#39;;&#39;+&#39;;&#39;aba&#39;;&#39;XYZT&#39;) stringreplace &#39;ababa&#39;
  a++</code></pre>
-<h2 id="undquote" class="hdef">undquote (verb)</h2>
-<p>Undo double quote text.</p>
-<h3>Example</h3>
-<pre><code>   undquote &#39;&quot;Pete&quot;&quot;s Place&quot;&#39;
-Pete&quot;s Place</code></pre>
 <!--bottom jump start--><hr><a href="lib_sysenv.htm">&gt;&gt;</a>&nbsp;
 <a href="lib_stdlib.htm">&lt;&lt;</a>&nbsp;
 <a href="../user/contents.htm">Usr</a>&nbsp;
