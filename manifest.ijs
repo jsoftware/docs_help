@@ -22,6 +22,6 @@ primer/
 user/
 )
 
-RELEASE=: 'j807'
+RELEASE=: 'j807 j807'
 
 FOLDER=: 'docs/help'
